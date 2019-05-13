@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>I&#39;m Qiancun Huang</title>
   
-  <subtitle>Graduate student in SEU</subtitle>
+  <subtitle>Live it. Love it. Enjoy IT.</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huangqiancun.github.io/"/>
-  <updated>2018-11-29T11:16:59.000Z</updated>
+  <updated>2019-05-13T16:01:03.610Z</updated>
   <id>http://huangqiancun.github.io/</id>
   
   <author>
@@ -17,11 +17,235 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>剑指offer题解 - 回溯</title>
+    <link href="http://huangqiancun.github.io/2019/05/13/%E5%89%91%E6%8C%87offer-%E5%9B%9E%E6%BA%AF/"/>
+    <id>http://huangqiancun.github.io/2019/05/13/剑指offer-回溯/</id>
+    <published>2019-05-13T15:01:39.403Z</published>
+    <updated>2019-05-13T16:01:03.610Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;本系列为剑指offer刷题笔记，刷题平台为&lt;a href=&quot;https://www.nowcoder.com/ta/coding-interviews&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="剑指offer" scheme="http://huangqiancun.github.io/categories/%E5%89%91%E6%8C%87offer/"/>
+    
+    
+      <category term="剑指offer" scheme="http://huangqiancun.github.io/tags/%E5%89%91%E6%8C%87offer/"/>
+    
+      <category term="算法题解" scheme="http://huangqiancun.github.io/tags/%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>剑指offer题解 - 递归</title>
+    <link href="http://huangqiancun.github.io/2019/05/13/%E5%89%91%E6%8C%87offer-%E9%80%92%E5%BD%92/"/>
+    <id>http://huangqiancun.github.io/2019/05/13/剑指offer-递归/</id>
+    <published>2019-05-13T15:01:39.016Z</published>
+    <updated>2019-05-13T16:00:58.807Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;本系列为剑指offer刷题笔记，刷题平台为&lt;a href=&quot;https://www.nowcoder.com/ta/coding-interviews&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="剑指offer" scheme="http://huangqiancun.github.io/categories/%E5%89%91%E6%8C%87offer/"/>
+    
+    
+      <category term="剑指offer" scheme="http://huangqiancun.github.io/tags/%E5%89%91%E6%8C%87offer/"/>
+    
+      <category term="算法题解" scheme="http://huangqiancun.github.io/tags/%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>剑指offer题解 - 栈</title>
+    <link href="http://huangqiancun.github.io/2019/05/13/%E5%89%91%E6%8C%87offer-%E6%A0%88/"/>
+    <id>http://huangqiancun.github.io/2019/05/13/剑指offer-栈/</id>
+    <published>2019-05-13T15:01:38.496Z</published>
+    <updated>2019-05-13T16:00:33.605Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;本系列为剑指offer刷题笔记，刷题平台为&lt;a href=&quot;https://www.nowcoder.com/ta/coding-interviews&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="剑指offer" scheme="http://huangqiancun.github.io/categories/%E5%89%91%E6%8C%87offer/"/>
+    
+    
+      <category term="剑指offer" scheme="http://huangqiancun.github.io/tags/%E5%89%91%E6%8C%87offer/"/>
+    
+      <category term="算法题解" scheme="http://huangqiancun.github.io/tags/%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>剑指offer题解 - 字符串</title>
+    <link href="http://huangqiancun.github.io/2019/05/13/%E5%89%91%E6%8C%87offer-%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+    <id>http://huangqiancun.github.io/2019/05/13/剑指offer-字符串/</id>
+    <published>2019-05-13T15:01:35.236Z</published>
+    <updated>2019-05-13T15:52:17.672Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;本系列为剑指offer刷题笔记，刷题平台为&lt;a href=&quot;https://www.nowcoder.com/ta/coding-interviews&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="剑指offer" scheme="http://huangqiancun.github.io/categories/%E5%89%91%E6%8C%87offer/"/>
+    
+    
+      <category term="剑指offer" scheme="http://huangqiancun.github.io/tags/%E5%89%91%E6%8C%87offer/"/>
+    
+      <category term="算法题解" scheme="http://huangqiancun.github.io/tags/%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>剑指offer题解 - 数组</title>
+    <link href="http://huangqiancun.github.io/2019/05/13/%E5%89%91%E6%8C%87offer-%E6%95%B0%E7%BB%84/"/>
+    <id>http://huangqiancun.github.io/2019/05/13/剑指offer-数组/</id>
+    <published>2019-05-13T15:01:34.776Z</published>
+    <updated>2019-05-13T15:50:27.923Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;本系列为剑指offer刷题笔记，刷题平台为&lt;a href=&quot;https://www.nowcoder.com/ta/coding-interviews&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="剑指offer" scheme="http://huangqiancun.github.io/categories/%E5%89%91%E6%8C%87offer/"/>
+    
+    
+      <category term="剑指offer" scheme="http://huangqiancun.github.io/tags/%E5%89%91%E6%8C%87offer/"/>
+    
+      <category term="算法题解" scheme="http://huangqiancun.github.io/tags/%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>剑指offer题解 - 树</title>
+    <link href="http://huangqiancun.github.io/2019/05/13/%E5%89%91%E6%8C%87offer-%E6%A0%91/"/>
+    <id>http://huangqiancun.github.io/2019/05/13/剑指offer-树/</id>
+    <published>2019-05-13T15:01:34.206Z</published>
+    <updated>2019-05-13T15:40:37.741Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;本系列为剑指offer刷题笔记，刷题平台为&lt;a href=&quot;https://www.nowcoder.com/ta/coding-interviews&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="剑指offer" scheme="http://huangqiancun.github.io/categories/%E5%89%91%E6%8C%87offer/"/>
+    
+    
+      <category term="剑指offer" scheme="http://huangqiancun.github.io/tags/%E5%89%91%E6%8C%87offer/"/>
+    
+      <category term="算法题解" scheme="http://huangqiancun.github.io/tags/%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>剑指offer题解 - 其他</title>
+    <link href="http://huangqiancun.github.io/2019/05/13/%E5%89%91%E6%8C%87offer-%E5%85%B6%E4%BB%96/"/>
+    <id>http://huangqiancun.github.io/2019/05/13/剑指offer-其他/</id>
+    <published>2019-05-13T15:01:29.837Z</published>
+    <updated>2019-05-13T16:00:14.726Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;本系列为剑指offer刷题笔记，刷题平台为&lt;a href=&quot;https://www.nowcoder.com/ta/coding-interviews&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="剑指offer" scheme="http://huangqiancun.github.io/categories/%E5%89%91%E6%8C%87offer/"/>
+    
+    
+      <category term="剑指offer" scheme="http://huangqiancun.github.io/tags/%E5%89%91%E6%8C%87offer/"/>
+    
+      <category term="算法题解" scheme="http://huangqiancun.github.io/tags/%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>剑指offer题解 - 链表</title>
+    <link href="http://huangqiancun.github.io/2019/05/13/%E5%89%91%E6%8C%87offer-%E9%93%BE%E8%A1%A8/"/>
+    <id>http://huangqiancun.github.io/2019/05/13/剑指offer-链表/</id>
+    <published>2019-05-13T14:57:15.589Z</published>
+    <updated>2019-05-13T15:28:00.253Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;本系列为剑指offer刷题笔记，刷题平台为&lt;a href=&quot;https://www.nowcoder.com/ta/coding-interviews&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="剑指offer" scheme="http://huangqiancun.github.io/categories/%E5%89%91%E6%8C%87offer/"/>
+    
+    
+      <category term="剑指offer" scheme="http://huangqiancun.github.io/tags/%E5%89%91%E6%8C%87offer/"/>
+    
+      <category term="算法题解" scheme="http://huangqiancun.github.io/tags/%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hello World</title>
     <link href="http://huangqiancun.github.io/2019/01/30/hello-world/"/>
     <id>http://huangqiancun.github.io/2019/01/30/hello-world/</id>
     <published>2019-01-29T16:02:36.163Z</published>
-    <updated>2018-11-29T11:16:59.000Z</updated>
+    <updated>2019-05-13T11:56:47.203Z</updated>
     
     <summary type="html">
     

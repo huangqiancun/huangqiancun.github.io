@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icons8-fox-32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icons8-fox-16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="剑指offer,算法题解,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="I'm Qiancun Huang" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="本系列为剑指offer刷题笔记，刷题平台为牛客网。题量为66道，本系列所有题解汇总如下： 剑指offer题解 - 链表剑指offer题解 - 树剑指offer题解 - 数组剑指offer题解 - 字符串剑指offer题解 - 栈剑指offer题解 - 递归剑指offer题解 - 回溯剑指offer题解 - 其他 本文主要是其他相关题目题解总结。 [TOC] 11.二进制中1的个数题目描述输入一个整">
+<meta name="keywords" content="剑指offer,算法题解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="剑指offer题解 - 其他">
+<meta property="og:url" content="http://huangqiancun.github.io/2019/05/13/剑指offer-其他/index.html">
+<meta property="og:site_name" content="I&#39;m Qiancun Huang">
+<meta property="og:description" content="本系列为剑指offer刷题笔记，刷题平台为牛客网。题量为66道，本系列所有题解汇总如下： 剑指offer题解 - 链表剑指offer题解 - 树剑指offer题解 - 数组剑指offer题解 - 字符串剑指offer题解 - 栈剑指offer题解 - 递归剑指offer题解 - 回溯剑指offer题解 - 其他 本文主要是其他相关题目题解总结。 [TOC] 11.二进制中1的个数题目描述输入一个整">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://img-blog.csdn.net/20160726122340990">
+<meta property="og:image" content="https://img-blog.csdn.net/20160726123512823">
+<meta property="og:image" content="https://img-blog.csdn.net/20160726125148698">
+<meta property="og:image" content="https://img-blog.csdn.net/20180326194833209?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Z1eHVlbWluZ3podQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/2018032619484073?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Z1eHVlbWluZ3podQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:updated_time" content="2019-05-13T16:00:14.726Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="剑指offer题解 - 其他">
+<meta name="twitter:description" content="本系列为剑指offer刷题笔记，刷题平台为牛客网。题量为66道，本系列所有题解汇总如下： 剑指offer题解 - 链表剑指offer题解 - 树剑指offer题解 - 数组剑指offer题解 - 字符串剑指offer题解 - 栈剑指offer题解 - 递归剑指offer题解 - 回溯剑指offer题解 - 其他 本文主要是其他相关题目题解总结。 [TOC] 11.二进制中1的个数题目描述输入一个整">
+<meta name="twitter:image" content="https://img-blog.csdn.net/20160726122340990">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://huangqiancun.github.io/2019/05/13/剑指offer-其他/">
+
+
+
+
+
+  <title>剑指offer题解 - 其他 | I'm Qiancun Huang</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/huangqiancun"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">I'm Qiancun Huang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Live it. Love it. Enjoy IT.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            Schedule
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+            
+            Sitemap
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            Commonweal 404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://huangqiancun.github.io/2019/05/13/剑指offer-其他/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Qiancun Huang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/photo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="I'm Qiancun Huang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">剑指offer题解 - 其他</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-13T23:01:29+08:00">
+                2019-05-13
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-05-14T00:00:14+08:00">
+                2019-05-14
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/剑指offer/" itemprop="url" rel="index">
+                    <span itemprop="name">剑指offer</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本系列为剑指offer刷题笔记，刷题平台为<a href="https://www.nowcoder.com/ta/coding-interviews" target="_blank" rel="noopener">牛客网</a>。题量为66道，本系列所有题解汇总如下：</p>
+<p><a href="">剑指offer题解 - 链表</a><br><a href="">剑指offer题解 - 树</a><br><a href="">剑指offer题解 - 数组</a><br><a href="">剑指offer题解 - 字符串</a><br><a href="">剑指offer题解 - 栈</a><br><a href="">剑指offer题解 - 递归</a><br><a href="">剑指offer题解 - 回溯</a><br><a href="">剑指offer题解 - 其他</a></p>
+<p>本文主要是<code>其他</code>相关题目题解总结。</p>
+<p>[TOC]</p>
+<h2 id="11-二进制中1的个数"><a href="#11-二进制中1的个数" class="headerlink" title="11.二进制中1的个数"></a>11.二进制中1的个数</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/8ee967e43c2c4ec193b040ea7fbb10b8?tpId=13&amp;tqId=11164&amp;tPage=1&amp;rp=1&amp;ru=/ta/coding-interviews&amp;qru=/ta/coding-interviews/question-ranking" target="_blank" rel="noopener">题目描述</a></h3><p>输入一个整数，输出该数二进制表示中1的个数。其中负数用补码表示。</p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>思路1：<br>从右往左逐位判断</p>
+<p>思路2：<br>为了避免死循环，我们可以不右移输入的数据n。首先把n和1做与运算，判断n的最低位是不是为1，接着把1左移一位得到2，再和n做与运算，就能判断n的次低位是不是1.。。这样反复左移，每次都能判断n的其中一位是不是1.注意flag要设定范围。循环次数等于二进制的位数。</p>
+<p>思路3：（最优）<br>如果一个整数不为0，那么这个整数至少有一位是1，如果我们把整数减1，那么原来处在整数最右边的1就会变为0, 原来在1后面的所有0都会变为1（如果最右边的1后面还有0的话）。其余所有位将不受影响。</p>
+<p>举个例子：一个二进制数1100，从右边起第三位是处于最右边的1，减去1后，第三位变为0，他后面的两个0变为1了，而前面的1保持不变，因此得到的结果是1011.我们发现减1的结果就是把最右边的一个1开始的所有位都取反了。这个时候如果我们再把原来的整数和减去1之后的结果做与运算，从原来整数最右边一个1那一位开始所有位都会变成0.如1100&amp;1011 = 1000.也就是说，把一个整数减去1，再和原整数做与运算，会把该整数最右边的1变成0，那么一个整数的二进制有多少个1，就可以进行多少次这样的操作。<br>在python中，由于负数使用补码表示的，对于负数，最高位为1，而负数在计算机中是以补码存在的，往右移，符号位不变，符号位往右移，最终可能会出现全1的情况，导致死循环。与oxffffffff想与，就可以消去负数的影响。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">NumberOf1</span><span class="params">(self, n)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        <span class="comment"># 思路1</span></span><br><span class="line">        <span class="comment"># if n &lt; 0:</span></span><br><span class="line">        <span class="comment">#     n = n &amp; 0xffffffff</span></span><br><span class="line">        <span class="comment"># count = 0</span></span><br><span class="line">        <span class="comment"># while n:</span></span><br><span class="line">        <span class="comment">#     if n%2 == 1:</span></span><br><span class="line">        <span class="comment">#         count += 1</span></span><br><span class="line">        <span class="comment">#     n = n &gt;&gt; 1</span></span><br><span class="line">        <span class="comment"># return count</span></span><br><span class="line">        <span class="comment"># 思路2</span></span><br><span class="line">        <span class="comment"># flag = 1</span></span><br><span class="line">        <span class="comment"># count = 0</span></span><br><span class="line">        <span class="comment"># while flag and flag &lt;= 0xffffffff:</span></span><br><span class="line">        <span class="comment">#     if n &amp; flag:</span></span><br><span class="line">        <span class="comment">#         count += 1</span></span><br><span class="line">        <span class="comment">#     flag = flag &lt;&lt; 1</span></span><br><span class="line">        <span class="comment"># return count</span></span><br><span class="line">        <span class="comment"># 思路3</span></span><br><span class="line">        <span class="keyword">if</span> n &lt; <span class="number">0</span>:</span><br><span class="line">            n = n &amp; <span class="number">0xffffffff</span></span><br><span class="line">        count = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> n:</span><br><span class="line">            count += <span class="number">1</span></span><br><span class="line">            n = (n<span class="number">-1</span>)&amp;n</span><br><span class="line">        <span class="keyword">return</span> count</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    result = Solution().NumberOf1(<span class="number">42</span>)</span><br><span class="line">    print(result)</span><br></pre></td></tr></table></figure></p>
+<h2 id="12-数值的整数次方"><a href="#12-数值的整数次方" class="headerlink" title="12 数值的整数次方"></a>12 数值的整数次方</h2><h3 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/1a834e5e3e1a4b7ba251417554e07c00?tpId=13&amp;tqId=11165&amp;rp=1&amp;ru=/ta/coding-interviews&amp;qru=/ta/coding-interviews/question-ranking" target="_blank" rel="noopener">题目描述</a></h3><p>给定一个double类型的浮点数base和int类型的整数exponent。求base的exponent次方。</p>
+<h3 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h3><p>二分求幂，递归。 </p>
+<ul>
+<li>如果n=0，返回1；</li>
+<li>如果n为负数，相当于求(1.0/x)^(-n)。</li>
+<li>如果n为正奇数，相当于求 x (x^2)^(n//2)；</li>
+<li>如果n为正偶数，相当于求 (x^2)^(n//2)。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">Power</span><span class="params">(self, base, exponent)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        <span class="keyword">if</span> base == <span class="number">0.0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0.0</span></span><br><span class="line">        <span class="keyword">if</span> exponent == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1.0</span></span><br><span class="line">        <span class="keyword">if</span> exponent &lt; <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1.0</span> / self.Power(base, -exponent)</span><br><span class="line">        <span class="keyword">elif</span> exponent%<span class="number">2</span>:</span><br><span class="line">            <span class="keyword">return</span> self.Power(base*base, exponent//<span class="number">2</span>)*base</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> self.Power(base*base, exponent//<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<p>python中等于没有误差，因此可以写出如下代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">Power</span><span class="params">(self, base, exponent)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        <span class="keyword">if</span> base == <span class="number">0.0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        flag = <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> exponent &lt; <span class="number">0</span>:</span><br><span class="line">            flag = <span class="number">1</span></span><br><span class="line">            exponent = -exponent</span><br><span class="line">        res = <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(exponent):</span><br><span class="line">            res *= base</span><br><span class="line">        <span class="keyword">if</span> flag:</span><br><span class="line">            res = <span class="number">1.0</span>/res</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    result = Solution().Power(<span class="number">2</span>,<span class="number">-3</span>)</span><br><span class="line">    print(result)</span><br></pre></td></tr></table></figure></p>
+<h2 id="19-顺时针打印矩阵"><a href="#19-顺时针打印矩阵" class="headerlink" title="19 顺时针打印矩阵"></a>19 顺时针打印矩阵</h2><h3 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/9b4c81a02cd34f76be2659fa0d54342a?tpId=13&amp;tqId=11172&amp;rp=1&amp;ru=/ta/coding-interviews&amp;qru=/ta/coding-interviews/question-ranking" target="_blank" rel="noopener">题目描述</a></h3><p>输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字，例如，如果输入如下4 X 4矩阵： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 则依次打印出数字1,2,3,4,8,12,16,15,14,13,9,5,6,7,11,10.</p>
+<h3 id="解题思路-2"><a href="#解题思路-2" class="headerlink" title="解题思路"></a>解题思路</h3><p>从左往右，再从上往下，再从右往左，最后从下往上遍历.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="comment"># matrix类型为二维列表，需要返回列表</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">printMatrix</span><span class="params">(self, matrix)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        rows = len(matrix)</span><br><span class="line">        cols = len(matrix[<span class="number">0</span>])</span><br><span class="line">        left, right = <span class="number">0</span>, cols<span class="number">-1</span></span><br><span class="line">        top, bottom = <span class="number">0</span>, rows<span class="number">-1</span></span><br><span class="line">        res = []</span><br><span class="line">        <span class="keyword">while</span> left &lt;= right <span class="keyword">and</span> top &lt;= bottom:</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(left, right+<span class="number">1</span>):</span><br><span class="line">                res.append(matrix[top][i])</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(top+<span class="number">1</span>,bottom+<span class="number">1</span>):</span><br><span class="line">                res.append(matrix[i][right])</span><br><span class="line">            <span class="keyword">if</span> top != bottom:</span><br><span class="line">                <span class="keyword">for</span> i <span class="keyword">in</span> range(right<span class="number">-1</span>,left<span class="number">-1</span>,<span class="number">-1</span>):</span><br><span class="line">                    res.append(matrix[bottom][i])</span><br><span class="line">            <span class="keyword">if</span> left != right:</span><br><span class="line">                <span class="keyword">for</span> i <span class="keyword">in</span> range(bottom<span class="number">-1</span>,top,<span class="number">-1</span>):</span><br><span class="line">                    res.append(matrix[i][left])</span><br><span class="line">            left += <span class="number">1</span></span><br><span class="line">            right -= <span class="number">1</span></span><br><span class="line">            top += <span class="number">1</span></span><br><span class="line">            bottom -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    result = Solution().printMatrix([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>],[<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>],[<span class="number">9</span>,<span class="number">10</span>,<span class="number">11</span>,<span class="number">12</span>],[<span class="number">13</span>,<span class="number">14</span>,<span class="number">15</span>,<span class="number">16</span>]])</span><br><span class="line">    print(result)</span><br></pre></td></tr></table></figure></p>
+<h2 id="29-最小的K个数"><a href="#29-最小的K个数" class="headerlink" title="29 最小的K个数"></a>29 最小的K个数</h2><h3 id="题目描述-3"><a href="#题目描述-3" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/6a296eb82cf844ca8539b57c23e6e9bf?tpId=13&amp;tqId=11182&amp;rp=2&amp;ru=/ta/coding-interviews&amp;qru=/ta/coding-interviews/question-ranking" target="_blank" rel="noopener">题目描述</a></h3><p>输入n个整数，找出其中最小的K个数。例如输入4,5,1,6,2,7,3,8这8个数字，则最小的4个数字是1,2,3,4,。</p>
+<h3 id="解题思路-3"><a href="#解题思路-3" class="headerlink" title="解题思路"></a>解题思路</h3><p>思路1：<br>使用冒泡排序，找出最小的k个数返回，时间复杂度O(n^2)。<br>思路2：<br>另一种O(nlogk)的算法是基于堆排序的，特别适合处理海量数据。<br>我们可以先创建一个大小为k的数据容器来存储最小的k个数字，接下来我们每次从输入的n个整数中的n个整数中读入一个数。如果容器中已有的数字少于k个，则直接把这次读入的整数放入容器之中；如果容器已经有k个数字了，也就是容器满了，此时我们不能再插入新的数字而只能替换已有的数字。找出这已有的k个数中的最大值，然后拿这次待插入的整数和最大值进行比较。如果待插入的值比当前已有的最大值小，则用这个数替换当前已有的最大值；如果待插入的值比当前已有的最大值还要大，那么这个数不可能是最小的k个整数之一，于是我们可以抛弃这个整数。<br>因此当容器满了之后，我们要做3件事情：一是在k个整数中找到最大数；二是有可能在这个容器中删除最大数；三是有可能要插入一个新的数字。如果用一个二叉树来实现这个数据容器，那么我们在O(logk)时间内实现这三步操作。因此对于n个输入数字而言，总的时间效率就是O(nlogk)。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">GetLeastNumbers_Solution</span><span class="params">(self, tinput, k)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        <span class="comment"># 思路1 冒泡排序</span></span><br><span class="line">        <span class="comment"># if k &lt; 0 or k &gt; len(tinput):</span></span><br><span class="line">        <span class="comment">#     return []</span></span><br><span class="line">        <span class="comment"># count = k</span></span><br><span class="line">        <span class="comment"># for i in range(len(tinput)):</span></span><br><span class="line">        <span class="comment">#     min = tinput[i]</span></span><br><span class="line">        <span class="comment">#     for j in range(i+1,len(tinput)):</span></span><br><span class="line">        <span class="comment">#         if tinput[j]&lt;min:</span></span><br><span class="line">        <span class="comment">#             min = tinput[j]</span></span><br><span class="line">        <span class="comment">#             index = j</span></span><br><span class="line">        <span class="comment">#     if min!=tinput[i]:</span></span><br><span class="line">        <span class="comment">#         tinput[i], tinput[index] = tinput[index], tinput[i]</span></span><br><span class="line">        <span class="comment">#     count = count-1</span></span><br><span class="line">        <span class="comment">#     if count == 0:</span></span><br><span class="line">        <span class="comment">#         break</span></span><br><span class="line">        <span class="comment"># return tinput[:k]</span></span><br><span class="line">        <span class="comment"># 思路2 堆排序</span></span><br><span class="line">        res = []</span><br><span class="line">        length = len(tinput)</span><br><span class="line">        change = <span class="keyword">True</span></span><br><span class="line">        <span class="keyword">if</span> length &lt;= <span class="number">0</span> <span class="keyword">or</span> k &lt;= <span class="number">0</span> <span class="keyword">or</span> k &gt; length:</span><br><span class="line">            <span class="keyword">return</span> res</span><br><span class="line">        res = tinput[:k]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(k, length + <span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> change == <span class="keyword">True</span>:</span><br><span class="line">                <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">0</span>, k // <span class="number">2</span> + <span class="number">1</span>)[::<span class="number">-1</span>]:</span><br><span class="line">                    self.HeadAdjust(res, j, k)</span><br><span class="line">                <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>, k)[::<span class="number">-1</span>]:</span><br><span class="line">                    res[<span class="number">0</span>], res[j] = res[j], res[<span class="number">0</span>]</span><br><span class="line">                    self.HeadAdjust(res, <span class="number">0</span>, j)</span><br><span class="line">                change = <span class="keyword">False</span></span><br><span class="line">            <span class="keyword">if</span> i != length <span class="keyword">and</span> res[k - <span class="number">1</span>] &gt; tinput[i]:</span><br><span class="line">                res[k - <span class="number">1</span>] = tinput[i]</span><br><span class="line">                change = <span class="keyword">True</span></span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">HeadAdjust</span><span class="params">(self, input_list, parent, length)</span>:</span></span><br><span class="line">        temp = input_list[parent]</span><br><span class="line">        child = <span class="number">2</span> * parent + <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> child &lt; length:</span><br><span class="line">            <span class="keyword">if</span> child + <span class="number">1</span> &lt; length <span class="keyword">and</span> input_list[child] &lt; input_list[child + <span class="number">1</span>]:</span><br><span class="line">                child += <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> temp &gt;= input_list[child]:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            input_list[parent] = input_list[child]</span><br><span class="line">            parent = child</span><br><span class="line">            child = <span class="number">2</span> * parent + <span class="number">1</span></span><br><span class="line">        input_list[parent] = temp</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    result = Solution().GetLeastNumbers_Solution([<span class="number">4</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">6</span>, <span class="number">2</span>, <span class="number">7</span>, <span class="number">3</span>, <span class="number">8</span>], <span class="number">4</span>)</span><br><span class="line">    print(result)</span><br></pre></td></tr></table></figure>
+<h2 id="31-整数中1出现的次数（从1到n整数中1出现的次数）"><a href="#31-整数中1出现的次数（从1到n整数中1出现的次数）" class="headerlink" title="31 整数中1出现的次数（从1到n整数中1出现的次数）"></a>31 整数中1出现的次数（从1到n整数中1出现的次数）</h2><h3 id="题目描述-4"><a href="#题目描述-4" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/bd7f978302044eee894445e244c7eee6?tpId=13&amp;tqId=11184&amp;tPage=2&amp;rp=2&amp;ru=/ta/coding-interviews&amp;qru=/ta/coding-interviews/question-ranking" target="_blank" rel="noopener">题目描述</a></h3><p>求出1~13的整数中1出现的次数,并算出100~1300的整数中1出现的次数？为此他特别数了一下1~13中包含1的数字有1、10、11、12、13因此共出现6次,但是对于后面问题他就没辙了。ACMer希望你们帮帮他,并把问题更加普遍化,可以很快的求出任意非负整数区间中1出现的次数（从1 到 n 中1出现的次数）。</p>
+<h3 id="解题思路-4"><a href="#解题思路-4" class="headerlink" title="解题思路"></a>解题思路</h3><p>思路1</p>
+<p>从1到n遍历。对每一个数字，每次通过对10求余数判断整数的个位数字是不是1，大于10的除以10之后再判断，我们对每个数字都要做求余和除法运算以求出该数字中1出现的次数。如果输入数字n，n有O(logn)位，我们需要判断每一位是不是1，那么时间复杂度为O(n*logn)。</p>
+<p>思路2</p>
+<p>考虑将n的十进制的每一位单独拿出讨论，每一位的值记为weight。</p>
+<p>1) 个位</p>
+<p>从1到n，每增加1，weight就会加1，当weight加到9时，再加1又会回到0重新开始。那么weight从0-9的这种周期会出现多少次呢？这取决于n的高位是多少，看图：<br><img src="https://img-blog.csdn.net/20160726122340990" alt=""></p>
+<p>以534为例，在从1增长到n的过程中，534的个位从0-9变化了53次，记为round。每一轮变化中，1在个位出现一次，所以一共出现了53次。 </p>
+<p>再来看weight的值。weight为4，大于0，说明第54轮变化是从0-4，1又出现了1次。我们记1出现的次数为count，所以：<br> count = round+1 = 53 + 1 = 54</p>
+<p>如果此时weight为0（n=530），说明第54轮到0就停止了，那么：<br> count = round = 53</p>
+<p>2) 十位<br>对于10位来说，其0-9周期的出现次数与个位的统计方式是相同的，见图：<br><img src="https://img-blog.csdn.net/20160726123512823" alt=""></p>
+<p>不同点在于：从1到n，每增加10，十位的weight才会增加1，所以，一轮0-9周期内，1会出现10次。即round*10。 </p>
+<p>再来看weight的值。当此时weight为3，大于1，说明第6轮出现了10次1，则： </p>
+<p>count = round<em>10+10 = 5</em>10+10 = 60</p>
+<p>如果此时weight的值等于0（n=504），说明第6轮到0就停止了，所以：<br>count = round<em>10+10 = 5</em>10 = 50</p>
+<p>如果此时weight的值等于1（n=514），那么第6轮中1出现了多少次呢？很明显，这与个位数的值有关，个位数为k，第6轮中1就出现了k+1次(0-k)。我们记个位数为former，则：<br>count = round<em>10+former +1= 5</em>10+4 +1= 55</p>
+<p>3) 更高位<br>更高位的计算方式其实与十位是一致的，不再阐述。</p>
+<p>4) 总结</p>
+<p>将n的各个位分为两类：个位与其它位。 </p>
+<p>对个位来说：<br>    若个位大于0，1出现的次数为round<em>1+1<br>    若个位等于0，1出现的次数为round</em>1</p>
+<p>对其它位来说，记每一位的权值为base，位值为weight，该位之前的数是former，举例如图：<br><img src="https://img-blog.csdn.net/20160726125148698" alt=""></p>
+<p>则：</p>
+<ul>
+<li>若weight为0，则1出现次数为round*base</li>
+<li>若weight为1，则1出现次数为round*base+former+1</li>
+<li>若weight大于1，则1出现次数为rount*base+base</li>
+</ul>
+<p>比如：</p>
+<ul>
+<li>534 = （个位1出现次数）+（十位1出现次数）+（百位1出现次数）=（53<em>1+1）+（5</em>10+10）+（0*100+100）= 214</li>
+<li>530 = （53<em>1）+（5</em>10+10）+（0*100+100） = 213</li>
+<li>504 = （50<em>1+1）+（5</em>10）+（0*100+100） = 201</li>
+<li>514 = （51<em>1+1）+（5</em>10+4+1）+（0*100+100） = 207</li>
+<li>10 = (1<em>1)+(0</em>10+0+1) = 2</li>
+</ul>
+<p>来自 <a href="https://blog.csdn.net/yi_afly/article/details/52012593" target="_blank" rel="noopener">https://blog.csdn.net/yi_afly/article/details/52012593</a> </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">NumberOf1Between1AndN_Solution</span><span class="params">(self, n)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        <span class="comment"># res = 0</span></span><br><span class="line">        <span class="comment"># for i in range(1,n+1):</span></span><br><span class="line">        <span class="comment">#     while i:</span></span><br><span class="line">        <span class="comment">#         if i%10 == 1:</span></span><br><span class="line">        <span class="comment">#             res += 1</span></span><br><span class="line">        <span class="comment">#         i //= 10</span></span><br><span class="line">        <span class="comment"># return res</span></span><br><span class="line">        <span class="comment"># 思路2</span></span><br><span class="line">        <span class="keyword">if</span> n &lt; <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        count, base, Round = <span class="number">0</span>,<span class="number">1</span>,n</span><br><span class="line">        <span class="keyword">while</span> Round &gt; <span class="number">0</span>:</span><br><span class="line">            weight = Round%<span class="number">10</span></span><br><span class="line">            Round //= <span class="number">10</span></span><br><span class="line">            count += Round*base</span><br><span class="line">            <span class="keyword">if</span> weight == <span class="number">1</span>:</span><br><span class="line">                count += n%base+<span class="number">1</span></span><br><span class="line">            <span class="keyword">elif</span> weight&gt;<span class="number">1</span>:</span><br><span class="line">                count += base</span><br><span class="line">            base *= <span class="number">10</span></span><br><span class="line">        <span class="keyword">return</span> count</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    result = Solution().NumberOf1Between1AndN_Solution(<span class="number">13</span>)</span><br><span class="line">    print(result)</span><br></pre></td></tr></table></figure>
+<h2 id="33-丑数"><a href="#33-丑数" class="headerlink" title="33 丑数"></a>33 丑数</h2><h3 id="题目描述-5"><a href="#题目描述-5" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/6aa9e04fc3794f68acf8778237ba065b?tpId=13&amp;tqId=11186&amp;tPage=2&amp;rp=2&amp;ru=/ta/coding-interviews&amp;qru=/ta/coding-interviews/question-ranking" target="_blank" rel="noopener">题目描述</a></h3><p>把只包含质因子2、3和5的数称作丑数（Ugly Number）。例如6、8都是丑数，但14不是，因为它包含质因子7。 习惯上我们把1当做是第一个丑数。求按从小到大的顺序的第N个丑数。</p>
+<h3 id="解题思路-5"><a href="#解题思路-5" class="headerlink" title="解题思路"></a>解题思路</h3><p>思路：用空间换时间<br>创建一个数组，里面的数字是排好序的丑数，每个丑数都是前面的丑数乘以2,3,或5得到的。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">GetUglyNumber_Solution</span><span class="params">(self, index)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        <span class="keyword">if</span> index &lt;= <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        </span><br><span class="line">        t2, t3, t5 = <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">        res = [<span class="number">1</span>]</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, index):</span><br><span class="line">            res.append(min(res[t2]*<span class="number">2</span>, res[t3]*<span class="number">3</span>, res[t5]*<span class="number">5</span>))</span><br><span class="line">            <span class="keyword">if</span> res[<span class="number">-1</span>] == res[t2]*<span class="number">2</span>:</span><br><span class="line">                t2 += <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> res[<span class="number">-1</span>] == res[t3]*<span class="number">3</span>:</span><br><span class="line">                t3 += <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> res[<span class="number">-1</span>] == res[t5]*<span class="number">5</span>:</span><br><span class="line">                t5 += <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res[<span class="number">-1</span>]</span><br></pre></td></tr></table></figure></p>
+<h2 id="41-和为S的连续正数序列"><a href="#41-和为S的连续正数序列" class="headerlink" title="41 和为S的连续正数序列"></a>41 和为S的连续正数序列</h2><h3 id="题目描述-6"><a href="#题目描述-6" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/c451a3fd84b64cb19485dad758a55ebe?tpId=13&amp;tqId=11194&amp;rp=2&amp;ru=/ta/coding-interviews&amp;qru=/ta/coding-interviews/question-ranking" target="_blank" rel="noopener">题目描述</a></h3><p>小明很喜欢数学,有一天他在做数学作业时,要求计算出9~16的和,他马上就写出了正确答案是100。但是他并不满足于此,他在想究竟有多少种连续的正数序列的和为100(至少包括两个数)。没多久,他就得到另一组连续正数和为100的序列:18,19,20,21,22。现在把问题交给你,你能不能也很快的找出所有和为S的连续正数序列? Good Luck!<br>输出描述:<br>输出所有和为S的连续正数序列。序列内按照从小至大的顺序，序列间按照开始数字从小到大的顺序</p>
+<h3 id="解题思路-6"><a href="#解题思路-6" class="headerlink" title="解题思路"></a>解题思路</h3><p>设定两个指针，一个指向第一个数，一个指向最后一个数，在此之前需要设定第一个数和最后一个数的值，由于是正数序列，所以可以把第一个数设为1，最后一个数设为2（因为是要求是连续正数序列，最后不可能和第一个数重合）。下一步就是不断改变第一个数和最后一个数的值。<br>如果第一个数到最后一个数的和正好是要求的和，那么把所有的数都添加到一个序列中。<br>如果大于要求的和，这说明从第一个数到最后一个数之间的范围太大，因此减小范围，需要把第一个数的值加1，此时当前和变为减去原来的第一个数的值。<br>如果小于要求的和，说明范围太小，因此把最后一个数加1，此时当前和变为加上最后一个数的值。<br>这样不断修改第一个和最后一个数的值，就能确定所有连续正数序列的和等于S的序列了。<br>连续序列和公式:sum = (a+b)(b-a+1)/2</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">FindContinuousSequence</span><span class="params">(self, tsum)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> tsum &lt;= <span class="number">2</span>:</span><br><span class="line">            <span class="keyword">return</span> []</span><br><span class="line">        </span><br><span class="line">        res = []</span><br><span class="line">        left, right = <span class="number">1</span>, <span class="number">2</span></span><br><span class="line">        <span class="keyword">while</span> left &lt; right:</span><br><span class="line">            temp = (left+right)*(right-left+<span class="number">1</span>)//<span class="number">2</span></span><br><span class="line">            <span class="keyword">if</span> temp == tsum:</span><br><span class="line">                res.append([x <span class="keyword">for</span> x <span class="keyword">in</span> range(left, right+<span class="number">1</span>)])</span><br><span class="line">                left += <span class="number">1</span></span><br><span class="line">            <span class="keyword">elif</span> temp &gt; tsum:</span><br><span class="line">                left += <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                right += <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    result = Solution().FindContinuousSequence(<span class="number">100</span>)</span><br><span class="line">    print(result)</span><br></pre></td></tr></table></figure>
+<h2 id="42-和为S的两个数字"><a href="#42-和为S的两个数字" class="headerlink" title="42 和为S的两个数字"></a>42 和为S的两个数字</h2><h3 id="题目描述-7"><a href="#题目描述-7" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/390da4f7a00f44bea7c2f3d19491311b?tpId=13&amp;tqId=11195&amp;tPage=3&amp;rp=1&amp;ru=%2Fta%2Fcoding-interviews&amp;qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking" target="_blank" rel="noopener">题目描述</a></h3><p>输入一个递增排序的数组和一个数字S，在数组中查找两个数，使得他们的和正好是S，如果有多对数字的和等于S，输出两个数的乘积最小的。<br>输出描述:<br>对应每个测试案例，输出两个数，小的先输出。</p>
+<h3 id="解题思路-7"><a href="#解题思路-7" class="headerlink" title="解题思路"></a>解题思路</h3><p>对于一个数组，我们可以定义两个指针，一个从左往右遍历（l），另一个从右往左遍历（r）。首先，我们比较第一个数字和最后一个数字的和curSum与给定数字tsum，<br>如果curSum == tsum，那么这两个数字就是我们要找的数字，直接输出，这里已经保证了乘积的最小。<br>如果curSum &gt; tsum，我们需要减小输入值，r向左移动一位。<br>如果curSum &lt; tsum，我们需要加大输入值，l向右移动一位。<br>如果没有找到，输出[]。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">FindNumbersWithSum</span><span class="params">(self, array, tsum)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        <span class="keyword">if</span> len(array)&lt;=<span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> []</span><br><span class="line">        left, right = <span class="number">0</span>, len(array)<span class="number">-1</span></span><br><span class="line">        <span class="keyword">while</span> left &lt; right:</span><br><span class="line">            <span class="keyword">if</span> array[left]+array[right]==tsum:</span><br><span class="line">                <span class="keyword">return</span> [array[left],array[right]]</span><br><span class="line">            <span class="keyword">elif</span> array[left]+array[right] &gt; tsum:</span><br><span class="line">                right -= <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                left += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> []</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    result = Solution().FindNumbersWithSum([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">6</span>],<span class="number">5</span>)</span><br><span class="line">    print(result)</span><br></pre></td></tr></table></figure></p>
+<h2 id="45-扑克牌顺子"><a href="#45-扑克牌顺子" class="headerlink" title="45 扑克牌顺子"></a>45 扑克牌顺子</h2><h3 id="题目描述-8"><a href="#题目描述-8" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/762836f4d43d43ca9deb273b3de8e1f4?tpId=13&amp;tqId=11198&amp;tPage=3&amp;rp=1&amp;ru=%2Fta%2Fcoding-interviews&amp;qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking" target="_blank" rel="noopener">题目描述</a></h3><p>LL今天心情特别好,因为他去买了一副扑克牌,发现里面居然有2个大王,2个小王(一副牌原本是54张^_^)…他随机从中抽出了5张牌,想测测自己的手气,看看能不能抽到顺子,如果抽到的话,他决定去买体育彩票,嘿嘿！！“红心A,黑桃3,小王,大王,方片5”,“Oh My God!”不是顺子…..LL不高兴了,他想了想,决定大\小 王可以看成任何数字,并且A看作1,J为11,Q为12,K为13。上面的5张牌就可以变成“1,2,3,4,5”(大小王分别看作2和4),“So Lucky!”。LL决定去买体育彩票啦。 现在,要求你使用这幅牌模拟上面的过程,然后告诉我们LL的运气如何， 如果牌能组成顺子就输出true，否则就输出false。为了方便起见,你可以认为大小王是0。</p>
+<h3 id="解题思路-8"><a href="#解题思路-8" class="headerlink" title="解题思路"></a>解题思路</h3><p>满足一下信息才认为是顺子：<br>输入数据个数为5<br>输入数据都在0-13之间<br>没有相同的数字<br>最大值与最小值之差不大于5</p>
+<p>注意为什么是numbers[big]-numbers[small]-1，因为0是用来填补空缺的，如果空缺是1则不用填补，这个做法我们看出不等于1的空缺有多少。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">IsContinuous</span><span class="params">(self, numbers)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        <span class="keyword">if</span> len(numbers) != <span class="number">5</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        dic = &#123;<span class="string">'A'</span>:<span class="number">1</span>,<span class="string">'J'</span>:<span class="number">11</span>,<span class="string">'Q'</span>:<span class="number">12</span>,<span class="string">'K'</span>:<span class="number">13</span>&#125;</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(numbers)):</span><br><span class="line">            <span class="keyword">if</span> numbers[i] <span class="keyword">in</span> dic:</span><br><span class="line">                numbers[i] = dic[numbers[i]]</span><br><span class="line">        numbers.sort()</span><br><span class="line">        <span class="keyword">if</span> numbers[<span class="number">0</span>] &lt; <span class="number">0</span> <span class="keyword">or</span> numbers[<span class="number">-1</span>] &gt; <span class="number">13</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        count = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> numbers[i] == <span class="number">0</span>:</span><br><span class="line">            count += <span class="number">1</span></span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(i,len(numbers)<span class="number">-1</span>):</span><br><span class="line">            <span class="keyword">if</span> numbers[j+<span class="number">1</span>] == numbers[j]:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">            temp = numbers[j+<span class="number">1</span>]-numbers[j]<span class="number">-1</span></span><br><span class="line">            <span class="keyword">if</span> count &gt;= temp:</span><br><span class="line">                count -= temp</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    result = Solution().IsContinuous([<span class="string">'A'</span>,<span class="number">3</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">6</span>])</span><br><span class="line">    print(result)</span><br></pre></td></tr></table></figure>
+<h2 id="46-孩子们的游戏（圆圈中最后剩下的数）"><a href="#46-孩子们的游戏（圆圈中最后剩下的数）" class="headerlink" title="46 孩子们的游戏（圆圈中最后剩下的数）"></a>46 孩子们的游戏（圆圈中最后剩下的数）</h2><h3 id="题目描述-9"><a href="#题目描述-9" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/f78a359491e64a50bce2d89cff857eb6?tpId=13&amp;tqId=11199&amp;tPage=3&amp;rp=1&amp;ru=%2Fta%2Fcoding-interviews&amp;qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking" target="_blank" rel="noopener">题目描述</a></h3><p>每年六一儿童节,牛客都会准备一些小礼物去看望孤儿院的小朋友,今年亦是如此。HF作为牛客的资深元老,自然也准备了一些小游戏。其中,有个游戏是这样的:首先,让小朋友们围成一个大圈。然后,他随机指定一个数m,让编号为0的小朋友开始报数。每次喊到m-1的那个小朋友要出列唱首歌,然后可以在礼品箱中任意的挑选礼物,并且不再回到圈中,从他的下一个小朋友开始,继续0…m-1报数….这样下去….直到剩下最后一个小朋友,可以不用表演,并且拿到牛客名贵的“名侦探柯南”典藏版(名额有限哦!!^_^)。请你试着想下,哪个小朋友会得到这份礼品呢？(注：小朋友的编号是从0到n-1)</p>
+<h3 id="解题思路-9"><a href="#解题思路-9" class="headerlink" title="解题思路"></a>解题思路</h3><p>第一个被删除的数字是(m-1)%n，记为k，那么删除k之后的数字为0,1,…,k-1,k+1,…,n-1，并且下一个开始计数的数字是k+1。即有以下关系<br>k+1–&gt;0<br>k+2–&gt;1<br>n-1 –&gt; n-k-2<br>0 – &gt; n-k-1</p>
+<p>k-1 –&gt; n-2</p>
+<p>总结：设置变化前有n个元素，出现小孩序号为k，那么k=(m-1)%n，设置剩余小孩调整前原始序号为x，那么调整后为f(x)=(x-k-1)%n，将k值代入有:f(x) = x0 = (x-(m-1)%n - 1)%n = (x-m)%n 所以已知x0新序号推原序号为x=(x0+m)%n</p>
+<p><img src="https://img-blog.csdn.net/20180326194833209?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Z1eHVlbWluZ3podQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""><br><img src="https://img-blog.csdn.net/2018032619484073?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Z1eHVlbWluZ3podQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""><br><a href="https://blog.csdn.net/crazy__chen/article/details/45115911" target="_blank" rel="noopener"></a><br><a href="https://blog.csdn.net/u012273127/article/details/79508245" target="_blank" rel="noopener"></a><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">LastRemaining_Solution</span><span class="params">(self, n, m)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        <span class="keyword">if</span> n &lt; <span class="number">1</span> <span class="keyword">or</span> m &lt; <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">        last = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>, n + <span class="number">1</span>):</span><br><span class="line">            last = (last + m) % i</span><br><span class="line">        <span class="keyword">return</span> last</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    result = Solution().LastRemaining_Solution(<span class="number">6</span>,<span class="number">4</span>)</span><br><span class="line">    <span class="keyword">print</span> (result)</span><br></pre></td></tr></table></figure></p>
+<h2 id="47-求1-2-3-…-n"><a href="#47-求1-2-3-…-n" class="headerlink" title="47 求1+2+3+…+n"></a>47 求1+2+3+…+n</h2><h3 id="题目描述-10"><a href="#题目描述-10" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/7a0da8fc483247ff8800059e12d7caf1?tpId=13&amp;tqId=11200&amp;tPage=3&amp;rp=1&amp;ru=%2Fta%2Fcoding-interviews&amp;qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking" target="_blank" rel="noopener">题目描述</a></h3><p>求1+2+3+…+n，要求不能使用乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）。</p>
+<h3 id="解题思路-10"><a href="#解题思路-10" class="headerlink" title="解题思路"></a>解题思路</h3><p>思路1：递归<br>思路2：与逻辑的短路特性做递归停止条件<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">Sum_Solution</span><span class="params">(self, n)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        <span class="comment">#思路1</span></span><br><span class="line">        <span class="comment">#if n == 1:</span></span><br><span class="line">         <span class="comment">#   return 1</span></span><br><span class="line">        <span class="comment">#return self.Sum_Solution(n-1)+n</span></span><br><span class="line">        <span class="comment"># 思路2</span></span><br><span class="line">        <span class="keyword">return</span> n&gt;<span class="number">0</span> <span class="keyword">and</span> n + self.Sum_Solution(n<span class="number">-1</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    result = Solution().Sum_Solution(<span class="number">10</span>)</span><br><span class="line">    print(result)</span><br></pre></td></tr></table></figure></p>
+<h2 id="48-不用加减乘除的加法"><a href="#48-不用加减乘除的加法" class="headerlink" title="48 不用加减乘除的加法"></a>48 不用加减乘除的加法</h2><h3 id="题目描述-11"><a href="#题目描述-11" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/59ac416b4b944300b617d4f7f111b215?tpId=13&amp;tqId=11201&amp;tPage=3&amp;rp=1&amp;ru=%2Fta%2Fcoding-interviews&amp;qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking" target="_blank" rel="noopener">题目描述</a></h3><p>写一个函数，求两个整数之和，要求在函数体内不得使用+、-、*、/四则运算符号。</p>
+<h3 id="解题思路-11"><a href="#解题思路-11" class="headerlink" title="解题思路"></a>解题思路</h3><p>首先看十进制是如何做的： 5+7=12，</p>
+<p>可以使用三步走：</p>
+<p>第一步：相加各位的值，不算进位，得到2。</p>
+<p>第二步：计算进位值，得到10. 如果这一步的进位值为0，那么第一步得到的值就是最终结果。</p>
+<p>第三步：重复上述两步，只是相加的值变成上述两步的得到的结果2和10，得到12。 同样我们可以</p>
+<p>三步走的方式计算二进制值相加： 5-101，7-111</p>
+<p>第一步：相加各位的值，不算进位，得到010，二进制每位相加就相当于各位做异或操作，101^111。</p>
+<p>第二步：计算进位值，得到1010，相当于各位做与操作得到101，再向左移一位得到1010，(101&amp;111)&lt;&lt;1。</p>
+<p>第三步：重复上述两步， 各位相加 010^1010=1000，进位值为100=(010&amp;1010)&lt;&lt;1。</p>
+<p>继续重复上述两步：1000^100 = 1100，进位值为0，跳出循环，1100为最终结果。</p>
+<p>Python需要处理负数<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">Add</span><span class="params">(self, num1, num2)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        unit = (num1^num2)&amp; <span class="number">0xFFFFFFFF</span></span><br><span class="line">        carry = ((num1&amp;num2)&lt;&lt;<span class="number">1</span>) &amp; <span class="number">0xFFFFFFFF</span></span><br><span class="line">        <span class="keyword">while</span> carry:</span><br><span class="line">            temp1 = unit</span><br><span class="line">            temp2 = carry</span><br><span class="line">            unit = (temp1^temp2) &amp; <span class="number">0xFFFFFFFF</span></span><br><span class="line">            carry = ((temp1&amp;temp2)&lt;&lt;<span class="number">1</span>) &amp; <span class="number">0xFFFFFFFF</span></span><br><span class="line">        <span class="keyword">return</span> unit <span class="keyword">if</span>  unit&lt;=<span class="number">0x7FFFFFFF</span> <span class="keyword">else</span> ~(unit^<span class="number">0xFFFFFFFF</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    result = Solution().Add(<span class="number">-12</span>,<span class="number">-104</span>)</span><br><span class="line">    <span class="keyword">print</span> (result)</span><br></pre></td></tr></table></figure></p>
+<h2 id="54-字符流中第一个不重复的字符"><a href="#54-字符流中第一个不重复的字符" class="headerlink" title="54 字符流中第一个不重复的字符"></a>54 字符流中第一个不重复的字符</h2><h3 id="题目描述-12"><a href="#题目描述-12" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/00de97733b8e4f97a3fb5c680ee10720?tpId=13&amp;tqId=11207&amp;tPage=3&amp;rp=1&amp;ru=%2Fta%2Fcoding-interviews&amp;qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking" target="_blank" rel="noopener">题目描述</a></h3><p>请实现一个函数用来找出字符流中第一个只出现一次的字符。例如，当从字符流中只读出前两个字符”go”时，第一个只出现一次的字符是”g”。当从该字符流中读出前六个字符“google”时，第一个只出现一次的字符是”l”。<br>输出描述:<br>如果当前字符流没有存在出现一次的字符，返回#字符。</p>
+<h3 id="解题思路-12"><a href="#解题思路-12" class="headerlink" title="解题思路"></a>解题思路</h3><p>这道题还是很简单的。将字节流保存起来，通过哈希表统计字符流中每个字符出现的次数，顺便将字符流保存在string中，然后再遍历string，从哈希表中找到第一个出现一次的字符。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="comment"># 返回对应char</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">FirstAppearingOnce</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> self.word:</span><br><span class="line">            <span class="keyword">if</span> self.charCount[i] == <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">return</span> i</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'#'</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">Insert</span><span class="params">(self, char)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        self.word += char</span><br><span class="line">        <span class="keyword">if</span> char <span class="keyword">not</span> <span class="keyword">in</span> self.charCount:</span><br><span class="line">            self.charCount[char] = <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            self.charCount[char] += <span class="number">1</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.word = <span class="string">''</span></span><br><span class="line">        self.charCount = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    word = <span class="string">'google'</span></span><br><span class="line">    S = Solution()</span><br><span class="line">    <span class="keyword">for</span> c <span class="keyword">in</span> word:</span><br><span class="line">        S.Insert(c)</span><br><span class="line">    result = S.FirstAppearingOnce()</span><br><span class="line">    print(result)</span><br></pre></td></tr></table></figure></p>
+<h2 id="63-数据流中的中位数"><a href="#63-数据流中的中位数" class="headerlink" title="63 数据流中的中位数"></a>63 数据流中的中位数</h2><h3 id="题目描述-13"><a href="#题目描述-13" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/9be0172896bd43948f8a32fb954e1be1?tpId=13&amp;tqId=11216&amp;tPage=4&amp;rp=1&amp;ru=%2Fta%2Fcoding-interviews&amp;qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking" target="_blank" rel="noopener">题目描述</a></h3><p>如何得到一个数据流中的中位数？如果从数据流中读出奇数个数值，那么中位数就是所有数值排序之后位于中间的数值。如果从数据流中读出偶数个数值，那么中位数就是所有数值排序之后中间两个数的平均值。我们使用Insert()方法读取数据流，使用GetMedian()方法获取当前读取数据的中位数。</p>
+<h3 id="解题思路-13"><a href="#解题思路-13" class="headerlink" title="解题思路"></a>解题思路</h3><p>初始化一个数组，读入数据后，排序，直接计算<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.numbers = []</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">Insert</span><span class="params">(self, num)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        self.numbers.append(num)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">GetMedian</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        self.numbers.sort()</span><br><span class="line">        <span class="keyword">if</span> len(self.numbers) % <span class="number">2</span> == <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> self.numbers[len(self.numbers)//<span class="number">2</span>]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> (self.numbers[len(self.numbers)//<span class="number">2</span>]+self.numbers[len(self.numbers)//<span class="number">2</span><span class="number">-1</span>])/<span class="number">2.0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    numbers = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">    S = Solution()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> numbers:</span><br><span class="line">        S.Insert(i)</span><br><span class="line">    result = S.GetMedian()</span><br><span class="line">    print(result)</span><br></pre></td></tr></table></figure></p>
+<h2 id="64-滑动窗口的最大值"><a href="#64-滑动窗口的最大值" class="headerlink" title="64 滑动窗口的最大值"></a>64 滑动窗口的最大值</h2><h3 id="题目描述-14"><a href="#题目描述-14" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/1624bc35a45c42c0bc17d17fa0cba788?tpId=13&amp;tqId=11217&amp;tPage=4&amp;rp=1&amp;ru=%2Fta%2Fcoding-interviews&amp;qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking" target="_blank" rel="noopener">题目描述</a></h3><p>给定一个数组和滑动窗口的大小，找出所有滑动窗口里数值的最大值。例如，如果输入数组{2,3,4,2,6,2,5,1}及滑动窗口的大小3，那么一共存在6个滑动窗口，他们的最大值分别为{4,4,6,6,6,5}； 针对数组{2,3,4,2,6,2,5,1}的滑动窗口有以下6个： {[2,3,4],2,6,2,5,1}， {2,[3,4,2],6,2,5,1}， {2,3,[4,2,6],2,5,1}， {2,3,4,[2,6,2],5,1}， {2,3,4,2,[6,2,5],1}， {2,3,4,2,6,[2,5,1]}。</p>
+<h3 id="解题思路-14"><a href="#解题思路-14" class="headerlink" title="解题思路"></a>解题思路</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxInWindows</span><span class="params">(self, num, size)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        <span class="keyword">if</span> len(num) &lt; size <span class="keyword">or</span> size == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> []</span><br><span class="line">        <span class="comment"># 思路1</span></span><br><span class="line">        <span class="comment"># left, right = 0, size-1</span></span><br><span class="line">        <span class="comment"># res = []</span></span><br><span class="line">        <span class="comment"># while right &lt; len(num):</span></span><br><span class="line">        <span class="comment">#     maxindex = left</span></span><br><span class="line">        <span class="comment">#     for j in range(left+1,right+1):</span></span><br><span class="line">        <span class="comment">#         if num[j] &gt; num[maxindex]:</span></span><br><span class="line">        <span class="comment">#             maxindex = j</span></span><br><span class="line">        <span class="comment">#     res.append(num[maxindex])</span></span><br><span class="line">        <span class="comment">#     left += 1</span></span><br><span class="line">        <span class="comment">#     right += 1</span></span><br><span class="line">        <span class="comment"># return res</span></span><br><span class="line">        <span class="comment"># 思路2</span></span><br><span class="line">        res = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(num)-size+<span class="number">1</span>):</span><br><span class="line">            res.append(max(num[i:i+size]))</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    result = Solution().maxInWindows([<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">1</span>],<span class="number">3</span>)</span><br><span class="line">    print(result)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Qiancun Huang WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Qiancun Huang Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/剑指offer/" rel="tag"># 剑指offer</a>
+          
+            <a href="/tags/算法题解/" rel="tag"># 算法题解</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/13/剑指offer-链表/" rel="next" title="剑指offer题解 - 链表">
+                <i class="fa fa-chevron-left"></i> 剑指offer题解 - 链表
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/13/剑指offer-树/" rel="prev" title="剑指offer题解 - 树">
+                剑指offer题解 - 树 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/photo.jpg" alt="Qiancun Huang">
+            
+              <p class="site-author-name" itemprop="name">Qiancun Huang</p>
+              <p class="site-description motion-element" itemprop="description">A second-year graduate student in Southeast University</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/huangqiancun" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto://huangqiancun@foxmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#11-二进制中1的个数"><span class="nav-text">11.二进制中1的个数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-数值的整数次方"><span class="nav-text">12 数值的整数次方</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-1"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路-1"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#19-顺时针打印矩阵"><span class="nav-text">19 顺时针打印矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-2"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路-2"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#29-最小的K个数"><span class="nav-text">29 最小的K个数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-3"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路-3"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#31-整数中1出现的次数（从1到n整数中1出现的次数）"><span class="nav-text">31 整数中1出现的次数（从1到n整数中1出现的次数）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-4"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路-4"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#33-丑数"><span class="nav-text">33 丑数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-5"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路-5"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#41-和为S的连续正数序列"><span class="nav-text">41 和为S的连续正数序列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-6"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路-6"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#42-和为S的两个数字"><span class="nav-text">42 和为S的两个数字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-7"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路-7"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#45-扑克牌顺子"><span class="nav-text">45 扑克牌顺子</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-8"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路-8"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#46-孩子们的游戏（圆圈中最后剩下的数）"><span class="nav-text">46 孩子们的游戏（圆圈中最后剩下的数）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-9"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路-9"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#47-求1-2-3-…-n"><span class="nav-text">47 求1+2+3+…+n</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-10"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路-10"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#48-不用加减乘除的加法"><span class="nav-text">48 不用加减乘除的加法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-11"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路-11"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#54-字符流中第一个不重复的字符"><span class="nav-text">54 字符流中第一个不重复的字符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-12"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路-12"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#63-数据流中的中位数"><span class="nav-text">63 数据流中的中位数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-13"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路-13"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#64-滑动窗口的最大值"><span class="nav-text">64 滑动窗口的最大值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-14"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路-14"><span class="nav-text">解题思路</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qiancun Huang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
