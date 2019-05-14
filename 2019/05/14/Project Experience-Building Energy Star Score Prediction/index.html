@@ -134,7 +134,7 @@
 <meta property="og:image" content="http://huangqiancun.github.io/2019/05/14/Project%20Experience-Building%20Energy%20Star%20Score%20Prediction/output_151_2.png">
 <meta property="og:image" content="http://huangqiancun.github.io/2019/05/14/Project%20Experience-Building%20Energy%20Star%20Score%20Prediction/output_157_0.png">
 <meta property="og:image" content="http://huangqiancun.github.io/2019/05/14/Project%20Experience-Building%20Energy%20Star%20Score%20Prediction/output_161_0.png">
-<meta property="og:updated_time" content="2019-05-14T03:33:40.931Z">
+<meta property="og:updated_time" content="2019-05-14T03:40:16.482Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="建筑物能源之星分数预测">
 <meta name="twitter:description" content="项目来源这是在Github 上找到的一个美国数据科学家在申请工作时的”作业”，英文作业链接。 项目目标 使用提供的建筑能源数据开发一个模型，该模型可以预测建筑物的能源之星得分（building’s Energy Star score）； 解释结果以找到最能预测得分的变量。  这是一个有监督的回归机器学习任务：给定一组包含目标（在本项目中为ENERGY STAR Score能源之星分数）的数据，我们">
@@ -422,7 +422,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-05-14T11:33:40+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2019-05-14T11:40:16+08:00">
                 2019-05-14
               </time>
             
@@ -761,18 +761,512 @@ memory usage: 5.4+ MB
 <h3 id="1-3-将数据转换为正确的数据类型"><a href="#1-3-将数据转换为正确的数据类型" class="headerlink" title="1.3 将数据转换为正确的数据类型"></a>1.3 将数据转换为正确的数据类型</h3><p>将带有数字的列转换为数字数据类型，方法是将“Not Available”条目替换为可以解释为浮点数的<code>np.nan</code>。 然后我们将包含数值（例如$ft^2$或$kWh$）的列转换为数值数据类型。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 用np.nan替换所有的Not Available”</span></span><br><span class="line">data = data.replace(&#123;<span class="string">'Not Available'</span>: np.nan&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将应该为数值类型的列转换为数值类型</span></span><br><span class="line"><span class="keyword">for</span> col <span class="keyword">in</span> list(data.columns):</span><br><span class="line">    <span class="keyword">if</span> (<span class="string">'ft²'</span> <span class="keyword">in</span> col <span class="keyword">or</span> <span class="string">'kBtu'</span> <span class="keyword">in</span> col <span class="keyword">or</span> <span class="string">'Metric Tons CO2e'</span> <span class="keyword">in</span> col <span class="keyword">or</span> <span class="string">'kWh'</span> <span class="keyword">in</span> col <span class="keyword">or</span> <span class="string">'therms'</span> <span class="keyword">in</span> col <span class="keyword">or</span> <span class="string">'gal'</span> <span class="keyword">in</span> col <span class="keyword">or</span> <span class="string">'Score'</span> <span class="keyword">in</span> col):</span><br><span class="line">        data[col] = data[col].astype(float)</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 每一列的统计信息</span></span><br><span class="line">data.describe()</span><br></pre></td></tr></table></figure>
-<div><br><style scoped><br>    .dataframe tbody tr th:only-of-type {<br>        vertical-align: middle;<br>    }<br><br>    .dataframe tbody tr th {<br>        vertical-align: top;<br>    }<br><br>    .dataframe thead th {<br>        text-align: right;<br>    }<br></style><br><table border="1" class="dataframe"><br>  <thead><br>    <tr style="text-align: right;"><br>      <th></th><br>      <th>Order</th><br>      <th>Property Id</th><br>      <th>DOF Gross Floor Area</th><br>      <th>Largest Property Use Type - Gross Floor Area (ft²)</th><br>      <th>2nd Largest Property Use - Gross Floor Area (ft²)</th><br>      <th>3rd Largest Property Use Type - Gross Floor Area (ft²)</th><br>      <th>Year Built</th><br>      <th>Number of Buildings - Self-reported</th><br>      <th>Occupancy</th><br>      <th>ENERGY STAR Score</th><br>      <th>…</th><br>      <th>Indirect GHG Emissions (Metric Tons CO2e)</th><br>      <th>Property GFA - Self-Reported (ft²)</th><br>      <th>Water Use (All Water Sources) (kgal)</th><br>      <th>Water Intensity (All Water Sources) (gal/ft²)</th><br>      <th>Source EUI (kBtu/ft²)</th><br>      <th>Latitude</th><br>      <th>Longitude</th><br>      <th>Community Board</th><br>      <th>Council District</th><br>      <th>Census Tract</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <th>count</th><br>      <td>11746.000000</td><br>      <td>1.174600e+04</td><br>      <td>1.162800e+04</td><br>      <td>1.174400e+04</td><br>      <td>3741.000000</td><br>      <td>1484.000000</td><br>      <td>11746.000000</td><br>      <td>11746.000000</td><br>      <td>11746.000000</td><br>      <td>9642.000000</td><br>      <td>…</td><br>      <td>1.168100e+04</td><br>      <td>1.174600e+04</td><br>      <td>7.762000e+03</td><br>      <td>7762.000000</td><br>      <td>11583.000000</td><br>      <td>9483.000000</td><br>      <td>9483.000000</td><br>      <td>9483.000000</td><br>      <td>9483.000000</td><br>      <td>9483.000000</td><br>    </tr><br>    <tr><br>      <th>mean</th><br>      <td>7185.759578</td><br>      <td>3.642958e+06</td><br>      <td>1.732695e+05</td><br>      <td>1.605524e+05</td><br>      <td>22778.682010</td><br>      <td>12016.825270</td><br>      <td>1948.738379</td><br>      <td>1.289971</td><br>      <td>98.762557</td><br>      <td>59.854594</td><br>      <td>…</td><br>      <td>2.076339e+03</td><br>      <td>1.673739e+05</td><br>      <td>1.591798e+04</td><br>      <td>136.172432</td><br>      <td>385.908029</td><br>      <td>40.754379</td><br>      <td>-73.957057</td><br>      <td>7.140673</td><br>      <td>15.771275</td><br>      <td>4977.596647</td><br>    </tr><br>    <tr><br>      <th>std</th><br>      <td>4323.859984</td><br>      <td>1.049070e+06</td><br>      <td>3.367055e+05</td><br>      <td>3.095746e+05</td><br>      <td>55094.441422</td><br>      <td>27959.755486</td><br>      <td>30.576386</td><br>      <td>4.017484</td><br>      <td>7.501603</td><br>      <td>29.993586</td><br>      <td>…</td><br>      <td>5.931295e+04</td><br>      <td>3.189238e+05</td><br>      <td>1.529524e+05</td><br>      <td>1730.726938</td><br>      <td>9312.736225</td><br>      <td>0.080120</td><br>      <td>0.046337</td><br>      <td>3.954129</td><br>      <td>15.674375</td><br>      <td>13520.422990</td><br>    </tr><br>    <tr><br>      <th>min</th><br>      <td>1.000000</td><br>      <td>7.365000e+03</td><br>      <td>5.002800e+04</td><br>      <td>5.400000e+01</td><br>      <td>0.000000</td><br>      <td>0.000000</td><br>      <td>1600.000000</td><br>      <td>0.000000</td><br>      <td>0.000000</td><br>      <td>1.000000</td><br>      <td>…</td><br>      <td>-2.313430e+04</td><br>      <td>0.000000e+00</td><br>      <td>0.000000e+00</td><br>      <td>0.000000</td><br>      <td>0.000000</td><br>      <td>40.516065</td><br>      <td>-74.243582</td><br>      <td>1.000000</td><br>      <td>1.000000</td><br>      <td>1.000000</td><br>    </tr><br>    <tr><br>      <th>25%</th><br>      <td>3428.250000</td><br>      <td>2.747222e+06</td><br>      <td>6.524000e+04</td><br>      <td>6.520100e+04</td><br>      <td>4000.000000</td><br>      <td>1720.750000</td><br>      <td>1927.000000</td><br>      <td>1.000000</td><br>      <td>100.000000</td><br>      <td>37.000000</td><br>      <td>…</td><br>      <td>9.480000e+01</td><br>      <td>6.699400e+04</td><br>      <td>2.595400e+03</td><br>      <td>27.150000</td><br>      <td>99.400000</td><br>      <td>40.707226</td><br>      <td>-73.984662</td><br>      <td>4.000000</td><br>      <td>4.000000</td><br>      <td>100.000000</td><br>    </tr><br>    <tr><br>      <th>50%</th><br>      <td>6986.500000</td><br>      <td>3.236404e+06</td><br>      <td>9.313850e+04</td><br>      <td>9.132400e+04</td><br>      <td>8654.000000</td><br>      <td>5000.000000</td><br>      <td>1941.000000</td><br>      <td>1.000000</td><br>      <td>100.000000</td><br>      <td>65.000000</td><br>      <td>…</td><br>      <td>1.718000e+02</td><br>      <td>9.408000e+04</td><br>      <td>4.692500e+03</td><br>      <td>45.095000</td><br>      <td>124.900000</td><br>      <td>40.759130</td><br>      <td>-73.962810</td><br>      <td>7.000000</td><br>      <td>9.000000</td><br>      <td>201.000000</td><br>    </tr><br>    <tr><br>      <th>75%</th><br>      <td>11054.500000</td><br>      <td>4.409092e+06</td><br>      <td>1.596140e+05</td><br>      <td>1.532550e+05</td><br>      <td>20000.000000</td><br>      <td>12000.000000</td><br>      <td>1966.000000</td><br>      <td>1.000000</td><br>      <td>100.000000</td><br>      <td>85.000000</td><br>      <td>…</td><br>      <td>4.249000e+02</td><br>      <td>1.584140e+05</td><br>      <td>8.031875e+03</td><br>      <td>70.805000</td><br>      <td>162.750000</td><br>      <td>40.817623</td><br>      <td>-73.932443</td><br>      <td>9.000000</td><br>      <td>33.000000</td><br>      <td>531.500000</td><br>    </tr><br>    <tr><br>      <th>max</th><br>      <td>14993.000000</td><br>      <td>5.991312e+06</td><br>      <td>1.354011e+07</td><br>      <td>1.421712e+07</td><br>      <td>962428.000000</td><br>      <td>591640.000000</td><br>      <td>2019.000000</td><br>      <td>161.000000</td><br>      <td>100.000000</td><br>      <td>100.000000</td><br>      <td>…</td><br>      <td>4.764375e+06</td><br>      <td>1.421712e+07</td><br>      <td>6.594604e+06</td><br>      <td>96305.690000</td><br>      <td>912801.100000</td><br>      <td>40.912869</td><br>      <td>-73.715543</td><br>      <td>56.000000</td><br>      <td>51.000000</td><br>      <td>155101.000000</td><br>    </tr><br>  </tbody><br></table><br><p>8 rows × 37 columns</p><br></div>
+<!--comment will not be seen.
 
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order</th>
+      <th>Property Id</th>
+      <th>DOF Gross Floor Area</th>
+      <th>Largest Property Use Type - Gross Floor Area (ft²)</th>
+      <th>2nd Largest Property Use - Gross Floor Area (ft²)</th>
+      <th>3rd Largest Property Use Type - Gross Floor Area (ft²)</th>
+      <th>Year Built</th>
+      <th>Number of Buildings - Self-reported</th>
+      <th>Occupancy</th>
+      <th>ENERGY STAR Score</th>
+      <th>...</th>
+      <th>Indirect GHG Emissions (Metric Tons CO2e)</th>
+      <th>Property GFA - Self-Reported (ft²)</th>
+      <th>Water Use (All Water Sources) (kgal)</th>
+      <th>Water Intensity (All Water Sources) (gal/ft²)</th>
+      <th>Source EUI (kBtu/ft²)</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Community Board</th>
+      <th>Council District</th>
+      <th>Census Tract</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>11746.000000</td>
+      <td>1.174600e+04</td>
+      <td>1.162800e+04</td>
+      <td>1.174400e+04</td>
+      <td>3741.000000</td>
+      <td>1484.000000</td>
+      <td>11746.000000</td>
+      <td>11746.000000</td>
+      <td>11746.000000</td>
+      <td>9642.000000</td>
+      <td>...</td>
+      <td>1.168100e+04</td>
+      <td>1.174600e+04</td>
+      <td>7.762000e+03</td>
+      <td>7762.000000</td>
+      <td>11583.000000</td>
+      <td>9483.000000</td>
+      <td>9483.000000</td>
+      <td>9483.000000</td>
+      <td>9483.000000</td>
+      <td>9483.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>7185.759578</td>
+      <td>3.642958e+06</td>
+      <td>1.732695e+05</td>
+      <td>1.605524e+05</td>
+      <td>22778.682010</td>
+      <td>12016.825270</td>
+      <td>1948.738379</td>
+      <td>1.289971</td>
+      <td>98.762557</td>
+      <td>59.854594</td>
+      <td>...</td>
+      <td>2.076339e+03</td>
+      <td>1.673739e+05</td>
+      <td>1.591798e+04</td>
+      <td>136.172432</td>
+      <td>385.908029</td>
+      <td>40.754379</td>
+      <td>-73.957057</td>
+      <td>7.140673</td>
+      <td>15.771275</td>
+      <td>4977.596647</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>4323.859984</td>
+      <td>1.049070e+06</td>
+      <td>3.367055e+05</td>
+      <td>3.095746e+05</td>
+      <td>55094.441422</td>
+      <td>27959.755486</td>
+      <td>30.576386</td>
+      <td>4.017484</td>
+      <td>7.501603</td>
+      <td>29.993586</td>
+      <td>...</td>
+      <td>5.931295e+04</td>
+      <td>3.189238e+05</td>
+      <td>1.529524e+05</td>
+      <td>1730.726938</td>
+      <td>9312.736225</td>
+      <td>0.080120</td>
+      <td>0.046337</td>
+      <td>3.954129</td>
+      <td>15.674375</td>
+      <td>13520.422990</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.000000</td>
+      <td>7.365000e+03</td>
+      <td>5.002800e+04</td>
+      <td>5.400000e+01</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1600.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>...</td>
+      <td>-2.313430e+04</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>40.516065</td>
+      <td>-74.243582</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>3428.250000</td>
+      <td>2.747222e+06</td>
+      <td>6.524000e+04</td>
+      <td>6.520100e+04</td>
+      <td>4000.000000</td>
+      <td>1720.750000</td>
+      <td>1927.000000</td>
+      <td>1.000000</td>
+      <td>100.000000</td>
+      <td>37.000000</td>
+      <td>...</td>
+      <td>9.480000e+01</td>
+      <td>6.699400e+04</td>
+      <td>2.595400e+03</td>
+      <td>27.150000</td>
+      <td>99.400000</td>
+      <td>40.707226</td>
+      <td>-73.984662</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>100.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>6986.500000</td>
+      <td>3.236404e+06</td>
+      <td>9.313850e+04</td>
+      <td>9.132400e+04</td>
+      <td>8654.000000</td>
+      <td>5000.000000</td>
+      <td>1941.000000</td>
+      <td>1.000000</td>
+      <td>100.000000</td>
+      <td>65.000000</td>
+      <td>...</td>
+      <td>1.718000e+02</td>
+      <td>9.408000e+04</td>
+      <td>4.692500e+03</td>
+      <td>45.095000</td>
+      <td>124.900000</td>
+      <td>40.759130</td>
+      <td>-73.962810</td>
+      <td>7.000000</td>
+      <td>9.000000</td>
+      <td>201.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>11054.500000</td>
+      <td>4.409092e+06</td>
+      <td>1.596140e+05</td>
+      <td>1.532550e+05</td>
+      <td>20000.000000</td>
+      <td>12000.000000</td>
+      <td>1966.000000</td>
+      <td>1.000000</td>
+      <td>100.000000</td>
+      <td>85.000000</td>
+      <td>...</td>
+      <td>4.249000e+02</td>
+      <td>1.584140e+05</td>
+      <td>8.031875e+03</td>
+      <td>70.805000</td>
+      <td>162.750000</td>
+      <td>40.817623</td>
+      <td>-73.932443</td>
+      <td>9.000000</td>
+      <td>33.000000</td>
+      <td>531.500000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>14993.000000</td>
+      <td>5.991312e+06</td>
+      <td>1.354011e+07</td>
+      <td>1.421712e+07</td>
+      <td>962428.000000</td>
+      <td>591640.000000</td>
+      <td>2019.000000</td>
+      <td>161.000000</td>
+      <td>100.000000</td>
+      <td>100.000000</td>
+      <td>...</td>
+      <td>4.764375e+06</td>
+      <td>1.421712e+07</td>
+      <td>6.594604e+06</td>
+      <td>96305.690000</td>
+      <td>912801.100000</td>
+      <td>40.912869</td>
+      <td>-73.715543</td>
+      <td>56.000000</td>
+      <td>51.000000</td>
+      <td>155101.000000</td>
+    </tr>
+  </tbody>
+</table>
+<p>8 rows × 37 columns</p>
+</div>
+
+-->
 <h3 id="1-4-缺失值处理"><a href="#1-4-缺失值处理" class="headerlink" title="1.4 缺失值处理"></a>1.4 缺失值处理</h3><p>现在我们有了正确的列数据类型，我们可以通过查看每列中缺失值的百分比来开始分析。 当我们进行探索性数据分析时，需要计算缺失值的数量以及每列缺少的总值的百分比。处理方式参考<a href="https://stackoverflow.com/a/39734251" target="_blank" rel="noopener">Stack Overflow forum</a>的函数。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 计算每一列中缺失值占比</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">missing_values_table</span><span class="params">(df)</span>:</span></span><br><span class="line">        <span class="comment"># 计算总的缺失值         </span></span><br><span class="line">        mis_val = df.isnull().sum()</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 计算缺失值的百分比</span></span><br><span class="line">        mis_val_percent = <span class="number">100</span> * df.isnull().sum() / len(df)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 保存缺失值信息的表格         </span></span><br><span class="line">        mis_val_table = pd.concat([mis_val, mis_val_percent], axis=<span class="number">1</span>)</span><br><span class="line">        <span class="comment"># 列重命名         </span></span><br><span class="line">        mis_val_table_ren_columns = mis_val_table.rename(</span><br><span class="line">        columns = &#123;<span class="number">0</span> : <span class="string">'Missing Values'</span>, <span class="number">1</span> : <span class="string">'% of Total Values'</span>&#125;)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 缺失值比例按列降序         </span></span><br><span class="line">        mis_val_table_ren_columns = mis_val_table_ren_columns[</span><br><span class="line">            mis_val_table_ren_columns.iloc[:,<span class="number">1</span>] != <span class="number">0</span>].sort_values(</span><br><span class="line">        <span class="string">'% of Total Values'</span>, ascending=<span class="keyword">False</span>).round(<span class="number">1</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 打印总结信息         </span></span><br><span class="line">        <span class="keyword">print</span> (<span class="string">"Your selected dataframe has "</span> + str(df.shape[<span class="number">1</span>]) + <span class="string">" columns.\n"</span>      </span><br><span class="line">            <span class="string">"There are "</span> + str(mis_val_table_ren_columns.shape[<span class="number">0</span>]) +</span><br><span class="line">              <span class="string">" columns that have missing values."</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 返回各列缺失值占比信息         </span></span><br><span class="line">        <span class="keyword">return</span> mis_val_table_ren_columns</span><br><span class="line"></span><br><span class="line"><span class="comment"># 调用函数</span></span><br><span class="line">missing_values_table(data)</span><br></pre></td></tr></table></figure>
 <pre><code>Your selected dataframe has 60 columns.
 There are 46 columns that have missing values.
-</code></pre><div><br><style scoped><br>    .dataframe tbody tr th:only-of-type {<br>        vertical-align: middle;<br>    }<br><br>    .dataframe tbody tr th {<br>        vertical-align: top;<br>    }<br><br>    .dataframe thead th {<br>        text-align: right;<br>    }<br></style><br><table border="1" class="dataframe"><br>  <thead><br>    <tr style="text-align: right;"><br>      <th></th><br>      <th>Missing Values</th><br>      <th>% of Total Values</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <th>Fuel Oil #1 Use (kBtu)</th><br>      <td>11737</td><br>      <td>99.9</td><br>    </tr><br>    <tr><br>      <th>Diesel #2 Use (kBtu)</th><br>      <td>11730</td><br>      <td>99.9</td><br>    </tr><br>    <tr><br>      <th>Address 2</th><br>      <td>11539</td><br>      <td>98.2</td><br>    </tr><br>    <tr><br>      <th>Fuel Oil #5 &amp; 6 Use (kBtu)</th><br>      <td>11152</td><br>      <td>94.9</td><br>    </tr><br>    <tr><br>      <th>District Steam Use (kBtu)</th><br>      <td>10810</td><br>      <td>92.0</td><br>    </tr><br>    <tr><br>      <th>Fuel Oil #4 Use (kBtu)</th><br>      <td>10425</td><br>      <td>88.8</td><br>    </tr><br>    <tr><br>      <th>3rd Largest Property Use Type - Gross Floor Area (ft²)</th><br>      <td>10262</td><br>      <td>87.4</td><br>    </tr><br>    <tr><br>      <th>3rd Largest Property Use Type</th><br>      <td>10262</td><br>      <td>87.4</td><br>    </tr><br>    <tr><br>      <th>Fuel Oil #2 Use (kBtu)</th><br>      <td>9165</td><br>      <td>78.0</td><br>    </tr><br>    <tr><br>      <th>2nd Largest Property Use Type</th><br>      <td>8005</td><br>      <td>68.2</td><br>    </tr><br>    <tr><br>      <th>2nd Largest Property Use - Gross Floor Area (ft²)</th><br>      <td>8005</td><br>      <td>68.2</td><br>    </tr><br>    <tr><br>      <th>Metered Areas  (Water)</th><br>      <td>4609</td><br>      <td>39.2</td><br>    </tr><br>    <tr><br>      <th>Water Intensity (All Water Sources) (gal/ft²)</th><br>      <td>3984</td><br>      <td>33.9</td><br>    </tr><br>    <tr><br>      <th>Water Use (All Water Sources) (kgal)</th><br>      <td>3984</td><br>      <td>33.9</td><br>    </tr><br>    <tr><br>      <th>Latitude</th><br>      <td>2263</td><br>      <td>19.3</td><br>    </tr><br>    <tr><br>      <th>Longitude</th><br>      <td>2263</td><br>      <td>19.3</td><br>    </tr><br>    <tr><br>      <th>Community Board</th><br>      <td>2263</td><br>      <td>19.3</td><br>    </tr><br>    <tr><br>      <th>Council District</th><br>      <td>2263</td><br>      <td>19.3</td><br>    </tr><br>    <tr><br>      <th>Census Tract</th><br>      <td>2263</td><br>      <td>19.3</td><br>    </tr><br>    <tr><br>      <th>NTA</th><br>      <td>2263</td><br>      <td>19.3</td><br>    </tr><br>    <tr><br>      <th>ENERGY STAR Score</th><br>      <td>2104</td><br>      <td>17.9</td><br>    </tr><br>    <tr><br>      <th>Weather Normalized Site Natural Gas Intensity (therms/ft²)</th><br>      <td>1963</td><br>      <td>16.7</td><br>    </tr><br>    <tr><br>      <th>Weather Normalized Site Natural Gas Use (therms)</th><br>      <td>1962</td><br>      <td>16.7</td><br>    </tr><br>    <tr><br>      <th>Weather Normalized Source EUI (kBtu/ft²)</th><br>      <td>1465</td><br>      <td>12.5</td><br>    </tr><br>    <tr><br>      <th>Weather Normalized Site EUI (kBtu/ft²)</th><br>      <td>1465</td><br>      <td>12.5</td><br>    </tr><br>    <tr><br>      <th>Natural Gas Use (kBtu)</th><br>      <td>1442</td><br>      <td>12.3</td><br>    </tr><br>    <tr><br>      <th>Weather Normalized Site Electricity Intensity (kWh/ft²)</th><br>      <td>787</td><br>      <td>6.7</td><br>    </tr><br>    <tr><br>      <th>Weather Normalized Site Electricity (kWh)</th><br>      <td>786</td><br>      <td>6.7</td><br>    </tr><br>    <tr><br>      <th>Electricity Use - Grid Purchase (kBtu)</th><br>      <td>244</td><br>      <td>2.1</td><br>    </tr><br>    <tr><br>      <th>Site EUI (kBtu/ft²)</th><br>      <td>163</td><br>      <td>1.4</td><br>    </tr><br>    <tr><br>      <th>Source EUI (kBtu/ft²)</th><br>      <td>163</td><br>      <td>1.4</td><br>    </tr><br>    <tr><br>      <th>NYC Building Identification Number (BIN)</th><br>      <td>162</td><br>      <td>1.4</td><br>    </tr><br>    <tr><br>      <th>Street Number</th><br>      <td>124</td><br>      <td>1.1</td><br>    </tr><br>    <tr><br>      <th>Street Name</th><br>      <td>122</td><br>      <td>1.0</td><br>    </tr><br>    <tr><br>      <th>Borough</th><br>      <td>118</td><br>      <td>1.0</td><br>    </tr><br>    <tr><br>      <th>DOF Gross Floor Area</th><br>      <td>118</td><br>      <td>1.0</td><br>    </tr><br>    <tr><br>      <th>Water Required?</th><br>      <td>118</td><br>      <td>1.0</td><br>    </tr><br>    <tr><br>      <th>Direct GHG Emissions (Metric Tons CO2e)</th><br>      <td>83</td><br>      <td>0.7</td><br>    </tr><br>    <tr><br>      <th>Total GHG Emissions (Metric Tons CO2e)</th><br>      <td>74</td><br>      <td>0.6</td><br>    </tr><br>    <tr><br>      <th>Indirect GHG Emissions (Metric Tons CO2e)</th><br>      <td>65</td><br>      <td>0.6</td><br>    </tr><br>    <tr><br>      <th>Metered Areas (Energy)</th><br>      <td>57</td><br>      <td>0.5</td><br>    </tr><br>    <tr><br>      <th>DOF Benchmarking Submission Status</th><br>      <td>30</td><br>      <td>0.3</td><br>    </tr><br>    <tr><br>      <th>NYC Borough, Block and Lot (BBL) self-reported</th><br>      <td>11</td><br>      <td>0.1</td><br>    </tr><br>    <tr><br>      <th>BBL - 10 digits</th><br>      <td>11</td><br>      <td>0.1</td><br>    </tr><br>    <tr><br>      <th>Largest Property Use Type</th><br>      <td>2</td><br>      <td>0.0</td><br>    </tr><br>    <tr><br>      <th>Largest Property Use Type - Gross Floor Area (ft²)</th><br>      <td>2</td><br>      <td>0.0</td><br>    </tr><br>  </tbody><br></table><br></div>
+</code></pre><!--comment will not be seen.
 
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Missing Values</th>
+      <th>% of Total Values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Fuel Oil #1 Use (kBtu)</th>
+      <td>11737</td>
+      <td>99.9</td>
+    </tr>
+    <tr>
+      <th>Diesel #2 Use (kBtu)</th>
+      <td>11730</td>
+      <td>99.9</td>
+    </tr>
+    <tr>
+      <th>Address 2</th>
+      <td>11539</td>
+      <td>98.2</td>
+    </tr>
+    <tr>
+      <th>Fuel Oil #5 &amp; 6 Use (kBtu)</th>
+      <td>11152</td>
+      <td>94.9</td>
+    </tr>
+    <tr>
+      <th>District Steam Use (kBtu)</th>
+      <td>10810</td>
+      <td>92.0</td>
+    </tr>
+    <tr>
+      <th>Fuel Oil #4 Use (kBtu)</th>
+      <td>10425</td>
+      <td>88.8</td>
+    </tr>
+    <tr>
+      <th>3rd Largest Property Use Type - Gross Floor Area (ft²)</th>
+      <td>10262</td>
+      <td>87.4</td>
+    </tr>
+    <tr>
+      <th>3rd Largest Property Use Type</th>
+      <td>10262</td>
+      <td>87.4</td>
+    </tr>
+    <tr>
+      <th>Fuel Oil #2 Use (kBtu)</th>
+      <td>9165</td>
+      <td>78.0</td>
+    </tr>
+    <tr>
+      <th>2nd Largest Property Use Type</th>
+      <td>8005</td>
+      <td>68.2</td>
+    </tr>
+    <tr>
+      <th>2nd Largest Property Use - Gross Floor Area (ft²)</th>
+      <td>8005</td>
+      <td>68.2</td>
+    </tr>
+    <tr>
+      <th>Metered Areas  (Water)</th>
+      <td>4609</td>
+      <td>39.2</td>
+    </tr>
+    <tr>
+      <th>Water Intensity (All Water Sources) (gal/ft²)</th>
+      <td>3984</td>
+      <td>33.9</td>
+    </tr>
+    <tr>
+      <th>Water Use (All Water Sources) (kgal)</th>
+      <td>3984</td>
+      <td>33.9</td>
+    </tr>
+    <tr>
+      <th>Latitude</th>
+      <td>2263</td>
+      <td>19.3</td>
+    </tr>
+    <tr>
+      <th>Longitude</th>
+      <td>2263</td>
+      <td>19.3</td>
+    </tr>
+    <tr>
+      <th>Community Board</th>
+      <td>2263</td>
+      <td>19.3</td>
+    </tr>
+    <tr>
+      <th>Council District</th>
+      <td>2263</td>
+      <td>19.3</td>
+    </tr>
+    <tr>
+      <th>Census Tract</th>
+      <td>2263</td>
+      <td>19.3</td>
+    </tr>
+    <tr>
+      <th>NTA</th>
+      <td>2263</td>
+      <td>19.3</td>
+    </tr>
+    <tr>
+      <th>ENERGY STAR Score</th>
+      <td>2104</td>
+      <td>17.9</td>
+    </tr>
+    <tr>
+      <th>Weather Normalized Site Natural Gas Intensity (therms/ft²)</th>
+      <td>1963</td>
+      <td>16.7</td>
+    </tr>
+    <tr>
+      <th>Weather Normalized Site Natural Gas Use (therms)</th>
+      <td>1962</td>
+      <td>16.7</td>
+    </tr>
+    <tr>
+      <th>Weather Normalized Source EUI (kBtu/ft²)</th>
+      <td>1465</td>
+      <td>12.5</td>
+    </tr>
+    <tr>
+      <th>Weather Normalized Site EUI (kBtu/ft²)</th>
+      <td>1465</td>
+      <td>12.5</td>
+    </tr>
+    <tr>
+      <th>Natural Gas Use (kBtu)</th>
+      <td>1442</td>
+      <td>12.3</td>
+    </tr>
+    <tr>
+      <th>Weather Normalized Site Electricity Intensity (kWh/ft²)</th>
+      <td>787</td>
+      <td>6.7</td>
+    </tr>
+    <tr>
+      <th>Weather Normalized Site Electricity (kWh)</th>
+      <td>786</td>
+      <td>6.7</td>
+    </tr>
+    <tr>
+      <th>Electricity Use - Grid Purchase (kBtu)</th>
+      <td>244</td>
+      <td>2.1</td>
+    </tr>
+    <tr>
+      <th>Site EUI (kBtu/ft²)</th>
+      <td>163</td>
+      <td>1.4</td>
+    </tr>
+    <tr>
+      <th>Source EUI (kBtu/ft²)</th>
+      <td>163</td>
+      <td>1.4</td>
+    </tr>
+    <tr>
+      <th>NYC Building Identification Number (BIN)</th>
+      <td>162</td>
+      <td>1.4</td>
+    </tr>
+    <tr>
+      <th>Street Number</th>
+      <td>124</td>
+      <td>1.1</td>
+    </tr>
+    <tr>
+      <th>Street Name</th>
+      <td>122</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Borough</th>
+      <td>118</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>DOF Gross Floor Area</th>
+      <td>118</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Water Required?</th>
+      <td>118</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Direct GHG Emissions (Metric Tons CO2e)</th>
+      <td>83</td>
+      <td>0.7</td>
+    </tr>
+    <tr>
+      <th>Total GHG Emissions (Metric Tons CO2e)</th>
+      <td>74</td>
+      <td>0.6</td>
+    </tr>
+    <tr>
+      <th>Indirect GHG Emissions (Metric Tons CO2e)</th>
+      <td>65</td>
+      <td>0.6</td>
+    </tr>
+    <tr>
+      <th>Metered Areas (Energy)</th>
+      <td>57</td>
+      <td>0.5</td>
+    </tr>
+    <tr>
+      <th>DOF Benchmarking Submission Status</th>
+      <td>30</td>
+      <td>0.3</td>
+    </tr>
+    <tr>
+      <th>NYC Borough, Block and Lot (BBL) self-reported</th>
+      <td>11</td>
+      <td>0.1</td>
+    </tr>
+    <tr>
+      <th>BBL - 10 digits</th>
+      <td>11</td>
+      <td>0.1</td>
+    </tr>
+    <tr>
+      <th>Largest Property Use Type</th>
+      <td>2</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Largest Property Use Type - Gross Floor Area (ft²)</th>
+      <td>2</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+-->
 <p>根据前面的data.shape可知数据集里一共有11746个实例。我们可以看到我们的目标<code>ENERGY STAR Score</code>能源之星得分有2104个缺失值，占比17.9%，非缺失值有9642个。</p>
 <p>虽然我们尽量不能丢失信息，但如果列的丢失值占比很高，那么它可能对结果预测没什么帮助。要保留哪些列在<a href="https://discuss.analyticsvidhya.com/t/what-should-be-the-allowed-percentage-of-missing-values/2456" target="_blank" rel="noopener">这里</a>有一些讨论，本项目中，我们将删除缺失值超过50％的列。一般来说，要特别小心丢弃任何特征，因为即使有一些缺失值，该特征仍然有可能对于预测目标值有帮助。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获得缺失值大于50%的列</span></span><br><span class="line">missing_df = missing_values_table(data)</span><br><span class="line">missing_columns = list(missing_df[missing_df[<span class="string">'% of Total Values'</span>] &gt; <span class="number">50</span>].index)</span><br><span class="line">print(<span class="string">'We will remove %d columns.'</span> % len(missing_columns))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除缺失值大于50%的列</span></span><br><span class="line">data = data.drop(columns = list(missing_columns))</span><br></pre></td></tr></table></figure>
@@ -817,10 +1311,80 @@ Name: Site EUI (kBtu/ft²), dtype: float64
 Name: Site EUI (kBtu/ft²), dtype: float64
 </code></pre><p>其中一栋建筑的EUI远高于其他的，我们看一下这个建筑。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.loc[data[<span class="string">'Site EUI (kBtu/ft²)'</span>] == <span class="number">869265.0</span>, :]</span><br></pre></td></tr></table></figure>
-<div><br><style scoped><br>    .dataframe tbody tr th:only-of-type {<br>        vertical-align: middle;<br>    }<br><br>    .dataframe tbody tr th {<br>        vertical-align: top;<br>    }<br><br>    .dataframe thead th {<br>        text-align: right;<br>    }<br></style><br><table border="1" class="dataframe"><br>  <thead><br>    <tr style="text-align: right;"><br>      <th></th><br>      <th>Order</th><br>      <th>Property Id</th><br>      <th>Property Name</th><br>      <th>Parent Property Id</th><br>      <th>Parent Property Name</th><br>      <th>BBL - 10 digits</th><br>      <th>NYC Borough, Block and Lot (BBL) self-reported</th><br>      <th>NYC Building Identification Number (BIN)</th><br>      <th>Address 1 (self-reported)</th><br>      <th>Postal Code</th><br>      <th>…</th><br>      <th>Source EUI (kBtu/ft²)</th><br>      <th>Release Date</th><br>      <th>Water Required?</th><br>      <th>DOF Benchmarking Submission Status</th><br>      <th>Latitude</th><br>      <th>Longitude</th><br>      <th>Community Board</th><br>      <th>Council District</th><br>      <th>Census Tract</th><br>      <th>NTA</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <th>8068</th><br>      <td>9984</td><br>      <td>4414323</td><br>      <td>234 Skillman</td><br>      <td>Not Applicable: Standalone Property</td><br>      <td>Not Applicable: Standalone Property</td><br>      <td>3028937502</td><br>      <td>3028937502</td><br>      <td>3390250 , 3338313</td><br>      <td>234 Skillman avenue</td><br>      <td>11211</td><br>      <td>…</td><br>      <td>912801.1</td><br>      <td>05/01/2017 11:34:14 PM</td><br>      <td>NaN</td><br>      <td>In Compliance</td><br>      <td>40.716233</td><br>      <td>-73.94141</td><br>      <td>1.0</td><br>      <td>34.0</td><br>      <td>477.0</td><br>      <td>East Williamsburg                             …</td><br>    </tr><br>  </tbody><br></table><br><p>1 rows × 49 columns</p><br></div>
+<!--comment will not be seen.
 
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order</th>
+      <th>Property Id</th>
+      <th>Property Name</th>
+      <th>Parent Property Id</th>
+      <th>Parent Property Name</th>
+      <th>BBL - 10 digits</th>
+      <th>NYC Borough, Block and Lot (BBL) self-reported</th>
+      <th>NYC Building Identification Number (BIN)</th>
+      <th>Address 1 (self-reported)</th>
+      <th>Postal Code</th>
+      <th>...</th>
+      <th>Source EUI (kBtu/ft²)</th>
+      <th>Release Date</th>
+      <th>Water Required?</th>
+      <th>DOF Benchmarking Submission Status</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Community Board</th>
+      <th>Council District</th>
+      <th>Census Tract</th>
+      <th>NTA</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>8068</th>
+      <td>9984</td>
+      <td>4414323</td>
+      <td>234 Skillman</td>
+      <td>Not Applicable: Standalone Property</td>
+      <td>Not Applicable: Standalone Property</td>
+      <td>3028937502</td>
+      <td>3028937502</td>
+      <td>3390250 , 3338313</td>
+      <td>234 Skillman avenue</td>
+      <td>11211</td>
+      <td>...</td>
+      <td>912801.1</td>
+      <td>05/01/2017 11:34:14 PM</td>
+      <td>NaN</td>
+      <td>In Compliance</td>
+      <td>40.716233</td>
+      <td>-73.94141</td>
+      <td>1.0</td>
+      <td>34.0</td>
+      <td>477.0</td>
+      <td>East Williamsburg                             ...</td>
+    </tr>
+  </tbody>
+</table>
+<p>1 rows × 49 columns</p>
+</div>
+
+-->
 <p><a href="https://www.itl.nist.gov/div898/handbook/prc/section1/prc16.htm" target="_blank" rel="noopener">异常值</a>可能由于多种原因发生：</p>
 <ul>
 <li>拼写错误</li>
@@ -1283,10 +1847,344 @@ Testing Feature Size: (2839, 64)
 Testing Labels Size: (2839, 1)
 </code></pre><p>这是格式化后的数据。 在前文，我们对数值特征进行了对数变换，对两个类别特征进行独热编码，并通过删除高共线特征来选择特征子集。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">train_features.head(<span class="number">12</span>)</span><br></pre></td></tr></table></figure>
-<div><br><style scoped><br>    .dataframe tbody tr th:only-of-type {<br>        vertical-align: middle;<br>    }<br><br>    .dataframe tbody tr th {<br>        vertical-align: top;<br>    }<br><br>    .dataframe thead th {<br>        text-align: right;<br>    }<br></style><br><table border="1" class="dataframe"><br>  <thead><br>    <tr style="text-align: right;"><br>      <th></th><br>      <th>Order</th><br>      <th>Property Id</th><br>      <th>DOF Gross Floor Area</th><br>      <th>Year Built</th><br>      <th>Number of Buildings - Self-reported</th><br>      <th>Occupancy</th><br>      <th>Site EUI (kBtu/ft²)</th><br>      <th>Weather Normalized Site Electricity Intensity (kWh/ft²)</th><br>      <th>Weather Normalized Site Natural Gas Intensity (therms/ft²)</th><br>      <th>Water Intensity (All Water Sources) (gal/ft²)</th><br>      <th>…</th><br>      <th>Largest Property Use Type_Restaurant</th><br>      <th>Largest Property Use Type_Retail Store</th><br>      <th>Largest Property Use Type_Self-Storage Facility</th><br>      <th>Largest Property Use Type_Senior Care Community</th><br>      <th>Largest Property Use Type_Social/Meeting Hall</th><br>      <th>Largest Property Use Type_Strip Mall</th><br>      <th>Largest Property Use Type_Supermarket/Grocery Store</th><br>      <th>Largest Property Use Type_Urgent Care/Clinic/Other Outpatient</th><br>      <th>Largest Property Use Type_Wholesale Club/Supercenter</th><br>      <th>Largest Property Use Type_Worship Facility</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <th>0</th><br>      <td>13276</td><br>      <td>5849784</td><br>      <td>90300.0</td><br>      <td>1950</td><br>      <td>1</td><br>      <td>100</td><br>      <td>126.0</td><br>      <td>5.2</td><br>      <td>1.2</td><br>      <td>99.41</td><br>      <td>…</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>    </tr><br>    <tr><br>      <th>1</th><br>      <td>7377</td><br>      <td>4398442</td><br>      <td>52000.0</td><br>      <td>1926</td><br>      <td>1</td><br>      <td>100</td><br>      <td>95.4</td><br>      <td>4.7</td><br>      <td>0.9</td><br>      <td>NaN</td><br>      <td>…</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>    </tr><br>    <tr><br>      <th>2</th><br>      <td>9479</td><br>      <td>4665374</td><br>      <td>104700.0</td><br>      <td>1954</td><br>      <td>1</td><br>      <td>100</td><br>      <td>40.4</td><br>      <td>3.8</td><br>      <td>0.3</td><br>      <td>NaN</td><br>      <td>…</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>    </tr><br>    <tr><br>      <th>3</th><br>      <td>14774</td><br>      <td>3393340</td><br>      <td>129333.0</td><br>      <td>1992</td><br>      <td>1</td><br>      <td>100</td><br>      <td>157.1</td><br>      <td>16.9</td><br>      <td>1.1</td><br>      <td>NaN</td><br>      <td>…</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>1</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>    </tr><br>    <tr><br>      <th>4</th><br>      <td>3286</td><br>      <td>2704325</td><br>      <td>109896.0</td><br>      <td>1927</td><br>      <td>1</td><br>      <td>100</td><br>      <td>62.3</td><br>      <td>3.5</td><br>      <td>0.0</td><br>      <td>28.65</td><br>      <td>…</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>    </tr><br>    <tr><br>      <th>5</th><br>      <td>1060</td><br>      <td>2430725</td><br>      <td>182655.0</td><br>      <td>1929</td><br>      <td>1</td><br>      <td>90</td><br>      <td>52.9</td><br>      <td>9.7</td><br>      <td>0.2</td><br>      <td>4.80</td><br>      <td>…</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>    </tr><br>    <tr><br>      <th>6</th><br>      <td>10846</td><br>      <td>5737475</td><br>      <td>65400.0</td><br>      <td>1942</td><br>      <td>1</td><br>      <td>100</td><br>      <td>66.8</td><br>      <td>3.0</td><br>      <td>0.6</td><br>      <td>67.14</td><br>      <td>…</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>    </tr><br>    <tr><br>      <th>7</th><br>      <td>4280</td><br>      <td>2670505</td><br>      <td>113150.0</td><br>      <td>1938</td><br>      <td>1</td><br>      <td>100</td><br>      <td>78.4</td><br>      <td>5.7</td><br>      <td>NaN</td><br>      <td>30.73</td><br>      <td>…</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>    </tr><br>    <tr><br>      <th>8</th><br>      <td>12974</td><br>      <td>2964670</td><br>      <td>137700.0</td><br>      <td>1959</td><br>      <td>1</td><br>      <td>100</td><br>      <td>63.0</td><br>      <td>3.4</td><br>      <td>0.5</td><br>      <td>41.96</td><br>      <td>…</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>    </tr><br>    <tr><br>      <th>9</th><br>      <td>13244</td><br>      <td>4414693</td><br>      <td>63693.0</td><br>      <td>1941</td><br>      <td>1</td><br>      <td>100</td><br>      <td>97.8</td><br>      <td>4.3</td><br>      <td>0.8</td><br>      <td>86.88</td><br>      <td>…</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>    </tr><br>    <tr><br>      <th>10</th><br>      <td>3903</td><br>      <td>2669664</td><br>      <td>82644.0</td><br>      <td>1922</td><br>      <td>1</td><br>      <td>100</td><br>      <td>55.4</td><br>      <td>4.5</td><br>      <td>0.0</td><br>      <td>NaN</td><br>      <td>…</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>    </tr><br>    <tr><br>      <th>11</th><br>      <td>8336</td><br>      <td>2809354</td><br>      <td>51317.0</td><br>      <td>1925</td><br>      <td>1</td><br>      <td>100</td><br>      <td>118.7</td><br>      <td>3.6</td><br>      <td>1.1</td><br>      <td>NaN</td><br>      <td>…</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>    </tr><br>  </tbody><br></table><br><p>12 rows × 64 columns</p><br></div>
+<!--comment will not be seen.
 
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Order</th>
+      <th>Property Id</th>
+      <th>DOF Gross Floor Area</th>
+      <th>Year Built</th>
+      <th>Number of Buildings - Self-reported</th>
+      <th>Occupancy</th>
+      <th>Site EUI (kBtu/ft²)</th>
+      <th>Weather Normalized Site Electricity Intensity (kWh/ft²)</th>
+      <th>Weather Normalized Site Natural Gas Intensity (therms/ft²)</th>
+      <th>Water Intensity (All Water Sources) (gal/ft²)</th>
+      <th>...</th>
+      <th>Largest Property Use Type_Restaurant</th>
+      <th>Largest Property Use Type_Retail Store</th>
+      <th>Largest Property Use Type_Self-Storage Facility</th>
+      <th>Largest Property Use Type_Senior Care Community</th>
+      <th>Largest Property Use Type_Social/Meeting Hall</th>
+      <th>Largest Property Use Type_Strip Mall</th>
+      <th>Largest Property Use Type_Supermarket/Grocery Store</th>
+      <th>Largest Property Use Type_Urgent Care/Clinic/Other Outpatient</th>
+      <th>Largest Property Use Type_Wholesale Club/Supercenter</th>
+      <th>Largest Property Use Type_Worship Facility</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>13276</td>
+      <td>5849784</td>
+      <td>90300.0</td>
+      <td>1950</td>
+      <td>1</td>
+      <td>100</td>
+      <td>126.0</td>
+      <td>5.2</td>
+      <td>1.2</td>
+      <td>99.41</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>7377</td>
+      <td>4398442</td>
+      <td>52000.0</td>
+      <td>1926</td>
+      <td>1</td>
+      <td>100</td>
+      <td>95.4</td>
+      <td>4.7</td>
+      <td>0.9</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>9479</td>
+      <td>4665374</td>
+      <td>104700.0</td>
+      <td>1954</td>
+      <td>1</td>
+      <td>100</td>
+      <td>40.4</td>
+      <td>3.8</td>
+      <td>0.3</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>14774</td>
+      <td>3393340</td>
+      <td>129333.0</td>
+      <td>1992</td>
+      <td>1</td>
+      <td>100</td>
+      <td>157.1</td>
+      <td>16.9</td>
+      <td>1.1</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3286</td>
+      <td>2704325</td>
+      <td>109896.0</td>
+      <td>1927</td>
+      <td>1</td>
+      <td>100</td>
+      <td>62.3</td>
+      <td>3.5</td>
+      <td>0.0</td>
+      <td>28.65</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1060</td>
+      <td>2430725</td>
+      <td>182655.0</td>
+      <td>1929</td>
+      <td>1</td>
+      <td>90</td>
+      <td>52.9</td>
+      <td>9.7</td>
+      <td>0.2</td>
+      <td>4.80</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>10846</td>
+      <td>5737475</td>
+      <td>65400.0</td>
+      <td>1942</td>
+      <td>1</td>
+      <td>100</td>
+      <td>66.8</td>
+      <td>3.0</td>
+      <td>0.6</td>
+      <td>67.14</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>4280</td>
+      <td>2670505</td>
+      <td>113150.0</td>
+      <td>1938</td>
+      <td>1</td>
+      <td>100</td>
+      <td>78.4</td>
+      <td>5.7</td>
+      <td>NaN</td>
+      <td>30.73</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>12974</td>
+      <td>2964670</td>
+      <td>137700.0</td>
+      <td>1959</td>
+      <td>1</td>
+      <td>100</td>
+      <td>63.0</td>
+      <td>3.4</td>
+      <td>0.5</td>
+      <td>41.96</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>13244</td>
+      <td>4414693</td>
+      <td>63693.0</td>
+      <td>1941</td>
+      <td>1</td>
+      <td>100</td>
+      <td>97.8</td>
+      <td>4.3</td>
+      <td>0.8</td>
+      <td>86.88</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>3903</td>
+      <td>2669664</td>
+      <td>82644.0</td>
+      <td>1922</td>
+      <td>1</td>
+      <td>100</td>
+      <td>55.4</td>
+      <td>4.5</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>8336</td>
+      <td>2809354</td>
+      <td>51317.0</td>
+      <td>1925</td>
+      <td>1</td>
+      <td>100</td>
+      <td>118.7</td>
+      <td>3.6</td>
+      <td>1.1</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>12 rows × 64 columns</p>
+</div>
+
+-->
 <p><code>training_labels</code>包含能源之星分数，这是我们机器学习问题的目标。 能源之星评分是对建筑物能效的比较测量。</p>
 <p>这是能源之星得分的分布。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">figsize(<span class="number">8</span>, <span class="number">8</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># score的直方图分布</span></span><br><span class="line">plt.hist(train_labels[<span class="string">'score'</span>].dropna(), bins = <span class="number">100</span>);</span><br><span class="line">plt.xlabel(<span class="string">'Score'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'Number of Building'</span>)</span><br><span class="line">plt.title(<span class="string">'Energy Star Score Distribution'</span>)</span><br></pre></td></tr></table></figure>
@@ -1431,11 +2329,296 @@ RandomizedSearchCV(cv=4, error_score=&apos;raise-deprecating&apos;,
           verbose=1)
 </code></pre><p>Scikit-learn使用负平均绝对误差进行评估，因为它希望度量最大化。 因此，更好的分数将更接近0.我们可以将随机搜索的结果导入数据帧，并按性能进行排序。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获取cv的结果并按性能排序</span></span><br><span class="line">random_result = pd.DataFrame(random_cv.cv_results_).sort_values(<span class="string">'mean_test_score'</span>, ascending = <span class="keyword">False</span>)</span><br><span class="line">random_result.head(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-<div><br><style scoped><br>    .dataframe tbody tr th:only-of-type {<br>        vertical-align: middle;<br>    }<br><br>    .dataframe tbody tr th {<br>        vertical-align: top;<br>    }<br><br>    .dataframe thead th {<br>        text-align: right;<br>    }<br></style><br><table border="1" class="dataframe"><br>  <thead><br>    <tr style="text-align: right;"><br>      <th></th><br>      <th>mean_fit_time</th><br>      <th>std_fit_time</th><br>      <th>mean_score_time</th><br>      <th>std_score_time</th><br>      <th>param_n_estimators</th><br>      <th>param_min_samples_split</th><br>      <th>param_min_samples_leaf</th><br>      <th>param_max_features</th><br>      <th>param_max_depth</th><br>      <th>param_loss</th><br>      <th>…</th><br>      <th>split3_test_score</th><br>      <th>mean_test_score</th><br>      <th>std_test_score</th><br>      <th>rank_test_score</th><br>      <th>split0_train_score</th><br>      <th>split1_train_score</th><br>      <th>split2_train_score</th><br>      <th>split3_train_score</th><br>      <th>mean_train_score</th><br>      <th>std_train_score</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <th>12</th><br>      <td>28.192530</td><br>      <td>0.608962</td><br>      <td>0.045237</td><br>      <td>0.004876</td><br>      <td>500</td><br>      <td>6</td><br>      <td>6</td><br>      <td>None</td><br>      <td>5</td><br>      <td>lad</td><br>      <td>…</td><br>      <td>-9.037550</td><br>      <td>-8.999278</td><br>      <td>0.210556</td><br>      <td>1</td><br>      <td>-7.027368</td><br>      <td>-6.837958</td><br>      <td>-6.869084</td><br>      <td>-6.840749</td><br>      <td>-6.893790</td><br>      <td>0.078077</td><br>    </tr><br>    <tr><br>      <th>3</th><br>      <td>31.418641</td><br>      <td>0.792474</td><br>      <td>0.051468</td><br>      <td>0.005586</td><br>      <td>500</td><br>      <td>6</td><br>      <td>8</td><br>      <td>None</td><br>      <td>5</td><br>      <td>huber</td><br>      <td>…</td><br>      <td>-9.075047</td><br>      <td>-9.041601</td><br>      <td>0.176957</td><br>      <td>2</td><br>      <td>-4.482073</td><br>      <td>-4.326121</td><br>      <td>-4.823009</td><br>      <td>-4.229809</td><br>      <td>-4.465253</td><br>      <td>0.225313</td><br>    </tr><br>    <tr><br>      <th>9</th><br>      <td>17.848252</td><br>      <td>0.695412</td><br>      <td>0.049220</td><br>      <td>0.012429</td><br>      <td>500</td><br>      <td>4</td><br>      <td>2</td><br>      <td>auto</td><br>      <td>3</td><br>      <td>huber</td><br>      <td>…</td><br>      <td>-9.153004</td><br>      <td>-9.192167</td><br>      <td>0.148852</td><br>      <td>3</td><br>      <td>-7.007604</td><br>      <td>-7.088986</td><br>      <td>-6.913108</td><br>      <td>-6.940327</td><br>      <td>-6.987506</td><br>      <td>0.067939</td><br>    </tr><br>    <tr><br>      <th>0</th><br>      <td>4.366013</td><br>      <td>0.062413</td><br>      <td>0.019738</td><br>      <td>0.008490</td><br>      <td>100</td><br>      <td>2</td><br>      <td>6</td><br>      <td>auto</td><br>      <td>5</td><br>      <td>ls</td><br>      <td>…</td><br>      <td>-9.201235</td><br>      <td>-9.196321</td><br>      <td>0.162799</td><br>      <td>4</td><br>      <td>-7.302003</td><br>      <td>-7.312645</td><br>      <td>-7.173397</td><br>      <td>-7.386171</td><br>      <td>-7.293554</td><br>      <td>0.076569</td><br>    </tr><br>    <tr><br>      <th>7</th><br>      <td>14.755623</td><br>      <td>0.805518</td><br>      <td>0.044799</td><br>      <td>0.021501</td><br>      <td>500</td><br>      <td>4</td><br>      <td>6</td><br>      <td>auto</td><br>      <td>3</td><br>      <td>ls</td><br>      <td>…</td><br>      <td>-9.358627</td><br>      <td>-9.350987</td><br>      <td>0.215296</td><br>      <td>5</td><br>      <td>-7.089709</td><br>      <td>-7.103749</td><br>      <td>-7.021418</td><br>      <td>-7.080088</td><br>      <td>-7.073741</td><br>      <td>0.031358</td><br>    </tr><br>    <tr><br>      <th>10</th><br>      <td>148.541339</td><br>      <td>4.555165</td><br>      <td>0.209970</td><br>      <td>0.022747</td><br>      <td>1100</td><br>      <td>10</td><br>      <td>6</td><br>      <td>None</td><br>      <td>10</td><br>      <td>huber</td><br>      <td>…</td><br>      <td>-9.475944</td><br>      <td>-9.376750</td><br>      <td>0.128046</td><br>      <td>6</td><br>      <td>-0.378166</td><br>      <td>-0.459465</td><br>      <td>-0.393491</td><br>      <td>-0.370483</td><br>      <td>-0.400401</td><br>      <td>0.035092</td><br>    </tr><br>    <tr><br>      <th>19</th><br>      <td>40.463317</td><br>      <td>0.364893</td><br>      <td>0.069956</td><br>      <td>0.015818</td><br>      <td>1100</td><br>      <td>6</td><br>      <td>2</td><br>      <td>auto</td><br>      <td>3</td><br>      <td>lad</td><br>      <td>…</td><br>      <td>-9.291753</td><br>      <td>-9.382266</td><br>      <td>0.064885</td><br>      <td>7</td><br>      <td>-8.311796</td><br>      <td>-8.658903</td><br>      <td>-7.820534</td><br>      <td>-8.017995</td><br>      <td>-8.202307</td><br>      <td>0.316303</td><br>    </tr><br>    <tr><br>      <th>2</th><br>      <td>96.562840</td><br>      <td>2.933418</td><br>      <td>0.103937</td><br>      <td>0.006517</td><br>      <td>500</td><br>      <td>4</td><br>      <td>2</td><br>      <td>auto</td><br>      <td>10</td><br>      <td>huber</td><br>      <td>…</td><br>      <td>-9.429866</td><br>      <td>-9.422145</td><br>      <td>0.101949</td><br>      <td>8</td><br>      <td>-0.164859</td><br>      <td>-0.193613</td><br>      <td>-0.164415</td><br>      <td>-0.141062</td><br>      <td>-0.165987</td><br>      <td>0.018629</td><br>    </tr><br>    <tr><br>      <th>16</th><br>      <td>43.709564</td><br>      <td>0.503777</td><br>      <td>0.105925</td><br>      <td>0.024294</td><br>      <td>1500</td><br>      <td>4</td><br>      <td>6</td><br>      <td>None</td><br>      <td>3</td><br>      <td>ls</td><br>      <td>…</td><br>      <td>-9.427920</td><br>      <td>-9.447940</td><br>      <td>0.212403</td><br>      <td>9</td><br>      <td>-4.821677</td><br>      <td>-4.876202</td><br>      <td>-4.776650</td><br>      <td>-4.729506</td><br>      <td>-4.801009</td><br>      <td>0.054284</td><br>    </tr><br>    <tr><br>      <th>21</th><br>      <td>12.055894</td><br>      <td>0.548898</td><br>      <td>0.073206</td><br>      <td>0.012656</td><br>      <td>500</td><br>      <td>6</td><br>      <td>4</td><br>      <td>log2</td><br>      <td>5</td><br>      <td>huber</td><br>      <td>…</td><br>      <td>-9.409179</td><br>      <td>-9.460643</td><br>      <td>0.174556</td><br>      <td>10</td><br>      <td>-5.684121</td><br>      <td>-5.742441</td><br>      <td>-5.571781</td><br>      <td>-5.666476</td><br>      <td>-5.666205</td><br>      <td>0.061337</td><br>    </tr><br>  </tbody><br></table><br><p>10 rows × 24 columns</p><br></div>
+<!--comment will not be seen.
 
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mean_fit_time</th>
+      <th>std_fit_time</th>
+      <th>mean_score_time</th>
+      <th>std_score_time</th>
+      <th>param_n_estimators</th>
+      <th>param_min_samples_split</th>
+      <th>param_min_samples_leaf</th>
+      <th>param_max_features</th>
+      <th>param_max_depth</th>
+      <th>param_loss</th>
+      <th>...</th>
+      <th>split3_test_score</th>
+      <th>mean_test_score</th>
+      <th>std_test_score</th>
+      <th>rank_test_score</th>
+      <th>split0_train_score</th>
+      <th>split1_train_score</th>
+      <th>split2_train_score</th>
+      <th>split3_train_score</th>
+      <th>mean_train_score</th>
+      <th>std_train_score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>12</th>
+      <td>28.192530</td>
+      <td>0.608962</td>
+      <td>0.045237</td>
+      <td>0.004876</td>
+      <td>500</td>
+      <td>6</td>
+      <td>6</td>
+      <td>None</td>
+      <td>5</td>
+      <td>lad</td>
+      <td>...</td>
+      <td>-9.037550</td>
+      <td>-8.999278</td>
+      <td>0.210556</td>
+      <td>1</td>
+      <td>-7.027368</td>
+      <td>-6.837958</td>
+      <td>-6.869084</td>
+      <td>-6.840749</td>
+      <td>-6.893790</td>
+      <td>0.078077</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>31.418641</td>
+      <td>0.792474</td>
+      <td>0.051468</td>
+      <td>0.005586</td>
+      <td>500</td>
+      <td>6</td>
+      <td>8</td>
+      <td>None</td>
+      <td>5</td>
+      <td>huber</td>
+      <td>...</td>
+      <td>-9.075047</td>
+      <td>-9.041601</td>
+      <td>0.176957</td>
+      <td>2</td>
+      <td>-4.482073</td>
+      <td>-4.326121</td>
+      <td>-4.823009</td>
+      <td>-4.229809</td>
+      <td>-4.465253</td>
+      <td>0.225313</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>17.848252</td>
+      <td>0.695412</td>
+      <td>0.049220</td>
+      <td>0.012429</td>
+      <td>500</td>
+      <td>4</td>
+      <td>2</td>
+      <td>auto</td>
+      <td>3</td>
+      <td>huber</td>
+      <td>...</td>
+      <td>-9.153004</td>
+      <td>-9.192167</td>
+      <td>0.148852</td>
+      <td>3</td>
+      <td>-7.007604</td>
+      <td>-7.088986</td>
+      <td>-6.913108</td>
+      <td>-6.940327</td>
+      <td>-6.987506</td>
+      <td>0.067939</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>4.366013</td>
+      <td>0.062413</td>
+      <td>0.019738</td>
+      <td>0.008490</td>
+      <td>100</td>
+      <td>2</td>
+      <td>6</td>
+      <td>auto</td>
+      <td>5</td>
+      <td>ls</td>
+      <td>...</td>
+      <td>-9.201235</td>
+      <td>-9.196321</td>
+      <td>0.162799</td>
+      <td>4</td>
+      <td>-7.302003</td>
+      <td>-7.312645</td>
+      <td>-7.173397</td>
+      <td>-7.386171</td>
+      <td>-7.293554</td>
+      <td>0.076569</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>14.755623</td>
+      <td>0.805518</td>
+      <td>0.044799</td>
+      <td>0.021501</td>
+      <td>500</td>
+      <td>4</td>
+      <td>6</td>
+      <td>auto</td>
+      <td>3</td>
+      <td>ls</td>
+      <td>...</td>
+      <td>-9.358627</td>
+      <td>-9.350987</td>
+      <td>0.215296</td>
+      <td>5</td>
+      <td>-7.089709</td>
+      <td>-7.103749</td>
+      <td>-7.021418</td>
+      <td>-7.080088</td>
+      <td>-7.073741</td>
+      <td>0.031358</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>148.541339</td>
+      <td>4.555165</td>
+      <td>0.209970</td>
+      <td>0.022747</td>
+      <td>1100</td>
+      <td>10</td>
+      <td>6</td>
+      <td>None</td>
+      <td>10</td>
+      <td>huber</td>
+      <td>...</td>
+      <td>-9.475944</td>
+      <td>-9.376750</td>
+      <td>0.128046</td>
+      <td>6</td>
+      <td>-0.378166</td>
+      <td>-0.459465</td>
+      <td>-0.393491</td>
+      <td>-0.370483</td>
+      <td>-0.400401</td>
+      <td>0.035092</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>40.463317</td>
+      <td>0.364893</td>
+      <td>0.069956</td>
+      <td>0.015818</td>
+      <td>1100</td>
+      <td>6</td>
+      <td>2</td>
+      <td>auto</td>
+      <td>3</td>
+      <td>lad</td>
+      <td>...</td>
+      <td>-9.291753</td>
+      <td>-9.382266</td>
+      <td>0.064885</td>
+      <td>7</td>
+      <td>-8.311796</td>
+      <td>-8.658903</td>
+      <td>-7.820534</td>
+      <td>-8.017995</td>
+      <td>-8.202307</td>
+      <td>0.316303</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>96.562840</td>
+      <td>2.933418</td>
+      <td>0.103937</td>
+      <td>0.006517</td>
+      <td>500</td>
+      <td>4</td>
+      <td>2</td>
+      <td>auto</td>
+      <td>10</td>
+      <td>huber</td>
+      <td>...</td>
+      <td>-9.429866</td>
+      <td>-9.422145</td>
+      <td>0.101949</td>
+      <td>8</td>
+      <td>-0.164859</td>
+      <td>-0.193613</td>
+      <td>-0.164415</td>
+      <td>-0.141062</td>
+      <td>-0.165987</td>
+      <td>0.018629</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>43.709564</td>
+      <td>0.503777</td>
+      <td>0.105925</td>
+      <td>0.024294</td>
+      <td>1500</td>
+      <td>4</td>
+      <td>6</td>
+      <td>None</td>
+      <td>3</td>
+      <td>ls</td>
+      <td>...</td>
+      <td>-9.427920</td>
+      <td>-9.447940</td>
+      <td>0.212403</td>
+      <td>9</td>
+      <td>-4.821677</td>
+      <td>-4.876202</td>
+      <td>-4.776650</td>
+      <td>-4.729506</td>
+      <td>-4.801009</td>
+      <td>0.054284</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>12.055894</td>
+      <td>0.548898</td>
+      <td>0.073206</td>
+      <td>0.012656</td>
+      <td>500</td>
+      <td>6</td>
+      <td>4</td>
+      <td>log2</td>
+      <td>5</td>
+      <td>huber</td>
+      <td>...</td>
+      <td>-9.409179</td>
+      <td>-9.460643</td>
+      <td>0.174556</td>
+      <td>10</td>
+      <td>-5.684121</td>
+      <td>-5.742441</td>
+      <td>-5.571781</td>
+      <td>-5.666476</td>
+      <td>-5.666205</td>
+      <td>0.061337</td>
+    </tr>
+  </tbody>
+</table>
+<p>10 rows × 24 columns</p>
+</div>
 
+-->
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">random_cv.best_estimator_</span><br></pre></td></tr></table></figure>
 <pre><code>GradientBoostingRegressor(alpha=0.9, criterion=&apos;friedman_mse&apos;, init=None,
              learning_rate=0.1, loss=&apos;lad&apos;, max_depth=5, max_features=None,
@@ -1485,10 +2668,163 @@ GridSearchCV(cv=4, error_score=&apos;raise-deprecating&apos;,
 <pre><code>Text(0.5, 1.0, &apos;Performance vs Number of Trees&apos;)
 </code></pre><p><img src="output_114_1.png" alt="png"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">results.sort_values(<span class="string">'mean_test_score'</span>, ascending = <span class="keyword">False</span>).head()</span><br></pre></td></tr></table></figure>
-<div><br><style scoped><br>    .dataframe tbody tr th:only-of-type {<br>        vertical-align: middle;<br>    }<br><br>    .dataframe tbody tr th {<br>        vertical-align: top;<br>    }<br><br>    .dataframe thead th {<br>        text-align: right;<br>    }<br></style><br><table border="1" class="dataframe"><br>  <thead><br>    <tr style="text-align: right;"><br>      <th></th><br>      <th>mean_fit_time</th><br>      <th>std_fit_time</th><br>      <th>mean_score_time</th><br>      <th>std_score_time</th><br>      <th>param_n_estimators</th><br>      <th>params</th><br>      <th>split0_test_score</th><br>      <th>split1_test_score</th><br>      <th>split2_test_score</th><br>      <th>split3_test_score</th><br>      <th>mean_test_score</th><br>      <th>std_test_score</th><br>      <th>rank_test_score</th><br>      <th>split0_train_score</th><br>      <th>split1_train_score</th><br>      <th>split2_train_score</th><br>      <th>split3_train_score</th><br>      <th>mean_train_score</th><br>      <th>std_train_score</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <th>14</th><br>      <td>47.416784</td><br>      <td>0.998062</td><br>      <td>0.075453</td><br>      <td>0.009229</td><br>      <td>800</td><br>      <td>{‘n_estimators’: 800}</td><br>      <td>-8.825290</td><br>      <td>-8.758299</td><br>      <td>-9.296941</td><br>      <td>-9.047485</td><br>      <td>-8.981946</td><br>      <td>0.210990</td><br>      <td>1</td><br>      <td>-6.739448</td><br>      <td>-6.648109</td><br>      <td>-6.486269</td><br>      <td>-6.530287</td><br>      <td>-6.601028</td><br>      <td>0.099437</td><br>    </tr><br>    <tr><br>      <th>13</th><br>      <td>42.438601</td><br>      <td>1.069725</td><br>      <td>0.075953</td><br>      <td>0.005428</td><br>      <td>750</td><br>      <td>{‘n_estimators’: 750}</td><br>      <td>-8.830566</td><br>      <td>-8.751699</td><br>      <td>-9.298411</td><br>      <td>-9.049730</td><br>      <td>-8.982544</td><br>      <td>0.212523</td><br>      <td>2</td><br>      <td>-6.772908</td><br>      <td>-6.660453</td><br>      <td>-6.520818</td><br>      <td>-6.579989</td><br>      <td>-6.633542</td><br>      <td>0.094501</td><br>    </tr><br>    <tr><br>      <th>12</th><br>      <td>42.857592</td><br>      <td>0.706954</td><br>      <td>0.066710</td><br>      <td>0.008312</td><br>      <td>700</td><br>      <td>{‘n_estimators’: 700}</td><br>      <td>-8.836049</td><br>      <td>-8.755862</td><br>      <td>-9.312990</td><br>      <td>-9.053755</td><br>      <td>-8.989605</td><br>      <td>0.216159</td><br>      <td>3</td><br>      <td>-6.812928</td><br>      <td>-6.695770</td><br>      <td>-6.611240</td><br>      <td>-6.624919</td><br>      <td>-6.686214</td><br>      <td>0.079884</td><br>    </tr><br>    <tr><br>      <th>9</th><br>      <td>27.753509</td><br>      <td>0.350437</td><br>      <td>0.042475</td><br>      <td>0.004150</td><br>      <td>550</td><br>      <td>{‘n_estimators’: 550}</td><br>      <td>-8.853730</td><br>      <td>-8.756938</td><br>      <td>-9.325492</td><br>      <td>-9.042721</td><br>      <td>-8.994663</td><br>      <td>0.216865</td><br>      <td>4</td><br>      <td>-7.003413</td><br>      <td>-6.781878</td><br>      <td>-6.809121</td><br>      <td>-6.745712</td><br>      <td>-6.835031</td><br>      <td>0.099783</td><br>    </tr><br>    <tr><br>      <th>11</th><br>      <td>35.953674</td><br>      <td>0.654295</td><br>      <td>0.057465</td><br>      <td>0.004970</td><br>      <td>650</td><br>      <td>{‘n_estimators’: 650}</td><br>      <td>-8.851136</td><br>      <td>-8.755401</td><br>      <td>-9.325190</td><br>      <td>-9.052215</td><br>      <td>-8.995928</td><br>      <td>0.218168</td><br>      <td>5</td><br>      <td>-6.864375</td><br>      <td>-6.721452</td><br>      <td>-6.708191</td><br>      <td>-6.666758</td><br>      <td>-6.740194</td><br>      <td>0.074480</td><br>    </tr><br>  </tbody><br></table><br></div>
+<!--comment will not be seen.
 
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mean_fit_time</th>
+      <th>std_fit_time</th>
+      <th>mean_score_time</th>
+      <th>std_score_time</th>
+      <th>param_n_estimators</th>
+      <th>params</th>
+      <th>split0_test_score</th>
+      <th>split1_test_score</th>
+      <th>split2_test_score</th>
+      <th>split3_test_score</th>
+      <th>mean_test_score</th>
+      <th>std_test_score</th>
+      <th>rank_test_score</th>
+      <th>split0_train_score</th>
+      <th>split1_train_score</th>
+      <th>split2_train_score</th>
+      <th>split3_train_score</th>
+      <th>mean_train_score</th>
+      <th>std_train_score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>14</th>
+      <td>47.416784</td>
+      <td>0.998062</td>
+      <td>0.075453</td>
+      <td>0.009229</td>
+      <td>800</td>
+      <td>{'n_estimators': 800}</td>
+      <td>-8.825290</td>
+      <td>-8.758299</td>
+      <td>-9.296941</td>
+      <td>-9.047485</td>
+      <td>-8.981946</td>
+      <td>0.210990</td>
+      <td>1</td>
+      <td>-6.739448</td>
+      <td>-6.648109</td>
+      <td>-6.486269</td>
+      <td>-6.530287</td>
+      <td>-6.601028</td>
+      <td>0.099437</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>42.438601</td>
+      <td>1.069725</td>
+      <td>0.075953</td>
+      <td>0.005428</td>
+      <td>750</td>
+      <td>{'n_estimators': 750}</td>
+      <td>-8.830566</td>
+      <td>-8.751699</td>
+      <td>-9.298411</td>
+      <td>-9.049730</td>
+      <td>-8.982544</td>
+      <td>0.212523</td>
+      <td>2</td>
+      <td>-6.772908</td>
+      <td>-6.660453</td>
+      <td>-6.520818</td>
+      <td>-6.579989</td>
+      <td>-6.633542</td>
+      <td>0.094501</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>42.857592</td>
+      <td>0.706954</td>
+      <td>0.066710</td>
+      <td>0.008312</td>
+      <td>700</td>
+      <td>{'n_estimators': 700}</td>
+      <td>-8.836049</td>
+      <td>-8.755862</td>
+      <td>-9.312990</td>
+      <td>-9.053755</td>
+      <td>-8.989605</td>
+      <td>0.216159</td>
+      <td>3</td>
+      <td>-6.812928</td>
+      <td>-6.695770</td>
+      <td>-6.611240</td>
+      <td>-6.624919</td>
+      <td>-6.686214</td>
+      <td>0.079884</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>27.753509</td>
+      <td>0.350437</td>
+      <td>0.042475</td>
+      <td>0.004150</td>
+      <td>550</td>
+      <td>{'n_estimators': 550}</td>
+      <td>-8.853730</td>
+      <td>-8.756938</td>
+      <td>-9.325492</td>
+      <td>-9.042721</td>
+      <td>-8.994663</td>
+      <td>0.216865</td>
+      <td>4</td>
+      <td>-7.003413</td>
+      <td>-6.781878</td>
+      <td>-6.809121</td>
+      <td>-6.745712</td>
+      <td>-6.835031</td>
+      <td>0.099783</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>35.953674</td>
+      <td>0.654295</td>
+      <td>0.057465</td>
+      <td>0.004970</td>
+      <td>650</td>
+      <td>{'n_estimators': 650}</td>
+      <td>-8.851136</td>
+      <td>-8.755401</td>
+      <td>-9.325190</td>
+      <td>-9.052215</td>
+      <td>-8.995928</td>
+      <td>0.218168</td>
+      <td>5</td>
+      <td>-6.864375</td>
+      <td>-6.721452</td>
+      <td>-6.708191</td>
+      <td>-6.666758</td>
+      <td>-6.740194</td>
+      <td>0.074480</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+-->
 <p>从上图来看，很明显我们的模型<a href="https://elitedatascience.com/overfitting-in-machine-learning" target="_blank" rel="noopener">过拟合</a>了！训练误差明显低于测试误差，这表明模型正在很好地学习训练数据，但是无法泛化到测试数据。随着树数量的增加，对训练集的拟合效果变好，测试和训练误差都会减少，但训练误差会更快地减少。</p>
 <p>训练误差和测试误差之间始终存在显著的差异（训练误差始终较低），我们希望通过获取更多训练数据或降低模型的复杂性来尝试降低过拟合，例如可以进行超参数调整或正则化。对于<a href="https://www.quora.com/How-do-you-correct-for-overfitting-for-a-Gradient-Boosted-Machine" target="_blank" rel="noopener">GDBT回归</a>，可以减少树的数量，减少每棵树的最大深度，以及增加叶节点中的最小样本数。对于任何想要进一步了解GDBT回归的人来说，<a href="http://blog.kaggle.com/2017/01/23/a-kaggle-master-explains-gradient-boosting/" target="_blank" rel="noopener">这是一篇很棒的文章</a>。目前，我们将使用具有最佳性能的模型，并接受它可能对训练集过拟合的事实。</p>
 <p>根据交叉验证结果，使用800棵树的最佳模型的交叉验证误差在9以下。这表明<code>Energy Star Score</code>能源之星得分的平均交叉验证估计在真实答案的9分之内，即使模型过拟合了，但仍然是一个不错的结果。</p>
@@ -1574,10 +2910,86 @@ Text(0.5, 1.0, &apos;Test Values and Predictions&apos;)
 <h3 id="7-2-特征重要性"><a href="#7-2-特征重要性" class="headerlink" title="7.2 特征重要性"></a>7.2 特征重要性</h3><p>我们可以解释决策树集成的基本方法之一是通过特征重要性。 这些可以解释为最能预测目标的特征。 虽然特征重要性的实际细节非常复杂<a href="https://stackoverflow.com/questions/15810339/how-are-feature-importances-in-randomforestclassifier-determined" target="_blank" rel="noopener">(这里是相关讨论)</a>，我们可以使用相对值来比较特征并确定哪些与我们的问题最相关。</p>
 <p>在scikit-learn中，从经过训练的树集成中提取特征重要性非常容易。 我们将特征重要性存储在数据帧中以分析和可视化它们。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 提取特征重要性，保存到数据帧中</span></span><br><span class="line">feature_results = pd.DataFrame(&#123;<span class="string">'feature'</span>: list(train_features.columns), </span><br><span class="line">                                <span class="string">'importance'</span>: model.feature_importances_&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示最重要的10个特征</span></span><br><span class="line">feature_results = feature_results.sort_values(<span class="string">'importance'</span>, ascending = <span class="keyword">False</span>).reset_index(drop=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line">feature_results.head(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-<div><br><style scoped><br>    .dataframe tbody tr th:only-of-type {<br>        vertical-align: middle;<br>    }<br><br>    .dataframe tbody tr th {<br>        vertical-align: top;<br>    }<br><br>    .dataframe thead th {<br>        text-align: right;<br>    }<br></style><br><table border="1" class="dataframe"><br>  <thead><br>    <tr style="text-align: right;"><br>      <th></th><br>      <th>feature</th><br>      <th>importance</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <th>0</th><br>      <td>Site EUI (kBtu/ft²)</td><br>      <td>0.443737</td><br>    </tr><br>    <tr><br>      <th>1</th><br>      <td>Weather Normalized Site Electricity Intensity …</td><br>      <td>0.249489</td><br>    </tr><br>    <tr><br>      <th>2</th><br>      <td>Water Intensity (All Water Sources) (gal/ft²)</td><br>      <td>0.054552</td><br>    </tr><br>    <tr><br>      <th>3</th><br>      <td>log_Water Intensity (All Water Sources) (gal/ft²)</td><br>      <td>0.032452</td><br>    </tr><br>    <tr><br>      <th>4</th><br>      <td>Property Id</td><br>      <td>0.027158</td><br>    </tr><br>    <tr><br>      <th>5</th><br>      <td>DOF Gross Floor Area</td><br>      <td>0.025096</td><br>    </tr><br>    <tr><br>      <th>6</th><br>      <td>Largest Property Use Type_Multifamily Housing</td><br>      <td>0.021317</td><br>    </tr><br>    <tr><br>      <th>7</th><br>      <td>Year Built</td><br>      <td>0.020704</td><br>    </tr><br>    <tr><br>      <th>8</th><br>      <td>log_Direct GHG Emissions (Metric Tons CO2e)</td><br>      <td>0.019706</td><br>    </tr><br>    <tr><br>      <th>9</th><br>      <td>Largest Property Use Type_Non-Refrigerated War…</td><br>      <td>0.019264</td><br>    </tr><br>  </tbody><br></table><br></div>
+<!--comment will not be seen.
 
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>feature</th>
+      <th>importance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Site EUI (kBtu/ft²)</td>
+      <td>0.443737</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Weather Normalized Site Electricity Intensity ...</td>
+      <td>0.249489</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Water Intensity (All Water Sources) (gal/ft²)</td>
+      <td>0.054552</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>log_Water Intensity (All Water Sources) (gal/ft²)</td>
+      <td>0.032452</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Property Id</td>
+      <td>0.027158</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>DOF Gross Floor Area</td>
+      <td>0.025096</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Largest Property Use Type_Multifamily Housing</td>
+      <td>0.021317</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Year Built</td>
+      <td>0.020704</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>log_Direct GHG Emissions (Metric Tons CO2e)</td>
+      <td>0.019706</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Largest Property Use Type_Non-Refrigerated War...</td>
+      <td>0.019264</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+-->
 <p><code>Site EUI (kBtu/ft²)</code>    和<code>Weather Normalized Site Electricity Intensity (kWh/ft²)</code>是两个相对最重要的两个特征。之后，相对重要性大幅下降，这表明我们可能不需要保留所有特征来创建具有几乎相同性能的模型。</p>
 <p>让我们可视化特征重要性。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">figsize(<span class="number">12</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将最重要的10个特征画成直方图</span></span><br><span class="line">feature_results.loc[:<span class="number">9</span>, :].plot(x = <span class="string">'feature'</span>, y = <span class="string">'importance'</span>, </span><br><span class="line">                               edgecolor = <span class="string">'k'</span>, kind = <span class="string">'barh'</span>, color = <span class="string">'blue'</span>)</span><br><span class="line">plt.xlabel(<span class="string">'Relative Importance'</span>, size = <span class="number">20</span>)</span><br><span class="line">plt.ylabel(<span class="string">''</span>)</span><br><span class="line">plt.title(<span class="string">'Feature Importance from Random Forest'</span>, size = <span class="number">30</span>)</span><br></pre></td></tr></table></figure>
@@ -24531,7 +25943,6 @@ Reciprocal condition number4.087887e-27
 <li><a href="https://www.datacamp.com/" target="_blank" rel="noopener">Datacamp: Good Beginner Tutorials for Practicing Coding with a Focus on Data Science</a></li>
 <li><a href="https://www.dataquest.io/" target="_blank" rel="noopener">Dataquest: Hands on Lessons for Data Science Programming</a></li>
 </ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
       
     </div>
