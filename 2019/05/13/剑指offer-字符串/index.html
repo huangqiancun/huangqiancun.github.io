@@ -484,12 +484,12 @@
 <h3 id="解题思路-6"><a href="#解题思路-6" class="headerlink" title="解题思路"></a>解题思路</h3><p>我们先来分析如何匹配一个字符，现在只考虑’.’，不考虑’*’：<br>    如果字符串和模式串的当前字符相等，那么我们继续匹配它们的下一个字符；如果模式串中的字符是’.’，那么它可以匹配字符串中的任意字符，我们也可以继续匹配它们的下一个字符。</p>
 <p>接下来，把字符’<em>‘考虑进去，它可以匹配任意次的字符，当然出现0次也可以：<br>    而当模式中的第二个字符是</em>时：<br>        如果字符串第一个字符跟模式第一个字符匹配（包括模式串为’.’的情况），可以有3种匹配方式： </p>
 <pre><code>        1. 模式后移2字符，相当于x*被忽略； 
-        2. 字符串后移1字符，模式后移2字符，正好匹配x*中的&apos;x&apos;位； 
+        2. 字符串后移1字符，模式后移2字符，正好匹配x*中的&#39;x&#39;位； 
         3. 字符串后移1字符，模式不变，即继续匹配字符下一位，因为*可以匹配多位；
-    如果字符串第一个字符跟模式第一个字符不匹配，则模式后移2个字符，继续匹配，相当于把模式串中的当前字符和&apos;*&apos;忽略掉。
+    如果字符串第一个字符跟模式第一个字符不匹配，则模式后移2个字符，继续匹配，相当于把模式串中的当前字符和&#39;*&#39;忽略掉。
 
-当模式中的第二个字符不是*时，也就是上面说的只有字符&apos;.&apos;的情况。
-    1. 如果字符串第一个字符和模式中的第一个字符相匹配（包括模式串为&apos;.&apos;的情况），那么字符串和模式都后移一个字符，然后匹配剩余的。 
+当模式中的第二个字符不是*时，也就是上面说的只有字符&#39;.&#39;的情况。
+    1. 如果字符串第一个字符和模式中的第一个字符相匹配（包括模式串为&#39;.&#39;的情况），那么字符串和模式都后移一个字符，然后匹配剩余的。 
     2. 如果字符串第一个字符和模式中的第一个字符相不匹配，直接返回false。
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="comment"># s, pattern都是字符串</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">match</span><span class="params">(self, s, pattern)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> s == pattern:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> pattern:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        <span class="keyword">if</span> len(pattern) &gt; <span class="number">1</span> <span class="keyword">and</span> pattern[<span class="number">1</span>] == <span class="string">'*'</span>:</span><br><span class="line">            <span class="keyword">if</span> s <span class="keyword">and</span> (s[<span class="number">0</span>] == pattern[<span class="number">0</span>] <span class="keyword">or</span> pattern[<span class="number">0</span>] == <span class="string">'.'</span>):</span><br><span class="line">                <span class="keyword">return</span> self.match(s,pattern[<span class="number">2</span>:]) <span class="keyword">or</span> self.match(s[<span class="number">1</span>:],pattern[<span class="number">2</span>:]) <span class="keyword">or</span> self.match(s[<span class="number">1</span>:],pattern)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> self.match(s,pattern[<span class="number">2</span>:])</span><br><span class="line">        <span class="keyword">elif</span> s <span class="keyword">and</span> (s[<span class="number">0</span>] == pattern[<span class="number">0</span>] <span class="keyword">or</span> pattern[<span class="number">0</span>] == <span class="string">'.'</span>):</span><br><span class="line">            <span class="keyword">return</span> self.match(s[<span class="number">1</span>:],pattern[<span class="number">1</span>:])</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    result = Solution().match(<span class="string">'a'</span>,<span class="string">'.'</span>)</span><br><span class="line">    print(result)</span><br></pre></td></tr></table></figure>
 <h2 id="53-表示数值的字符串"><a href="#53-表示数值的字符串" class="headerlink" title="53 表示数值的字符串"></a>53 表示数值的字符串</h2><h3 id="题目描述-7"><a href="#题目描述-7" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/6f8c901d091949a5837e24bb82a731f2?tpId=13&amp;tqId=11206&amp;tPage=3&amp;rp=1&amp;ru=%2Fta%2Fcoding-interviews&amp;qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking" target="_blank" rel="noopener">题目描述</a></h3><p>请实现一个函数用来判断字符串是否表示数值（包括整数和小数）。例如，字符串”+100”,”5e2”,”-123”,”3.1416”和”-1E-16”都表示数值。 但是”12e”,”1a3.14”,”1.2.3”,”+-5”和”12e+4.3”都不是。</p>
@@ -1267,6 +1267,8 @@
   
 
   
+  
+
 
   
 

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huangqiancun.github.io/"/>
-  <updated>2019-05-14T03:40:16.482Z</updated>
+  <updated>2019-05-14T06:58:54.352Z</updated>
   <id>http://huangqiancun.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>建筑物能源之星分数预测</title>
+    <title>Machine Learning Project - 建筑物能源之星分数预测</title>
     <link href="http://huangqiancun.github.io/2019/05/14/Project%20Experience-Building%20Energy%20Star%20Score%20Prediction/"/>
     <id>http://huangqiancun.github.io/2019/05/14/Project Experience-Building Energy Star Score Prediction/</id>
     <published>2019-05-14T03:32:49.943Z</published>
-    <updated>2019-05-14T03:40:16.482Z</updated>
+    <updated>2019-05-14T06:58:54.352Z</updated>
     
     <summary type="html">
     
@@ -29,7 +29,7 @@
       
         
         
-          &lt;h2 id=&quot;项目来源&quot;&gt;&lt;a href=&quot;#项目来源&quot; class=&quot;headerlink&quot; title=&quot;项目来源&quot;&gt;&lt;/a&gt;项目来源&lt;/h2&gt;&lt;p&gt;这是在Github 上找到的一个美国数据科学家在申请工作时的”作业”，&lt;a
+          &lt;p&gt;&lt;strong&gt;Note: &lt;/strong&gt;由于Jupyter Notebook运行的一些中间结果在markdown上显示效果不好，因此注释了一些类似于&lt;code&gt;.head()&lt;/code&gt;
         
       
     
