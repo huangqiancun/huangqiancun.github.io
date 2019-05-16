@@ -94,7 +94,7 @@
 
 
 
-  <meta name="keywords" content="Leetcode,算法题解,">
+  <meta name="keywords" content="算法题解,Leetcode,">
 
 
 
@@ -108,14 +108,14 @@
 
 
 <meta name="description" content="本系列为Leetcode刷题笔记，刷题平台为Leetcode中文站， 题目主要以Easy和Medium为主,刷题按Tag分类。本系列题解汇总如下 (持续更新…)：  Leetcode题解 - 数组  Leetcode题解 - 动态规划  Leetcode题解 - 数学  Leetcode题解 - 字符串  Leetcode题解 - 树  Leetcode题解 - 哈希表  Leetcode题解 -">
-<meta name="keywords" content="Leetcode,算法题解">
+<meta name="keywords" content="算法题解,Leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Leetcode题解 - 字符串">
 <meta property="og:url" content="http://huangqiancun.github.io/2019/05/14/Leetcode-字符串/index.html">
 <meta property="og:site_name" content="I&#39;m Qiancun Huang">
 <meta property="og:description" content="本系列为Leetcode刷题笔记，刷题平台为Leetcode中文站， 题目主要以Easy和Medium为主,刷题按Tag分类。本系列题解汇总如下 (持续更新…)：  Leetcode题解 - 数组  Leetcode题解 - 动态规划  Leetcode题解 - 数学  Leetcode题解 - 字符串  Leetcode题解 - 树  Leetcode题解 - 哈希表  Leetcode题解 -">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-05-14T12:27:34.000Z">
+<meta property="og:updated_time" content="2019-05-14T12:27:34.384Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode题解 - 字符串">
 <meta name="twitter:description" content="本系列为Leetcode刷题笔记，刷题平台为Leetcode中文站， 题目主要以Easy和Medium为主,刷题按Tag分类。本系列题解汇总如下 (持续更新…)：  Leetcode题解 - 数组  Leetcode题解 - 动态规划  Leetcode题解 - 数学  Leetcode题解 - 字符串  Leetcode题解 - 树  Leetcode题解 - 哈希表  Leetcode题解 -">
@@ -352,7 +352,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-14T17:33:43+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-14T18:54:39+08:00">
                 2019-05-14
               </time>
             
@@ -584,8 +584,8 @@
 <h3 id="解题思路-10"><a href="#解题思路-10" class="headerlink" title="解题思路"></a>解题思路</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reverseString</span><span class="params">(self, s)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type s: List[str]</span></span><br><span class="line"><span class="string">        :rtype: None Do not return anything, modify s in-place instead.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        </span><br><span class="line">        s[:] = s[::<span class="number">-1</span>]</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reverseString</span><span class="params">(self, s)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type s: List[str]</span></span><br><span class="line"><span class="string">        :rtype: None Do not return anything, modify s in-place instead.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        </span><br><span class="line">        left, right = <span class="number">0</span>, len(s)<span class="number">-1</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> left &lt; right:</span><br><span class="line">            s[left], s[right] = s[right], s[left]</span><br><span class="line">            left, right = left + <span class="number">1</span>, right - <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span></span><br></pre></td></tr></table></figure>
 <h2 id="345-反转字符串中的元音字母"><a href="#345-反转字符串中的元音字母" class="headerlink" title="345. 反转字符串中的元音字母"></a>345. 反转字符串中的元音字母</h2><h3 id="题目描述-11"><a href="#题目描述-11" class="headerlink" title="题目描述"></a><a href="https://leetcode-cn.com/problems/reverse-vowels-of-a-string/" target="_blank" rel="noopener">题目描述</a></h3><p>编写一个函数，以字符串作为输入，反转该字符串中的元音字母。</p>
-<p>示例 1:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: <span class="string">"hello"</span></span><br><span class="line">输出: <span class="string">"holle"</span></span><br></pre></td></tr></table></figure></p>
-<p>示例 2:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: <span class="string">"leetcode"</span></span><br><span class="line">输出: <span class="string">"leotcede"</span></span><br></pre></td></tr></table></figure></p>
+<p>示例 1:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: <span class="string">"hello"</span></span><br><span class="line">输出: <span class="string">"holle"</span></span><br></pre></td></tr></table></figure></p>
+<p>示例 2:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: <span class="string">"leetcode"</span></span><br><span class="line">输出: <span class="string">"leotcede"</span></span><br></pre></td></tr></table></figure></p>
 <p>说明:<br>元音字母不包含字母”y”。</p>
 <h3 id="解题思路-11"><a href="#解题思路-11" class="headerlink" title="解题思路"></a>解题思路</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reverseVowels</span><span class="params">(self, s)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type s: str</span></span><br><span class="line"><span class="string">        :rtype: str</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        </span><br><span class="line">        s = list(s)</span><br><span class="line">        left, right = <span class="number">0</span>, len(s)<span class="number">-1</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> left &lt; right:</span><br><span class="line">            <span class="keyword">while</span> left &lt; right <span class="keyword">and</span> s[left] <span class="keyword">not</span> <span class="keyword">in</span> <span class="string">'aAeEiIoOuU'</span>:</span><br><span class="line">                left += <span class="number">1</span></span><br><span class="line">            <span class="keyword">while</span> right &gt; left <span class="keyword">and</span> s[right] <span class="keyword">not</span> <span class="keyword">in</span> <span class="string">'aAeEiIoOuU'</span>:</span><br><span class="line">                right -= <span class="number">1</span></span><br><span class="line">            s[left], s[right] = s[right], s[left]</span><br><span class="line">            left, right = left+<span class="number">1</span>, right<span class="number">-1</span></span><br><span class="line">            </span><br><span class="line">        <span class="keyword">return</span> <span class="string">''</span>.join(s)</span><br></pre></td></tr></table></figure>
 <h2 id="383-赎金信"><a href="#383-赎金信" class="headerlink" title="383. 赎金信"></a>383. 赎金信</h2><h3 id="题目描述-12"><a href="#题目描述-12" class="headerlink" title="题目描述"></a><a href="https://leetcode-cn.com/problems/ransom-note/" target="_blank" rel="noopener">题目描述</a></h3><p>给定一个赎金信 (ransom) 字符串和一个杂志(magazine)字符串，判断第一个字符串ransom能不能由第二个字符串magazines里面的字符构成。如果可以构成，返回 true ；否则返回 false。</p>
@@ -690,9 +690,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Leetcode/" rel="tag"># Leetcode</a>
-          
             <a href="/tags/算法题解/" rel="tag"># 算法题解</a>
+          
+            <a href="/tags/Leetcode/" rel="tag"># Leetcode</a>
           
         </div>
       
@@ -715,8 +715,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/05/14/Leetcode-栈和队列/" rel="prev" title="Leetcode题解 - 栈和队列">
-                Leetcode题解 - 栈和队列 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/05/14/Leetcode-双指针/" rel="prev" title="Leetcode题解 - 双指针">
+                Leetcode题解 - 双指针 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -813,7 +813,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -933,7 +933,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">356k</span>
+    <span title="Site words total count">360.1k</span>
   
 </div>
 
