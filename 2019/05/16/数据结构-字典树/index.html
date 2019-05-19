@@ -115,13 +115,13 @@
 <meta property="og:site_name" content="I&#39;m Qiancun Huang">
 <meta property="og:description" content="本系列为数据结构学习笔记(待汇总)。 字典树字典树，即Trie树，又称单词查找树或键树，是一种树形结构，常用于统计和排序大量字符串等场景（但不限于字符串），且经常被搜索引擎用于文本词频统计。它的优点是最大限度减少无谓的字符串比较，查询效率比较高。Trie树的核心思想是以空间换时间，利用字符串的公共前缀来降低查询时间的开销，已达到提高效率的目的。它有以下三个基本性质：  根结点不包含字符，除根结点外">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://prhddog7d.bkt.clouddn.com/blog/20190516/NfBrS2oWyJEh.png?imageslim">
-<meta property="og:image" content="http://prhddog7d.bkt.clouddn.com/blog/20190516/xjVspwHK4kuO.png?imageslim">
-<meta property="og:updated_time" content="2019-05-16T05:02:53.418Z">
+<meta property="og:image" content="https://github.com/huangqiancun/githubPage-Assets/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%AD%97%E5%85%B8%E6%A0%91/1.png?raw=true">
+<meta property="og:image" content="https://github.com/huangqiancun/githubPage-Assets/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%AD%97%E5%85%B8%E6%A0%91/2.png?raw=true">
+<meta property="og:updated_time" content="2019-05-18T09:20:31.009Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构-字典树">
 <meta name="twitter:description" content="本系列为数据结构学习笔记(待汇总)。 字典树字典树，即Trie树，又称单词查找树或键树，是一种树形结构，常用于统计和排序大量字符串等场景（但不限于字符串），且经常被搜索引擎用于文本词频统计。它的优点是最大限度减少无谓的字符串比较，查询效率比较高。Trie树的核心思想是以空间换时间，利用字符串的公共前缀来降低查询时间的开销，已达到提高效率的目的。它有以下三个基本性质：  根结点不包含字符，除根结点外">
-<meta name="twitter:image" content="http://prhddog7d.bkt.clouddn.com/blog/20190516/NfBrS2oWyJEh.png?imageslim">
+<meta name="twitter:image" content="https://github.com/huangqiancun/githubPage-Assets/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%AD%97%E5%85%B8%E6%A0%91/1.png?raw=true">
 
 
 
@@ -355,7 +355,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-16T12:28:38+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-16T12:28:44+08:00">
                 2019-05-16
               </time>
             
@@ -371,8 +371,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-05-16T13:02:53+08:00">
-                2019-05-16
+              <time title="Post modified" itemprop="dateModified" datetime="2019-05-18T17:20:31+08:00">
+                2019-05-18
               </time>
             
           </span>
@@ -453,9 +453,9 @@
 <li>从根节点到某一节点。路径上经过的字符连接起来，就是该节点对应的字符串；</li>
 <li>每个节点的所有子节点包含的字符都不相同。</li>
 </ul>
-<h2 id="树的构建"><a href="#树的构建" class="headerlink" title="树的构建"></a>树的构建</h2><p>举例：<br>题目：给你100000个长度不超过10的单词。对于每一个单词，我们要判断他出没出现过，如果出现了，求第一次出现在第几个位置。<br>分析：这题当然可以用hash来解决，但是本文重点介绍的是trie树，因为在某些方面它的用途更大。比如说对于某一个单词，我们要询问它的前缀是否出现过。这样hash就不好搞了，而用trie还是很简单。<br>现在回到例子中，如果我们用最傻的方法，对于每一个单词，我们都要去查找它前面的单词中是否有它。那么这个算法的复杂度就是$O(n^2)$。显然对于100000的范围难以接受。现在我们换个思路想。假设我要查询的单词是abcd，那么在他前面的单词中，以b，c，d，f之类开头的我显然不必考虑。而只要找以a开头的中是否存在abcd就可以了。同样的，在以a开头中的单词中，我们只要考虑以b作为第二个字母的，一次次缩小范围和提高针对性，这样一个树的模型就渐渐清晰了。<br>好比假设有b，abc，abd，bcd，abcd，efg，hii 这6个单词，我们构建的树就是如下图这样的：<br><img src="http://prhddog7d.bkt.clouddn.com/blog/20190516/NfBrS2oWyJEh.png?imageslim" alt="mark"></p>
+<h2 id="树的构建"><a href="#树的构建" class="headerlink" title="树的构建"></a>树的构建</h2><p>举例：<br>题目：给你100000个长度不超过10的单词。对于每一个单词，我们要判断他出没出现过，如果出现了，求第一次出现在第几个位置。<br>分析：这题当然可以用hash来解决，但是本文重点介绍的是trie树，因为在某些方面它的用途更大。比如说对于某一个单词，我们要询问它的前缀是否出现过。这样hash就不好搞了，而用trie还是很简单。<br>现在回到例子中，如果我们用最傻的方法，对于每一个单词，我们都要去查找它前面的单词中是否有它。那么这个算法的复杂度就是$O(n^2)$。显然对于100000的范围难以接受。现在我们换个思路想。假设我要查询的单词是abcd，那么在他前面的单词中，以b，c，d，f之类开头的我显然不必考虑。而只要找以a开头的中是否存在abcd就可以了。同样的，在以a开头中的单词中，我们只要考虑以b作为第二个字母的，一次次缩小范围和提高针对性，这样一个树的模型就渐渐清晰了。<br>好比假设有b，abc，abd，bcd，abcd，efg，hii 这6个单词，我们构建的树就是如下图这样的：<br><img src="https://github.com/huangqiancun/githubPage-Assets/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%AD%97%E5%85%B8%E6%A0%91/1.png?raw=true" alt="mark"></p>
 <p>如上图所示，从根结点遍历到每个结点的路径就是一个单词，如果这个结点被标记为红色，就表示这个单词存在，否则不存在。<br>那么，对于一个单词，只要顺着它从根走到对应的结点，再看这个结点是否被标记为红色就可以知道它是否出现过了。<br>把这个节点标记为红色，就相当于插入了这个单词。这样一来我们查询和插入可以一起完成<br>我们可以看到，trie树每一层的节点数是$26^i$级别的。为了节省空间，还可以动态链表，或者用数组来模拟动态。空间的花费，不会超过单词数乘以单词长度。<br>声明：本文为博主原创文章，转载请附上博文链接！</p>
-<h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><p>Trie树是简单但实用的数据结构，通常用于实现字典查询。我们做即时响应用户输入的AJAX搜索框时，就是Trie开始。本质上，Trie是一颗存储多个字符串的树。相邻节点间的边代表一个字符，这样树的每条分支代表一则子串，而树的叶节点则代表完整的字符串。和普通树不同的地方是，相同的字符串前缀共享同一条分支。下面，再举一个例子。给出一组单词，inn, int, at, age, adv, ant, 我们可以得到下面的Trie：<br><img src="http://prhddog7d.bkt.clouddn.com/blog/20190516/xjVspwHK4kuO.png?imageslim" alt="mark"></p>
+<h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><p>Trie树是简单但实用的数据结构，通常用于实现字典查询。我们做即时响应用户输入的AJAX搜索框时，就是Trie开始。本质上，Trie是一颗存储多个字符串的树。相邻节点间的边代表一个字符，这样树的每条分支代表一则子串，而树的叶节点则代表完整的字符串。和普通树不同的地方是，相同的字符串前缀共享同一条分支。下面，再举一个例子。给出一组单词，inn, int, at, age, adv, ant, 我们可以得到下面的Trie：<br><img src="https://github.com/huangqiancun/githubPage-Assets/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%AD%97%E5%85%B8%E6%A0%91/2.png?raw=true" alt="mark"></p>
 <p>可以看出：</p>
 <ul>
 <li>每条边对应一个字母。</li>
@@ -558,6 +558,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/05/19/ResearchExperience-LowRankTensorApproximation/" rel="prev" title="Research Project - 基于低秩张量近似的高维良率分析">
+                Research Project - 基于低秩张量近似的高维良率分析 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -652,7 +656,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -772,7 +776,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">360.1k</span>
+    <span title="Site words total count">365.5k</span>
   
 </div>
 

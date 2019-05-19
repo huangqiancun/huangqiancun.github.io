@@ -94,7 +94,7 @@
 
 
 
-  <meta name="keywords" content="数据结构,">
+  <meta name="keywords" content="Project Experience,">
 
 
 
@@ -107,26 +107,22 @@
 
 
 
-<meta name="description" content="本系列为数据结构学习笔记(待汇总)。 1 赫夫曼树先看如下两棵树： 从树中一个结点到另一个结点之间的分支构成两个结点之间的路径，路径上的分支数目称为路径长度。 二叉树 a 中， 根结点到结点 D 的路径长度为 4，二叉树 b 中根结点到结点 D 的路径长度为 2。 树的路径长度就是从树根到每一结点的路径长度之和 。 二 叉树 a 的树路径长度就为 1+1+2+2+3+3+4+4=20。二叉树 b">
-<meta name="keywords" content="数据结构">
+<meta name="description" content="Note：本项目为国家重点研发计划《超低电压高精度时序分析技术（共性关键技术类）》的子课题《快速蒙特卡洛分析技术》的相关研究成果之一。 0 《超低电压高精度时序分析技术》项目概要0.1 研究内容针对超低电压电路时序波动大、传统静态时序分 析方法难以适用的问题，研发超低电压高精度时序分析 EDA 工具；研究超低电压条件下电路时序分布模型，关键时序路径的快速选取方法，关键路径的高精度仿真方法，关键路径">
+<meta name="keywords" content="Project Experience">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据结构-赫夫曼树及赫夫曼编码">
-<meta property="og:url" content="http://huangqiancun.github.io/2019/05/15/数据结构-赫夫曼树及赫夫曼编码/index.html">
+<meta property="og:title" content="Research Project - 基于低秩张量近似的高维良率分析">
+<meta property="og:url" content="http://huangqiancun.github.io/2019/05/19/ResearchExperience-LowRankTensorApproximation/index.html">
 <meta property="og:site_name" content="I&#39;m Qiancun Huang">
-<meta property="og:description" content="本系列为数据结构学习笔记(待汇总)。 1 赫夫曼树先看如下两棵树： 从树中一个结点到另一个结点之间的分支构成两个结点之间的路径，路径上的分支数目称为路径长度。 二叉树 a 中， 根结点到结点 D 的路径长度为 4，二叉树 b 中根结点到结点 D 的路径长度为 2。 树的路径长度就是从树根到每一结点的路径长度之和 。 二 叉树 a 的树路径长度就为 1+1+2+2+3+3+4+4=20。二叉树 b">
+<meta property="og:description" content="Note：本项目为国家重点研发计划《超低电压高精度时序分析技术（共性关键技术类）》的子课题《快速蒙特卡洛分析技术》的相关研究成果之一。 0 《超低电压高精度时序分析技术》项目概要0.1 研究内容针对超低电压电路时序波动大、传统静态时序分 析方法难以适用的问题，研发超低电压高精度时序分析 EDA 工具；研究超低电压条件下电路时序分布模型，关键时序路径的快速选取方法，关键路径的高精度仿真方法，关键路径">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://github.com/huangqiancun/githubPage-Assets/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E8%B5%AB%E5%A4%AB%E6%9B%BC%E6%A0%91%E5%8F%8A%E8%B5%AB%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81/1.png?raw=true">
-<meta property="og:image" content="https://github.com/huangqiancun/githubPage-Assets/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E8%B5%AB%E5%A4%AB%E6%9B%BC%E6%A0%91%E5%8F%8A%E8%B5%AB%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81/2.png?raw=true">
-<meta property="og:image" content="https://github.com/huangqiancun/githubPage-Assets/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E8%B5%AB%E5%A4%AB%E6%9B%BC%E6%A0%91%E5%8F%8A%E8%B5%AB%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81/3.png?raw=true">
-<meta property="og:image" content="https://github.com/huangqiancun/githubPage-Assets/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E8%B5%AB%E5%A4%AB%E6%9B%BC%E6%A0%91%E5%8F%8A%E8%B5%AB%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81/4.png?raw=true">
-<meta property="og:image" content="https://github.com/huangqiancun/githubPage-Assets/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E8%B5%AB%E5%A4%AB%E6%9B%BC%E6%A0%91%E5%8F%8A%E8%B5%AB%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81/5.png?raw=true">
-<meta property="og:image" content="https://github.com/huangqiancun/githubPage-Assets/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E8%B5%AB%E5%A4%AB%E6%9B%BC%E6%A0%91%E5%8F%8A%E8%B5%AB%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81/6.png?raw=true">
-<meta property="og:image" content="https://github.com/huangqiancun/githubPage-Assets/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E8%B5%AB%E5%A4%AB%E6%9B%BC%E6%A0%91%E5%8F%8A%E8%B5%AB%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81/7.png?raw=true">
-<meta property="og:updated_time" content="2019-05-18T09:21:52.308Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/ResearchExperience-LowRankTensorApproximation/1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/ResearchExperience-LowRankTensorApproximation/2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/ResearchExperience-LowRankTensorApproximation/2.png">
+<meta property="og:updated_time" content="2019-05-19T15:10:06.022Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数据结构-赫夫曼树及赫夫曼编码">
-<meta name="twitter:description" content="本系列为数据结构学习笔记(待汇总)。 1 赫夫曼树先看如下两棵树： 从树中一个结点到另一个结点之间的分支构成两个结点之间的路径，路径上的分支数目称为路径长度。 二叉树 a 中， 根结点到结点 D 的路径长度为 4，二叉树 b 中根结点到结点 D 的路径长度为 2。 树的路径长度就是从树根到每一结点的路径长度之和 。 二 叉树 a 的树路径长度就为 1+1+2+2+3+3+4+4=20。二叉树 b">
-<meta name="twitter:image" content="https://github.com/huangqiancun/githubPage-Assets/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E8%B5%AB%E5%A4%AB%E6%9B%BC%E6%A0%91%E5%8F%8A%E8%B5%AB%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81/1.png?raw=true">
+<meta name="twitter:title" content="Research Project - 基于低秩张量近似的高维良率分析">
+<meta name="twitter:description" content="Note：本项目为国家重点研发计划《超低电压高精度时序分析技术（共性关键技术类）》的子课题《快速蒙特卡洛分析技术》的相关研究成果之一。 0 《超低电压高精度时序分析技术》项目概要0.1 研究内容针对超低电压电路时序波动大、传统静态时序分 析方法难以适用的问题，研发超低电压高精度时序分析 EDA 工具；研究超低电压条件下电路时序分布模型，关键时序路径的快速选取方法，关键路径的高精度仿真方法，关键路径">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/ResearchExperience-LowRankTensorApproximation/1.png">
 
 
 
@@ -156,13 +152,13 @@
 
 
 
-  <link rel="canonical" href="http://huangqiancun.github.io/2019/05/15/数据结构-赫夫曼树及赫夫曼编码/">
+  <link rel="canonical" href="http://huangqiancun.github.io/2019/05/19/ResearchExperience-LowRankTensorApproximation/">
 
 
 
 
 
-  <title>数据结构-赫夫曼树及赫夫曼编码 | I'm Qiancun Huang</title>
+  <title>Research Project - 基于低秩张量近似的高维良率分析 | I'm Qiancun Huang</title>
   
 
 
@@ -331,7 +327,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://huangqiancun.github.io/2019/05/15/数据结构-赫夫曼树及赫夫曼编码/">
+    <link itemprop="mainEntityOfPage" href="http://huangqiancun.github.io/2019/05/19/ResearchExperience-LowRankTensorApproximation/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Qiancun Huang">
@@ -348,7 +344,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">数据结构-赫夫曼树及赫夫曼编码</h1>
+          <h1 class="post-title" itemprop="name headline">Research Project - 基于低秩张量近似的高维良率分析</h1>
         
 
         <div class="post-meta">
@@ -360,8 +356,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-15T23:35:31+08:00">
-                2019-05-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-19T18:34:41+08:00">
+                2019-05-19
               </time>
             
 
@@ -376,8 +372,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-05-18T17:21:52+08:00">
-                2019-05-18
+              <time title="Post modified" itemprop="dateModified" datetime="2019-05-19T23:10:06+08:00">
+                2019-05-19
               </time>
             
           </span>
@@ -395,8 +391,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
+                  <a href="/categories/Project-Experience/" itemprop="url" rel="index">
+                    <span itemprop="name">Project Experience</span>
                   </a>
                 </span>
 
@@ -426,7 +422,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  1.5k
+                  5.3k
                 </span>
               
 
@@ -451,47 +447,96 @@
       
 
       
-        <p>本系列为数据结构学习笔记(待汇总)。</p>
-<h1 id="1-赫夫曼树"><a href="#1-赫夫曼树" class="headerlink" title="1 赫夫曼树"></a>1 赫夫曼树</h1><p>先看如下两棵树：<br><img src="https://github.com/huangqiancun/githubPage-Assets/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E8%B5%AB%E5%A4%AB%E6%9B%BC%E6%A0%91%E5%8F%8A%E8%B5%AB%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81/1.png?raw=true" alt="mark"></p>
-<p>从树中一个结点到另一个结点之间的分支构成两个结点之间的路径，路径上的分支数目称为路径长度。</p>
-<p>二叉树 a 中， 根结点到结点 D 的路径长度为 4，二叉树 b 中根结点到结点 D 的路径长度为 2。 树的路径长度就是从树根到每一结点的路径长度之和 。 二 叉树 a 的树路径长度就为 1+1+2+2+3+3+4+4=20。二叉树 b 的树路径长度就为1+2+3+3+2+1+2+2=16。</p>
-<p>考虑到带权的结点，结点的带权的路径长度为该结点到树根之间的路径长度与结点上权的乘积。树的带权路径长度为树中所有叶子结点的带权路径长度之和。假设有n个权值${w_1,w_2,…,w_n}$，构造一棵有 n 个叶子结点的二叉树，每个叶子结点带权 $W_k$，每个叶子的路径长度为 $l_k$，<strong>则其中带权路径长度(WPL)最小的二叉树称做赫夫曼树</strong>，也称为最优二叉树。</p>
-<ul>
-<li>二叉树 a 的 $WPL=5 x 1+15 x 2+40 x  3+30 x 4+10 x 4 = 315 $</li>
-<li>二叉树 b 的 $WPL=5 x 3+ 15 x 3+40 x 2+30 x 2+ 10 x 2 = 220 $</li>
+        <p><strong>Note：</strong>本项目为国家重点研发计划<strong>《超低电压高精度时序分析技术（共性关键技术类）》</strong>的子课题<strong>《快速蒙特卡洛分析技术》</strong>的相关研究成果之一。</p>
+<h1 id="0-《超低电压高精度时序分析技术》项目概要"><a href="#0-《超低电压高精度时序分析技术》项目概要" class="headerlink" title="0 《超低电压高精度时序分析技术》项目概要"></a>0 《超低电压高精度时序分析技术》项目概要</h1><h2 id="0-1-研究内容"><a href="#0-1-研究内容" class="headerlink" title="0.1 研究内容"></a>0.1 研究内容</h2><p>针对超低电压电路时序波动大、传统静态时序分 析方法难以适用的问题，研发超低电压高精度时序分析 EDA 工具；研究超低电压条件下电路时序分布模型，关键时序路径的快速选取方法，关键路径的高精度仿真方法，关键路径时序良率分析方法，关键路径时序统计分析方法和电压灵敏度分析方法，以及大规模电路的时序并行化分析方法。</p>
+<h2 id="0-2-考核指标"><a href="#0-2-考核指标" class="headerlink" title="0.2 考核指标"></a>0.2 考核指标</h2><ul>
+<li>实现超低电压高精度时序分析 EDA 工具；</li>
+<li>支持40nm 及以下先进工艺，电路规模≥1000 万门，支持宽幅、变工作电压的时序分析（0.6×VDD~1.1×VDD，10 个电压节点以上， 其中 VDD 是指集成电路工艺对应的标准电源电压）；</li>
+<li>单条关键路径的延时统计分析相比 6 sigma 蒙特卡洛仿真误差≤5%，速度提升≥1000 倍；</li>
+<li>基于该工具实现应用示范，支持 2 款以上超低电压芯片的设计流片。</li>
 </ul>
-<h1 id="2-赫夫曼树构造方法"><a href="#2-赫夫曼树构造方法" class="headerlink" title="2 赫夫曼树构造方法"></a>2 赫夫曼树构造方法</h1><ol>
-<li>先把有权值的叶子结点按照从小到大的顺序排列成一个有序序列，即 :A5，<br>E10 , B15 , D30, C40。</li>
-<li>取头两个最小权值的结点作为一个新节点 N1的两个子结点， 注意相对较小的 是左孩子，这里就是 A 为 N1 的左孩子， E 为 N1的右孩子，如图 6-12-5 所 示。新结点的权值为两个叶子权值的和 5+10=15。</li>
-<li>将 N1替换 A 与 E，插入有序序列中， 保持从小到大排列。 即: N1-15, B-15 , D-30, C-40。</li>
-<li>重复步骤 2. 将 N1 与 B 作为一个新节点 N2的两个子结点。 如图 6-12-6 所 示。 N2 的权值=15+15=30。<br><img src="https://github.com/huangqiancun/githubPage-Assets/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E8%B5%AB%E5%A4%AB%E6%9B%BC%E6%A0%91%E5%8F%8A%E8%B5%AB%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81/2.png?raw=true" alt="mark"></li>
-<li>将 N2 替换 N1 与 B ，插入有序序列中， 保持从小到大排列。 即: N2-30 , D-30, C-40。</li>
-<li>重复步骤 2. 将 N2 与 D 作为一个新节点 N3 的两个子结点。 如图 6-12-7 所<br>示。 N3 的权值=30+30=60。</li>
-<li>将 N3替换 N2与 D，插入有序序列中，保持从小到大排列。即 : C-40 , N3-60。</li>
-<li>重复步骤 2。将 C 与 N3 作为一个新节点 T 的两个子结点，如图 6-12-8 所示。 由于 T 即是根结点，完成赫夫曼树的构造。<br><img src="https://github.com/huangqiancun/githubPage-Assets/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E8%B5%AB%E5%A4%AB%E6%9B%BC%E6%A0%91%E5%8F%8A%E8%B5%AB%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81/3.png?raw=true" alt="mark"></li>
-</ol>
-<p>构造赫夫曼树的赫夫曼算法描述：</p>
+<h1 id="1-基于低秩张量近似的高维良率分析"><a href="#1-基于低秩张量近似的高维良率分析" class="headerlink" title="1 基于低秩张量近似的高维良率分析"></a>1 基于低秩张量近似的高维良率分析</h1><h2 id="1-1-研究背景及价值"><a href="#1-1-研究背景及价值" class="headerlink" title="1.1 研究背景及价值"></a>1.1 研究背景及价值</h2><h3 id="1-1-1-研究背景"><a href="#1-1-1-研究背景" class="headerlink" title="1.1.1 研究背景"></a>1.1.1 研究背景</h3><p>随着工艺的发展，晶体管特征尺寸的不断减小给集成电路性能和功耗带来了巨大改善，但同时电路稳定性受工艺、电压和温度(PVT)等影响下的随机工艺偏差的影响日益严重，良率成为继性能、功耗和面积(PPA)后电路设计中的又一个性能参数。如何快速准确预估电路的良率，已经成为电子设计自动化面临的主要问题。纳米制造工艺的变化及其对产品良率的影响的问题是现有28nm/20nm以下平面CMOS和16nm 以下FinFET技术的集成电路设计的主要挑战之一。</p>
+<p>一方面，当接近器件几何的原子极限时，如随机掺杂剂波动和线边缘粗糙度的局部随机变化变得越来越显著，有很多电路单元都会很容易受这些变化的影响，比如数据转换器，PLL，I/O和存储器电路等；另一方面，先进工艺下晶体管模型更精确，电路系统更复杂，受工艺影响的参数更多，具有明显的高维特性，该特性也极大地增加了电路良率分析的难度。</p>
+<p>电路维度定义为电路可变参数的数量，如图1所示，一个6T SRAM bitcell中有6个管子，对每个管子的阈值电压Vth，关断电压Voff和迁移率μ 三个参数建模为独立高斯变量，则一个bitcell 的可变维度为6*3=18维</p>
+<p><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/ResearchExperience-LowRankTensorApproximation/1.png" alt="mark"></p>
+<p>更贴合实际的，如图2所示，将SRAM bitcell组合成SRAM 阵列，随着电路的规模增大，电路可变参数的数量变多，例如含有N=32个SRAM bitcell的阵列的维度为 $ 32 \times 6 \times 3 = 576 $ 维，这在电路良率分析中为高维场景。</p>
+<p><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/ResearchExperience-LowRankTensorApproximation/2.png" alt="mark"></p>
+<p>本课题针对由随机工艺偏差导致的高维电路失效问题，对受工艺偏差影响的电路参数进行建模，结合<strong>低秩张量近似理论和机器学习领域的相关算法</strong>，准确分析工艺偏差影响下的电路良率，<strong>实现在流片之前准确预估芯片的良率，并以此优化电路设计以满足良率要求，可以节约不必要的流片成本和缩短设计周期</strong></p>
+<h3 id="1-1-2-研究价值"><a href="#1-1-2-研究价值" class="headerlink" title="1.1.2 研究价值"></a>1.1.2 研究价值</h3><p>工艺偏差会直接造成电路性能的波动及可怕的良率损失，如果电路的良率无法提前获得快速准确的预测，更先进的工艺开发技术将要花费极大的时间代价，甚至无法实现。实现快速准确地预估电路的良率，可以加快电路设计，降低成本及推动工艺继续向前发展。</p>
+<p>目前芯片设计一般通过使用多种工艺和有较大安全余量的工艺角以达到电路功能上的实现，但这个余量是以降低芯片性能和增加功耗为代价的，同时也是不可靠的，因为它无法给出电路的真实良率。同时这种设计方式可能导致过度设计，进而转化为对芯片性能和面积的浪费。而如果追求更小的尺寸，更高的性能和最低的功耗，这种仅提供了一个可行的工程解决方法的设计方法将不再适用。</p>
+<p>先进工艺复杂系统的背景下，由于集成电路设计受工艺偏差影响巨大，当前集成电路设计方法学已经过渡到以良率驱动的设计方法学。考虑性能、功耗、面积和良率四维目标的联合优化问题，而在设计阶段准确预测电路良率是良率驱动设计方法学的核心，具有指导和优化电路设计的重要作用。</p>
+<h2 id="1-2-国内外研究现状、发展动态"><a href="#1-2-国内外研究现状、发展动态" class="headerlink" title="1.2 国内外研究现状、发展动态"></a>1.2 国内外研究现状、发展动态</h2><p>针对电路良率分析的问题，蒙特卡洛(Monte Carlo, MC)采样分析方法是值得信赖的黄金标准。因为它具有一些非常重要的属性，包括准确性，一致性和变量数量的可扩展性。在MC分析中，从模型库中的分布中抽取模型参数的随机样本，并对每个样本运行SPICE仿真，从而得到性能指标的输出分布。</p>
+<p>给定一个电路性能的指标，如延迟或功率，根据指标定义一个电路的失效阈值，这就是电路良率的界限。根据失效阈值通过概率论的知识去确定失效概率，从而确定良率。而MC应用到电路良率中，通俗来说，就是仿真模拟电路里的每一个样本，将每一个样本都和失效阈值比较，将样本分为pass/fail，最后的失效率就是fail的样本除于总样本。</p>
+<p>MC分析的误差随着样本数量的增加以 $1/ \sqrt{N}$ 的速率下降，最终可以得到非常可靠的结果。MC具有其他统计方法所没有的非常关键的性质：</p>
 <ol>
-<li>根据给定的 n 个权值${w_1,w_2,…,w_n}$构成 n 棵二叉树的集合 $F = {T_1,T_2,…,T_n}$， 其中每棵二叉树 $T_i $中只有一个带权为 $W_i$根结点，其左右子树均为空。<br>2 . 在 F 中选取两棵根结点的权值最小的树作为左右子树构造一棵新的二叉树，且 置新的二叉树的根结点的权值为其左右子树上根结点的权值之和。<br>3 . 在 F 中删除这两棵树，同时将新得到的二叉树加入 F 中。</li>
-<li>重复 2 和 3 步骤，直到 F 只含一棵树为止。这棵树便是赫夫曼树。</li>
+<li>无偏估计：无偏估计是统计方法的一个非常重要的原则，即可靠地收敛到预期结果。</li>
+<li>一致估计：随着样本数量的增加，估计值平稳地收敛到预期值。</li>
+<li>误差控制：可以估计误差并进行监视，从而可以可靠地检测到收敛。</li>
+<li>如果的估计的是一个非常小的概率，我们将需要一个更大的样本数。</li>
 </ol>
-<h1 id="3-赫夫曼编码"><a href="#3-赫夫曼编码" class="headerlink" title="3 赫夫曼编码"></a>3 赫夫曼编码</h1><p>用于压缩和解压缩文件，把要压缩的文本进行重新编码，以减少不必要的空间。<br>比如我们有一段文字内容为 “BADCADFEED” 要网络传输给别人，显然用二进制 的数字 (0 和 1) 来表示是很自然的想法。我们现在这段文字只有六个字母 ABCDEF，那么我们可以用相应的二进制数据表示：<br><img src="https://github.com/huangqiancun/githubPage-Assets/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E8%B5%AB%E5%A4%AB%E6%9B%BC%E6%A0%91%E5%8F%8A%E8%B5%AB%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81/4.png?raw=true" alt="mark"></p>
-<p>这样真正传输的数据就是编码后的 “001000011010000011101100100011“， 对 方接收时可以按照 3 位划分来译码。效率低下。</p>
-<p>根据不同词频使用赫夫曼树重新编码。</p>
-<p>假设六个字母的频率为 A 27 , B 8, C 15 , D 15 , E 30, F 5 ，合起来正好是 100%。 那就意味着，我们完全可以重新按照赫夫曼树来规划它们。</p>
-<p>以下左图为按照第2节的赫夫曼树构造方法得到的赫夫曼树，右图为将所有左分支改为0，右分支改为1后的赫夫曼树。<br><img src="https://github.com/huangqiancun/githubPage-Assets/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E8%B5%AB%E5%A4%AB%E6%9B%BC%E6%A0%91%E5%8F%8A%E8%B5%AB%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81/5.png?raw=true" alt="mark"></p>
-<p>对着六个字母重新编码如下：<br><img src="https://github.com/huangqiancun/githubPage-Assets/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E8%B5%AB%E5%A4%AB%E6%9B%BC%E6%A0%91%E5%8F%8A%E8%B5%AB%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81/6.png?raw=true" alt="mark"></p>
-<p>我们将文字内容为 “BADCADFEED” 再次编码，对比可以看到结果串变小了 。</p>
+<p>以上1~3是为什么MC是唯一真正可靠的良率分析的黄金标准，而4则是限制MC应用到3-sigma以上（即high sigma）的原因。例如如果估计$1e^{-5}$数量级的失效概率，那么至少需要$1e^7 - 1e^8$数量级的蒙特卡洛仿真次数，才能得到较为准确的良率结果，这显然无法适应快速分析的需求。</p>
+<p>国内外有许多研究团队致力于研究快速电路良率分析，并有百余篇相关论文发表。以算法机理归类，主要有以下几种方法：</p>
 <ul>
-<li>原编码二进制串 :001000011010000011101100100011(共30个字符)</li>
-<li>新编码二进制率: 1001010010101001000111100(共 25 个字符)</li>
+<li><p>基于重要采样[MIS,MNIS,Gibbs,HDIS,HSCS, 最高解决维度：70]</p>
+<blockquote>
+<p>优点：在失效区域进行采样，可以极大减少样本数<br>缺点：严重依赖于偏移分布的构建，同时失效样本可能分布在多个失效区域，难以覆盖所有失效区域</p>
+</blockquote>
+</li>
+<li><p>基于分类[SB,RSB,Rescope, 最高解决维度： 108]  </p>
+<blockquote>
+<p>优点：通过少数的样本建立分类器去刻画失效边界，利用分类器判断未知样本失效情况<br>缺点：失效边界的形状可能不规则，使得建立分类器难度大，在高维时通常需使用降维算法进行维度修剪，不能反映真实维度的影响</p>
+</blockquote>
+</li>
+<li><p>基于替代模型[adaptive online surrogate modeling, 最高解决维度：102]</p>
+<blockquote>
+<p>优点：通过少数的样本建立输入工艺参数和输出电路性能的回归关系，利用模型去预测未知样本的电路性能值<br>缺点：现有基于替代模型方法仅应用简单的算法获得回归模型，在高维空间下表现不佳</p>
+</blockquote>
+</li>
 </ul>
-<p>数据被压缩了。</p>
-<h1 id="4-赫夫曼解码"><a href="#4-赫夫曼解码" class="headerlink" title="4 赫夫曼解码"></a>4 赫夫曼解码</h1><p>前缀编码：编码中非 0 即 1，长短不等的话其实是很容易混淆的，所以若要设计长短不等的编码，则必须是任一字符的编码都不是另一个字符的编码的前缀，这种编码称做前缀编码。</p>
-<p>在解码时，还是要用到赫夫曼树，即发送方和接收方必须要约定好同样的赫夫曼编码规则。</p>
-<p>当我们接收到 1001010010101001000111100 时，按约定好的赫夫曼树可知， 1001 得到第一个字母是 B，接下来的01意味着第二个字符是 A，如图 6-12-10 所示， 其余的也相应的可以得到，从而成功解码。<br><img src="https://github.com/huangqiancun/githubPage-Assets/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E8%B5%AB%E5%A4%AB%E6%9B%BC%E6%A0%91%E5%8F%8A%E8%B5%AB%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81/7.png?raw=true" alt="mark"></p>
-<h1 id="5-赫夫曼编码定义"><a href="#5-赫夫曼编码定义" class="headerlink" title="5 赫夫曼编码定义"></a>5 赫夫曼编码定义</h1><p>一般地，设需要编码的字符集为${d_1,d_2,…,d_n}$，各个字符在电文中出现的次数或频率集合为${w_1,w_2,…,w_n}$ ，以 $d_1,d_2,…,d_n$作为叶子结点，以 $w_1,w_2,…,w_n$ 作为相应叶子结点的权值来构造一棵赫夫曼树。规定赫夫曼树的左分支代表 0，右分支代表 1， 则从根结点到叶子结点所经过的路径分支组成的 0 和 1 的序列便为该结点对应字符的编码，这就是赫夫曼编码。</p>
-<p>参考文献：<br><a href="https://book.douban.com/subject/6424904/" target="_blank" rel="noopener">程杰. 大话数据结构</a></p>
+<h2 id="1-3-研究内容"><a href="#1-3-研究内容" class="headerlink" title="1.3 研究内容"></a>1.3 研究内容</h2><p>本课题在深入分析和研究国内外相关工作的基础上，针对MC方法所需仿真次数庞大、仿真时间长，以及现有大部分快速良率分析在高维下表现不佳的问题：</p>
+<ul>
+<li>基于重要性采样方法在高维空间下，求解空间距离难度大，偏移分布不易获得；基于分类器的方法严重依赖分类器的性能，在高维下难以描绘失效边界等问题。</li>
+</ul>
+<p><strong>本项目基于低秩张量近似(Low-Rank Tensor Approximation, LRTA)，提出一种适用于高维电路的的快速良率分析算法，并和现有的方法在速度和精度上作比较。</strong></p>
+<h2 id="1-4-技术路线"><a href="#1-4-技术路线" class="headerlink" title="1.4 技术路线"></a>1.4 技术路线</h2><p>本课题针对高维电路的良率分析问题，提出使用低秩张量近似算法去建立输入工艺参数与输出性能响应之间的关系。基于低秩张量近似的高维电路良率分析，从数学领域首次将张量计算引入到电路良率分析，有效且准确地估计高维及极小概率下电路的良率。首先使用少量样本建立替代模型；然后用替代模型去判断大量样本的预测值，并根据预测值估计良率。使用张量近似算法，可以极大减小所需的SPICE仿真次数。</p>
+<ul>
+<li>由于电路失效概率一般比较小且在参数空间尾部，采用随机采样可能无法包含任何失效样本，因此首先使用方差缩放采样策略采集训练样本，以保证采样样本尽可能覆盖整个参数空间。</li>
+<li>然后使用交叉验证选择模型的参数，之后利用低秩张量理论及多项式基函数对输入工艺参数展开，利用带有稀疏正则化的交替最小二乘法求解该近似模型的系数, 另外设计了自适应采样框架以进一步减少所需样本量。</li>
+</ul>
+<p>最后得到输入参数和输出响应的回归模型。</p>
+<p>在建立低秩张量近似模型 $y=\mathrm{M}(X)$ 去映射输入工艺参数和输出电路性能之后，通过该模型替代实际的SPICE电路仿真，可以获得每个输入样本的近似电路性能 $\hat{y}$ ，于是可进行快速良率估计。例如当研究的电路性能是SRAM的读失效时，当放电时间大于给定阈值 $T_{threshold}$ 时，SRAM发生读失效。给定未经SPICE的样本集，使用所建立的替代模型，则输出电路性能 $\{y^{(1)},…,y^{(N)}\}$ 被近似电路性能 $\{\hat{y}^{(1)},…,\hat{y}^{(N)}\}$ 代替，同样使用 $T_{threshold}$ 作为失效阈值。当近似电路性能大于阈值时，发生读失效，根据失效个数可以计算失效概率。</p>
+<h2 id="1-5-关键难点及解决方案"><a href="#1-5-关键难点及解决方案" class="headerlink" title="1.5 关键难点及解决方案"></a>1.5 关键难点及解决方案</h2><h3 id="1-5-1-训练样本的来源"><a href="#1-5-1-训练样本的来源" class="headerlink" title="1.5.1 训练样本的来源"></a>1.5.1 训练样本的来源</h3><p>在电路良率问题中，失效样本一般为小概率事件，如果采用传统的MC随机采样策略，采集的训练样本可能过于集中无法有效地包含失效样本，这导致最终训练得到的模型对失效区域样本预测能力弱。本课题拟采用<strong>方差缩放采样策略</strong>，核心思想是从一个方差不断增大的分布中采取样本，这可以保证训练样本能尽可能地覆盖整个参数空间。</p>
+<h3 id="1-5-2-LRTA模型的建立"><a href="#1-5-2-LRTA模型的建立" class="headerlink" title="1.5.2 LRTA模型的建立"></a>1.5.2 LRTA模型的建立</h3><p>本课题旨在建立高维空间下输入工艺参数与输出响应之间的映射关系，由于电路参数众多，采用传统多项式拟合方法难以保证拟合效果。本文引入低秩张量及多项式基函数展开的方法建立输入输出之间的模型，设 $X=[x_1,x_2,…,x_d]$ 为d维独立随机变量表示d个工艺参数，使用低秩张量近似可以将输出电路性能 $Y$ 和输入工艺参数X的关系表示为 $R$ 个一阶张量积的和：<br>\begin{equation}<br>Y=M(X)=\sum_{i=1}^{R} b_{l} w_{l}(X)<br>\end{equation}<br>其中<br>\begin{equation}<br>w_{l}(X)=\prod_{i=1}^{d} v_{l}^{(i)}\left(x_{i}\right)<br>\end{equation}</p>
+<p>$b_l$为归一化系数，$w_l$为输入参数X的一阶张量积，$ v_{l}^{(i)}$为参数$x_i$的概率密度函数。</p>
+<p>为了获得$Y=M(X)$的具体解析式，将每个输入参数的概率密度函数使用正交基函数展开，即<br>\begin{equation}<br>v_{l}^{(i)}\left(x_{i}\right)=\sum_{k=0}^{p i} z_{k, l}^{(i)} p_{k}^{(i)}\left(x_{i}\right)<br>\end{equation}</p>
+<p>其中$p_{k}^{(i)}$为参数$x_i$的第$k$阶展开式， $z_{k, l}^{(i)}$为展开式 $p_{k}^{(i)}$的系数，$p_i$为最大展开阶数。</p>
+<p>联合以上几式，则模型$Y=M(X)$可以表示为：<br>\begin{equation}<br>Y=M(X)=\sum_{i=1}^{R} b_{l}\left(\prod_{i=1}^{d} v_{l}^{(i)}\left(x_{i}\right)\right)=\sum_{i=1}^{R} b_{l}\left(\prod_{i=1}^{d}\left(\sum_{k=0}^{pi} z_{k, l}^{(i)} p_{k}^{(i)}\left(x_{i}\right)\right)\right)<br>\end{equation}</p>
+<p>根据输入参数的特性选取适合的多项式基函数对输入变量的概率密度函数进行展开，以得到最好的近似效果。常用的多项式基函数如表2所示，由于每个工艺参数都服从独立的高斯分布，所以本文使用Hermite多项式对输入工艺参数进行展开。</p>
+<p><center> 表2 常用的多项式基函数 </center><br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/ResearchExperience-LowRankTensorApproximation/2.png" alt="mark"></p>
+<h3 id="1-5-3-LRTA模型的求解"><a href="#1-5-3-LRTA模型的求解" class="headerlink" title="1.5.3 LRTA模型的求解"></a>1.5.3 LRTA模型的求解</h3><p>将输出电路性能$Y$表示为输入参数$X$的$R$个一阶张量积近似后，对应的模型为：</p>
+<p>\begin{equation}<br>Y=M(X)=\sum_{i=1}^{R} b_{l} w_{l}(X)<br>\end{equation}<br>\begin{equation}<br>w_{l}(X)=\prod_{i=1}^{d}\left(\sum_{k=0}^{p i} z_{k, l}^{(i)} p_{k}^{(i)}\left(x_{i}\right)\right)<br>\end{equation}</p>
+<p>给定一组工艺参数样本$X=\{x^{(1)},…,x^{(N)}\}$及对应输出$Y=\{y^{(1)},…,y^{(N)}\}$，通过先后建立一阶张量积$w_l$和计算$b_l$对以上模型求解。求解过程主要分为一系列<strong>校正和更新步骤。</strong> 例如，第$I_r$阶段，建立一阶张量$w_r$，更新归一化系数$\{b_1,b_2,…,b_r\}$。</p>
+<ul>
+<li>校正阶段：在第$I_r$阶段，一阶张量$w_r$通过求解一下最小化问题建立：<br>\begin{equation}<br>w_{r}(X)=\min _{\omega \in W}\left|M-M_{r-1}-\omega\right|_{\varepsilon}^{2}<br>\end{equation}</li>
+</ul>
+<p>其中$M_{r-1}$为第$I_{r-1}$阶段的近似模型，$w$为第$I_{r-1}$阶段后的近似残差，第$r$阶段的目的是求解建立与$w$的近似误差最小的$w_r (X)$。</p>
+<p>使用交替最小二乘(ALS)求解$w_r (X)$中的多项式系数$z_r$ ，ALS求解维度$i \in \{1,2,…,d\}$的系数$z_{r}^{(i)}$时，将剩余维度的系数$\left\{z_{r}^{(j)}\right\}_{i \neq j}$ 固定在当前值，这使得每一次需要求解的未知数个数很小。具体如下式：<br>\begin{equation}<br>z_{r}^{(i)}=\min _{\xi \in \mathbb{R}^{p_i+1}}\left|M-M_{r-1}-c^{(i)}\left(\sum_{k=0}^{p i} \xi_{k} p_{k}^{(i)}\left(x_{i}\right)\right)\right|^{2}_{\varepsilon}<br>\end{equation}</p>
+<p>其中$c^{(i)}$为固定在当前值的维度：<br>\begin{equation}<br>c^{(i)}\left(x_{1}, \ldots x_{i-1}, x_{i+1}, \ldots, x_{d}\right)=\prod_{j \neq i} v_{r}^{(j)}\left(x_{j}\right)=\prod_{j \neq i}\left(\sum_{k=0}^{pj} z_{k, r}^{(j)} p_{k}^{(j)}\left(x_{j}\right)\right)<br>\end{equation}</p>
+<p>上式中仅含有$(p_j+1)$个未知数，而由于输入器件参数服从高斯分布且相互独立，因此使用Hertime对其展开时，Hertime多项式的阶数一般不超过10。因此多项式系数$z_{r}^{(i)}$使用最小二乘算法很容易求解。</p>
+<p>校正阶段会循环迭代地求解维度 $i \in \{1,2,…,d\}$的系数 ，将第$I_r$次迭代过程的残差定义为：<br>\begin{equation}<br>E r r_{r}=\left|M-M_{r-1}-\omega\right|^{2}<br>\end{equation}</p>
+<p>通过给定两次迭代的误差阈值$\Delta \mathrm{Err}_{\mathrm{min}}$及最大迭代次数$I_{max}$，校正阶段的停止条件是第$I_r$次与第$I_{r-1}$次迭代的误差$\Delta \mathrm{Err}$小于给定误差或者超出最大迭代次数。</p>
+<ul>
+<li>更新阶段：当完成校正阶段$I_r$，建立一阶张量$w_r$后，需要求解第$1,2,…,I_r$阶段的归一化系数$b=\{b_1,b_2,…,b_r\}$，归一化系数通过最小化模型的误差求得，即：<br>\begin{equation}<br>b=\min _{\beta \in \mathbb{R}}\left|M-\sum_{l=1}^{r} \beta_{l} \omega_{l}\right|_{\varepsilon}^{2}<br>\end{equation}</li>
+</ul>
+<p>在每次更新阶段，归一化系数长度增加1，这是由于在第$I_r$阶段，$b_r$才第一次确定，而第$1,2,..,I_{r-1}$阶段的归一化系数 $\left\{\beta_{1}, \ldots, \beta_{r-1}\right\}$被更新。训练低秩张量近似模型需要迭代地进行多次校正和更新阶段，在第$r$次校正迭代，需要求解$d$个复杂度为$(p_i+1)$的最小化问题；在第$r$次更新阶段，需求解$1$个复杂度为$r$的最小化问题。因此每个迭代阶段的总体复杂度仅为$(pi+1)d$，与维度$d$呈线性关系，可以有效地解决高维问题。</p>
+<h3 id="1-5-4-张量阶数R和多项式展开阶数p的选择"><a href="#1-5-4-张量阶数R和多项式展开阶数p的选择" class="headerlink" title="1.5.4 张量阶数R和多项式展开阶数p的选择"></a>1.5.4 张量阶数R和多项式展开阶数p的选择</h3><p>在实际的应用中，我们一般不会事先知道一阶张量积的个数$R$，及各维度的展开阶次$p_i$的最佳取值，因此我们给定最大$R_{max}$和$p_{max}$，通过3-折交叉验证的方法选择最优的$R$及$p$，选取使验证误差最小的$R$和$p$作为最优参数。</p>
+<h3 id="1-5-5-防止模型过拟合"><a href="#1-5-5-防止模型过拟合" class="headerlink" title="1.5.5 防止模型过拟合"></a>1.5.5 防止模型过拟合</h3><p>和其他回归的方法类似，低秩张量近似算法也可能发生过拟合，特别是当所给训练样本集太小时。在进行求解系数时，通过引入正则化方法，可以有效防止过拟合，增强模型泛化能力，提升鲁棒性，本文选用的正则项为L1范数，L1范数可以使一些回归系数置0，可以消除了噪声等干扰因素的影响，加入正则化后的优化目标函数为：<br>\begin{equation}<br>z_{r}^{(i)}=\min _{\xi \in \mathbb{R}^{p_i + 1}}\left|M-M_{r-1}-c^{(i)}\left(\sum_{k=0}^{p i} \xi_{k} p_{k}^{(i)}\left(x_{i}\right)\right)\right|_{\varepsilon}^{2}+\lambda P(\xi)<br>\end{equation}</p>
+<p>\begin{equation}<br>b=\min _{\beta \in \mathbb{R}^{r}}\left|M-\sum_{l=1}^{r} \beta_{l} \omega_{l}\right|_{\varepsilon}^{2}+\lambda P(\beta)<br>\end{equation}</p>
+<p>其中$\lambda$为正则化系数，$P(u)$是$u$的L1范数。</p>
+<h3 id="1-5-6-自适应采样策略"><a href="#1-5-6-自适应采样策略" class="headerlink" title="1.5.6 自适应采样策略"></a>1.5.6 自适应采样策略</h3><p>自适应采样将训练过程分为若干个迭代，接下来根据设定的加点策略在每个周期增加样本，以动态地调节模型拟合能力，我们采样的加点策略是将参数空间划分成若干个子区域，计算每一个区域的误差，并根据这些误差计算出权重，然后根据权重在不同的区域生成样本，用来增强该区域的拟合能力。这样可以使每一个样本对模型精度的提升效果最大化。同时可以清楚地看到每一次迭代模型的精度，有利于了解模型的收敛情况。</p>
+<h2 id="1-6-结果"><a href="#1-6-结果" class="headerlink" title="1.6 结果"></a>1.6 结果</h2><p>低维下比同类方法快 6~9 倍，高维下比标准蒙卡快 2150 倍， 相对误差仅为 2.4%。该算法复杂度仅随维度线性增长， 有效解决了高维良率分析中遇到的 “维度诅咒” 问题。</p>
+<p>论文 Meta-Model based High-Dimensional Yield Analysis using Low-Rank Tensor Approximation <a href="https://github.com/huangqiancun/LowRank-Tensor-Approximation-for-High-Dimensional-Yield-Analysis/blob/master/DAC19_LRTA_Full_paper_final_version.pdf" target="_blank" rel="noopener">(Full paper PDF)</a> 投稿到 ACM/IEEE Design Automation Conference (DAC) 2019 (CCF-B 类会议, 设计自动化领域顶级会议), 已录用. 目前在此基础上进行改进, 计划投稿到 IEEETCAD(CCF-A 类期刊).</p>
+<p><a href="https://github.com/huangqiancun/LowRank-Tensor-Approximation-for-High-Dimensional-Yield-Analysis" target="_blank" rel="noopener">like to the codes.</a></p>
 
       
     </div>
@@ -541,7 +586,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link:</strong>
-    <a href="http://huangqiancun.github.io/2019/05/15/数据结构-赫夫曼树及赫夫曼编码/" title="数据结构-赫夫曼树及赫夫曼编码">http://huangqiancun.github.io/2019/05/15/数据结构-赫夫曼树及赫夫曼编码/</a>
+    <a href="http://huangqiancun.github.io/2019/05/19/ResearchExperience-LowRankTensorApproximation/" title="Research Project - 基于低秩张量近似的高维良率分析">http://huangqiancun.github.io/2019/05/19/ResearchExperience-LowRankTensorApproximation/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice: </strong>
@@ -556,7 +601,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
+            <a href="/tags/Project-Experience/" rel="tag"># Project Experience</a>
           
         </div>
       
@@ -569,8 +614,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/15/数据结构-串的模式匹配/" rel="next" title="数据结构-串的模式匹配">
-                <i class="fa fa-chevron-left"></i> 数据结构-串的模式匹配
+              <a href="/2019/05/16/数据结构-字典树/" rel="next" title="数据结构-字典树">
+                <i class="fa fa-chevron-left"></i> 数据结构-字典树
               </a>
             
           </div>
@@ -578,10 +623,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/16/数据结构-字典树/" rel="prev" title="数据结构-字典树">
-                数据结构-字典树 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -755,7 +796,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-赫夫曼树"><span class="nav-text">1 赫夫曼树</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-赫夫曼树构造方法"><span class="nav-text">2 赫夫曼树构造方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-赫夫曼编码"><span class="nav-text">3 赫夫曼编码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-赫夫曼解码"><span class="nav-text">4 赫夫曼解码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-赫夫曼编码定义"><span class="nav-text">5 赫夫曼编码定义</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0-《超低电压高精度时序分析技术》项目概要"><span class="nav-text">0 《超低电压高精度时序分析技术》项目概要</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0-1-研究内容"><span class="nav-text">0.1 研究内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0-2-考核指标"><span class="nav-text">0.2 考核指标</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-基于低秩张量近似的高维良率分析"><span class="nav-text">1 基于低秩张量近似的高维良率分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-研究背景及价值"><span class="nav-text">1.1 研究背景及价值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-1-研究背景"><span class="nav-text">1.1.1 研究背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-2-研究价值"><span class="nav-text">1.1.2 研究价值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-国内外研究现状、发展动态"><span class="nav-text">1.2 国内外研究现状、发展动态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-研究内容"><span class="nav-text">1.3 研究内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-技术路线"><span class="nav-text">1.4 技术路线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-关键难点及解决方案"><span class="nav-text">1.5 关键难点及解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-1-训练样本的来源"><span class="nav-text">1.5.1 训练样本的来源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-2-LRTA模型的建立"><span class="nav-text">1.5.2 LRTA模型的建立</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-3-LRTA模型的求解"><span class="nav-text">1.5.3 LRTA模型的求解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-4-张量阶数R和多项式展开阶数p的选择"><span class="nav-text">1.5.4 张量阶数R和多项式展开阶数p的选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-5-防止模型过拟合"><span class="nav-text">1.5.5 防止模型过拟合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-6-自适应采样策略"><span class="nav-text">1.5.6 自适应采样策略</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-6-结果"><span class="nav-text">1.6 结果</span></a></li></ol></li></ol></div>
             
 
           </div>
