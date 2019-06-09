@@ -122,7 +122,7 @@
 <meta property="og:image" content="https://github.com/huangqiancun/githubPage-Assets/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E8%B5%AB%E5%A4%AB%E6%9B%BC%E6%A0%91%E5%8F%8A%E8%B5%AB%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81/5.png?raw=true">
 <meta property="og:image" content="https://github.com/huangqiancun/githubPage-Assets/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E8%B5%AB%E5%A4%AB%E6%9B%BC%E6%A0%91%E5%8F%8A%E8%B5%AB%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81/6.png?raw=true">
 <meta property="og:image" content="https://github.com/huangqiancun/githubPage-Assets/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E8%B5%AB%E5%A4%AB%E6%9B%BC%E6%A0%91%E5%8F%8A%E8%B5%AB%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81/7.png?raw=true">
-<meta property="og:updated_time" content="2019-05-18T09:21:52.308Z">
+<meta property="og:updated_time" content="2019-05-18T09:21:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构-赫夫曼树及赫夫曼编码">
 <meta name="twitter:description" content="本系列为数据结构学习笔记(待汇总)。 1 赫夫曼树先看如下两棵树： 从树中一个结点到另一个结点之间的分支构成两个结点之间的路径，路径上的分支数目称为路径长度。 二叉树 a 中， 根结点到结点 D 的路径长度为 4，二叉树 b 中根结点到结点 D 的路径长度为 2。 树的路径长度就是从树根到每一结点的路径长度之和 。 二 叉树 a 的树路径长度就为 1+1+2+2+3+3+4+4=20。二叉树 b">
@@ -360,7 +360,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-15T23:35:31+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-15T23:35:25+08:00">
                 2019-05-15
               </time>
             
@@ -455,7 +455,7 @@
 <h1 id="1-赫夫曼树"><a href="#1-赫夫曼树" class="headerlink" title="1 赫夫曼树"></a>1 赫夫曼树</h1><p>先看如下两棵树：<br><img src="https://github.com/huangqiancun/githubPage-Assets/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E8%B5%AB%E5%A4%AB%E6%9B%BC%E6%A0%91%E5%8F%8A%E8%B5%AB%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81/1.png?raw=true" alt="mark"></p>
 <p>从树中一个结点到另一个结点之间的分支构成两个结点之间的路径，路径上的分支数目称为路径长度。</p>
 <p>二叉树 a 中， 根结点到结点 D 的路径长度为 4，二叉树 b 中根结点到结点 D 的路径长度为 2。 树的路径长度就是从树根到每一结点的路径长度之和 。 二 叉树 a 的树路径长度就为 1+1+2+2+3+3+4+4=20。二叉树 b 的树路径长度就为1+2+3+3+2+1+2+2=16。</p>
-<p>考虑到带权的结点，结点的带权的路径长度为该结点到树根之间的路径长度与结点上权的乘积。树的带权路径长度为树中所有叶子结点的带权路径长度之和。假设有n个权值${w_1,w_2,…,w_n}$，构造一棵有 n 个叶子结点的二叉树，每个叶子结点带权 $W_k$，每个叶子的路径长度为 $l_k$，<strong>则其中带权路径长度(WPL)最小的二叉树称做赫夫曼树</strong>，也称为最优二叉树。</p>
+<p>考虑到带权的结点，结点的带权的路径长度为该结点到树根之间的路径长度与结点上权的乘积。树的带权路径长度为树中所有叶子结点的带权路径长度之和。假设有n个权值$\{w_1,w_2,…,w_n\}$，构造一棵有 n 个叶子结点的二叉树，每个叶子结点带权 $W_k$，每个叶子的路径长度为 $l_k$，<strong>则其中带权路径长度(WPL)最小的二叉树称做赫夫曼树</strong>，也称为最优二叉树。</p>
 <ul>
 <li>二叉树 a 的 $WPL=5 x 1+15 x 2+40 x  3+30 x 4+10 x 4 = 315 $</li>
 <li>二叉树 b 的 $WPL=5 x 3+ 15 x 3+40 x 2+30 x 2+ 10 x 2 = 220 $</li>
@@ -472,7 +472,7 @@
 </ol>
 <p>构造赫夫曼树的赫夫曼算法描述：</p>
 <ol>
-<li>根据给定的 n 个权值${w_1,w_2,…,w_n}$构成 n 棵二叉树的集合 $F = {T_1,T_2,…,T_n}$， 其中每棵二叉树 $T_i $中只有一个带权为 $W_i$根结点，其左右子树均为空。<br>2 . 在 F 中选取两棵根结点的权值最小的树作为左右子树构造一棵新的二叉树，且 置新的二叉树的根结点的权值为其左右子树上根结点的权值之和。<br>3 . 在 F 中删除这两棵树，同时将新得到的二叉树加入 F 中。</li>
+<li>根据给定的 n 个权值$\{w_1,w_2,…,w_n\}$构成 n 棵二叉树的集合 $F = \{T_1,T_2,…,T_n\}$， 其中每棵二叉树 $T_i $中只有一个带权为 $W_i$根结点，其左右子树均为空。<br>2 . 在 F 中选取两棵根结点的权值最小的树作为左右子树构造一棵新的二叉树，且 置新的二叉树的根结点的权值为其左右子树上根结点的权值之和。<br>3 . 在 F 中删除这两棵树，同时将新得到的二叉树加入 F 中。</li>
 <li>重复 2 和 3 步骤，直到 F 只含一棵树为止。这棵树便是赫夫曼树。</li>
 </ol>
 <h1 id="3-赫夫曼编码"><a href="#3-赫夫曼编码" class="headerlink" title="3 赫夫曼编码"></a>3 赫夫曼编码</h1><p>用于压缩和解压缩文件，把要压缩的文本进行重新编码，以减少不必要的空间。<br>比如我们有一段文字内容为 “BADCADFEED” 要网络传输给别人，显然用二进制 的数字 (0 和 1) 来表示是很自然的想法。我们现在这段文字只有六个字母 ABCDEF，那么我们可以用相应的二进制数据表示：<br><img src="https://github.com/huangqiancun/githubPage-Assets/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E8%B5%AB%E5%A4%AB%E6%9B%BC%E6%A0%91%E5%8F%8A%E8%B5%AB%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81/4.png?raw=true" alt="mark"></p>
@@ -490,7 +490,7 @@
 <h1 id="4-赫夫曼解码"><a href="#4-赫夫曼解码" class="headerlink" title="4 赫夫曼解码"></a>4 赫夫曼解码</h1><p>前缀编码：编码中非 0 即 1，长短不等的话其实是很容易混淆的，所以若要设计长短不等的编码，则必须是任一字符的编码都不是另一个字符的编码的前缀，这种编码称做前缀编码。</p>
 <p>在解码时，还是要用到赫夫曼树，即发送方和接收方必须要约定好同样的赫夫曼编码规则。</p>
 <p>当我们接收到 1001010010101001000111100 时，按约定好的赫夫曼树可知， 1001 得到第一个字母是 B，接下来的01意味着第二个字符是 A，如图 6-12-10 所示， 其余的也相应的可以得到，从而成功解码。<br><img src="https://github.com/huangqiancun/githubPage-Assets/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E8%B5%AB%E5%A4%AB%E6%9B%BC%E6%A0%91%E5%8F%8A%E8%B5%AB%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81/7.png?raw=true" alt="mark"></p>
-<h1 id="5-赫夫曼编码定义"><a href="#5-赫夫曼编码定义" class="headerlink" title="5 赫夫曼编码定义"></a>5 赫夫曼编码定义</h1><p>一般地，设需要编码的字符集为${d_1,d_2,…,d_n}$，各个字符在电文中出现的次数或频率集合为${w_1,w_2,…,w_n}$ ，以 $d_1,d_2,…,d_n$作为叶子结点，以 $w_1,w_2,…,w_n$ 作为相应叶子结点的权值来构造一棵赫夫曼树。规定赫夫曼树的左分支代表 0，右分支代表 1， 则从根结点到叶子结点所经过的路径分支组成的 0 和 1 的序列便为该结点对应字符的编码，这就是赫夫曼编码。</p>
+<h1 id="5-赫夫曼编码定义"><a href="#5-赫夫曼编码定义" class="headerlink" title="5 赫夫曼编码定义"></a>5 赫夫曼编码定义</h1><p>一般地，设需要编码的字符集为$\{d_1,d_2,…,d_n\}$，各个字符在电文中出现的次数或频率集合为$\{w_1,w_2,…,w_n\}$ ，以 $d_1,d_2,…,d_n$作为叶子结点，以 $w_1,w_2,…,w_n$ 作为相应叶子结点的权值来构造一棵赫夫曼树。规定赫夫曼树的左分支代表 0，右分支代表 1， 则从根结点到叶子结点所经过的路径分支组成的 0 和 1 的序列便为该结点对应字符的编码，这就是赫夫曼编码。</p>
 <p>参考文献：<br><a href="https://book.douban.com/subject/6424904/" target="_blank" rel="noopener">程杰. 大话数据结构</a></p>
 
       
@@ -677,7 +677,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -797,7 +797,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">365.5k</span>
+    <span title="Site words total count">371k</span>
   
 </div>
 

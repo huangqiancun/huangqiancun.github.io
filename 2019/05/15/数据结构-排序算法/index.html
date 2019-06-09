@@ -107,13 +107,13 @@
 
 
 
-<meta name="description" content="本系列为数据结构学习笔记(待汇总)。 1 排序假设含有n个记录的序列为${r1,r_2,…,r_n}$，其相应的关键字分别为$(k_1,k_2,…,k_n)$，需确定$1,2,…,n$的一种排列$p_1,p_2,…,p_n$,使其相应的关键字满足$K{p1} \leq k{p2} \leq …  \leq k{pn}$关系，即使得序列成为一个按关键字有序的序列${r{p1},r{p2},…,r_{">
+<meta name="description" content="本系列为数据结构学习笔记(待汇总)。 1 排序假设含有n个记录的序列为${r_1,r_2,…,r_n}$，其相应的关键字分别为$(k_1,k_2,…,k_n)$，需确定$1,2,…,n$的一种排列$p_1,p_2,…,p_n$,使其相应的关键字满足$K_{p1} \leq k_{p2} \leq …  \leq k_{pn}$关系，即使得序列成为一个按关键字有序的序列${r_{p1},r_{p2}">
 <meta name="keywords" content="数据结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据结构 - 排序算法">
 <meta property="og:url" content="http://huangqiancun.github.io/2019/05/15/数据结构-排序算法/index.html">
 <meta property="og:site_name" content="I&#39;m Qiancun Huang">
-<meta property="og:description" content="本系列为数据结构学习笔记(待汇总)。 1 排序假设含有n个记录的序列为${r1,r_2,…,r_n}$，其相应的关键字分别为$(k_1,k_2,…,k_n)$，需确定$1,2,…,n$的一种排列$p_1,p_2,…,p_n$,使其相应的关键字满足$K{p1} \leq k{p2} \leq …  \leq k{pn}$关系，即使得序列成为一个按关键字有序的序列${r{p1},r{p2},…,r_{">
+<meta property="og:description" content="本系列为数据结构学习笔记(待汇总)。 1 排序假设含有n个记录的序列为${r_1,r_2,…,r_n}$，其相应的关键字分别为$(k_1,k_2,…,k_n)$，需确定$1,2,…,n$的一种排列$p_1,p_2,…,p_n$,使其相应的关键字满足$K_{p1} \leq k_{p2} \leq …  \leq k_{pn}$关系，即使得序列成为一个按关键字有序的序列${r_{p1},r_{p2}">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://github.com/huangqiancun/githubPage-Assets/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/%E5%86%92%E6%B3%A11.png?raw=true">
 <meta property="og:image" content="https://github.com/huangqiancun/githubPage-Assets/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/%E5%86%92%E6%B3%A12.png?raw=true">
@@ -123,10 +123,10 @@
 <meta property="og:image" content="https://github.com/huangqiancun/githubPage-Assets/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F.png?raw=true">
 <meta property="og:image" content="https://github.com/huangqiancun/githubPage-Assets/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/%E5%BF%AB%E6%8E%92.png?raw=true">
 <meta property="og:image" content="https://github.com/huangqiancun/githubPage-Assets/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/%E5%A4%8D%E6%9D%82%E5%BA%A6%E6%80%BB%E7%BB%93.png?raw=true">
-<meta property="og:updated_time" content="2019-05-18T09:20:08.516Z">
+<meta property="og:updated_time" content="2019-05-18T09:20:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构 - 排序算法">
-<meta name="twitter:description" content="本系列为数据结构学习笔记(待汇总)。 1 排序假设含有n个记录的序列为${r1,r_2,…,r_n}$，其相应的关键字分别为$(k_1,k_2,…,k_n)$，需确定$1,2,…,n$的一种排列$p_1,p_2,…,p_n$,使其相应的关键字满足$K{p1} \leq k{p2} \leq …  \leq k{pn}$关系，即使得序列成为一个按关键字有序的序列${r{p1},r{p2},…,r_{">
+<meta name="twitter:description" content="本系列为数据结构学习笔记(待汇总)。 1 排序假设含有n个记录的序列为${r_1,r_2,…,r_n}$，其相应的关键字分别为$(k_1,k_2,…,k_n)$，需确定$1,2,…,n$的一种排列$p_1,p_2,…,p_n$,使其相应的关键字满足$K_{p1} \leq k_{p2} \leq …  \leq k_{pn}$关系，即使得序列成为一个按关键字有序的序列${r_{p1},r_{p2}">
 <meta name="twitter:image" content="https://github.com/huangqiancun/githubPage-Assets/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/%E5%86%92%E6%B3%A11.png?raw=true">
 
 
@@ -361,7 +361,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-15T10:30:46+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-15T12:23:08+08:00">
                 2019-05-15
               </time>
             
@@ -453,7 +453,7 @@
 
       
         <p>本系列为数据结构学习笔记(待汇总)。</p>
-<h1 id="1-排序"><a href="#1-排序" class="headerlink" title="1 排序"></a>1 排序</h1><p>假设含有n个记录的序列为${r<em>1,r_2,…,r_n}$，其相应的关键字分别为$(k_1,k_2,…,k_n)$，需确定$1,2,…,n$的一种排列$p_1,p_2,…,p_n$,使其相应的关键字满足$K</em>{p1} \leq k<em>{p2} \leq …  \leq k</em>{pn}$关系，即使得序列成为一个按关键字有序的序列${r<em>{p1},r</em>{p2},…,r_{pn}$，这样的操作就称为排序。</p>
+<h1 id="1-排序"><a href="#1-排序" class="headerlink" title="1 排序"></a>1 排序</h1><p>假设含有n个记录的序列为${r_1,r_2,…,r_n}$，其相应的关键字分别为$(k_1,k_2,…,k_n)$，需确定$1,2,…,n$的一种排列$p_1,p_2,…,p_n$,使其相应的关键字满足$K_{p1} \leq k_{p2} \leq …  \leq k_{pn}$关系，即使得序列成为一个按关键字有序的序列${r_{p1},r_{p2},…,r_{pn}$，这样的操作就称为排序。</p>
 <h2 id="1-1-排序的稳定性"><a href="#1-1-排序的稳定性" class="headerlink" title="1.1 排序的稳定性"></a>1.1 排序的稳定性</h2><p>假设$k_i = k_j (1 \leq i \leq n，1 \leq j \leq n，i \neq j)$，且在排序前的序列中$r_i$领先于$r_j$（即$i＜j$）。如果排序后$r_i$仍领先于$r_j$，则称所用的排序方法是稳定的；反之，若可能使得排序后的序列中$r_j$领先$r_i$，则称所用的排序方法是不稳定的。</p>
 <h2 id="1-2-内排序与外排序"><a href="#1-2-内排序与外排序" class="headerlink" title="1.2 内排序与外排序"></a>1.2 内排序与外排序</h2><p>内排序是在排序整个过程中，待排序的所有记录全部被放置在内存中。外排序是由于排序的记录个数太多，不能同时放置在内存，整个排序过程需要内外存之间多次交换数据才能进行。</p>
 <p>对于内排序来说，排序算法的性能主要受3个方面影响：</p>
@@ -749,7 +749,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -869,7 +869,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">365.5k</span>
+    <span title="Site words total count">371k</span>
   
 </div>
 
