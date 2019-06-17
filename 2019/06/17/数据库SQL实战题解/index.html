@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icons8-fox-32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icons8-fox-16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="算法题解,SQL,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="I'm Qiancun Huang" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="本系列为数据库SQL实战刷题笔记，刷题平台为牛客网。题量为61道。 笔记：读书笔记-MySQL必知必会 1 查找最晚入职员工的所有信息题目描述1234567891011121314查找最晚入职员工的所有信息CREATE TABLE `employees` (`emp_no` int(11) NOT NULL,`birth_date` date NOT NULL,`first_name` varch">
+<meta name="keywords" content="算法题解,SQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库SQL实战题解">
+<meta property="og:url" content="http://huangqiancun.github.io/2019/06/17/数据库SQL实战题解/index.html">
+<meta property="og:site_name" content="I&#39;m Qiancun Huang">
+<meta property="og:description" content="本系列为数据库SQL实战刷题笔记，刷题平台为牛客网。题量为61道。 笔记：读书笔记-MySQL必知必会 1 查找最晚入职员工的所有信息题目描述1234567891011121314查找最晚入职员工的所有信息CREATE TABLE `employees` (`emp_no` int(11) NOT NULL,`birth_date` date NOT NULL,`first_name` varch">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-06-17T07:04:44.300Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据库SQL实战题解">
+<meta name="twitter:description" content="本系列为数据库SQL实战刷题笔记，刷题平台为牛客网。题量为61道。 笔记：读书笔记-MySQL必知必会 1 查找最晚入职员工的所有信息题目描述1234567891011121314查找最晚入职员工的所有信息CREATE TABLE `employees` (`emp_no` int(11) NOT NULL,`birth_date` date NOT NULL,`first_name` varch">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://huangqiancun.github.io/2019/06/17/数据库SQL实战题解/">
+
+
+
+
+
+  <title>数据库SQL实战题解 | I'm Qiancun Huang</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">I'm Qiancun Huang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Live it. Love it. Enjoy IT.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://huangqiancun.github.io/2019/06/17/数据库SQL实战题解/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Qiancun Huang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/photo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="I'm Qiancun Huang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">数据库SQL实战题解</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-17T09:44:55+08:00">
+                2019-06-17
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-06-17T15:04:44+08:00">
+                2019-06-17
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/SQL/" itemprop="url" rel="index">
+                    <span itemprop="name">SQL</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  3.5k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本系列为数据库SQL实战刷题笔记，刷题平台为<a href="https://www.nowcoder.com/ta/sql" target="_blank" rel="noopener">牛客网</a>。题量为61道。</p>
+<p>笔记：<a href="https://huangqiancun.github.io/2019/06/14/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/">读书笔记-MySQL必知必会</a></p>
+<h1 id="1-查找最晚入职员工的所有信息"><a href="#1-查找最晚入职员工的所有信息" class="headerlink" title="1 查找最晚入职员工的所有信息"></a>1 查找最晚入职员工的所有信息</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/218ae58dfdcd4af195fff264e062138f?tpId=82&amp;tqId=29753&amp;tPage=1&amp;rp=&amp;ru=%2Fta%2Fsql&amp;qru=%2Fta%2Fsql%2Fquestion-ranking" target="_blank" rel="noopener">题目描述</a></h2><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">查找最晚入职员工的所有信息</span><br><span class="line"><span class="keyword">CREATE</span> TABLE <span class="symbol">`employees`</span> (</span><br><span class="line"><span class="symbol">`emp_no`</span> int(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`birth_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`first_name`</span> varchar(<span class="number">14</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`last_name`</span> varchar(<span class="number">16</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`gender`</span> char(<span class="number">1</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`hire_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> <span class="keyword">KEY</span> (<span class="symbol">`emp_no`</span>));</span><br><span class="line"></span><br><span class="line">输入描述:</span><br><span class="line">无</span><br><span class="line">输出描述:</span><br><span class="line">emp_no	birth_date	first_name	last_name	gender	hire_date</span><br></pre></td></tr></table></figure>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT * </span><br><span class="line">FROM employees</span><br><span class="line">WHERE hire_date = (SELECT MAX(hire_date) FROM employees);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT * </span><br><span class="line">FROM employees</span><br><span class="line">ORDER BY hire_date DESC LIMIT 0, 1;</span><br></pre></td></tr></table></figure>
+<h1 id="2-查找入职员工时间排名倒数第三的员工所有信息"><a href="#2-查找入职员工时间排名倒数第三的员工所有信息" class="headerlink" title="2 查找入职员工时间排名倒数第三的员工所有信息"></a>2 查找入职员工时间排名倒数第三的员工所有信息</h1><h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/ec1ca44c62c14ceb990c3c40def1ec6c?tpId=82&amp;tqId=29754&amp;rp=0&amp;ru=/ta/sql&amp;qru=/ta/sql/question-ranking" target="_blank" rel="noopener">题目描述</a></h2><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">查找入职员工时间排名倒数第三的员工所有信息</span><br><span class="line"><span class="keyword">CREATE</span> TABLE <span class="symbol">`employees`</span> (</span><br><span class="line"><span class="symbol">`emp_no`</span> int(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`birth_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`first_name`</span> varchar(<span class="number">14</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`last_name`</span> varchar(<span class="number">16</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`gender`</span> char(<span class="number">1</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`hire_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> <span class="keyword">KEY</span> (<span class="symbol">`emp_no`</span>));</span><br><span class="line"></span><br><span class="line">输入描述:</span><br><span class="line">无</span><br><span class="line">输出描述:</span><br><span class="line">emp_no	birth_date	first_name	last_name	gender	hire_date</span><br></pre></td></tr></table></figure>
+<h2 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT * </span><br><span class="line">FROM employees </span><br><span class="line">ORDER BY hire_date DESC LIMIT 2,1;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT * </span><br><span class="line">FROM employees </span><br><span class="line">WHERE hire_date = (SELECT hire_date FROM employees ORDER BY hire_date DESC LIMIT 2,1);</span><br></pre></td></tr></table></figure>
+<h1 id="3-查找当前薪水详情以及部门编号dept-no"><a href="#3-查找当前薪水详情以及部门编号dept-no" class="headerlink" title="3 查找当前薪水详情以及部门编号dept_no"></a>3 查找当前薪水详情以及部门编号dept_no</h1><h2 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/c63c5b54d86e4c6d880e4834bfd70c3b?tpId=82&amp;tqId=29755&amp;rp=0&amp;ru=/ta/sql&amp;qru=/ta/sql/question-ranking" target="_blank" rel="noopener">题目描述</a></h2><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">查找各个部门当前(to_date='9999-01-01')领导当前薪水详情以及其对应部门编号dept_no</span><br><span class="line"><span class="keyword">CREATE</span> TABLE <span class="symbol">`dept_manager`</span> (</span><br><span class="line"><span class="symbol">`dept_no`</span> char(<span class="number">4</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`emp_no`</span> int(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`from_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`to_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> <span class="keyword">KEY</span> (<span class="symbol">`emp_no`</span>,<span class="symbol">`dept_no`</span>));</span><br><span class="line"><span class="keyword">CREATE</span> TABLE <span class="symbol">`salaries`</span> (</span><br><span class="line"><span class="symbol">`emp_no`</span> int(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`salary`</span> int(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`from_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`to_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> <span class="keyword">KEY</span> (<span class="symbol">`emp_no`</span>,<span class="symbol">`from_date`</span>));</span><br><span class="line"></span><br><span class="line">输入描述:</span><br><span class="line">无</span><br><span class="line">输出描述:</span><br><span class="line">emp_no	salary	from_date	to_date	dept_no</span><br></pre></td></tr></table></figure>
+<h2 id="解题思路-2"><a href="#解题思路-2" class="headerlink" title="解题思路"></a>解题思路</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT s.*, d.dept_no</span><br><span class="line">FROM salaries as s </span><br><span class="line">    INNER JOIN dept_manager as d </span><br><span class="line">    ON s.emp_no = d.emp_no</span><br><span class="line">WHERE s.to_date=&apos;9999-01-01&apos;</span><br><span class="line">    AND d.to_date=&apos;9999-01-01&apos;;</span><br></pre></td></tr></table></figure>
+<h1 id="4-查找所有已经分配部门的员工的last-name和first-name"><a href="#4-查找所有已经分配部门的员工的last-name和first-name" class="headerlink" title="4 查找所有已经分配部门的员工的last_name和first_name"></a>4 查找所有已经分配部门的员工的last_name和first_name</h1><h2 id="题目描述-3"><a href="#题目描述-3" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/6d35b1cd593545ab985a68cd86f28671?tpId=82&amp;tqId=29756&amp;rp=0&amp;ru=%2Fta%2Fsql&amp;qru=%2Fta%2Fsql%2Fquestion-ranking&amp;tPage=1" target="_blank" rel="noopener">题目描述</a></h2><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">题目描述</span><br><span class="line">查找所有已经分配部门的员工的last_name和first_name</span><br><span class="line"><span class="keyword">CREATE</span> TABLE <span class="symbol">`dept_emp`</span> (</span><br><span class="line"><span class="symbol">`emp_no`</span> int(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`dept_no`</span> char(<span class="number">4</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`from_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`to_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> <span class="keyword">KEY</span> (<span class="symbol">`emp_no`</span>,<span class="symbol">`dept_no`</span>));</span><br><span class="line"><span class="keyword">CREATE</span> TABLE <span class="symbol">`employees`</span> (</span><br><span class="line"><span class="symbol">`emp_no`</span> int(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`birth_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`first_name`</span> varchar(<span class="number">14</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`last_name`</span> varchar(<span class="number">16</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`gender`</span> char(<span class="number">1</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`hire_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> <span class="keyword">KEY</span> (<span class="symbol">`emp_no`</span>));</span><br><span class="line">输入描述:</span><br><span class="line">无</span><br><span class="line">输出描述:</span><br><span class="line">last_name	first_name	dept_no</span><br></pre></td></tr></table></figure>
+<h2 id="解题思路-3"><a href="#解题思路-3" class="headerlink" title="解题思路"></a>解题思路</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT e.last_name, e.first_name, d.dept_no</span><br><span class="line">FROM employees AS e </span><br><span class="line">    INNER JOIN dept_emp AS d</span><br><span class="line">    ON e.emp_no = d.emp_no</span><br></pre></td></tr></table></figure>
+<h1 id="5-查找所有员工的last-name和first-name以及对应部门编号dept-no"><a href="#5-查找所有员工的last-name和first-name以及对应部门编号dept-no" class="headerlink" title="5 查找所有员工的last_name和first_name以及对应部门编号dept_no"></a>5 查找所有员工的last_name和first_name以及对应部门编号dept_no</h1><h2 id="题目描述-4"><a href="#题目描述-4" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/dbfafafb2ee2482aa390645abd4463bf?tpId=82&amp;tqId=29757&amp;rp=0&amp;ru=/ta/sql&amp;qru=/ta/sql/question-ranking" target="_blank" rel="noopener">题目描述</a></h2><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">查找所有员工的last_name和first_name以及对应部门编号dept_no，也包括展示没有分配具体部门的员工</span><br><span class="line"><span class="keyword">CREATE</span> TABLE <span class="symbol">`dept_emp`</span> (</span><br><span class="line"><span class="symbol">`emp_no`</span> int(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`dept_no`</span> char(<span class="number">4</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`from_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`to_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> <span class="keyword">KEY</span> (<span class="symbol">`emp_no`</span>,<span class="symbol">`dept_no`</span>));</span><br><span class="line"><span class="keyword">CREATE</span> TABLE <span class="symbol">`employees`</span> (</span><br><span class="line"><span class="symbol">`emp_no`</span> int(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`birth_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`first_name`</span> varchar(<span class="number">14</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`last_name`</span> varchar(<span class="number">16</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`gender`</span> char(<span class="number">1</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`hire_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> <span class="keyword">KEY</span> (<span class="symbol">`emp_no`</span>));</span><br><span class="line">输入描述:</span><br><span class="line">无</span><br><span class="line">输出描述:</span><br><span class="line">last_name	first_name	dept_no</span><br></pre></td></tr></table></figure>
+<h2 id="解题思路-4"><a href="#解题思路-4" class="headerlink" title="解题思路"></a>解题思路</h2><ul>
+<li>INNER JOIN 两边表同时有对应的数据，即任何一边缺失数据就不显示。</li>
+<li>LEFT JOIN 会读取左边数据表的全部数据，即便右边表无对应数据。</li>
+<li>RIGHT JOIN 会读取右边数据表的全部数据，即便左边表无对应数据。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT e.last_name, e.first_name, d.dept_no</span><br><span class="line">FROM employees AS e </span><br><span class="line">    LEFT JOIN dept_emp AS d</span><br><span class="line">    ON e.emp_no = d.emp_no</span><br></pre></td></tr></table></figure>
+<h1 id="6-查找所有员工入职时候的薪水情况"><a href="#6-查找所有员工入职时候的薪水情况" class="headerlink" title="6 查找所有员工入职时候的薪水情况"></a>6 查找所有员工入职时候的薪水情况</h1><h2 id="题目描述-5"><a href="#题目描述-5" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/23142e7a23e4480781a3b978b5e0f33a?tpId=82&amp;tqId=29758&amp;rp=0&amp;ru=/ta/sql&amp;qru=/ta/sql/question-ranking" target="_blank" rel="noopener">题目描述</a></h2><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">查找所有员工入职时候的薪水情况，给出emp_no以及salary， 并按照emp_no进行逆序</span><br><span class="line"><span class="keyword">CREATE</span> TABLE <span class="symbol">`employees`</span> (</span><br><span class="line"><span class="symbol">`emp_no`</span> int(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`birth_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`first_name`</span> varchar(<span class="number">14</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`last_name`</span> varchar(<span class="number">16</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`gender`</span> char(<span class="number">1</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`hire_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> <span class="keyword">KEY</span> (<span class="symbol">`emp_no`</span>));</span><br><span class="line"><span class="keyword">CREATE</span> TABLE <span class="symbol">`salaries`</span> (</span><br><span class="line"><span class="symbol">`emp_no`</span> int(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`salary`</span> int(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`from_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`to_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> <span class="keyword">KEY</span> (<span class="symbol">`emp_no`</span>,<span class="symbol">`from_date`</span>));</span><br><span class="line">输入描述:</span><br><span class="line">无</span><br><span class="line">输出描述:</span><br><span class="line">emp_no	salary</span><br></pre></td></tr></table></figure>
+<h2 id="解题思路-5"><a href="#解题思路-5" class="headerlink" title="解题思路"></a>解题思路</h2><ul>
+<li>在测试数据中，salaries中的emp_no不唯一（因为号码为emp_no的员工会有多次涨薪的可能，所有在salaries中对应的记录不止一条）。</li>
+<li>employees.emp_no唯一，即salaries的数据会多于employees。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 利用INNER JOIN连接两张表</span><br><span class="line">SELECT e.emp_no, s.salary</span><br><span class="line">FROM employees AS e </span><br><span class="line">    INNER JOIN salaries AS s</span><br><span class="line">    ON e.emp_no = s.emp_no AND e.hire_date = s.from_date</span><br><span class="line">ORDER BY e.emp_no DESC;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 直接用逗号并列查询两张表</span><br><span class="line">SELECT e.emp_no, s.salary</span><br><span class="line">FROM employees AS e, salaries AS s</span><br><span class="line">WHERE e.emp_no = s.emp_no </span><br><span class="line">    AND e.hire_date = s.from_date</span><br><span class="line">ORDER BY e.emp_no DESC;</span><br></pre></td></tr></table></figure>
+<h1 id="7-查找薪水涨幅超过15次的员工号emp-no以及其对应的涨幅次数t"><a href="#7-查找薪水涨幅超过15次的员工号emp-no以及其对应的涨幅次数t" class="headerlink" title="7 查找薪水涨幅超过15次的员工号emp_no以及其对应的涨幅次数t"></a>7 查找薪水涨幅超过15次的员工号emp_no以及其对应的涨幅次数t</h1><h2 id="题目描述-6"><a href="#题目描述-6" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/6d4a4cff1d58495182f536c548fee1ae?tpId=82&amp;tqId=29759&amp;rp=0&amp;ru=/ta/sql&amp;qru=/ta/sql/question-ranking" target="_blank" rel="noopener">题目描述</a></h2><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">查找薪水涨幅超过15次的员工号emp_no以及其对应的涨幅次数t</span><br><span class="line"><span class="keyword">CREATE</span> TABLE <span class="symbol">`salaries`</span> (</span><br><span class="line"><span class="symbol">`emp_no`</span> int(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`salary`</span> int(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`from_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`to_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> <span class="keyword">KEY</span> (<span class="symbol">`emp_no`</span>,<span class="symbol">`from_date`</span>));</span><br><span class="line">输入描述:</span><br><span class="line">无</span><br><span class="line">输出描述:</span><br><span class="line">emp_no	t</span><br></pre></td></tr></table></figure>
+<h2 id="解题思路-6"><a href="#解题思路-6" class="headerlink" title="解题思路"></a>解题思路</h2><ul>
+<li>用COUNT函数和GROUP BY语句可以统计同一emp_no值的记录条数。</li>
+<li>用AS语句将COUNT(emp_no) 的值转换为t。</li>
+<li>COUNT函数不可用WHERE语句，因此使用HAVING语句。</li>
+<li><p>涨幅超过15次，salaries中相应的记录数应该超过16（从第2条记录开始算作第1次涨幅），不过题目为了简单起见，将第1条记录当作第1次涨幅，所以令t&gt;15即可。</p>
+</li>
+<li><p>注意： 严格来说，下一条salary高于本条才算涨幅，但本题只要出现了一条记录就算一次涨幅，salary相同可以理解为涨幅为0，salary变少理解为涨幅为负。</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT emp_no, COUNT(*) AS t</span><br><span class="line">FROM salaries</span><br><span class="line">GROUP BY emp_no</span><br><span class="line">HAVING t &gt; 15;</span><br></pre></td></tr></table></figure>
+<h1 id="8-找出所有员工当前薪水salary情况"><a href="#8-找出所有员工当前薪水salary情况" class="headerlink" title="8 找出所有员工当前薪水salary情况"></a>8 找出所有员工当前薪水salary情况</h1><h2 id="题目描述-7"><a href="#题目描述-7" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/ae51e6d057c94f6d891735a48d1c2397?tpId=82&amp;tqId=29760&amp;rp=0&amp;ru=/ta/sql&amp;qru=/ta/sql/question-ranking" target="_blank" rel="noopener">题目描述</a></h2><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">找出所有员工当前(to_date='9999-01-01')具体的薪水salary情况，对于相同的薪水只显示一次,并按照逆序显示</span><br><span class="line"><span class="keyword">CREATE</span> TABLE <span class="symbol">`salaries`</span> (</span><br><span class="line"><span class="symbol">`emp_no`</span> int(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`salary`</span> int(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`from_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`to_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> <span class="keyword">KEY</span> (<span class="symbol">`emp_no`</span>,<span class="symbol">`from_date`</span>));</span><br><span class="line">输入描述:</span><br><span class="line">无</span><br><span class="line">输出描述:</span><br><span class="line">salary</span><br></pre></td></tr></table></figure>
+<h2 id="解题思路-7"><a href="#解题思路-7" class="headerlink" title="解题思路"></a>解题思路</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT DISTINCT salary</span><br><span class="line">FROM salaries</span><br><span class="line">WHERE to_date = &apos;9999-01-01&apos;</span><br><span class="line">ORDER BY salary DESC;</span><br></pre></td></tr></table></figure>
+<h1 id="9-获取所有部门当前manager的当前薪水情况，给出dept-no-emp-no以及salary，当前表示to-date-’9999-01-01’"><a href="#9-获取所有部门当前manager的当前薪水情况，给出dept-no-emp-no以及salary，当前表示to-date-’9999-01-01’" class="headerlink" title="9 获取所有部门当前manager的当前薪水情况，给出dept_no, emp_no以及salary，当前表示to_date=’9999-01-01’"></a>9 获取所有部门当前manager的当前薪水情况，给出dept_no, emp_no以及salary，当前表示to_date=’9999-01-01’</h1><h2 id="题目描述-8"><a href="#题目描述-8" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/4c8b4a10ca5b44189e411107e1d8bec1?tpId=82&amp;tqId=29761&amp;rp=0&amp;ru=/ta/sql&amp;qru=/ta/sql/question-ranking" target="_blank" rel="noopener">题目描述</a></h2><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">获取所有部门当前manager的当前薪水情况，给出dept_no, emp_no以及salary，当前表示to_date='9999-01-01'</span><br><span class="line"><span class="keyword">CREATE</span> TABLE <span class="symbol">`dept_manager`</span> (</span><br><span class="line"><span class="symbol">`dept_no`</span> char(<span class="number">4</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`emp_no`</span> int(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`from_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`to_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> <span class="keyword">KEY</span> (<span class="symbol">`emp_no`</span>,<span class="symbol">`dept_no`</span>));</span><br><span class="line"><span class="keyword">CREATE</span> TABLE <span class="symbol">`salaries`</span> (</span><br><span class="line"><span class="symbol">`emp_no`</span> int(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`salary`</span> int(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`from_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`to_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> <span class="keyword">KEY</span> (<span class="symbol">`emp_no`</span>,<span class="symbol">`from_date`</span>));</span><br><span class="line">输入描述:</span><br><span class="line">无</span><br><span class="line">输出描述:</span><br><span class="line">dept_no	emp_no	salary</span><br></pre></td></tr></table></figure>
+<h2 id="解题思路-8"><a href="#解题思路-8" class="headerlink" title="解题思路"></a>解题思路</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 使用联结。</span><br><span class="line">SELECT d.dept_no, d.emp_no, s.salary</span><br><span class="line">FROM dept_manager AS d</span><br><span class="line">    INNER JOIN salaries AS s</span><br><span class="line">    ON d.emp_no = s.emp_no </span><br><span class="line">    AND d.to_date = &apos;9999-01-01&apos;</span><br><span class="line">    AND s.to_date = &apos;9999-01-01&apos;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 使用逗号并列查询</span><br><span class="line">SELECT d.dept_no, d.emp_no, s.salary</span><br><span class="line">FROM dept_manager AS d, salaries AS s</span><br><span class="line">WHERE d.emp_no = s.emp_no </span><br><span class="line">    AND d.to_date = &apos;9999-01-01&apos;</span><br><span class="line">    AND s.to_date = &apos;9999-01-01&apos;;</span><br></pre></td></tr></table></figure>
+<h1 id="10-获取所有非manager的员工emp-no"><a href="#10-获取所有非manager的员工emp-no" class="headerlink" title="10 获取所有非manager的员工emp_no"></a>10 获取所有非manager的员工emp_no</h1><h2 id="题目描述-9"><a href="#题目描述-9" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/32c53d06443346f4a2f2ca733c19660c?tpId=82&amp;tqId=29762&amp;rp=0&amp;ru=/ta/sql&amp;qru=/ta/sql/question-ranking" target="_blank" rel="noopener">题目描述</a></h2><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">获取所有非manager的员工emp_no</span><br><span class="line"><span class="keyword">CREATE</span> TABLE <span class="symbol">`dept_manager`</span> (</span><br><span class="line"><span class="symbol">`dept_no`</span> char(<span class="number">4</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`emp_no`</span> int(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`from_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`to_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> <span class="keyword">KEY</span> (<span class="symbol">`emp_no`</span>,<span class="symbol">`dept_no`</span>));</span><br><span class="line"><span class="keyword">CREATE</span> TABLE <span class="symbol">`employees`</span> (</span><br><span class="line"><span class="symbol">`emp_no`</span> int(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`birth_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`first_name`</span> varchar(<span class="number">14</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`last_name`</span> varchar(<span class="number">16</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`gender`</span> char(<span class="number">1</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`hire_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> <span class="keyword">KEY</span> (<span class="symbol">`emp_no`</span>));</span><br><span class="line">输入描述:</span><br><span class="line">无</span><br><span class="line">输出描述:</span><br><span class="line">emp_no</span><br></pre></td></tr></table></figure>
+<h2 id="解题思路-9"><a href="#解题思路-9" class="headerlink" title="解题思路"></a>解题思路</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT emp_no</span><br><span class="line">FROM employees</span><br><span class="line">WHERE emp_no NOT IN (SELECT emp_no FROM dept_manager);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT e.emp_no</span><br><span class="line">FROM employees AS e</span><br><span class="line">    LEFT OUTER JOIN dept_manager AS d</span><br><span class="line">    ON e.emp_no = d.emp_no</span><br><span class="line">WHERE dept_no IS NULL;</span><br></pre></td></tr></table></figure>
+<h1 id="11-获取所有员工当前的manager"><a href="#11-获取所有员工当前的manager" class="headerlink" title="11 获取所有员工当前的manager"></a>11 获取所有员工当前的manager</h1><h2 id="题目描述-10"><a href="#题目描述-10" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/e50d92b8673a440ebdf3a517b5b37d62?tpId=82&amp;tqId=29763&amp;tPage=1&amp;rp=&amp;ru=/ta/sql&amp;qru=/ta/sql/question-ranking" target="_blank" rel="noopener">题目描述</a></h2><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">获取所有员工当前的manager，如果当前的manager是自己的话结果不显示，当前表示to_date='9999-01-01'。</span><br><span class="line">结果第一列给出当前员工的emp_no,第二列给出其manager对应的manager_no。</span><br><span class="line"><span class="keyword">CREATE</span> TABLE <span class="symbol">`dept_emp`</span> (</span><br><span class="line"><span class="symbol">`emp_no`</span> int(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`dept_no`</span> char(<span class="number">4</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`from_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`to_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> <span class="keyword">KEY</span> (<span class="symbol">`emp_no`</span>,<span class="symbol">`dept_no`</span>));</span><br><span class="line"><span class="keyword">CREATE</span> TABLE <span class="symbol">`dept_manager`</span> (</span><br><span class="line"><span class="symbol">`dept_no`</span> char(<span class="number">4</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`emp_no`</span> int(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`from_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`to_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> <span class="keyword">KEY</span> (<span class="symbol">`emp_no`</span>,<span class="symbol">`dept_no`</span>));</span><br><span class="line">输入描述:</span><br><span class="line">无</span><br><span class="line">输出描述:</span><br><span class="line">emp_no	manager_no</span><br></pre></td></tr></table></figure>
+<h2 id="解题思路-10"><a href="#解题思路-10" class="headerlink" title="解题思路"></a>解题思路</h2><ul>
+<li>要输出自己的经历，部门要相同 de.dept_no = dm.dept_no。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT de.emp_no, dm.emp_no</span><br><span class="line">FROM dept_emp AS de, dept_manager AS dm</span><br><span class="line">WHERE de.dept_no = dm.dept_no</span><br><span class="line">    AND de.to_date = &apos;9999-01-01&apos;</span><br><span class="line">    AND dm.to_date = &apos;9999-01-01&apos;</span><br><span class="line">    AND de.emp_no &lt;&gt; dm.emp_no;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT de.emp_no, dm.emp_no</span><br><span class="line">FROM dept_emp AS de </span><br><span class="line">    INNER JOIN dept_manager AS dm</span><br><span class="line">    ON de.dept_no = dm.dept_no</span><br><span class="line">WHERE de.to_date = &apos;9999-01-01&apos;</span><br><span class="line">    AND dm.to_date = &apos;9999-01-01&apos;</span><br><span class="line">    AND de.emp_no &lt;&gt; dm.emp_no;</span><br></pre></td></tr></table></figure>
+<h1 id="12-获取所有部门中当前员工薪水最高的相关信息"><a href="#12-获取所有部门中当前员工薪水最高的相关信息" class="headerlink" title="12 获取所有部门中当前员工薪水最高的相关信息"></a>12 获取所有部门中当前员工薪水最高的相关信息</h1><h2 id="题目描述-11"><a href="#题目描述-11" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/4a052e3e1df5435880d4353eb18a91c6?tpId=82&amp;tqId=29764&amp;rp=0&amp;ru=/ta/sql&amp;qru=/ta/sql/question-ranking" target="_blank" rel="noopener">题目描述</a></h2><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">获取所有部门中当前员工薪水最高的相关信息，给出dept_no, emp_no以及其对应的salary</span><br><span class="line"><span class="keyword">CREATE</span> TABLE <span class="symbol">`dept_emp`</span> (</span><br><span class="line"><span class="symbol">`emp_no`</span> int(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`dept_no`</span> char(<span class="number">4</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`from_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`to_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> <span class="keyword">KEY</span> (<span class="symbol">`emp_no`</span>,<span class="symbol">`dept_no`</span>));</span><br><span class="line"><span class="keyword">CREATE</span> TABLE <span class="symbol">`salaries`</span> (</span><br><span class="line"><span class="symbol">`emp_no`</span> int(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`salary`</span> int(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`from_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`to_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> <span class="keyword">KEY</span> (<span class="symbol">`emp_no`</span>,<span class="symbol">`from_date`</span>));</span><br><span class="line">输入描述:</span><br><span class="line">无</span><br><span class="line">输出描述:</span><br><span class="line">dept_no	emp_no	salary</span><br></pre></td></tr></table></figure>
+<h2 id="解题思路-11"><a href="#解题思路-11" class="headerlink" title="解题思路"></a>解题思路</h2><ul>
+<li>使用GROUP BY d.dept_no 将每个部门分为一组，用MAX函数选取每组中工资最高者</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SELECT d.dept_no, d.emp_no, MAX(s.salary) AS salary</span><br><span class="line">FROM dept_emp AS d </span><br><span class="line">    INNER JOIN salaries AS s</span><br><span class="line">    ON d.emp_no = s.emp_no</span><br><span class="line">WHERE d.to_date = &apos;9999-01-01&apos; </span><br><span class="line">    AND s.to_date = &apos;9999-01-01&apos;</span><br><span class="line">GROUP BY d.dept_no</span><br><span class="line">ORDER by d.dept_no;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT d.dept_no, d.emp_no, MAX(s.salary) AS salary</span><br><span class="line">FROM dept_emp AS d, salaries AS s</span><br><span class="line">WHERE d.emp_no = s.emp_no</span><br><span class="line">    AND d.to_date = &apos;9999-01-01&apos; </span><br><span class="line">    AND s.to_date = &apos;9999-01-01&apos;</span><br><span class="line">GROUP BY d.dept_no</span><br><span class="line">ORDER by d.dept_no;</span><br></pre></td></tr></table></figure>
+<h1 id="13-从titles表获取按照title进行分组"><a href="#13-从titles表获取按照title进行分组" class="headerlink" title="13 从titles表获取按照title进行分组"></a>13 从titles表获取按照title进行分组</h1><h2 id="题目描述-12"><a href="#题目描述-12" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/72ca694734294dc78f513e147da7821e?tpId=82&amp;tqId=29765&amp;rp=0&amp;ru=/ta/sql&amp;qru=/ta/sql/question-ranking" target="_blank" rel="noopener">题目描述</a></h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">从titles表获取按照title进行分组，每组个数大于等于2，给出title以及对应的数目t。</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> <span class="string">"titles"</span> (</span><br><span class="line"><span class="string">`emp_no`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="string">`title`</span> <span class="built_in">varchar</span>(<span class="number">50</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="string">`from_date`</span> <span class="built_in">date</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="string">`to_date`</span> <span class="built_in">date</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>);</span><br><span class="line">输入描述:</span><br><span class="line">无</span><br><span class="line">输出描述:</span><br><span class="line">title	t</span><br></pre></td></tr></table></figure>
+<h2 id="解题思路-12"><a href="#解题思路-12" class="headerlink" title="解题思路"></a>解题思路</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT title, COUNT(*) AS t</span><br><span class="line">FROM titles</span><br><span class="line">GROUP BY title</span><br><span class="line">HAVING t &gt;= 2;</span><br></pre></td></tr></table></figure>
+<h1 id="14-从titles表获取按照title进行分组，注意对于重复的emp-no进行忽略"><a href="#14-从titles表获取按照title进行分组，注意对于重复的emp-no进行忽略" class="headerlink" title="14 从titles表获取按照title进行分组，注意对于重复的emp_no进行忽略"></a>14 从titles表获取按照title进行分组，注意对于重复的emp_no进行忽略</h1><h2 id="题目描述-13"><a href="#题目描述-13" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/c59b452f420c47f48d9c86d69efdff20?tpId=82&amp;tqId=29766&amp;rp=0&amp;ru=/ta/sql&amp;qru=/ta/sql/question-ranking" target="_blank" rel="noopener">题目描述</a></h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">从titles表获取按照title进行分组，每组个数大于等于2，给出title以及对应的数目t。</span><br><span class="line">注意对于重复的emp_no进行忽略。</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> <span class="string">"titles"</span> (</span><br><span class="line"><span class="string">`emp_no`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="string">`title`</span> <span class="built_in">varchar</span>(<span class="number">50</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="string">`from_date`</span> <span class="built_in">date</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="string">`to_date`</span> <span class="built_in">date</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>);</span><br><span class="line">输入描述:</span><br><span class="line">无</span><br><span class="line">输出描述:</span><br><span class="line">title	t</span><br></pre></td></tr></table></figure>
+<h2 id="解题思路-13"><a href="#解题思路-13" class="headerlink" title="解题思路"></a>解题思路</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT title, COUNT(DISTINCT emp_no) AS t</span><br><span class="line">FROM titles </span><br><span class="line">GROUP BY title</span><br><span class="line">HAVING t &gt;= 2;</span><br></pre></td></tr></table></figure>
+<h1 id="15-查找employees表"><a href="#15-查找employees表" class="headerlink" title="15 查找employees表"></a>15 查找employees表</h1><h2 id="题目描述-14"><a href="#题目描述-14" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/a32669eb1d1740e785f105fa22741d5c?tpId=82&amp;tqId=29767&amp;tPage=1&amp;rp=&amp;ru=/ta/sql&amp;qru=/ta/sql/question-ranking" target="_blank" rel="noopener">题目描述</a></h2><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">查找employees表所有emp_no为奇数，且last_name不为Mary的员工信息，并按照hire_date逆序排列</span><br><span class="line"><span class="keyword">CREATE</span> TABLE <span class="symbol">`employees`</span> (</span><br><span class="line"><span class="symbol">`emp_no`</span> int(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`birth_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`first_name`</span> varchar(<span class="number">14</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`last_name`</span> varchar(<span class="number">16</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`gender`</span> char(<span class="number">1</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`hire_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> <span class="keyword">KEY</span> (<span class="symbol">`emp_no`</span>));</span><br><span class="line">输入描述:</span><br><span class="line">无</span><br><span class="line">输出描述:</span><br><span class="line">emp_no	birth_date	first_name	last_name	gender	hire_date</span><br></pre></td></tr></table></figure>
+<h2 id="解题思路-14"><a href="#解题思路-14" class="headerlink" title="解题思路"></a>解题思路</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">FROM employees</span><br><span class="line">WHERE emp_no % 2 = 1</span><br><span class="line">    AND last_name != &apos;Mary&apos;</span><br><span class="line">ORDER BY hire_date DESC;</span><br></pre></td></tr></table></figure>
+<h1 id="16-统计出当前各个title类型对应的员工当前薪水对应的平均工资"><a href="#16-统计出当前各个title类型对应的员工当前薪水对应的平均工资" class="headerlink" title="16 统计出当前各个title类型对应的员工当前薪水对应的平均工资"></a>16 统计出当前各个title类型对应的员工当前薪水对应的平均工资</h1><h2 id="题目描述-15"><a href="#题目描述-15" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/c8652e9e5a354b879e2a244200f1eaae?tpId=82&amp;tqId=29768&amp;rp=0&amp;ru=/ta/sql&amp;qru=/ta/sql/question-ranking" target="_blank" rel="noopener">题目描述</a></h2><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">统计出当前各个title类型对应的员工当前薪水对应的平均工资。结果给出title以及平均工资avg。</span><br><span class="line"><span class="keyword">CREATE</span> TABLE <span class="symbol">`salaries`</span> (</span><br><span class="line"><span class="symbol">`emp_no`</span> int(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`salary`</span> int(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`from_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`to_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> <span class="keyword">KEY</span> (<span class="symbol">`emp_no`</span>,<span class="symbol">`from_date`</span>));</span><br><span class="line"><span class="keyword">CREATE</span> TABLE <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> <span class="string">"titles"</span> (</span><br><span class="line"><span class="symbol">`emp_no`</span> int(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`title`</span> varchar(<span class="number">50</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`from_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`to_date`</span> date DEFAULT <span class="literal">NULL</span>);</span><br><span class="line">输入描述:</span><br><span class="line">无</span><br><span class="line">输出描述:</span><br><span class="line">title	avg</span><br></pre></td></tr></table></figure>
+<h2 id="解题思路-15"><a href="#解题思路-15" class="headerlink" title="解题思路"></a>解题思路</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT t.title, Avg(s.salary)</span><br><span class="line">FROM titles AS t INNER JOIN </span><br><span class="line">    salaries AS s</span><br><span class="line">    ON t.emp_no = s.emp_no</span><br><span class="line">WHERE t.to_date = &apos;9999-01-01&apos; </span><br><span class="line">    AND s.to_date = &apos;9999-01-01&apos;</span><br><span class="line">GROUP BY t.title;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT t.title, Avg(s.salary)</span><br><span class="line">FROM titles AS t, salaries AS s</span><br><span class="line">WHERE t.emp_no = s.emp_no</span><br><span class="line">    AND t.to_date = &apos;9999-01-01&apos; </span><br><span class="line">    AND s.to_date = &apos;9999-01-01&apos;</span><br><span class="line">GROUP BY t.title;</span><br></pre></td></tr></table></figure>
+<h1 id="17-获取当前薪水第二多的员工的emp-no以及其对应的薪水salary"><a href="#17-获取当前薪水第二多的员工的emp-no以及其对应的薪水salary" class="headerlink" title="17 获取当前薪水第二多的员工的emp_no以及其对应的薪水salary"></a>17 获取当前薪水第二多的员工的emp_no以及其对应的薪水salary</h1><h2 id="题目描述-16"><a href="#题目描述-16" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/8d2c290cc4e24403b98ca82ce45d04db?tpId=82&amp;tqId=29769&amp;rp=0&amp;ru=/ta/sql&amp;qru=/ta/sql/question-ranking" target="_blank" rel="noopener">题目描述</a></h2><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">获取当前（to_date='9999-01-01'）薪水第二多的员工的emp_no以及其对应的薪水salary</span><br><span class="line"><span class="keyword">CREATE</span> TABLE <span class="symbol">`salaries`</span> (</span><br><span class="line"><span class="symbol">`emp_no`</span> int(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`salary`</span> int(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`from_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`to_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> <span class="keyword">KEY</span> (<span class="symbol">`emp_no`</span>,<span class="symbol">`from_date`</span>));</span><br><span class="line">输入描述:</span><br><span class="line">无</span><br><span class="line">输出描述:</span><br><span class="line">emp_no	salary</span><br></pre></td></tr></table></figure>
+<h2 id="解题思路-16"><a href="#解题思路-16" class="headerlink" title="解题思路"></a>解题思路</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT emp_no, salary</span><br><span class="line">FROM salaries</span><br><span class="line">WHERE to_date=&apos;9999-01-01&apos;</span><br><span class="line">ORDER BY salary DESC LIMIT 1, 1;</span><br></pre></td></tr></table></figure>
+<h1 id="18-获取当前薪水第二多的员工的emp-no以及其对应的薪水salary，不准使用order"><a href="#18-获取当前薪水第二多的员工的emp-no以及其对应的薪水salary，不准使用order" class="headerlink" title="18 获取当前薪水第二多的员工的emp_no以及其对应的薪水salary，不准使用order"></a>18 获取当前薪水第二多的员工的emp_no以及其对应的薪水salary，不准使用order</h1><h2 id="题目描述-17"><a href="#题目描述-17" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/c1472daba75d4635b7f8540b837cc719?tpId=82&amp;tqId=29770&amp;rp=0&amp;ru=/ta/sql&amp;qru=/ta/sql/question-ranking" target="_blank" rel="noopener">题目描述</a></h2><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">查找当前薪水(to_date='9999-01-01')排名第二多的员工编号emp_no、薪水salary、last_name以及first_name，不准使用order by</span><br><span class="line"><span class="keyword">CREATE</span> TABLE <span class="symbol">`employees`</span> (</span><br><span class="line"><span class="symbol">`emp_no`</span> int(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`birth_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`first_name`</span> varchar(<span class="number">14</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`last_name`</span> varchar(<span class="number">16</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`gender`</span> char(<span class="number">1</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`hire_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> <span class="keyword">KEY</span> (<span class="symbol">`emp_no`</span>));</span><br><span class="line"><span class="keyword">CREATE</span> TABLE <span class="symbol">`salaries`</span> (</span><br><span class="line"><span class="symbol">`emp_no`</span> int(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`salary`</span> int(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`from_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`to_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> <span class="keyword">KEY</span> (<span class="symbol">`emp_no`</span>,<span class="symbol">`from_date`</span>));</span><br><span class="line">输入描述:</span><br><span class="line">无</span><br><span class="line">输出描述:</span><br><span class="line">emp_no	salary	last_name	first_name</span><br></pre></td></tr></table></figure>
+<h2 id="解题思路-17"><a href="#解题思路-17" class="headerlink" title="解题思路"></a>解题思路</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SELECT e.emp_no, MAX(s.salary) AS salary, e.last_name, e.first_name</span><br><span class="line">FROM employees AS e </span><br><span class="line">    INNER JOIN salaries AS s</span><br><span class="line">    ON e.emp_no = s.emp_no</span><br><span class="line">WHERE s.to_date = &apos;9999-01-01&apos;</span><br><span class="line">    AND s.salary NOT IN (SELECT MAX(salary)</span><br><span class="line">                     FROM salaries</span><br><span class="line">                    WHERE to_date=&apos;9999-01-01&apos;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT e.emp_no, MAX(s.salary) AS salary, e.last_name, e.first_name</span><br><span class="line">FROM employees AS e </span><br><span class="line">    INNER JOIN salaries AS s</span><br><span class="line">    ON e.emp_no = s.emp_no</span><br><span class="line">WHERE s.to_date = &apos;9999-01-01&apos;</span><br><span class="line">    AND s.salary &lt; (SELECT MAX(salary) FROM salaries);</span><br></pre></td></tr></table></figure>
+<h1 id="19-查找所有员工的last-name和first-name以及对应的dept-name"><a href="#19-查找所有员工的last-name和first-name以及对应的dept-name" class="headerlink" title="19 查找所有员工的last_name和first_name以及对应的dept_name"></a>19 查找所有员工的last_name和first_name以及对应的dept_name</h1><h2 id="题目描述-18"><a href="#题目描述-18" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/5a7975fabe1146329cee4f670c27ad55?tpId=82&amp;tqId=29771&amp;rp=0&amp;ru=/ta/sql&amp;qru=/ta/sql/question-ranking" target="_blank" rel="noopener">题目描述</a></h2><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">查找所有员工的last_name和first_name以及对应的dept_name，也包括暂时没有分配部门的员工</span><br><span class="line"><span class="keyword">CREATE</span> TABLE <span class="symbol">`departments`</span> (</span><br><span class="line"><span class="symbol">`dept_no`</span> char(<span class="number">4</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`dept_name`</span> varchar(<span class="number">40</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> <span class="keyword">KEY</span> (<span class="symbol">`dept_no`</span>));</span><br><span class="line"><span class="keyword">CREATE</span> TABLE <span class="symbol">`dept_emp`</span> (</span><br><span class="line"><span class="symbol">`emp_no`</span> int(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`dept_no`</span> char(<span class="number">4</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`from_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`to_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> <span class="keyword">KEY</span> (<span class="symbol">`emp_no`</span>,<span class="symbol">`dept_no`</span>));</span><br><span class="line"><span class="keyword">CREATE</span> TABLE <span class="symbol">`employees`</span> (</span><br><span class="line"><span class="symbol">`emp_no`</span> int(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`birth_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`first_name`</span> varchar(<span class="number">14</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`last_name`</span> varchar(<span class="number">16</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`gender`</span> char(<span class="number">1</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`hire_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> <span class="keyword">KEY</span> (<span class="symbol">`emp_no`</span>));</span><br><span class="line">输入描述:</span><br><span class="line">无</span><br><span class="line">输出描述:</span><br><span class="line">last_name	first_name	dept_name</span><br></pre></td></tr></table></figure>
+<h2 id="解题思路-18"><a href="#解题思路-18" class="headerlink" title="解题思路"></a>解题思路</h2><ul>
+<li>第一次LEFT JOIN连接employees表与dept_emp表，得到所有员工的last_name和first_name以及对应的dept_no，也包括暂时没有分配部门的员工</li>
+<li>第二次LEFT JOIN连接上表与departments表，即连接dept_no与dept_name，得到所有员工的last_name和first_name以及对应的dept_name，也包括暂时没有分配部门的员工</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT e.last_name, e.first_name, d.dept_name</span><br><span class="line">FROM (employees AS e LEFT JOIN dept_emp AS de ON e.emp_no = de.emp_no)</span><br><span class="line">    LEFT JOIN departments AS d ON de.dept_no = d.dept_no;</span><br></pre></td></tr></table></figure>
+<h1 id="20-查找员工编号emp-no为10001其自入职以来的薪水salary涨幅值growth"><a href="#20-查找员工编号emp-no为10001其自入职以来的薪水salary涨幅值growth" class="headerlink" title="20 查找员工编号emp_no为10001其自入职以来的薪水salary涨幅值growth"></a>20 查找员工编号emp_no为10001其自入职以来的薪水salary涨幅值growth</h1><h2 id="题目描述-19"><a href="#题目描述-19" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/c727647886004942a89848e2b5130dc2?tpId=82&amp;tqId=29772&amp;rp=0&amp;ru=/ta/sql&amp;qru=/ta/sql/question-ranking" target="_blank" rel="noopener">题目描述</a></h2><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">查找员工编号emp_no为10001其自入职以来的薪水salary涨幅值growth</span><br><span class="line"><span class="keyword">CREATE</span> TABLE <span class="symbol">`salaries`</span> (</span><br><span class="line"><span class="symbol">`emp_no`</span> int(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`salary`</span> int(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`from_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="symbol">`to_date`</span> date <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> <span class="keyword">KEY</span> (<span class="symbol">`emp_no`</span>,<span class="symbol">`from_date`</span>));</span><br><span class="line">输入描述:</span><br><span class="line">无</span><br><span class="line">输出描述:</span><br><span class="line">growth</span><br></pre></td></tr></table></figure>
+<h2 id="解题思路-19"><a href="#解题思路-19" class="headerlink" title="解题思路"></a>解题思路</h2><ul>
+<li>最大to_date的salary 减去最小值to_date的salary</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT (</span><br><span class="line">        (SELECT salary FROM salaries WHERE emp_no = 10001 ORDER BY to_date DESC LIMIT 1)-</span><br><span class="line">        (SELECT salary FROM salaries WHERE emp_no = 10001 ORDER BY to_date LIMIT 1) </span><br><span class="line">    )AS growth;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>最大salary-最小salary，不严禁，有可能最后最大salary不在当前日期取得，最小salary不在最早的日期取得。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT (MAX(salary)- MIN(salary)) AS growth </span><br><span class="line">FROM salaries</span><br><span class="line">WHERE emp_no = 10001;</span><br></pre></td></tr></table></figure>
+<h1 id="21"><a href="#21" class="headerlink" title="21"></a>21</h1>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Qiancun Huang WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Qiancun Huang Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    Qiancun Huang
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="http://huangqiancun.github.io/2019/06/17/数据库SQL实战题解/" title="数据库SQL实战题解">http://huangqiancun.github.io/2019/06/17/数据库SQL实战题解/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/算法题解/" rel="tag"># 算法题解</a>
+          
+            <a href="/tags/SQL/" rel="tag"># SQL</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/14/读书笔记-MySQL必知必会/" rel="next" title="读书笔记-MySQL必知必会">
+                <i class="fa fa-chevron-left"></i> 读书笔记-MySQL必知必会
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+	
+	
+  
+  
+  
+  </article>
+  <div>
+		
+			<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------------The End------------</div>
+    
+</div>
+		
+	</div>
+	
+ 
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/photo.jpg" alt="Qiancun Huang">
+            
+              <p class="site-author-name" itemprop="name">Qiancun Huang</p>
+              <p class="site-description motion-element" itemprop="description">A second-year graduate student in Southeast University</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/huangqiancun" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto://huangqiancun@foxmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-查找最晚入职员工的所有信息"><span class="nav-text">1 查找最晚入职员工的所有信息</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-查找入职员工时间排名倒数第三的员工所有信息"><span class="nav-text">2 查找入职员工时间排名倒数第三的员工所有信息</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-1"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路-1"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-查找当前薪水详情以及部门编号dept-no"><span class="nav-text">3 查找当前薪水详情以及部门编号dept_no</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-2"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路-2"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-查找所有已经分配部门的员工的last-name和first-name"><span class="nav-text">4 查找所有已经分配部门的员工的last_name和first_name</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-3"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路-3"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-查找所有员工的last-name和first-name以及对应部门编号dept-no"><span class="nav-text">5 查找所有员工的last_name和first_name以及对应部门编号dept_no</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-4"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路-4"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-查找所有员工入职时候的薪水情况"><span class="nav-text">6 查找所有员工入职时候的薪水情况</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-5"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路-5"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-查找薪水涨幅超过15次的员工号emp-no以及其对应的涨幅次数t"><span class="nav-text">7 查找薪水涨幅超过15次的员工号emp_no以及其对应的涨幅次数t</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-6"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路-6"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-找出所有员工当前薪水salary情况"><span class="nav-text">8 找出所有员工当前薪水salary情况</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-7"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路-7"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-获取所有部门当前manager的当前薪水情况，给出dept-no-emp-no以及salary，当前表示to-date-’9999-01-01’"><span class="nav-text">9 获取所有部门当前manager的当前薪水情况，给出dept_no, emp_no以及salary，当前表示to_date=’9999-01-01’</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-8"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路-8"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-获取所有非manager的员工emp-no"><span class="nav-text">10 获取所有非manager的员工emp_no</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-9"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路-9"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#11-获取所有员工当前的manager"><span class="nav-text">11 获取所有员工当前的manager</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-10"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路-10"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#12-获取所有部门中当前员工薪水最高的相关信息"><span class="nav-text">12 获取所有部门中当前员工薪水最高的相关信息</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-11"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路-11"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#13-从titles表获取按照title进行分组"><span class="nav-text">13 从titles表获取按照title进行分组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-12"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路-12"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#14-从titles表获取按照title进行分组，注意对于重复的emp-no进行忽略"><span class="nav-text">14 从titles表获取按照title进行分组，注意对于重复的emp_no进行忽略</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-13"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路-13"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#15-查找employees表"><span class="nav-text">15 查找employees表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-14"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路-14"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#16-统计出当前各个title类型对应的员工当前薪水对应的平均工资"><span class="nav-text">16 统计出当前各个title类型对应的员工当前薪水对应的平均工资</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-15"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路-15"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#17-获取当前薪水第二多的员工的emp-no以及其对应的薪水salary"><span class="nav-text">17 获取当前薪水第二多的员工的emp_no以及其对应的薪水salary</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-16"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路-16"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#18-获取当前薪水第二多的员工的emp-no以及其对应的薪水salary，不准使用order"><span class="nav-text">18 获取当前薪水第二多的员工的emp_no以及其对应的薪水salary，不准使用order</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-17"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路-17"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#19-查找所有员工的last-name和first-name以及对应的dept-name"><span class="nav-text">19 查找所有员工的last_name和first_name以及对应的dept_name</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-18"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路-18"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#20-查找员工编号emp-no为10001其自入职以来的薪水salary涨幅值growth"><span class="nav-text">20 查找员工编号emp_no为10001其自入职以来的薪水salary涨幅值growth</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-19"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路-19"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#21"><span class="nav-text">21</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qiancun Huang</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">398.2k</span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+
+</body>
+</html>
