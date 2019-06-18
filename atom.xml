@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huangqiancun.github.io/"/>
-  <updated>2019-06-17T07:04:44.300Z</updated>
+  <updated>2019-06-18T07:42:54.470Z</updated>
   <id>http://huangqiancun.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://huangqiancun.github.io/2019/06/17/%E6%95%B0%E6%8D%AE%E5%BA%93SQL%E5%AE%9E%E6%88%98%E9%A2%98%E8%A7%A3/"/>
     <id>http://huangqiancun.github.io/2019/06/17/数据库SQL实战题解/</id>
     <published>2019-06-17T01:44:55.672Z</published>
-    <updated>2019-06-17T07:04:44.300Z</updated>
+    <updated>2019-06-18T07:42:54.470Z</updated>
     
     <summary type="html">
     
@@ -29,8 +29,7 @@
       
         
         
-          &lt;p&gt;本系列为数据库SQL实战刷题笔记，刷题平台为&lt;a href=&quot;https://www.nowcoder.com/ta/sql&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;牛客网&lt;/a&gt;。题量为61道。&lt;/p&gt;
-&lt;p&gt;笔记：&lt;a
+          &lt;p&gt;本文为数据库SQL实战刷题笔记，刷题平台为&lt;a href=&quot;https://www.nowcoder.com/ta/sql&quot; target=&quot;_blank&quot;
         
       
     
@@ -46,11 +45,11 @@
   </entry>
   
   <entry>
-    <title>读书笔记-MySQL必知必会</title>
-    <link href="http://huangqiancun.github.io/2019/06/14/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/"/>
-    <id>http://huangqiancun.github.io/2019/06/14/读书笔记-MySQL必知必会/</id>
+    <title>StudyNotes-MySQL必知必会</title>
+    <link href="http://huangqiancun.github.io/2019/06/14/StudyNotes-MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/"/>
+    <id>http://huangqiancun.github.io/2019/06/14/StudyNotes-MySQL必知必会/</id>
     <published>2019-06-14T06:18:33.052Z</published>
-    <updated>2019-06-17T01:48:42.007Z</updated>
+    <updated>2019-06-18T07:42:18.373Z</updated>
     
     <summary type="html">
     
@@ -58,7 +57,7 @@
       
         
         
-          &lt;p&gt;本系列为读书笔记整理，所有笔记汇总如下：&lt;/p&gt;
+          &lt;p&gt;本系列为StudyNotes整理，所有笔记汇总如下：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a
         
@@ -66,12 +65,12 @@
     
     </summary>
     
-      <category term="读书笔记" scheme="http://huangqiancun.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+      <category term="StudyNotes" scheme="http://huangqiancun.github.io/categories/StudyNotes/"/>
     
     
       <category term="SQL" scheme="http://huangqiancun.github.io/tags/SQL/"/>
     
-      <category term="读书笔记" scheme="http://huangqiancun.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+      <category term="StudyNotes" scheme="http://huangqiancun.github.io/tags/StudyNotes/"/>
     
   </entry>
   
@@ -80,7 +79,7 @@
     <link href="http://huangqiancun.github.io/2019/06/10/ProjectExperience-futureAI-contest-19-house-rent-prediction/"/>
     <id>http://huangqiancun.github.io/2019/06/10/ProjectExperience-futureAI-contest-19-house-rent-prediction/</id>
     <published>2019-06-10T01:15:17.477Z</published>
-    <updated>2019-06-09T13:10:49.000Z</updated>
+    <updated>2019-06-17T07:07:52.844Z</updated>
     
     <summary type="html">
     
