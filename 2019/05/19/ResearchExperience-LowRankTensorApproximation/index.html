@@ -118,7 +118,8 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/ResearchExperience-LowRankTensorApproximation/1.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/ResearchExperience-LowRankTensorApproximation/2.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/ResearchExperience-LowRankTensorApproximation/2.png">
-<meta property="og:updated_time" content="2019-05-19T15:23:13.000Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/ResearchExperience-LowRankTensorApproximation/13.png">
+<meta property="og:updated_time" content="2019-06-20T09:00:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Research Project - 基于低秩张量近似的高维良率分析">
 <meta name="twitter:description" content="Note：本项目为国家重点研发计划《超低电压高精度时序分析技术（共性关键技术类）》的子课题《快速蒙特卡洛分析技术》的相关研究成果之一。 0 《超低电压高精度时序分析技术》项目概要0.1 研究内容针对超低电压电路时序波动大、传统静态时序分 析方法难以适用的问题，研发超低电压高精度时序分析 EDA 工具；研究超低电压条件下电路时序分布模型，关键时序路径的快速选取方法，关键路径的高精度仿真方法，关键路径">
@@ -372,8 +373,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-05-19T23:23:13+08:00">
-                2019-05-19
+              <time title="Post modified" itemprop="dateModified" datetime="2019-06-20T17:00:15+08:00">
+                2019-06-20
               </time>
             
           </span>
@@ -422,7 +423,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  5.3k
+                  5.4k
                 </span>
               
 
@@ -534,7 +535,8 @@
 <h3 id="1-5-5-防止模型过拟合"><a href="#1-5-5-防止模型过拟合" class="headerlink" title="1.5.5 防止模型过拟合"></a>1.5.5 防止模型过拟合</h3><p>和其他回归的方法类似，低秩张量近似算法也可能发生过拟合，特别是当所给训练样本集太小时。在进行求解系数时，通过引入正则化方法，可以有效防止过拟合，增强模型泛化能力，提升鲁棒性，本文选用的正则项为L1范数，L1范数可以使一些回归系数置0，可以消除了噪声等干扰因素的影响，加入正则化后的优化目标函数为：<br>\begin{equation}<br>z_{r}^{(i)}=\min _{\xi \in \mathbb{R}^{p_i + 1}}\left|M-M_{r-1}-c^{(i)}\left(\sum_{k=0}^{p i} \xi_{k} p_{k}^{(i)}\left(x_{i}\right)\right)\right|_{\varepsilon}^{2}+\lambda P(\xi)<br>\end{equation}</p>
 <p>\begin{equation}<br>b=\min _{\beta \in \mathbb{R}^{r}}\left|M-\sum_{l=1}^{r} \beta_{l} \omega_{l}\right|_{\varepsilon}^{2}+\lambda P(\beta)<br>\end{equation}</p>
 <p>其中$\lambda$为正则化系数，$P(u)$是$u$的L1范数。</p>
-<h3 id="1-5-6-自适应采样策略"><a href="#1-5-6-自适应采样策略" class="headerlink" title="1.5.6 自适应采样策略"></a>1.5.6 自适应采样策略</h3><p>自适应采样将训练过程分为若干个迭代，接下来根据设定的加点策略在每个周期增加样本，以动态地调节模型拟合能力，我们采样的加点策略是将参数空间划分成若干个子区域，计算每一个区域的误差，并根据这些误差计算出权重，然后根据权重在不同的区域生成样本，用来增强该区域的拟合能力。这样可以使每一个样本对模型精度的提升效果最大化。同时可以清楚地看到每一次迭代模型的精度，有利于了解模型的收敛情况。</p>
+<h3 id="1-5-6-自适应采样策略"><a href="#1-5-6-自适应采样策略" class="headerlink" title="1.5.6 自适应采样策略"></a>1.5.6 自适应采样策略</h3><p>同时还设计了一个自适应采样框架来进一步减少训练样本量，该框架的思想是将整个训练集分为若干次迭代，根据上一次迭代的样本在模型中的表现为每个训练样本赋予权重，对拟合较好的样本降低权重，对拟合较差的样本升高权重，这个过程类似于机器学习中的AdaBoost算法的思想。得到了每个样本的权重之后，使用KDE将权重分布合并生成采样分布，KDE的思想是将每个样本看成一个带权重的标准正太分布，然后将这些带权重的标准正太分布相加，得到采样分布（具体的看论文中），在该采样分布中采样，就会有相对大的概率采到上一次迭代中较差样本附近的样本加入训练集，可以保证在下一次迭代时修正拟合效果差的样本，可以加快了模型的收敛。</p>
+<p><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/ResearchExperience-LowRankTensorApproximation/13.png" alt="mark"></p>
 <h2 id="1-6-结果"><a href="#1-6-结果" class="headerlink" title="1.6 结果"></a>1.6 结果</h2><ul>
 <li><p>低维下比同类方法快 6~9 倍，高维下比标准蒙卡快 2150 倍， 相对误差仅为 2.4%。该算法复杂度仅随维度线性增长， 有效解决了高维良率分析中遇到的 “维度诅咒” 问题。</p>
 </li>
@@ -629,7 +631,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/05/21/数据结构-红黑树/" rel="prev" title="数据结构-红黑树">
+              <a href="/2019/05/22/数据结构-红黑树/" rel="prev" title="数据结构-红黑树">
                 数据结构-红黑树 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -727,7 +729,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">50</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -847,7 +849,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">454.2k</span>
+    <span title="Site words total count">464.3k</span>
   
 </div>
 

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huangqiancun.github.io/"/>
-  <updated>2019-06-19T17:04:49.966Z</updated>
+  <updated>2019-06-21T02:31:14.962Z</updated>
   <id>http://huangqiancun.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>机器学习-模型评估</title>
-    <link href="http://huangqiancun.github.io/2019/06/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0/"/>
-    <id>http://huangqiancun.github.io/2019/06/19/机器学习-模型评估/</id>
-    <published>2019-06-19T10:43:43.030Z</published>
-    <updated>2019-06-19T17:04:49.966Z</updated>
+    <title>深度学习小结</title>
+    <link href="http://huangqiancun.github.io/2019/06/20/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/"/>
+    <id>http://huangqiancun.github.io/2019/06/20/深度学习小结/</id>
+    <published>2019-06-20T13:35:53.391Z</published>
+    <updated>2019-06-21T02:31:14.962Z</updated>
     
     <summary type="html">
     
@@ -29,173 +29,25 @@
       
         
         
-          &lt;p&gt;本系列为机器学习相关知识总结。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://huangqiancun.github.io/2019/06/19/机器学习-基本概念/&quot;&gt;机器学习-基本概念&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a
+          &lt;h1 id=&quot;1-基本概念&quot;&gt;&lt;a href=&quot;#1-基本概念&quot; class=&quot;headerlink&quot; title=&quot;1 基本概念&quot;&gt;&lt;/a&gt;1 基本概念&lt;/h1&gt;&lt;h2 id=&quot;1-1-深度学习和机器学习的区别&quot;&gt;&lt;a href=&quot;#1-1-深度学习和机器学习的区别&quot;
         
       
     
     </summary>
     
-      <category term="机器学习" scheme="http://huangqiancun.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+      <category term="深度学习" scheme="http://huangqiancun.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="机器学习" scheme="http://huangqiancun.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>机器学习-基本概念</title>
-    <link href="http://huangqiancun.github.io/2019/06/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/"/>
-    <id>http://huangqiancun.github.io/2019/06/19/机器学习-基本概念/</id>
-    <published>2019-06-19T10:43:42.852Z</published>
-    <updated>2019-06-19T17:03:26.882Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;本系列为机器学习相关知识总结。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://huangqiancun.github.io/2019/06/19/机器学习-基本概念/&quot;&gt;机器学习-基本概念&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="机器学习" scheme="http://huangqiancun.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="机器学习" scheme="http://huangqiancun.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>机器学习-无监督学习</title>
-    <link href="http://huangqiancun.github.io/2019/06/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/"/>
-    <id>http://huangqiancun.github.io/2019/06/19/机器学习-无监督学习/</id>
-    <published>2019-06-19T10:43:42.451Z</published>
-    <updated>2019-06-20T04:30:49.669Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;本系列为机器学习相关知识总结。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://huangqiancun.github.io/2019/06/19/机器学习-基本概念/&quot;&gt;机器学习-基本概念&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="机器学习" scheme="http://huangqiancun.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="机器学习" scheme="http://huangqiancun.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>机器学习-贝叶斯</title>
-    <link href="http://huangqiancun.github.io/2019/06/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%B4%9D%E5%8F%B6%E6%96%AF/"/>
-    <id>http://huangqiancun.github.io/2019/06/19/机器学习-贝叶斯/</id>
-    <published>2019-06-19T10:43:42.249Z</published>
-    <updated>2019-06-19T17:06:44.945Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;本系列为机器学习相关知识总结。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://huangqiancun.github.io/2019/06/19/机器学习-基本概念/&quot;&gt;机器学习-基本概念&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="机器学习" scheme="http://huangqiancun.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="机器学习" scheme="http://huangqiancun.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>机器学习-集成学习</title>
-    <link href="http://huangqiancun.github.io/2019/06/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0/"/>
-    <id>http://huangqiancun.github.io/2019/06/19/机器学习-集成学习/</id>
-    <published>2019-06-19T10:43:41.825Z</published>
-    <updated>2019-06-19T17:32:19.385Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;本系列为机器学习相关知识总结。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://huangqiancun.github.io/2019/06/19/机器学习-基本概念/&quot;&gt;机器学习-基本概念&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="机器学习" scheme="http://huangqiancun.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="机器学习" scheme="http://huangqiancun.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>机器学习-采样</title>
-    <link href="http://huangqiancun.github.io/2019/06/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E9%87%87%E6%A0%B7/"/>
-    <id>http://huangqiancun.github.io/2019/06/19/机器学习-采样/</id>
-    <published>2019-06-19T10:43:40.704Z</published>
-    <updated>2019-06-20T04:38:54.446Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;本系列为机器学习相关知识总结。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://huangqiancun.github.io/2019/06/19/机器学习-基本概念/&quot;&gt;机器学习-基本概念&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="机器学习" scheme="http://huangqiancun.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="机器学习" scheme="http://huangqiancun.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+      <category term="深度学习" scheme="http://huangqiancun.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
   <entry>
     <title>机器学习-特征工程</title>
-    <link href="http://huangqiancun.github.io/2019/06/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/"/>
-    <id>http://huangqiancun.github.io/2019/06/19/机器学习-特征工程/</id>
-    <published>2019-06-19T10:43:40.492Z</published>
-    <updated>2019-06-19T17:04:15.482Z</updated>
+    <link href="http://huangqiancun.github.io/2019/06/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/"/>
+    <id>http://huangqiancun.github.io/2019/06/20/机器学习-特征工程/</id>
+    <published>2019-06-20T01:02:25.676Z</published>
+    <updated>2019-06-19T17:04:15.000Z</updated>
     
     <summary type="html">
     
@@ -220,11 +72,11 @@
   </entry>
   
   <entry>
-    <title>机器学习-优化算法</title>
-    <link href="http://huangqiancun.github.io/2019/06/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/"/>
-    <id>http://huangqiancun.github.io/2019/06/19/机器学习-优化算法/</id>
-    <published>2019-06-19T10:43:40.073Z</published>
-    <updated>2019-06-20T03:19:21.000Z</updated>
+    <title>机器学习-线性回归&amp;逻辑回归&amp;最大熵</title>
+    <link href="http://huangqiancun.github.io/2019/06/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92&amp;%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92&amp;%E6%9C%80%E5%A4%A7%E7%86%B5/"/>
+    <id>http://huangqiancun.github.io/2019/06/20/机器学习-线性回归&amp;逻辑回归&amp;最大熵/</id>
+    <published>2019-06-20T01:02:25.660Z</published>
+    <updated>2019-06-19T17:05:46.000Z</updated>
     
     <summary type="html">
     
@@ -249,11 +101,11 @@
   </entry>
   
   <entry>
-    <title>机器学习-K近邻</title>
-    <link href="http://huangqiancun.github.io/2019/06/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-K%E8%BF%91%E9%82%BB/"/>
-    <id>http://huangqiancun.github.io/2019/06/19/机器学习-K近邻/</id>
-    <published>2019-06-19T10:43:39.765Z</published>
-    <updated>2019-06-20T04:40:19.442Z</updated>
+    <title>机器学习-模型评估</title>
+    <link href="http://huangqiancun.github.io/2019/06/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0/"/>
+    <id>http://huangqiancun.github.io/2019/06/20/机器学习-模型评估/</id>
+    <published>2019-06-20T01:02:25.643Z</published>
+    <updated>2019-06-19T17:04:49.000Z</updated>
     
     <summary type="html">
     
@@ -281,8 +133,66 @@
     <title>机器学习-支持向量机</title>
     <link href="http://huangqiancun.github.io/2019/06/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/"/>
     <id>http://huangqiancun.github.io/2019/06/19/机器学习-支持向量机/</id>
-    <published>2019-06-19T10:43:39.687Z</published>
-    <updated>2019-06-19T17:05:15.109Z</updated>
+    <published>2019-06-19T08:58:02.364Z</published>
+    <updated>2019-06-19T17:05:15.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;本系列为机器学习相关知识总结。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://huangqiancun.github.io/2019/06/19/机器学习-基本概念/&quot;&gt;机器学习-基本概念&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="机器学习" scheme="http://huangqiancun.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="机器学习" scheme="http://huangqiancun.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>机器学习-优化算法</title>
+    <link href="http://huangqiancun.github.io/2019/06/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/"/>
+    <id>http://huangqiancun.github.io/2019/06/19/机器学习-优化算法/</id>
+    <published>2019-06-19T08:58:02.359Z</published>
+    <updated>2019-06-20T03:19:21.620Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;本系列为机器学习相关知识总结。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://huangqiancun.github.io/2019/06/19/机器学习-基本概念/&quot;&gt;机器学习-基本概念&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="机器学习" scheme="http://huangqiancun.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="机器学习" scheme="http://huangqiancun.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>机器学习-无监督学习</title>
+    <link href="http://huangqiancun.github.io/2019/06/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://huangqiancun.github.io/2019/06/19/机器学习-无监督学习/</id>
+    <published>2019-06-19T08:58:02.351Z</published>
+    <updated>2019-06-20T04:30:49.000Z</updated>
     
     <summary type="html">
     
@@ -310,8 +220,8 @@
     <title>机器学习-决策树</title>
     <link href="http://huangqiancun.github.io/2019/06/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%86%B3%E7%AD%96%E6%A0%91/"/>
     <id>http://huangqiancun.github.io/2019/06/19/机器学习-决策树/</id>
-    <published>2019-06-19T10:43:39.183Z</published>
-    <updated>2019-06-19T17:07:40.444Z</updated>
+    <published>2019-06-19T08:58:02.337Z</published>
+    <updated>2019-06-19T17:07:40.000Z</updated>
     
     <summary type="html">
     
@@ -336,11 +246,127 @@
   </entry>
   
   <entry>
-    <title>机器学习-线性回归&amp;逻辑回归&amp;最大熵</title>
-    <link href="http://huangqiancun.github.io/2019/06/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92&amp;%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92&amp;%E6%9C%80%E5%A4%A7%E7%86%B5/"/>
-    <id>http://huangqiancun.github.io/2019/06/19/机器学习-线性回归&amp;逻辑回归&amp;最大熵/</id>
-    <published>2019-06-19T10:43:39.060Z</published>
-    <updated>2019-06-19T17:05:46.649Z</updated>
+    <title>机器学习-集成学习</title>
+    <link href="http://huangqiancun.github.io/2019/06/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://huangqiancun.github.io/2019/06/19/机器学习-集成学习/</id>
+    <published>2019-06-19T08:58:02.333Z</published>
+    <updated>2019-06-19T17:32:19.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;本系列为机器学习相关知识总结。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://huangqiancun.github.io/2019/06/19/机器学习-基本概念/&quot;&gt;机器学习-基本概念&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="机器学习" scheme="http://huangqiancun.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="机器学习" scheme="http://huangqiancun.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>机器学习-基本概念</title>
+    <link href="http://huangqiancun.github.io/2019/06/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/"/>
+    <id>http://huangqiancun.github.io/2019/06/19/机器学习-基本概念/</id>
+    <published>2019-06-19T08:58:02.329Z</published>
+    <updated>2019-06-19T17:03:26.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;本系列为机器学习相关知识总结。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://huangqiancun.github.io/2019/06/19/机器学习-基本概念/&quot;&gt;机器学习-基本概念&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="机器学习" scheme="http://huangqiancun.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="机器学习" scheme="http://huangqiancun.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>机器学习-采样</title>
+    <link href="http://huangqiancun.github.io/2019/06/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E9%87%87%E6%A0%B7/"/>
+    <id>http://huangqiancun.github.io/2019/06/19/机器学习-采样/</id>
+    <published>2019-06-19T08:58:02.324Z</published>
+    <updated>2019-06-20T04:38:54.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;本系列为机器学习相关知识总结。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://huangqiancun.github.io/2019/06/19/机器学习-基本概念/&quot;&gt;机器学习-基本概念&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="机器学习" scheme="http://huangqiancun.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="机器学习" scheme="http://huangqiancun.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>机器学习-贝叶斯</title>
+    <link href="http://huangqiancun.github.io/2019/06/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%B4%9D%E5%8F%B6%E6%96%AF/"/>
+    <id>http://huangqiancun.github.io/2019/06/19/机器学习-贝叶斯/</id>
+    <published>2019-06-19T08:58:02.320Z</published>
+    <updated>2019-06-19T17:06:44.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;本系列为机器学习相关知识总结。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://huangqiancun.github.io/2019/06/19/机器学习-基本概念/&quot;&gt;机器学习-基本概念&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="机器学习" scheme="http://huangqiancun.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="机器学习" scheme="http://huangqiancun.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>机器学习-K近邻</title>
+    <link href="http://huangqiancun.github.io/2019/06/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-K%E8%BF%91%E9%82%BB/"/>
+    <id>http://huangqiancun.github.io/2019/06/19/机器学习-K近邻/</id>
+    <published>2019-06-19T08:58:02.316Z</published>
+    <updated>2019-06-20T04:40:19.000Z</updated>
     
     <summary type="html">
     
@@ -368,8 +394,8 @@
     <title>置顶-站点导航</title>
     <link href="http://huangqiancun.github.io/2019/06/17/%E7%BD%AE%E9%A1%B6-%E7%AB%99%E7%82%B9%E5%AF%BC%E8%88%AA/"/>
     <id>http://huangqiancun.github.io/2019/06/17/置顶-站点导航/</id>
-    <published>2019-06-17T09:25:54.878Z</published>
-    <updated>2019-06-20T05:22:56.171Z</updated>
+    <published>2019-06-17T07:25:42.048Z</published>
+    <updated>2019-06-20T14:56:39.442Z</updated>
     
     <summary type="html">
     
@@ -390,8 +416,8 @@
     <title>数据库SQL实战题解</title>
     <link href="http://huangqiancun.github.io/2019/06/17/%E6%95%B0%E6%8D%AE%E5%BA%93SQL%E5%AE%9E%E6%88%98%E9%A2%98%E8%A7%A3/"/>
     <id>http://huangqiancun.github.io/2019/06/17/数据库SQL实战题解/</id>
-    <published>2019-06-17T04:48:01.065Z</published>
-    <updated>2019-06-20T04:50:34.881Z</updated>
+    <published>2019-06-17T01:44:55.672Z</published>
+    <updated>2019-06-20T04:50:34.000Z</updated>
     
     <summary type="html">
     
@@ -420,8 +446,8 @@
     <title>StudyNotes-MySQL必知必会</title>
     <link href="http://huangqiancun.github.io/2019/06/14/StudyNotes-MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/"/>
     <id>http://huangqiancun.github.io/2019/06/14/StudyNotes-MySQL必知必会/</id>
-    <published>2019-06-14T10:26:31.073Z</published>
-    <updated>2019-06-20T04:50:53.772Z</updated>
+    <published>2019-06-14T06:18:33.052Z</published>
+    <updated>2019-06-20T04:50:53.000Z</updated>
     
     <summary type="html">
     
@@ -442,9 +468,9 @@
     
       <category term="SQL" scheme="http://huangqiancun.github.io/tags/SQL/"/>
     
-      <category term="StudyNotes" scheme="http://huangqiancun.github.io/tags/StudyNotes/"/>
-    
       <category term="数据库" scheme="http://huangqiancun.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+      <category term="StudyNotes" scheme="http://huangqiancun.github.io/tags/StudyNotes/"/>
     
   </entry>
   
@@ -478,10 +504,10 @@
   
   <entry>
     <title>数据结构-红黑树</title>
-    <link href="http://huangqiancun.github.io/2019/05/21/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%BA%A2%E9%BB%91%E6%A0%91/"/>
-    <id>http://huangqiancun.github.io/2019/05/21/数据结构-红黑树/</id>
-    <published>2019-05-21T14:33:56.998Z</published>
-    <updated>2019-06-19T11:47:09.242Z</updated>
+    <link href="http://huangqiancun.github.io/2019/05/22/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%BA%A2%E9%BB%91%E6%A0%91/"/>
+    <id>http://huangqiancun.github.io/2019/05/22/数据结构-红黑树/</id>
+    <published>2019-05-22T10:34:30.570Z</published>
+    <updated>2019-06-19T11:47:09.000Z</updated>
     
     <summary type="html">
     
@@ -508,7 +534,7 @@
     <link href="http://huangqiancun.github.io/2019/05/19/ResearchExperience-LowRankTensorApproximation/"/>
     <id>http://huangqiancun.github.io/2019/05/19/ResearchExperience-LowRankTensorApproximation/</id>
     <published>2019-05-19T10:34:49.737Z</published>
-    <updated>2019-05-19T15:23:13.000Z</updated>
+    <updated>2019-06-20T09:00:15.000Z</updated>
     
     <summary type="html">
     
@@ -545,33 +571,6 @@
         
           &lt;p&gt;本系列为数据结构学习笔记(待汇总)。&lt;/p&gt;
 &lt;h1 id=&quot;字典树&quot;&gt;&lt;a href=&quot;#字典树&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="数据结构" scheme="http://huangqiancun.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-    
-      <category term="数据结构" scheme="http://huangqiancun.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据结构-赫夫曼树及赫夫曼编码</title>
-    <link href="http://huangqiancun.github.io/2019/05/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E8%B5%AB%E5%A4%AB%E6%9B%BC%E6%A0%91%E5%8F%8A%E8%B5%AB%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81/"/>
-    <id>http://huangqiancun.github.io/2019/05/15/数据结构-赫夫曼树及赫夫曼编码/</id>
-    <published>2019-05-15T15:35:31.527Z</published>
-    <updated>2019-05-18T09:21:52.308Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;本系列为数据结构学习笔记(待汇总)。&lt;/p&gt;
-&lt;h1 id=&quot;1-赫夫曼树&quot;&gt;&lt;a href=&quot;#1-赫夫曼树&quot; class=&quot;headerlink&quot; title=&quot;1 赫夫曼树&quot;&gt;&lt;/a&gt;1 赫夫曼树&lt;/h1&gt;&lt;p&gt;先看如下两棵树：&lt;br&gt;&lt;img
         
       
     
