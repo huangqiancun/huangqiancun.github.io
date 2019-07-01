@@ -128,7 +128,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/深度学习小结/11.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/深度学习小结/12.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/深度学习小结/13.png">
-<meta property="og:updated_time" content="2019-06-21T02:31:14.962Z">
+<meta property="og:updated_time" content="2019-06-21T02:39:54.384Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深度学习小结">
 <meta name="twitter:description" content="1 基本概念1.1 深度学习和机器学习的区别深度学习和传统机器学习方法区别．主要体现在“深层”和“学习高层特征”：传统机器学习以浅层模型为主，比如逻辑回归、支持向量机等；深度学习模型深度则有几十甚至上百层．比如LeNet-5有7层（输入-卷积-池化-卷积-池化-卷积-全连接-输出层），Alexnet有8层（5个卷积层、3个全连接层），GoogleNet 有 22 层． ResNet 有 152 层">
@@ -382,7 +382,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-06-21T10:31:14+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2019-06-21T10:39:54+08:00">
                 2019-06-21
               </time>
             
@@ -516,7 +516,7 @@ f(z)=\left\{\begin{array}{ll}{z,} & {z>0} \\ {a z,} & {z \leqslant 0}\end{array}
 <p>ResNet可以有效改善深层的神经网络学习问题，使得训练更深的网络成为可能，传统神经网络的可能随着模 型结构的加深训练误差反而上升；而ResNet的随着模型结构的加深，训练误差逐渐降低，并且优于相同层数的传统的神经网络。</p>
 <h1 id="6-循环神经网络"><a href="#6-循环神经网络" class="headerlink" title="6 循环神经网络"></a>6 循环神经网络</h1><p>循环神经网络（Recurrent Neural Network，RNN）是用来建模序列化数据的一种主流深度学习模型。我们知道，传统的前馈神经网络一般的输入都是一个定长的向量，无法处理变长的序列信息，即使通过一些方法把序列处理成定长的向量，模型也很难捕捉序列中的长距离依赖关系。RNN则通过将神经元串行起来处理序列化的数据。由于每个神经元能用它的内部变量保存之前输入的序列信息，因此整个序列被浓缩成抽象的表示，并可以据此进行分类或生成新的序列。</p>
 <h2 id="6-1-处理文本数据时，循环神经网络与前馈神经网络相比有什么特点"><a href="#6-1-处理文本数据时，循环神经网络与前馈神经网络相比有什么特点" class="headerlink" title="6.1 处理文本数据时，循环神经网络与前馈神经网络相比有什么特点"></a>6.1 处理文本数据时，循环神经网络与前馈神经网络相比有什么特点</h2><p>传统文本处理任务的方法中一般将TF-IDF向量作为特征输入。显而易见，这样的表示实际上丢失了输入的文本序列中每个单词的顺序。在神经网络的建模过程中，一般的前馈神经网络，如卷积神经网络，通常接受一个定长的向量作为输入。卷积神经网络对文本数据建模时，输入变长的字符串或者单词串，然后通过滑动窗口加池化的方式将原先的输入转换成一个固定长度的向量表示，这样做可以捕捉到原文本中的一些局部特征，但是两个单词之间的长距离依赖关系还是很难被学习到。</p>
-<p>循环神经网络却能很好地处理文本数据变长并且有序的输入序列。它模拟了人阅读一篇文章的顺序，从前到后阅读文章中的每一个单词，将前面阅读到的有用信息编码到状态变量中去，从而拥有了一定的记忆能力，可以更好地理解之后的文本。图10.1展示了一个典型的循环神经网络结构。<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/深度学习小结/10.png" alt="mark"><br>一个长度为T的序列用循环神经网络建模，展开之后可以看作是一 个T层的前馈神经网络。其中，第t层的隐含状态ht编码了序列中前t个输入的信息，可以通过当前的输入$x_t$和上一层神经网络的状态$h_{t−1}$计算得到；最后一层的状态$h_T$编码了整个序列的信息，因此可以作为整篇文档的压缩表示，以此为基础的结构可以应用于多种具体任务。例如，在$h_T$后面直接接一个Softmax层，输出文本所属类别的预测概率 y，就可以实现文本分类。</p>
+<p>循环神经网络却能很好地处理文本数据变长并且有序的输入序列。它模拟了人阅读一篇文章的顺序，从前到后阅读文章中的每一个单词，将前面阅读到的有用信息编码到状态变量中去，从而拥有了一定的记忆能力，可以更好地理解之后的文本。下图展示了一个典型的循环神经网络结构。<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/深度学习小结/10.png" alt="mark"><br>一个长度为T的序列用循环神经网络建模，展开之后可以看作是一 个T层的前馈神经网络。其中，第t层的隐含状态ht编码了序列中前t个输入的信息，可以通过当前的输入$x_t$和上一层神经网络的状态$h_{t−1}$计算得到；最后一层的状态$h_T$编码了整个序列的信息，因此可以作为整篇文档的压缩表示，以此为基础的结构可以应用于多种具体任务。例如，在$h_T$后面直接接一个Softmax层，输出文本所属类别的预测概率 y，就可以实现文本分类。</p>
 <p>通过最小化损失误差（即输出的y与真实类别之间的距离），我们可以不断训练网络，使得得到的循环神经网络可以准确地预测文本所属的类别，达到分类目的。相比于卷积神经网络等前馈神经网络，循环神经网络由于具备对序列顺序信息的刻画能力，往往能得到更准确的结果。</p>
 <h2 id="6-2-循环神经网络的梯度消失问题"><a href="#6-2-循环神经网络的梯度消失问题" class="headerlink" title="6.2 循环神经网络的梯度消失问题"></a>6.2 循环神经网络的梯度消失问题</h2><p>循环神经网络模型的求解可以采用BPTT（BackPropagationThroughTime，基于时间的反向传播）算法实现，BPTT实际上是反向传播算法的简单变种。如果将循环神经网络按时间展开成T层的前馈神经网络来理解，就和普通的反向传播算法没有什么区别了。循环神经网络的设计初衷之一就是能够捕获长距离输入之间的依赖。从结构上来看，循环神经网络也理应能够做到这一点。然而实践发现，使用BPTT算法学习的循环神经网络并不能成功捕捉到长距离的依赖关系，这一现象主要源于深度神经网络中的梯度消失。传统的循环神经网络梯度可以表示成连乘的形式。</p>
 <p>由于预测的误差是沿着神经网络的每一层反向传播的，因此当雅克比矩阵的最大特征值大于1时，随着离输出越来越远，每层的梯度大小会呈指数增长，导致梯度爆炸；反之，若雅克比矩阵的最大特征值小于1，梯度的大小会呈指数缩小，产生梯度消失。对于普通的前馈网络来说，梯度消失意味着无法通过加深网络层次来改善神经网络的预测效果，因为无论如何加深网络，只有靠近输出的若干层才真正起到学习的作用。这使得循环神经网络模型很难学习到输入序列中的长距离依赖关系。</p>
@@ -843,7 +843,7 @@ f(z)=\left\{\begin{array}{ll}{z,} & {z>0} \\ {a z,} & {z \leqslant 0}\end{array}
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">464.3k</span>
+    <span title="Site words total count">466k</span>
   
 </div>
 
