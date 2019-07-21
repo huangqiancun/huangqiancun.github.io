@@ -498,8 +498,8 @@
 <h3 id="解题思路-5"><a href="#解题思路-5" class="headerlink" title="解题思路"></a>解题思路</h3><p>首先将数组中的数字全部转换为字符串存储在一个新的数组中，然后比较每两个数字串的拼接的mn和nm的大小，若mn&lt;nm，则m更小，反之n更小，然后把更小的数放入一个新的List中，最后输出即可。使用冒泡排序很方便。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">PrintMinNumber</span><span class="params">(self, numbers)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        <span class="keyword">if</span> len(numbers) == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">''</span></span><br><span class="line">        <span class="keyword">if</span> len(numbers) == <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> str(numbers[<span class="number">0</span>])</span><br><span class="line">        </span><br><span class="line">        numbers = [str(num) <span class="keyword">for</span> num <span class="keyword">in</span> numbers]</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(numbers)<span class="number">-1</span>):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(i+<span class="number">1</span>, len(numbers)):</span><br><span class="line">                <span class="keyword">if</span> numbers[i]+numbers[j] &gt; numbers[j] + numbers[i]:</span><br><span class="line">                    numbers[i], numbers[j] = numbers[j], numbers[i]</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="string">''</span>.join(numbers)</span><br></pre></td></tr></table></figure>
 <h2 id="35-数组中的逆序对"><a href="#35-数组中的逆序对" class="headerlink" title="35 数组中的逆序对"></a>35 数组中的逆序对</h2><h3 id="题目描述-6"><a href="#题目描述-6" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/96bd6684e04a44eb80e6a68efc0ec6c5?tpId=13&amp;tqId=11188&amp;tPage=2&amp;rp=2&amp;ru=/ta/coding-interviews&amp;qru=/ta/coding-interviews/question-ranking" target="_blank" rel="noopener">题目描述</a></h3><p>在数组中的两个数字，如果前面一个数字大于后面的数字，则这两个数字组成一个逆序对。输入一个数组,求出这个数组中的逆序对的总数P。并将P对1000000007取模的结果输出。 即输出P%1000000007 </p>
-<p>输入描述: 题目保证输入的数组中没有的相同的数字<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">数据范围：</span><br><span class="line">    对于%<span class="number">50</span>的数据,size&lt;=<span class="number">10</span>^<span class="number">4</span></span><br><span class="line">    对于%<span class="number">75</span>的数据,size&lt;=<span class="number">10</span>^<span class="number">5</span></span><br><span class="line">    对于%<span class="number">100</span>的数据,size&lt;=<span class="number">2</span>*<span class="number">10</span>^<span class="number">5</span></span><br></pre></td></tr></table></figure></p>
-<p>示例1<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入  <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">0</span></span><br><span class="line">输出  <span class="number">7</span></span><br></pre></td></tr></table></figure></p>
+<p>输入描述: 题目保证输入的数组中没有的相同的数字<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">数据范围：</span><br><span class="line">    对于%50的数据,size&lt;=10^4</span><br><span class="line">    对于%75的数据,size&lt;=10^5</span><br><span class="line">    对于%100的数据,size&lt;=2*10^5</span><br></pre></td></tr></table></figure></p>
+<p>示例1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入  1,2,3,4,5,6,7,0</span><br><span class="line">输出  7</span><br></pre></td></tr></table></figure></p>
 <h3 id="解题思路-6"><a href="#解题思路-6" class="headerlink" title="解题思路"></a>解题思路</h3><p>思路1：暴力解法，顺序扫描整个数组，每扫描到一个数字的时候，逐个比较该数字和它后面的数字的大小。如果后面的数字比它小，则这两个数字就组成一个逆序对。假设数组中含有n个数字，由于每个数字都要和O(n)个数字作比较，因此这个算法的时间复杂度是O(n^2)。</p>
 <p> 思路2：分治思想，采用归并排序的思路来处理，先分后治,如数组{7,5,6,4}，逆序对总共有5对，{7,5}，{7,6}，{7,4}，{5,4}，{6,4}；<br><img src="https://cuijiahua.com/wp-content/uploads/2018/01/basis_35_1.png" alt=""><br>先把数组分解成两个长度为2的子数组，再把这两个子数组分解成两个长度为1的子数组。接下来一边合并相邻的子数组，一边统计逆序对的数目。在第一对长度为1的子数组{7}、{5}中7&gt;5，因此（7,5）组成一个逆序对。同样在第二对长度为1的子数组{6}，{4}中也有逆序对（6,4），由于已经统计了这两对子数组内部的逆序对，因此需要把这两对子数组进行排序，避免在之后的统计过程中重复统计。</p>
 <p>逆序对的总数 = 左边数组中的逆序对的数量 + 右边数组中逆序对的数量 + 左右结合成新的顺序数组时中出现的逆序对的数量 总结一下： 这是一个归并排序的合并过程，主要是考虑合并两个有序序列时，计算逆序对数。 对于两个升序序列。</p>
@@ -729,7 +729,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-count">55</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -751,7 +751,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -772,7 +772,7 @@
             <div class="links-of-author motion-element">
                 
                   <span class="links-of-author-item">
-                    <a href="https://github.com/huangqiancun" target="_blank" title="GitHub">
+                    <a href="https://github.com/huangqiancun?tab=repositories" target="_blank" title="GitHub">
                       
                         <i class="fa fa-fw fa-github"></i>GitHub</a>
                   </span>
@@ -849,7 +849,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">470k</span>
+    <span title="Site words total count">475.9k</span>
   
 </div>
 
