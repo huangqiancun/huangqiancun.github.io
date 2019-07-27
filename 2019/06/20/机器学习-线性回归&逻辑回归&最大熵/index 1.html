@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icons8-fox-32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icons8-fox-16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="机器学习,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="I'm Qiancun Huang" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="本系列为机器学习相关知识总结。  机器学习-基本概念 机器学习-特征工程 机器学习-模型评估 机器学习-支持向量机 机器学习-线性回归&amp;amp;逻辑回归&amp;amp;最大熵 机器学习-K近邻 机器学习-贝叶斯 机器学习-无监督学习 机器学习-决策树 机器学习-集成学习 机器学习-优化算法 机器学习-采样  本文主要是机器学习-线性回归&amp;amp;逻辑回归&amp;amp;最大熵相关内容。 1 线性回归原理给定数">
+<meta name="keywords" content="机器学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习-线性回归&amp;逻辑回归&amp;最大熵">
+<meta property="og:url" content="http://huangqiancun.github.io/2019/06/20/机器学习-线性回归&逻辑回归&最大熵/index.html">
+<meta property="og:site_name" content="I&#39;m Qiancun Huang">
+<meta property="og:description" content="本系列为机器学习相关知识总结。  机器学习-基本概念 机器学习-特征工程 机器学习-模型评估 机器学习-支持向量机 机器学习-线性回归&amp;amp;逻辑回归&amp;amp;最大熵 机器学习-K近邻 机器学习-贝叶斯 机器学习-无监督学习 机器学习-决策树 机器学习-集成学习 机器学习-优化算法 机器学习-采样  本文主要是机器学习-线性回归&amp;amp;逻辑回归&amp;amp;最大熵相关内容。 1 线性回归原理给定数">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-06-19T17:05:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="机器学习-线性回归&amp;逻辑回归&amp;最大熵">
+<meta name="twitter:description" content="本系列为机器学习相关知识总结。  机器学习-基本概念 机器学习-特征工程 机器学习-模型评估 机器学习-支持向量机 机器学习-线性回归&amp;amp;逻辑回归&amp;amp;最大熵 机器学习-K近邻 机器学习-贝叶斯 机器学习-无监督学习 机器学习-决策树 机器学习-集成学习 机器学习-优化算法 机器学习-采样  本文主要是机器学习-线性回归&amp;amp;逻辑回归&amp;amp;最大熵相关内容。 1 线性回归原理给定数">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://huangqiancun.github.io/2019/06/20/机器学习-线性回归&逻辑回归&最大熵/">
+
+
+
+
+
+  <title>机器学习-线性回归&逻辑回归&最大熵 | I'm Qiancun Huang</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">I'm Qiancun Huang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Live it. Love it. Enjoy IT.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://huangqiancun.github.io/2019/06/20/机器学习-线性回归&逻辑回归&最大熵/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Qiancun Huang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/photo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="I'm Qiancun Huang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">机器学习-线性回归&逻辑回归&最大熵</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-20T09:02:25+08:00">
+                2019-06-20
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-06-20T01:05:46+08:00">
+                2019-06-20
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  3k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+		  
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本系列为机器学习相关知识总结。</p>
+<ul>
+<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-基本概念/">机器学习-基本概念</a></li>
+<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-特征工程/">机器学习-特征工程</a></li>
+<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-模型评估/">机器学习-模型评估</a></li>
+<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-支持向量机/">机器学习-支持向量机</a></li>
+<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-线性回归&amp;逻辑回归&amp;最大熵/">机器学习-线性回归&amp;逻辑回归&amp;最大熵</a></li>
+<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-K近邻/">机器学习-K近邻</a></li>
+<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-贝叶斯/">机器学习-贝叶斯</a></li>
+<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-无监督学习/">机器学习-无监督学习</a></li>
+<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-决策树/">机器学习-决策树</a></li>
+<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-集成学习/">机器学习-集成学习</a></li>
+<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-优化算法/">机器学习-优化算法</a></li>
+<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-采样/">机器学习-采样</a></li>
+</ul>
+<p>本文主要是<code>机器学习-线性回归&amp;逻辑回归&amp;最大熵</code>相关内容。</p>
+<h2 id="1-线性回归原理"><a href="#1-线性回归原理" class="headerlink" title="1 线性回归原理"></a>1 线性回归原理</h2><p>给定数据集，线性回归试图学得一个线性模型以尽可能准确地预测实值。求解线性回归模型参数的策略是使均方误差最小化，基于均方误差最小化来进行模型求解的方法称为”最小二乘法”。在线性回归中，最小二乘法就是试图找到一条直线，使所有样本到直线上的欧氏距离之和最小。</p>
+<h2 id="2-逻辑斯蒂回归原理"><a href="#2-逻辑斯蒂回归原理" class="headerlink" title="2 逻辑斯蒂回归原理"></a>2 逻辑斯蒂回归原理</h2><p>逻辑斯蒂回归的基础是线性回归，但是线性回归做的是回归任务，而逻辑斯蒂回归利用一个单调可微的函数将分类任务的真实标记与线性回归模型的预测值联系起来，学习的是分类任务。它的优点是直接对分类的可能性进行建模，所以它不仅可以预测出类别，还可以得到属于该类别的概率，这对于许多需要利用概率辅助决策的任务很有用；此外，Sigmoid函数是任意阶可导函数，具有很好的数学性质。逻辑斯蒂回归模型的参数估计中，使用梯度下降法进行学习，一般使用小批量的数据进行迭代优化。</p>
+<h2 id="3-LR为什么用的是sigmoid函数而不用阶跃函数"><a href="#3-LR为什么用的是sigmoid函数而不用阶跃函数" class="headerlink" title="3 LR为什么用的是sigmoid函数而不用阶跃函数"></a>3 LR为什么用的是sigmoid函数而不用阶跃函数</h2><p>阶跃函数虽然能够直观刻画分类的错误率，但是由于其非凸、非光滑的特点，使得算法很难直接对该函数进行优化。而sigmoid函数本身的特征（光滑无限阶可导），以及完美的映射到概率空间，就用于逻辑回归了。同时对于二分类问题来说，因为伯努利分布属于指数族分布，具有最大熵的性质。</p>
+<h2 id="4-线性回归和逻辑斯蒂的区别"><a href="#4-线性回归和逻辑斯蒂的区别" class="headerlink" title="4 线性回归和逻辑斯蒂的区别"></a>4 线性回归和逻辑斯蒂的区别</h2><p>首先，逻辑回归处理的是分类问题，线性回归处理的是回归问题，这是两者的最本质的区别，另外，线性回归的损失函数是最小平方误差，而逻辑斯蒂回归的损失函数为交叉熵损失函数，也就是最小对数似然损失。</p>
+<p>逻辑回归和线性回归的相同在于，首先我们可以认为二者都使用了极大似然估计来对训练样本进行建模。线性回归使用最小二乘法，实际上就是在自变量x与超参数θ确定，因变量y服从正态分布的假设下，使用极大似然估计的一个化简；而逻辑回归中通过对似然函数的学习，得到最佳参数θ。另外，二者在求解超参数的过程中，都可以使用梯度下降的方法，这也是监督学习中一个常见的相似之处。</p>
+<h2 id="5-当使用逻辑回归处理多标签的分类问题时，有哪些常见做法，分别应用于哪些场景，它们之间又有怎样的关系"><a href="#5-当使用逻辑回归处理多标签的分类问题时，有哪些常见做法，分别应用于哪些场景，它们之间又有怎样的关系" class="headerlink" title="5 当使用逻辑回归处理多标签的分类问题时，有哪些常见做法，分别应用于哪些场景，它们之间又有怎样的关系"></a>5 当使用逻辑回归处理多标签的分类问题时，有哪些常见做法，分别应用于哪些场景，它们之间又有怎样的关系</h2><ul>
+<li>首先，如果一个样本只对应于一个标签，我们可以假设每个样本属于不同标签的概率服从于几何分布，使用多项逻辑回归（Softmax Regression）来进行分类</li>
+<li>当存在样本可能属于多个标签的情况时，我们可以训练k个二分类的逻辑回归分类器。第i个分类器用以区分每个样本是否可以归为第i类，训练该分类器时，需要把标签重新整理为“第i类标签”与“非第i类标签”两类。通过这样的办法，我们就解决了每个样本可能拥有多个标签的情况。</li>
+</ul>
+<h2 id="6-逻辑斯蒂回归为什么要对特征进行离散化"><a href="#6-逻辑斯蒂回归为什么要对特征进行离散化" class="headerlink" title="6 逻辑斯蒂回归为什么要对特征进行离散化"></a>6 逻辑斯蒂回归为什么要对特征进行离散化</h2><ul>
+<li>非线性。逻辑斯蒂回归属于广义线性模型，表达能力受限，离散化后增加了非线性成分，可以增强模型表达能力和拟合能力，离散特征的增加和减少都很容易，易于模型的快速迭代。</li>
+<li>速度快。稀疏向量内积乘法运算速度快，计算结果方便存储，容易扩展；</li>
+<li>鲁棒性。离散化后的特征对异常数据有很强的鲁棒性：比如一个特征是年龄&gt;30是1，否则0。如果特征没有离散化，一个异常数据“年龄300岁”会给模型造成很大的干扰；</li>
+<li>方便交叉与特征组合：离散化后可以进行特征交叉，由 $M+N$ 个变量变为$M*N$个变量，进一步引入非线性，提升表达能力；</li>
+<li>稳定性：特征离散化后，模型会更稳定，比如如果对用户年龄离散化，20-30作为一个区间，不会因为一个用户年龄长了一岁就变成一个完全不同的人。当然处于区间相邻处的样本会刚好相反，所以怎么划分区间是门学问；</li>
+<li>简化模型：特征离散化以后，起到了简化了逻辑回归模型的作用，降低了模型过拟合的风险。</li>
+</ul>
+<h2 id="7-LR和SVM各自的优缺点和适用场景"><a href="#7-LR和SVM各自的优缺点和适用场景" class="headerlink" title="7 LR和SVM各自的优缺点和适用场景"></a>7 LR和SVM各自的优缺点和适用场景</h2><ul>
+<li>最本质是他们的损失函数不同，LR是对数损失而SVM是合页损失函 数；</li>
+<li>LR可以给出每个点属于每一类的概率，而SVM是非概率的，一个 是基于统计的方法，一个基于几何的方法；</li>
+<li>支持向量机只考虑局部的 边界线附近的点（支持向量），而逻辑回归考虑所有的样本点，所以线性SVM不直接依赖于数据分布，分类平面不受一类点影响，LR则受所有数据点的影响对不平衡数据先做balance；</li>
+<li>同样是线性分类，如果异常点较多无法剔除，首先LR中每个样本都有贡献，最大似然后会自动压制异常的贡献，SVM + 软间隔对异常却比较敏感，因为其训练只需要支持向量，有效样本本来就不高，一旦被干扰，预测结果会难以预料；</li>
+<li>SVM的损失函数本省自带正则项，这就是为什么SVM是结构风险最小化算法，而LR必须另外在损失函数上添加正则项。</li>
+</ul>
+<h2 id="8-LR使用核函数解决线性不可分问题"><a href="#8-LR使用核函数解决线性不可分问题" class="headerlink" title="8 LR使用核函数解决线性不可分问题"></a>8 LR使用核函数解决线性不可分问题</h2><p>逻辑回归本质上是一个线性模型，但是，这不意味着只有线性可分的数据能通过LR求解，实际上，我们可以通过2种方式帮助LR实现：</p>
+<ul>
+<li>利用特殊核函数，对特征进行变换：把低维空间转换到高维空间，而在低维空间不可分的数据，到高维空间中线性可分的几率会高一些。但在LR算法里，每个样本点都必须参与决策面的计算过程，也就是说，假设我们在LR里也运用核函数的原理，那么每个样本点都必须参与核计算，这带来的计算复杂度是相当高的。所以，在具体应用时，LR很少运用核函数机制。</li>
+<li>扩展LR算法，提出FM算法。</li>
+</ul>
+<h2 id="9-最大熵模型原理"><a href="#9-最大熵模型原理" class="headerlink" title="9 最大熵模型原理"></a>9 最大熵模型原理</h2><p>熵是随机变量不确定性的度量，不确定性越大，熵越大；为了准确估计随机变量的状态，我们一般最大化熵，认为在所有可能的概率模型（分布）中，熵最大的模型是最好的模型。也就是说，在已知部分知识的前提下，关于未知分布最合理的推理就是符合已知知识最不确定或者最随机的推断，其原则是承认已知知识，并且对未知事物不做任何假设，没有任何偏见。最大熵在解决二分类问题时就是逻辑回归，在解决多分类问题时就是多项逻辑回归（softmax）。</p>
+<p>Note</p>
+<ul>
+<li>最大熵原理认为要选择的概率模型首先必须满足已有的事实，即约束条件。在没有更多信息的情况下，那些不确定的部分都是“等可能的”，最大熵原理通过熵的最大化来表示等可能性。</li>
+<li>例如，投掷一个骰子，如果问“每个面朝上的概率分别是多少”，你会说是等概率，即各点出现的概率均为1/6，因为对这个“一无所知”的骰子，什么都不确定，而假定它每一个面朝上概率均等则是最合理的做法。从投资的角度来看，这是风险最小的作法，从信息论的角度讲，就是保留了最大的不确定性，也就是说让熵达到最大。</li>
+</ul>
+<h2 id="10-SVM和logistic回归分别在什么情况下使用"><a href="#10-SVM和logistic回归分别在什么情况下使用" class="headerlink" title="10 SVM和logistic回归分别在什么情况下使用"></a>10 SVM和logistic回归分别在什么情况下使用</h2><ul>
+<li>如果特征的数量很大，跟样本数量差不多或者比样本多，选用逻辑斯蒂回归或者线性核的SVM。理由：特征数相对于训练样本数已经够大了，使用线性模型就能取得不错的效果，不需要过于复杂的模型；</li>
+<li>如果特征的数量比较小，样本数量一般，选用高斯核的SVM。理由：在训练样本数量足够大而特征数较小的情况下，可以通过使用复杂核函数的SVM来获得更好的预测性能，而且因为训练样本数量并没有达到百万级，使用复杂核函数的SVM也不会导致运算过慢；</li>
+<li>如果特征数量很小，而样本数量很多，需要手工添加一些特征变成第一种情况。理由：因为训练样本数量特别大，使用复杂核函数的SVM会导致运算很慢，因此应该考虑通过引入更多特征，然后使用线性核函数的SVM或者lr来构建预测性更好的模型。</li>
+</ul>
+<h2 id="11-SVM和逻辑斯特回归对同一样本A进行训练，如果某类中增加一些数据点，那么原来的决策边界分别会怎么变化？"><a href="#11-SVM和逻辑斯特回归对同一样本A进行训练，如果某类中增加一些数据点，那么原来的决策边界分别会怎么变化？" class="headerlink" title="11 SVM和逻辑斯特回归对同一样本A进行训练，如果某类中增加一些数据点，那么原来的决策边界分别会怎么变化？"></a>11 SVM和逻辑斯特回归对同一样本A进行训练，如果某类中增加一些数据点，那么原来的决策边界分别会怎么变化？</h2><p>不妨设只添加一个数据点，且它属于“+”的那一类。</p>
+<p>SVM：如果这个数据点本身在margin之外“+”的那一侧，那么判决边界不受影响。如果这个数据点在margin之内，或者在margin之外“-”的那一侧，那么这个点一定会成为新的支持向量。但是，判决边界并不一定发生变化，因为这个数据点可能能够被目标函数中的容错项处理掉。</p>
+<p>LR：当新数据点在“+”类这一边，但离判决边界比较近。新的模型为了能够正确判别这个数据点，会把判决边界向“-”类方向移动。当数据点在“+”类这一边，但离判决边界很远，旧模型已经可以毫无压力地把它判别正确。这时，新模型反倒会把判决边界向“+”类方向移动，这样虽然新的数据点的似然值减小了一点儿，但换来的是原来的“-”类数据似然值增加。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Qiancun Huang WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Qiancun Huang Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    Qiancun Huang
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="http://huangqiancun.github.io/2019/06/20/机器学习-线性回归&逻辑回归&最大熵/" title="机器学习-线性回归&逻辑回归&最大熵">http://huangqiancun.github.io/2019/06/20/机器学习-线性回归&逻辑回归&最大熵/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/20/机器学习-模型评估/" rel="next" title="机器学习-模型评估">
+                <i class="fa fa-chevron-left"></i> 机器学习-模型评估
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/20/机器学习-特征工程/" rel="prev" title="机器学习-特征工程">
+                机器学习-特征工程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+	
+	
+  
+  
+  
+  </article>
+  <div>
+		
+			<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------------The End------------</div>
+    
+</div>
+		
+	</div>
+	
+ 
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/photo.jpg" alt="Qiancun Huang">
+            
+              <p class="site-author-name" itemprop="name">Qiancun Huang</p>
+              <p class="site-description motion-element" itemprop="description">A second-year graduate student in Southeast University</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">50</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/huangqiancun" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto://huangqiancun@foxmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-线性回归原理"><span class="nav-text">1 线性回归原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-逻辑斯蒂回归原理"><span class="nav-text">2 逻辑斯蒂回归原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-LR为什么用的是sigmoid函数而不用阶跃函数"><span class="nav-text">3 LR为什么用的是sigmoid函数而不用阶跃函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-线性回归和逻辑斯蒂的区别"><span class="nav-text">4 线性回归和逻辑斯蒂的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-当使用逻辑回归处理多标签的分类问题时，有哪些常见做法，分别应用于哪些场景，它们之间又有怎样的关系"><span class="nav-text">5 当使用逻辑回归处理多标签的分类问题时，有哪些常见做法，分别应用于哪些场景，它们之间又有怎样的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-逻辑斯蒂回归为什么要对特征进行离散化"><span class="nav-text">6 逻辑斯蒂回归为什么要对特征进行离散化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-LR和SVM各自的优缺点和适用场景"><span class="nav-text">7 LR和SVM各自的优缺点和适用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-LR使用核函数解决线性不可分问题"><span class="nav-text">8 LR使用核函数解决线性不可分问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-最大熵模型原理"><span class="nav-text">9 最大熵模型原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-SVM和logistic回归分别在什么情况下使用"><span class="nav-text">10 SVM和logistic回归分别在什么情况下使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-SVM和逻辑斯特回归对同一样本A进行训练，如果某类中增加一些数据点，那么原来的决策边界分别会怎么变化？"><span class="nav-text">11 SVM和逻辑斯特回归对同一样本A进行训练，如果某类中增加一些数据点，那么原来的决策边界分别会怎么变化？</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qiancun Huang</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">466k</span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+
+</body>
+</html>

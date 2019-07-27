@@ -118,7 +118,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-布隆过滤器/1.jpg">
 <meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-布隆过滤器/2.jpg">
 <meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-布隆过滤器/3.jpg">
-<meta property="og:updated_time" content="2019-07-01T14:48:47.556Z">
+<meta property="og:updated_time" content="2019-07-26T15:08:53.749Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构-布隆过滤器">
 <meta name="twitter:description" content="本系列为数据结构学习笔记(待汇总)。 布隆过滤器背景虽然位图可以节省空间，但是数据量大的时候需要的内存还是比较大的。布隆过滤器就是为了解决这个问题，对位图数据结构的一种改进。 举例：考虑数据个数是1千万，数字范围是1到10亿，使用位图需要10亿个二进制位，而布隆过滤器的做法是，使用一个1亿个二进制大小的位图，然后通过哈希函数，对数字进行处理，让它落在这1到1亿范围内。比如我们把哈希函数设计成 $f">
@@ -372,8 +372,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-07-01T22:48:47+08:00">
-                2019-07-01
+              <time title="Post modified" itemprop="dateModified" datetime="2019-07-26T23:08:53+08:00">
+                2019-07-26
               </time>
             
           </span>
@@ -422,7 +422,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  1.9k
+                  1.5k
                 </span>
               
 
@@ -458,19 +458,15 @@
 <h2 id="集合表示和元素查询"><a href="#集合表示和元素查询" class="headerlink" title="集合表示和元素查询"></a>集合表示和元素查询</h2><p>具体来看Bloom Filter是如何用位数组表示集合的。初始状态时，Bloom Filter是一个包含m位的位数组，每一位都置为0。<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-布隆过滤器/1.jpg" alt="mark"></p>
 <p>为了表达$ \mathrm{S}=\left\{\mathrm{x}_{1}, \mathrm{x}_{2}, \ldots, \mathrm{x}_{\mathrm{n}}\right\} $这样一个$n$个元素的集合，Bloom Filter使用$k$个相互独立的哈希函数（Hash Function），它们分别将集合中的每个元素映射到$\{1,…,m\}$的范围中。对任意一个元素$x$，第$i$个哈希函数映射的位置$h_i(x)$就会被置为1（$1≤i≤k$）。注意，如果一个位置多次被置为1，那么只有第一次会起作用，后面几次将没有任何效果。在下图中，k=3，且有两个哈希函数选中同一个位置（从左边数第五位，即第二个“1“处）。<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-布隆过滤器/2.jpg" alt="mark"></p>
 <p>在判断y是否属于这个集合时，我们对y应用k次哈希函数，如果所有$h_i(y)$的位置都是1（1≤i≤k），那么我们就认为y是集合中的元素，否则就认为y不是集合中的元素。下图中$y_1$就不是集合中的元素（因为$y_1$有一处指向了“0”位）。$y_2$或者属于这个集合，或者刚好是一个false positive。<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-布隆过滤器/3.jpg" alt="mark"></p>
-<h2 id="错误率估计"><a href="#错误率估计" class="headerlink" title="错误率估计"></a>错误率估计</h2><p>  前面我们已经提到了，Bloom Filter在判断一个元素是否属于它表示的集合时会有一定的错误率（false positive rate），下面我们就来估计错误率的大小。在估计之前为了简化模型，我们假设$k_n&lt;m$且各个哈希函数是完全随机的。当集合$ \mathrm{S}=\left\{\mathrm{x}_{1}, \mathrm{x}_{2}, \ldots, \mathrm{x}_{\mathrm{n}}\right\} $的所有元素都被k个哈希函数映射到m位的位数组中时，这个位数组中某一位还是0的概率是：</p>
+<h2 id="位数组大小"><a href="#位数组大小" class="headerlink" title="位数组大小"></a>位数组大小</h2><p>对于给定的p（误判率）和将要加入集合的元素个数n，位数组大小m由如下公式定义：</p>
 <script type="math/tex; mode=display">
-p^{\prime}=\left(1-\frac{1}{m}\right)^{k_n} \approx \mathrm{e}^{-k n / m}</script><p>其中$\frac{1}{m}$表示任意一个哈希函数选中这一位的概率（前提是哈希函数是完全随机的），$(1-\frac{1}{m})$表示哈希一次没有选中这一位的概率。要把 $ \mathrm{S}$ 完全映射到位数组中，需要做$k_n$次哈希。某一位还是0意味着$k_n$次哈希都没有选中它，因此这个概率就是$(1-\frac{1}{m})$的$k_n$次方。令$\mathrm{p}=\mathrm{e}^{-\mathrm{kn} / \mathrm{m}}$是为了简化运算，这里用到了计算e时常用的近似：</p>
+m=-\frac{n \cdot \ln p}{(\ln 2)^{2}}</script><h2 id="最优的哈希函数个数"><a href="#最优的哈希函数个数" class="headerlink" title="最优的哈希函数个数"></a>最优的哈希函数个数</h2><p>对于给定的位数组大小m和将要加入集合的元素个数n，使得误判率最小的哈希函数个数k通过如下公式定义： </p>
 <script type="math/tex; mode=display">
-\lim _{x \rightarrow \infty}\left(1-\frac{1}{x}\right)^{-x}=\mathrm{e}</script><p>令$p$为位数组中0的比例，则$p$的数学期望$E(p)= p^{\prime}$。在$p$已知的情况下，要求的错误率（false positive rate）为：</p>
+k=\frac{m}{n} \ln 2 \approx 0.7 \cdot \frac{m}{n}</script><h2 id="误判率估计"><a href="#误判率估计" class="headerlink" title="误判率估计"></a>误判率估计</h2><p>对于给定的位数组大小m，将要加入集合的元素个数n，及哈希函数个数k，误判率可以重新计算为： </p>
 <script type="math/tex; mode=display">
-(1-p)^{k} \approx\left(1-p^{\prime}\right)^{k} \approx(1-p)^{k}</script><p>$(1-p)$为位数组中1的比例，$(1-p)^{k} $就表示k次哈希都刚好选中1的区域，即false positive rate。上式中第二步近似在前面已经提到了，现在来看第一步近似。$p^{\prime}$只是$rho$的数学期望，在实际中$p$的值有可能偏离它的数学期望值。M. Mitzenmacher已经证明[2] ，位数组中0的比例非常集中地分布在它的数学期望值的附近。因此，第一步的近似得以成立。分别将$p$和$p^{\prime}$代入上式中，得：</p>
-<script type="math/tex; mode=display">
-f^{\prime}=\left(1-\left(1-\frac{1}{m}\right)^{k n}\right)^{k}=\left(1-p^{\prime}\right)^{k}</script><script type="math/tex; mode=display">
-f=\left(1-\mathrm{e}^{-k n / m}\right)^{k}=(1-p)^{k}</script><p>相比$p^{\prime}$和$f^{\prime}$，使用$p$和$f$通常在分析中更为方便。</p>
-<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><p>在计算机科学中，我们常常会碰到时间换空间或者空间换时间的情况，即为了达到某一个方面的最优而牺牲另一个方面。Bloom Filter在时间空间这两个因素之外又引入了另一个因素：错误率。在使用Bloom Filter判断一个元素是否属于某个集合时，会有一定的错误率。也就是说，有可能把不属于这个集合的元素误认为属于这个集合（False Positive），但不会把属于这个集合的元素误认为不属于这个集合（False Negative）。在增加了错误率这个因素之后，Bloom Filter通过允许少量的错误来节省大量的存储空间。</p>
+p=\left(1-\mathrm{e}^{-k n / m}\right)^{k}</script><h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><p>在计算机科学中，我们常常会碰到时间换空间或者空间换时间的情况，即为了达到某一个方面的最优而牺牲另一个方面。Bloom Filter在时间空间这两个因素之外又引入了另一个因素：错误率。在使用Bloom Filter判断一个元素是否属于某个集合时，会有一定的错误率。也就是说，有可能把不属于这个集合的元素误认为属于这个集合（False Positive），但不会把属于这个集合的元素误认为不属于这个集合（False Negative）。在增加了错误率这个因素之后，Bloom Filter通过允许少量的错误来节省大量的存储空间。</p>
 <p>Bloom Filter就被广泛用于拼写检查和数据库系统中。 也可以用来实现数据字典，进行数据的判重，或者集合求交集 。</p>
-<p>参考文献：<br><a href="https://blog.csdn.net/v_july_v/article/details/6685894" target="_blank" rel="noopener">https://blog.csdn.net/v_july_v/article/details/6685894</a><br><a href="https://blog.csdn.net/jiaomeng/article/details/1495500" target="_blank" rel="noopener">https://blog.csdn.net/jiaomeng/article/details/1495500</a></p>
+<p>参考文献：<br><a href="https://blog.csdn.net/v_july_v/article/details/6685894" target="_blank" rel="noopener">https://blog.csdn.net/v_july_v/article/details/6685894</a><br><a href="https://blog.csdn.net/jiaomeng/article/details/1495500" target="_blank" rel="noopener">https://blog.csdn.net/jiaomeng/article/details/1495500</a><br><a href="https://blog.csdn.net/tick_tock97/article/details/78688159" target="_blank" rel="noopener">https://blog.csdn.net/tick_tock97/article/details/78688159</a></p>
 
       
     </div>
@@ -658,7 +654,7 @@ f=\left(1-\mathrm{e}^{-k n / m}\right)^{k}=(1-p)^{k}</script><p>相比$p^{\prime
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-count">57</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -736,7 +732,7 @@ f=\left(1-\mathrm{e}^{-k n / m}\right)^{k}=(1-p)^{k}</script><p>相比$p^{\prime
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#布隆过滤器"><span class="nav-text">布隆过滤器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#背景"><span class="nav-text">背景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#布隆过滤器定义"><span class="nav-text">布隆过滤器定义</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#集合表示和元素查询"><span class="nav-text">集合表示和元素查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#错误率估计"><span class="nav-text">错误率估计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用"><span class="nav-text">应用</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#布隆过滤器"><span class="nav-text">布隆过滤器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#背景"><span class="nav-text">背景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#布隆过滤器定义"><span class="nav-text">布隆过滤器定义</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#集合表示和元素查询"><span class="nav-text">集合表示和元素查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#位数组大小"><span class="nav-text">位数组大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最优的哈希函数个数"><span class="nav-text">最优的哈希函数个数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#误判率估计"><span class="nav-text">误判率估计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用"><span class="nav-text">应用</span></a></li></div>
             
 
           </div>
@@ -778,7 +774,7 @@ f=\left(1-\mathrm{e}^{-k n / m}\right)^{k}=(1-p)^{k}</script><p>相比$p^{\prime
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">475.9k</span>
+    <span title="Site words total count">483.3k</span>
   
 </div>
 

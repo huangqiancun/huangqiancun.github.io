@@ -107,18 +107,18 @@
 
 
 
-<meta name="description" content="本系列为机器学习相关知识总结。  机器学习-基本概念 机器学习-特征工程 机器学习-模型评估 机器学习-支持向量机 机器学习-线性回归&amp;amp;逻辑回归&amp;amp;最大熵 机器学习-K近邻 机器学习-贝叶斯 机器学习-无监督学习 机器学习-决策树 机器学习-集成学习 机器学习-优化算法 机器学习-采样  本文主要是机器学习-决策树相关内容。 1 决策树的基本原理决策树是一种自上而下，递归地将样本数据">
+<meta name="description" content="本文主要是机器学习-决策树相关内容。 1 决策树的基本原理决策树是一种自上而下，递归地将样本数据进行树形分类的过程，由结点和有向边组成。结点分为内部结点和叶结点，其中每个内部结点表示一个特征或属性，叶结点表示类别。从顶部根结点开始，所有样本聚在一起。经过根结点的划分，样本被分到不同的子结点中。再根据子结点的特征进一步划分，直至所有样本都被归到某一个类别（即叶结点）中。 决策树的目标是从一组样本数据">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习-决策树">
 <meta property="og:url" content="http://huangqiancun.github.io/2019/06/19/机器学习-决策树/index.html">
 <meta property="og:site_name" content="I&#39;m Qiancun Huang">
-<meta property="og:description" content="本系列为机器学习相关知识总结。  机器学习-基本概念 机器学习-特征工程 机器学习-模型评估 机器学习-支持向量机 机器学习-线性回归&amp;amp;逻辑回归&amp;amp;最大熵 机器学习-K近邻 机器学习-贝叶斯 机器学习-无监督学习 机器学习-决策树 机器学习-集成学习 机器学习-优化算法 机器学习-采样  本文主要是机器学习-决策树相关内容。 1 决策树的基本原理决策树是一种自上而下，递归地将样本数据">
+<meta property="og:description" content="本文主要是机器学习-决策树相关内容。 1 决策树的基本原理决策树是一种自上而下，递归地将样本数据进行树形分类的过程，由结点和有向边组成。结点分为内部结点和叶结点，其中每个内部结点表示一个特征或属性，叶结点表示类别。从顶部根结点开始，所有样本聚在一起。经过根结点的划分，样本被分到不同的子结点中。再根据子结点的特征进一步划分，直至所有样本都被归到某一个类别（即叶结点）中。 决策树的目标是从一组样本数据">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-06-19T17:07:40.000Z">
+<meta property="og:updated_time" content="2019-07-26T15:03:33.342Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习-决策树">
-<meta name="twitter:description" content="本系列为机器学习相关知识总结。  机器学习-基本概念 机器学习-特征工程 机器学习-模型评估 机器学习-支持向量机 机器学习-线性回归&amp;amp;逻辑回归&amp;amp;最大熵 机器学习-K近邻 机器学习-贝叶斯 机器学习-无监督学习 机器学习-决策树 机器学习-集成学习 机器学习-优化算法 机器学习-采样  本文主要是机器学习-决策树相关内容。 1 决策树的基本原理决策树是一种自上而下，递归地将样本数据">
+<meta name="twitter:description" content="本文主要是机器学习-决策树相关内容。 1 决策树的基本原理决策树是一种自上而下，递归地将样本数据进行树形分类的过程，由结点和有向边组成。结点分为内部结点和叶结点，其中每个内部结点表示一个特征或属性，叶结点表示类别。从顶部根结点开始，所有样本聚在一起。经过根结点的划分，样本被分到不同的子结点中。再根据子结点的特征进一步划分，直至所有样本都被归到某一个类别（即叶结点）中。 决策树的目标是从一组样本数据">
 
 
 
@@ -368,8 +368,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-06-20T01:07:40+08:00">
-                2019-06-20
+              <time title="Post modified" itemprop="dateModified" datetime="2019-07-26T23:03:33+08:00">
+                2019-07-26
               </time>
             
           </span>
@@ -418,7 +418,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  2.2k
+                  2.1k
                 </span>
               
 
@@ -444,22 +444,7 @@
       
 
       
-        <p>本系列为机器学习相关知识总结。</p>
-<ul>
-<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-基本概念/">机器学习-基本概念</a></li>
-<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-特征工程/">机器学习-特征工程</a></li>
-<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-模型评估/">机器学习-模型评估</a></li>
-<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-支持向量机/">机器学习-支持向量机</a></li>
-<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-线性回归&amp;逻辑回归&amp;最大熵/">机器学习-线性回归&amp;逻辑回归&amp;最大熵</a></li>
-<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-K近邻/">机器学习-K近邻</a></li>
-<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-贝叶斯/">机器学习-贝叶斯</a></li>
-<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-无监督学习/">机器学习-无监督学习</a></li>
-<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-决策树/">机器学习-决策树</a></li>
-<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-集成学习/">机器学习-集成学习</a></li>
-<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-优化算法/">机器学习-优化算法</a></li>
-<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-采样/">机器学习-采样</a></li>
-</ul>
-<p>本文主要是<code>机器学习-决策树</code>相关内容。</p>
+        <p>本文主要是<code>机器学习-决策树</code>相关内容。</p>
 <h2 id="1-决策树的基本原理"><a href="#1-决策树的基本原理" class="headerlink" title="1 决策树的基本原理"></a>1 决策树的基本原理</h2><p>决策树是一种自上而下，递归地将样本数据进行树形分类的过程，由结点和有向边组成。结点分为内部结点和叶结点，其中每个内部结点表示一个特征或属性，叶结点表示类别。从顶部根结点开始，所有样本聚在一起。经过根结点的划分，样本被分到不同的子结点中。再根据子结点的特征进一步划分，直至所有样本都被归到某一个类别（即叶结点）中。</p>
 <p>决策树的目标是从一组样本数据中，根据不同的特征和属性，建立一棵树形的分类结构。我们既希望它能拟合训练数据，达到良好的分类效果，同时又希望控制其复杂度，使得模型具有一定的泛化能力。对于一个特定的问题，决策树的选择可能有很多种。</p>
 <h2 id="2-ID3，C4-5，CART原理"><a href="#2-ID3，C4-5，CART原理" class="headerlink" title="2 ID3，C4.5，CART原理"></a>2 ID3，C4.5，CART原理</h2><p>决策树的关键是如何选择最优划分树形，一般来说，随着划分过程不断进行，我们希望决策树的分支结点所包含的样本尽可能属于同一类别，也就是希望结点的”纯度”(purity)越来越高。</p>
@@ -680,7 +665,7 @@ D, a )=\frac{\operatorname{Gain}(D, a)}{\operatorname{IV}(a)}</script><script ty
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-count">57</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -800,7 +785,7 @@ D, a )=\frac{\operatorname{Gain}(D, a)}{\operatorname{IV}(a)}</script><script ty
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">475.9k</span>
+    <span title="Site words total count">483.3k</span>
   
 </div>
 

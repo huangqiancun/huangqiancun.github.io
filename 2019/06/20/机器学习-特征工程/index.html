@@ -107,18 +107,18 @@
 
 
 
-<meta name="description" content="本系列为机器学习相关知识总结。  机器学习-基本概念 机器学习-特征工程 机器学习-模型评估 机器学习-支持向量机 机器学习-线性回归&amp;amp;逻辑回归&amp;amp;最大熵 机器学习-K近邻 机器学习-贝叶斯 机器学习-无监督学习 机器学习-决策树 机器学习-集成学习 机器学习-优化算法 机器学习-采样  本文主要是机器学习-特征工程相关内容。 1 什么是特征工程对于一个机器学习问题，数据和特征往往决">
+<meta name="description" content="本文主要是机器学习-特征工程相关内容。 1 什么是特征工程对于一个机器学习问题，数据和特征往往决定了结果的上限，而模型、算法的选择及优化则是在逐步接近这个上限。 特征工程是指对原始数据进行一系列工程处理，将其提炼为特征，作为输入供算法和模型使用。从本质上来讲，特征工程是一个表示和展现数据的过程。在实际工作中，特征工程旨在去除原始数据中的杂质和冗余，设计更高效的特征以刻画求解的问题与预测模型之间的关">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习-特征工程">
 <meta property="og:url" content="http://huangqiancun.github.io/2019/06/20/机器学习-特征工程/index.html">
 <meta property="og:site_name" content="I&#39;m Qiancun Huang">
-<meta property="og:description" content="本系列为机器学习相关知识总结。  机器学习-基本概念 机器学习-特征工程 机器学习-模型评估 机器学习-支持向量机 机器学习-线性回归&amp;amp;逻辑回归&amp;amp;最大熵 机器学习-K近邻 机器学习-贝叶斯 机器学习-无监督学习 机器学习-决策树 机器学习-集成学习 机器学习-优化算法 机器学习-采样  本文主要是机器学习-特征工程相关内容。 1 什么是特征工程对于一个机器学习问题，数据和特征往往决">
+<meta property="og:description" content="本文主要是机器学习-特征工程相关内容。 1 什么是特征工程对于一个机器学习问题，数据和特征往往决定了结果的上限，而模型、算法的选择及优化则是在逐步接近这个上限。 特征工程是指对原始数据进行一系列工程处理，将其提炼为特征，作为输入供算法和模型使用。从本质上来讲，特征工程是一个表示和展现数据的过程。在实际工作中，特征工程旨在去除原始数据中的杂质和冗余，设计更高效的特征以刻画求解的问题与预测模型之间的关">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-06-19T17:04:15.000Z">
+<meta property="og:updated_time" content="2019-07-26T15:03:16.224Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习-特征工程">
-<meta name="twitter:description" content="本系列为机器学习相关知识总结。  机器学习-基本概念 机器学习-特征工程 机器学习-模型评估 机器学习-支持向量机 机器学习-线性回归&amp;amp;逻辑回归&amp;amp;最大熵 机器学习-K近邻 机器学习-贝叶斯 机器学习-无监督学习 机器学习-决策树 机器学习-集成学习 机器学习-优化算法 机器学习-采样  本文主要是机器学习-特征工程相关内容。 1 什么是特征工程对于一个机器学习问题，数据和特征往往决">
+<meta name="twitter:description" content="本文主要是机器学习-特征工程相关内容。 1 什么是特征工程对于一个机器学习问题，数据和特征往往决定了结果的上限，而模型、算法的选择及优化则是在逐步接近这个上限。 特征工程是指对原始数据进行一系列工程处理，将其提炼为特征，作为输入供算法和模型使用。从本质上来讲，特征工程是一个表示和展现数据的过程。在实际工作中，特征工程旨在去除原始数据中的杂质和冗余，设计更高效的特征以刻画求解的问题与预测模型之间的关">
 
 
 
@@ -368,8 +368,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-06-20T01:04:15+08:00">
-                2019-06-20
+              <time title="Post modified" itemprop="dateModified" datetime="2019-07-26T23:03:16+08:00">
+                2019-07-26
               </time>
             
           </span>
@@ -418,7 +418,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  8.6k
+                  8.5k
                 </span>
               
 
@@ -444,22 +444,7 @@
       
 
       
-        <p>本系列为机器学习相关知识总结。</p>
-<ul>
-<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-基本概念/">机器学习-基本概念</a></li>
-<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-特征工程/">机器学习-特征工程</a></li>
-<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-模型评估/">机器学习-模型评估</a></li>
-<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-支持向量机/">机器学习-支持向量机</a></li>
-<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-线性回归&amp;逻辑回归&amp;最大熵/">机器学习-线性回归&amp;逻辑回归&amp;最大熵</a></li>
-<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-K近邻/">机器学习-K近邻</a></li>
-<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-贝叶斯/">机器学习-贝叶斯</a></li>
-<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-无监督学习/">机器学习-无监督学习</a></li>
-<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-决策树/">机器学习-决策树</a></li>
-<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-集成学习/">机器学习-集成学习</a></li>
-<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-优化算法/">机器学习-优化算法</a></li>
-<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-采样/">机器学习-采样</a></li>
-</ul>
-<p>本文主要是<code>机器学习-特征工程</code>相关内容。</p>
+        <p>本文主要是<code>机器学习-特征工程</code>相关内容。</p>
 <h2 id="1-什么是特征工程"><a href="#1-什么是特征工程" class="headerlink" title="1 什么是特征工程"></a>1 什么是特征工程</h2><p>对于一个机器学习问题，数据和特征往往决定了结果的上限，而模型、算法的选择及优化则是在逐步接近这个上限。 特征工程是指对原始数据进行一系列工程处理，将其提炼为特征，作为输入供算法和模型使用。从本质上来讲，特征工程是一个表示和展现数据的过程。在实际工作中，特征工程旨在去除原始数据中的杂质和冗余，设计更高效的特征以刻画求解的问题与预测模型之间的关系。特征工程主要包括数据与特征处理，特征选择和降维三部分内容。</p>
 <p>对数据进行预处理，可提高数据质量，提高挖掘质量。对数据进行清洗可填充缺失值，光滑噪声数据，识别和删除离群点数据，保证数据的一致性。使用正确的采样方法可解决因数据不平衡带来的预测偏差。 对不同的数据类型进行不同的特征处理有助于提高特征的可用性。例如：</p>
 <ul>
@@ -805,7 +790,7 @@ P\left(y=w_{n} | x\right)=\frac{\mathrm{e}^{x_{n}}}{\sum_{k=1}^{N} \mathrm{e}^{x
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-count">57</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -925,7 +910,7 @@ P\left(y=w_{n} | x\right)=\frac{\mathrm{e}^{x_{n}}}{\sum_{k=1}^{N} \mathrm{e}^{x
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">475.9k</span>
+    <span title="Site words total count">483.3k</span>
   
 </div>
 

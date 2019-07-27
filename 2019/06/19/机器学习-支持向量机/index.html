@@ -107,20 +107,20 @@
 
 
 
-<meta name="description" content="本系列为机器学习相关知识总结。  机器学习-基本概念 机器学习-特征工程 机器学习-模型评估 机器学习-支持向量机 机器学习-线性回归&amp;amp;逻辑回归&amp;amp;最大熵 机器学习-K近邻 机器学习-贝叶斯 机器学习-无监督学习 机器学习-决策树 机器学习-集成学习 机器学习-优化算法 机器学习-采样  本文主要是机器学习-支持向量机相关内容。 1 支持向量机原理SVM，全称是Support vec">
+<meta name="description" content="本文主要是机器学习-支持向量机相关内容。 1 支持向量机原理SVM，全称是Support vector machine，中文名叫支持向量机。SVM是一个面向数据的分类算法，它的基本模型是定义在特征空间上的间隔最大的线性分类器，它的目标是确定一个分类超平面，从而将不同的数据分隔开。支持向量机的学习策略就是间隔最大化，可形式化为一个求解凸二次规划的问题，也等价于正则化的合页损失函数的最小化问题。SVM">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习-支持向量机">
 <meta property="og:url" content="http://huangqiancun.github.io/2019/06/19/机器学习-支持向量机/index.html">
 <meta property="og:site_name" content="I&#39;m Qiancun Huang">
-<meta property="og:description" content="本系列为机器学习相关知识总结。  机器学习-基本概念 机器学习-特征工程 机器学习-模型评估 机器学习-支持向量机 机器学习-线性回归&amp;amp;逻辑回归&amp;amp;最大熵 机器学习-K近邻 机器学习-贝叶斯 机器学习-无监督学习 机器学习-决策树 机器学习-集成学习 机器学习-优化算法 机器学习-采样  本文主要是机器学习-支持向量机相关内容。 1 支持向量机原理SVM，全称是Support vec">
+<meta property="og:description" content="本文主要是机器学习-支持向量机相关内容。 1 支持向量机原理SVM，全称是Support vector machine，中文名叫支持向量机。SVM是一个面向数据的分类算法，它的基本模型是定义在特征空间上的间隔最大的线性分类器，它的目标是确定一个分类超平面，从而将不同的数据分隔开。支持向量机的学习策略就是间隔最大化，可形式化为一个求解凸二次规划的问题，也等价于正则化的合页损失函数的最小化问题。SVM">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-支持向量机/1.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-支持向量机/2.png">
-<meta property="og:updated_time" content="2019-06-19T17:05:15.000Z">
+<meta property="og:updated_time" content="2019-07-26T15:04:11.077Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习-支持向量机">
-<meta name="twitter:description" content="本系列为机器学习相关知识总结。  机器学习-基本概念 机器学习-特征工程 机器学习-模型评估 机器学习-支持向量机 机器学习-线性回归&amp;amp;逻辑回归&amp;amp;最大熵 机器学习-K近邻 机器学习-贝叶斯 机器学习-无监督学习 机器学习-决策树 机器学习-集成学习 机器学习-优化算法 机器学习-采样  本文主要是机器学习-支持向量机相关内容。 1 支持向量机原理SVM，全称是Support vec">
+<meta name="twitter:description" content="本文主要是机器学习-支持向量机相关内容。 1 支持向量机原理SVM，全称是Support vector machine，中文名叫支持向量机。SVM是一个面向数据的分类算法，它的基本模型是定义在特征空间上的间隔最大的线性分类器，它的目标是确定一个分类超平面，从而将不同的数据分隔开。支持向量机的学习策略就是间隔最大化，可形式化为一个求解凸二次规划的问题，也等价于正则化的合页损失函数的最小化问题。SVM">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-支持向量机/1.png">
 
 
@@ -371,8 +371,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-06-20T01:05:15+08:00">
-                2019-06-20
+              <time title="Post modified" itemprop="dateModified" datetime="2019-07-26T23:04:11+08:00">
+                2019-07-26
               </time>
             
           </span>
@@ -421,7 +421,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  3.2k
+                  3.1k
                 </span>
               
 
@@ -447,22 +447,7 @@
       
 
       
-        <p>本系列为机器学习相关知识总结。</p>
-<ul>
-<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-基本概念/">机器学习-基本概念</a></li>
-<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-特征工程/">机器学习-特征工程</a></li>
-<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-模型评估/">机器学习-模型评估</a></li>
-<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-支持向量机/">机器学习-支持向量机</a></li>
-<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-线性回归&amp;逻辑回归&amp;最大熵/">机器学习-线性回归&amp;逻辑回归&amp;最大熵</a></li>
-<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-K近邻/">机器学习-K近邻</a></li>
-<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-贝叶斯/">机器学习-贝叶斯</a></li>
-<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-无监督学习/">机器学习-无监督学习</a></li>
-<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-决策树/">机器学习-决策树</a></li>
-<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-集成学习/">机器学习-集成学习</a></li>
-<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-优化算法/">机器学习-优化算法</a></li>
-<li><a href="https://huangqiancun.github.io/2019/06/19/机器学习-采样/">机器学习-采样</a></li>
-</ul>
-<p>本文主要是<code>机器学习-支持向量机</code>相关内容。</p>
+        <p>本文主要是<code>机器学习-支持向量机</code>相关内容。</p>
 <h2 id="1-支持向量机原理"><a href="#1-支持向量机原理" class="headerlink" title="1 支持向量机原理"></a>1 支持向量机原理</h2><p>SVM，全称是Support vector machine，中文名叫支持向量机。SVM是一个面向数据的分类算法，它的基本模型是定义在特征空间上的间隔最大的线性分类器，它的目标是确定一个分类超平面，从而将不同的数据分隔开。支持向量机的学习策略就是间隔最大化，可形式化为一个求解凸二次规划的问题，也等价于正则化的合页损失函数的最小化问题。SVM的损失函数自带正则项，这就是为什么SVM是结构风险最小化算法。</p>
 <p>SVM主要包括线性可分支持向量机、线性支持向量机以及非线性支持向量机三种模型。当训练数据线性可分时，通过硬间隔最大化，学习一个线性的分类器，即线性可分支持向量机，又称为硬间隔支持向量机；当训练数据近似线性可分时，通过软间隔最大化，也学习一个线性的分类器，即线性支持向量机，又称为软间隔支持向量机；当数训练数据线性不可分时，通过使用核技巧及软间隔最大化，学习非线性支持向量机。</p>
 <ul>
@@ -691,7 +676,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-count">57</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -811,7 +796,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">475.9k</span>
+    <span title="Site words total count">483.3k</span>
   
 </div>
 

@@ -322,7 +322,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://huangqiancun.github.io/2019/06/19/机器学习-支持向量机/">
+    <link itemprop="mainEntityOfPage" href="http://huangqiancun.github.io/2019/06/20/机器学习-线性回归&逻辑回归&最大熵/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Qiancun Huang">
@@ -341,7 +341,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/06/19/机器学习-支持向量机/" itemprop="url">机器学习-支持向量机</a></h1>
+                <a class="post-title-link" href="/2019/06/20/机器学习-线性回归&逻辑回归&最大熵/" itemprop="url">机器学习-线性回归&逻辑回归&最大熵</a></h1>
         
 
         <div class="post-meta">
@@ -353,8 +353,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-19T16:58:02+08:00">
-                2019-06-19
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-20T09:02:25+08:00">
+                2019-06-20
               </time>
             
 
@@ -369,8 +369,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-06-20T01:05:15+08:00">
-                2019-06-20
+              <time title="Post modified" itemprop="dateModified" datetime="2019-07-26T23:03:05+08:00">
+                2019-07-26
               </time>
             
           </span>
@@ -419,7 +419,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  3.2k
+                  2.9k
                 </span>
               
 
@@ -447,12 +447,386 @@
       
         
           
-          本系列为机器学习相关知识总结。
+          本文主要是机器学习-线性回归&amp;逻辑回归&amp;最大熵相关内容。
+1 线性回归原理给定数据集
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/06/20/机器学习-线性回归&逻辑回归&最大熵/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
 
-机器学习-基本概念
-机器学习-特征工程
-机器学习-模型评估
-机器学
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+	
+	
+  
+  
+  
+  </article>
+  <div>
+		
+	</div>
+	
+ 
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://huangqiancun.github.io/2019/06/20/机器学习-模型评估/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Qiancun Huang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/photo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="I'm Qiancun Huang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/20/机器学习-模型评估/" itemprop="url">机器学习-模型评估</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-20T09:02:25+08:00">
+                2019-06-20
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-07-26T23:03:28+08:00">
+                2019-07-26
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  3.3k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+		  
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          本文主要是机器学习-模型评估相关内容。
+1 模型评估定义模型评估主要分为离线评估和在线评估两个阶段。
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/06/20/机器学习-模型评估/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+	
+	
+  
+  
+  
+  </article>
+  <div>
+		
+	</div>
+	
+ 
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://huangqiancun.github.io/2019/06/19/机器学习-支持向量机/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Qiancun Huang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/photo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="I'm Qiancun Huang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/19/机器学习-支持向量机/" itemprop="url">机器学习-支持向量机</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-19T16:58:02+08:00">
+                2019-06-19
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-07-26T23:04:11+08:00">
+                2019-07-26
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  3.1k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+		  
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          本文主要是机器学习-支持向量机相关内容。
+1 支持向量机原理SVM，全称是Support vecto
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -562,8 +936,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-06-20T11:19:21+08:00">
-                2019-06-20
+              <time title="Post modified" itemprop="dateModified" datetime="2019-07-26T23:03:00+08:00">
+                2019-07-26
               </time>
             
           </span>
@@ -612,7 +986,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  5.4k
+                  5.2k
                 </span>
               
 
@@ -640,12 +1014,8 @@
       
         
           
-          本系列为机器学习相关知识总结。
-
-机器学习-基本概念
-机器学习-特征工程
-机器学习-模型评估
-机器学
+          本文主要是机器学习-优化算法相关内容。
+1 有监督学习涉及的损失函数有哪些0-1损失函数。该损失函数
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -755,8 +1125,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-06-20T12:30:49+08:00">
-                2019-06-20
+              <time title="Post modified" itemprop="dateModified" datetime="2019-07-26T23:03:11+08:00">
+                2019-07-26
               </time>
             
           </span>
@@ -805,7 +1175,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  5.7k
+                  5.6k
                 </span>
               
 
@@ -833,12 +1203,8 @@
       
         
           
-          本系列为机器学习相关知识总结。
-
-机器学习-基本概念
-机器学习-特征工程
-机器学习-模型评估
-机器学
+          本文主要是机器学习-无监督学习相关内容。
+1 无监督学习的定义在”无监督学习”(unsupervis
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -948,8 +1314,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-06-20T01:07:40+08:00">
-                2019-06-20
+              <time title="Post modified" itemprop="dateModified" datetime="2019-07-26T23:03:33+08:00">
+                2019-07-26
               </time>
             
           </span>
@@ -998,7 +1364,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  2.2k
+                  2.1k
                 </span>
               
 
@@ -1026,12 +1392,8 @@
       
         
           
-          本系列为机器学习相关知识总结。
-
-机器学习-基本概念
-机器学习-特征工程
-机器学习-模型评估
-机器学
+          本文主要是机器学习-决策树相关内容。
+1 决策树的基本原理决策树是一种自上而下，递归地将样本数据进行
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1141,8 +1503,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-06-20T01:32:19+08:00">
-                2019-06-20
+              <time title="Post modified" itemprop="dateModified" datetime="2019-07-26T23:03:45+08:00">
+                2019-07-26
               </time>
             
           </span>
@@ -1191,7 +1553,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  6.4k
+                  6.3k
                 </span>
               
 
@@ -1219,12 +1581,8 @@
       
         
           
-          本系列为机器学习相关知识总结。
-
-机器学习-基本概念
-机器学习-特征工程
-机器学习-模型评估
-机器学
+          本文主要是机器学习-集成学习相关内容。
+1 集成学习的原理步骤集成学习(ensemble learn
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1334,8 +1692,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-06-20T01:03:26+08:00">
-                2019-06-20
+              <time title="Post modified" itemprop="dateModified" datetime="2019-07-26T23:03:49+08:00">
+                2019-07-26
               </time>
             
           </span>
@@ -1384,7 +1742,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  3.5k
+                  3.4k
                 </span>
               
 
@@ -1412,12 +1770,9 @@
       
         
           
-          本系列为机器学习相关知识总结。
-
-机器学习-基本概念
-机器学习-特征工程
-机器学习-模型评估
-机器学
+          本文主要是机器学习-基本概念相关内容。
+1 完整机器学习项目的流程
+明确要解决的问题，并将问题抽象成
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1527,8 +1882,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-06-20T12:38:54+08:00">
-                2019-06-20
+              <time title="Post modified" itemprop="dateModified" datetime="2019-07-26T23:03:54+08:00">
+                2019-07-26
               </time>
             
           </span>
@@ -1577,7 +1932,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  5.3k
+                  5.2k
                 </span>
               
 
@@ -1605,12 +1960,8 @@
       
         
           
-          本系列为机器学习相关知识总结。
-
-机器学习-基本概念
-机器学习-特征工程
-机器学习-模型评估
-机器学
+          本文主要是机器学习-采样相关内容。
+1 采样的本质及在机器学习中的应用采样本质上是对随机现象的模拟，
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1720,8 +2071,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-06-20T01:06:44+08:00">
-                2019-06-20
+              <time title="Post modified" itemprop="dateModified" datetime="2019-07-26T23:03:58+08:00">
+                2019-07-26
               </time>
             
           </span>
@@ -1770,7 +2121,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  1.6k
+                  1.5k
                 </span>
               
 
@@ -1798,397 +2149,12 @@
       
         
           
-          本系列为机器学习相关知识总结。
-
-机器学习-基本概念
-机器学习-特征工程
-机器学习-模型评估
-机器学
+          本文主要是机器学习-贝叶斯相关内容。
+1 贝叶斯原理贝叶斯公式直接可以根据条件概率的定义直接推出。考
           ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/06/19/机器学习-贝叶斯/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-	
-	
-  
-  
-  
-  </article>
-  <div>
-		
-	</div>
-	
- 
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://huangqiancun.github.io/2019/06/19/机器学习-K近邻/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Qiancun Huang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/photo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="I'm Qiancun Huang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/19/机器学习-K近邻/" itemprop="url">机器学习-K近邻</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-19T16:58:02+08:00">
-                2019-06-19
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2019-06-20T12:40:19+08:00">
-                2019-06-20
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  713
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-		  
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          本系列为机器学习相关知识总结。
-
-机器学习-基本概念
-机器学习-特征工程
-机器学习-模型评估
-机器学
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/06/19/机器学习-K近邻/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-	
-	
-  
-  
-  
-  </article>
-  <div>
-		
-	</div>
-	
- 
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://huangqiancun.github.io/2019/06/17/数据库SQL实战题解/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Qiancun Huang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/photo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="I'm Qiancun Huang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/17/数据库SQL实战题解/" itemprop="url">数据库SQL实战题解</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-17T09:44:55+08:00">
-                2019-06-17
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2019-06-20T12:50:34+08:00">
-                2019-06-20
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据库/" itemprop="url" rel="index">
-                    <span itemprop="name">数据库</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  11.1k
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-		  
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          本文为数据库SQL实战刷题笔记，刷题平台为牛客网。题量为61道。网站OJ编译器为sqlite3.7.
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/06/17/数据库SQL实战题解/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -2286,7 +2252,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-count">57</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2390,7 +2356,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">475.9k</span>
+    <span title="Site words total count">483.3k</span>
   
 </div>
 
