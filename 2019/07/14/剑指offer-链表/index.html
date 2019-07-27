@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icons8-fox-32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icons8-fox-16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="剑指offer,算法题解,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="I'm Qiancun Huang" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="本系列为剑指offer刷题笔记，刷题平台为牛客网。 本文主要是链表相关题目题解总结。 [TOC] 3. 从尾到头打印链表题目描述输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。 解题思路使用Python库函数，新建一个列表，使用insert每次插入到最前面，或者使用append最后在使用reverse。1234567891011121314151617181920212223242">
+<meta name="keywords" content="剑指offer,算法题解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="剑指offer题解 - 链表">
+<meta property="og:url" content="http://huangqiancun.github.io/2019/07/14/剑指offer-链表/index.html">
+<meta property="og:site_name" content="I&#39;m Qiancun Huang">
+<meta property="og:description" content="本系列为剑指offer刷题笔记，刷题平台为牛客网。 本文主要是链表相关题目题解总结。 [TOC] 3. 从尾到头打印链表题目描述输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。 解题思路使用Python库函数，新建一个列表，使用insert每次插入到最前面，或者使用append最后在使用reverse。1234567891011121314151617181920212223242">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://cuijiahua.com/wp-content/uploads/2017/12/basis_25_1.jpg">
+<meta property="og:image" content="https://cuijiahua.com/wp-content/uploads/2017/12/basis_25_2.jpg">
+<meta property="og:image" content="https://cuijiahua.com/wp-content/uploads/2017/12/basis_25_3.jpg">
+<meta property="og:updated_time" content="2019-07-27T16:56:07.666Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="剑指offer题解 - 链表">
+<meta name="twitter:description" content="本系列为剑指offer刷题笔记，刷题平台为牛客网。 本文主要是链表相关题目题解总结。 [TOC] 3. 从尾到头打印链表题目描述输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。 解题思路使用Python库函数，新建一个列表，使用insert每次插入到最前面，或者使用append最后在使用reverse。1234567891011121314151617181920212223242">
+<meta name="twitter:image" content="https://cuijiahua.com/wp-content/uploads/2017/12/basis_25_1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":8,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://huangqiancun.github.io/2019/07/14/剑指offer-链表/">
+
+
+
+
+
+  <title>剑指offer题解 - 链表 | I'm Qiancun Huang</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">I'm Qiancun Huang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Live it. Love it. Enjoy IT.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://huangqiancun.github.io/2019/07/14/剑指offer-链表/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Qiancun Huang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/photo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="I'm Qiancun Huang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">剑指offer题解 - 链表</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-14T00:59:14+08:00">
+                2019-07-14
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-07-28T00:56:07+08:00">
+                2019-07-28
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/剑指offer/" itemprop="url" rel="index">
+                    <span itemprop="name">剑指offer</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  2.7k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+		  
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本系列为剑指offer刷题笔记，刷题平台为<a href="https://www.nowcoder.com/ta/coding-interviews" target="_blank" rel="noopener">牛客网</a>。</p>
+<p>本文主要是<code>链表</code>相关题目题解总结。</p>
+<p>[TOC]</p>
+<h2 id="3-从尾到头打印链表"><a href="#3-从尾到头打印链表" class="headerlink" title="3. 从尾到头打印链表"></a>3. 从尾到头打印链表</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/d0267f7f55b3412ba93bd35cfa8e8035?tpId=13&amp;tqId=11156&amp;tPage=1&amp;rp=1&amp;ru=/ta/coding-interviews&amp;qru=/ta/coding-interviews/question-ranking" target="_blank" rel="noopener">题目描述</a></h3><p>输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。</p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>使用Python库函数，新建一个列表，使用insert每次插入到最前面，或者使用append最后在使用reverse。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListNode</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        self.val = x</span><br><span class="line">        self.next = <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 单向链表链表 node1: 1-&gt;2-&gt;3</span></span><br><span class="line">node1 = ListNode(<span class="number">1</span>)</span><br><span class="line">node2 = ListNode(<span class="number">2</span>)</span><br><span class="line">node3 = ListNode(<span class="number">3</span>)</span><br><span class="line">node4 = ListNode(<span class="number">4</span>)</span><br><span class="line">node1.next = node2</span><br><span class="line">node2.next = node3</span><br><span class="line">node3.next = node4</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">printListFromTailToHead</span><span class="params">(self, listNode)</span>:</span></span><br><span class="line">        <span class="comment"># 方法1：使用insert函数</span></span><br><span class="line">        <span class="comment"># c = []</span></span><br><span class="line">        <span class="comment"># while listNode:</span></span><br><span class="line">        <span class="comment">#     c.insert(0,listNode.val)</span></span><br><span class="line">        <span class="comment">#     listNode = listNode.next</span></span><br><span class="line">        <span class="comment"># return c</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 方法2：使用append，最后reverse</span></span><br><span class="line">        c = []</span><br><span class="line">        <span class="keyword">while</span> listNode:</span><br><span class="line">            c.append(listNode.val)</span><br><span class="line">            listNode = listNode.next</span><br><span class="line">        c.reverse()</span><br><span class="line">        <span class="keyword">return</span> c</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    run = Solution()</span><br><span class="line">    result = run.printListFromTailToHead(node1)</span><br><span class="line">    print(result)</span><br></pre></td></tr></table></figure></p>
+<h2 id="14-链表中倒数第k个结点"><a href="#14-链表中倒数第k个结点" class="headerlink" title="14.链表中倒数第k个结点"></a>14.链表中倒数第k个结点</h2><h3 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/529d3ae5a407492994ad2a246518148a?tpId=13&amp;tqId=11167&amp;tPage=1&amp;rp=1&amp;ru=%2Fta%2Fcoding-interviews&amp;qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking" target="_blank" rel="noopener">题目描述</a></h3><p>输入一个链表，输出该链表中倒数第k个结点。</p>
+<h3 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h3><p> 三个特例：</p>
+<ul>
+<li>如果输入的链表为空；</li>
+<li>k大于链表的长度；</li>
+<li>k为0的情况。</li>
+</ul>
+<p>对于正常情况，设置两个指针分别指向头结点，第一个指针向前走k-1步，走到正数第k个结点，同时保持第二个指针不动，然后第一个指针和第二个指针每次同时前移一步，这样第一个指针指向尾结点的时候，第二个指针指向倒数第k个结点。判断尾结点的条件是 p.next == None。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListNode</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        self.val = x</span><br><span class="line">        self.next = <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 单向链表链表 node1: 1-&gt;2-&gt;3</span></span><br><span class="line">node1 = ListNode(<span class="number">1</span>)</span><br><span class="line">node2 = ListNode(<span class="number">2</span>)</span><br><span class="line">node3 = ListNode(<span class="number">3</span>)</span><br><span class="line">node4 = ListNode(<span class="number">4</span>)</span><br><span class="line">node1.next = node2</span><br><span class="line">node2.next = node3</span><br><span class="line">node3.next = node4</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">FindKthToTail</span><span class="params">(self, head, k)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> head <span class="keyword">or</span> k &lt;= <span class="number">0</span>:</span><br><span class="line">            <span class="comment"># 链表为空或k小于等于0</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">        p = head</span><br><span class="line">        q = head</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,k):</span><br><span class="line">            <span class="keyword">if</span> p.next == <span class="keyword">None</span>:</span><br><span class="line">                <span class="comment"># k大于链表的长度</span></span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                p = p.next</span><br><span class="line">        <span class="keyword">while</span> p.next:</span><br><span class="line">            p = p.next</span><br><span class="line">            q = q.next</span><br><span class="line">        <span class="keyword">return</span> q</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    originList = node1</span><br><span class="line">    print(<span class="string">'链表:'</span>,end = <span class="string">' '</span>)</span><br><span class="line">    <span class="keyword">while</span> originList:</span><br><span class="line">        print(originList.val, end = <span class="string">' '</span>)</span><br><span class="line">        originList = originList.next</span><br><span class="line">    k = <span class="number">5</span></span><br><span class="line">    result = Solution().FindKthToTail(node1,k)</span><br><span class="line">    print(<span class="string">'\n倒数第&#123;0&#125;个结点:'</span>.format(k),end = <span class="string">' '</span>)</span><br><span class="line">    <span class="keyword">while</span> result:</span><br><span class="line">        print(result.val,end = <span class="string">' '</span>)</span><br><span class="line">        result = result.next</span><br></pre></td></tr></table></figure>
+<p>推广: 寻找中间节点, 两个指针一起, 第一个指针每次走两步, 第二个指针每次走一步,  快指针指到尾部, 慢指针正好指到中间<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">def</span> <span class="title">FindMidNode</span><span class="params">(self,head)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        推广: 寻找中间节点, 两个指针一起,</span></span><br><span class="line"><span class="string">        第一个指针每次走两步, 第二个指针每次走一步,</span></span><br><span class="line"><span class="string">        快指针指到尾部, 慢指针正好指到中间</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> head:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">        p = head</span><br><span class="line">        q = head</span><br><span class="line">        p = p.next</span><br><span class="line">        <span class="keyword">while</span> p:</span><br><span class="line">            p = p.next</span><br><span class="line">            <span class="keyword">if</span> p:</span><br><span class="line">                p = p.next</span><br><span class="line">                q = q.next</span><br><span class="line">        <span class="keyword">return</span> q</span><br><span class="line"></span><br><span class="line">mid = Solution().FindMidNode(node1)</span><br><span class="line">    print(<span class="string">'\n中间结点:'</span>,end = <span class="string">' '</span>)</span><br><span class="line">    <span class="keyword">while</span> mid:</span><br><span class="line">        print(mid.val, end = <span class="string">' '</span>)</span><br><span class="line">        mid = mid.next</span><br></pre></td></tr></table></figure></p>
+<h2 id="15-反转链表"><a href="#15-反转链表" class="headerlink" title="15.反转链表"></a>15.反转链表</h2><h3 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/75e878df47f24fdc9dc3e400ec6058ca?tpId=13&amp;tqId=11168&amp;tPage=1&amp;rp=1&amp;ru=%2Fta%2Fcoding-interviews&amp;qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking" target="_blank" rel="noopener">题目描述</a></h3><p>输入一个链表，反转链表后，输出新链表的表头。</p>
+<h3 id="解题思路-2"><a href="#解题思路-2" class="headerlink" title="解题思路"></a>解题思路</h3><p>迭代<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="comment"># class ListNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.next = None</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="comment"># 返回ListNode</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">ReverseList</span><span class="params">(self, pHead)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> pHead <span class="keyword">or</span> <span class="keyword">not</span> pHead.next:</span><br><span class="line">            <span class="keyword">return</span> pHead</span><br><span class="line">        </span><br><span class="line">        dummy = ListNode(<span class="number">0</span>)</span><br><span class="line">        dummy.next = pHead</span><br><span class="line">        cur = pHead.next</span><br><span class="line">        pHead.next = <span class="keyword">None</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> cur:</span><br><span class="line">            temp = cur.next</span><br><span class="line">            cur.next = dummy.next</span><br><span class="line">            dummy.next = cur</span><br><span class="line">            cur = temp</span><br><span class="line">            </span><br><span class="line">        <span class="keyword">return</span> dummy.next</span><br></pre></td></tr></table></figure></p>
+<p>递归<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="comment"># class ListNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.next = None</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="comment"># 返回ListNode</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">ReverseList</span><span class="params">(self, pHead)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> pHead <span class="keyword">or</span> <span class="keyword">not</span> pHead.next:</span><br><span class="line">            <span class="keyword">return</span> pHead</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> self.helper(pHead, ListNode(<span class="number">0</span>))</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">helper</span><span class="params">(self, cur, dummy)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> cur:</span><br><span class="line">            <span class="keyword">return</span> dummy.next</span><br><span class="line">        temp = cur.next</span><br><span class="line">        cur.next = dummy.next</span><br><span class="line">        dummy.next = cur</span><br><span class="line">        cur = temp</span><br><span class="line">        <span class="keyword">return</span> self.helper(cur, dummy)</span><br></pre></td></tr></table></figure></p>
+<h2 id="16-合并两个排序的链表"><a href="#16-合并两个排序的链表" class="headerlink" title="16 合并两个排序的链表"></a>16 合并两个排序的链表</h2><h3 id="题目描述-3"><a href="#题目描述-3" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/d8b6b4358f774294a89de2a6ac4d9337?tpId=13&amp;tqId=11169&amp;tPage=1&amp;rp=1&amp;ru=%2Fta%2Fcoding-interviews&amp;qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking" target="_blank" rel="noopener">题目描述</a></h3><p>输入两个单调递增的链表，输出两个链表合成后的链表，当然我们需要合成后的链表满足单调不减规则。</p>
+<h3 id="解题思路-3"><a href="#解题思路-3" class="headerlink" title="解题思路"></a>解题思路</h3><p>思路1：循环：如果两个链表不为空，进行比较，将小的赋给合并的指针头，小的链表走一步，合并链表走一步，如果有一个为空，跳出循环，并将另一不为空的链表后续部分赋给合并链表</p>
+<p>思路2：递归：如果第一个链表为空，则返回第二个链表，如果第二个链表为空，则返回第一个链表，如果两个链表都为空，结果为空<br>两个链表都是排序好的，我们只需要从头遍历链表，判断当前指针，哪个链表的值小，即赋给合并链表指针。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListNode</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        self.val = x</span><br><span class="line">        self.next = <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line">node1 = ListNode(<span class="number">1</span>)</span><br><span class="line">node2 = ListNode(<span class="number">3</span>)</span><br><span class="line">node3 = ListNode(<span class="number">5</span>)</span><br><span class="line">node1.next = node2</span><br><span class="line">node2.next = node3</span><br><span class="line">node4 = ListNode(<span class="number">2</span>)</span><br><span class="line">node5 = ListNode(<span class="number">4</span>)</span><br><span class="line">node6 = ListNode(<span class="number">6</span>)</span><br><span class="line">node4.next = node5</span><br><span class="line">node5.next = node6</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="comment"># 返回合并后列表</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">Merge</span><span class="params">(self, pHead1, pHead2)</span>:</span></span><br><span class="line">        <span class="comment"># 循环</span></span><br><span class="line">        <span class="comment"># newHead = ListNode(-1)</span></span><br><span class="line">        <span class="comment"># pre = newHead</span></span><br><span class="line">        <span class="comment"># while pHead1 and pHead2:</span></span><br><span class="line">        <span class="comment">#     if pHead1.val &lt; pHead2.val:</span></span><br><span class="line">        <span class="comment">#         pre.next = pHead1</span></span><br><span class="line">        <span class="comment">#         pHead1 = pHead1.next</span></span><br><span class="line">        <span class="comment">#     else:</span></span><br><span class="line">        <span class="comment">#         pre.next = pHead2</span></span><br><span class="line">        <span class="comment">#         pHead2 = pHead2.next</span></span><br><span class="line">        <span class="comment">#     pre = pre.next</span></span><br><span class="line">        <span class="comment"># pre.next = pHead1 if pHead1 else pHead2</span></span><br><span class="line">        <span class="comment"># return newHead.next</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 递归</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> pHead1:</span><br><span class="line">            <span class="keyword">return</span> pHead2</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> pHead2:</span><br><span class="line">            <span class="keyword">return</span> pHead1</span><br><span class="line">        newHead = <span class="keyword">None</span></span><br><span class="line">        <span class="keyword">if</span> pHead1.val &lt; pHead2.val:</span><br><span class="line">            newHead = pHead1</span><br><span class="line">            newHead.next = self.Merge(pHead1.next, pHead2)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            newHead = pHead2</span><br><span class="line">            newHead.next = self.Merge(pHead1, pHead2.next)</span><br><span class="line">        <span class="keyword">return</span> newHead</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    result = Solution().Merge(node1,node4)</span><br><span class="line">    print(<span class="string">'合并链表：'</span>,end = <span class="string">' '</span>)</span><br><span class="line">    <span class="keyword">while</span> result:</span><br><span class="line">        print(result.val,end = <span class="string">' '</span>)</span><br><span class="line">        result = result.next</span><br></pre></td></tr></table></figure></p>
+<h2 id="25-复杂链表的复制"><a href="#25-复杂链表的复制" class="headerlink" title="25 复杂链表的复制"></a>25 复杂链表的复制</h2><h3 id="题目描述-4"><a href="#题目描述-4" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/f836b2c43afc4b35ad6adc41ec941dba?tpId=13&amp;tqId=11178&amp;tPage=2&amp;rp=1&amp;ru=%2Fta%2Fcoding-interviews&amp;qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking" target="_blank" rel="noopener">题目描述</a></h3><p>输入一个复杂链表（每个节点中有节点值，以及两个指针，一个指向下一个节点，另一个特殊指针指向任意一个节点），返回结果为复制后复杂链表的head。（注意，输出结果中请不要返回参数中的节点引用，否则判题程序会直接返回空）</p>
+<h3 id="解题思路-4"><a href="#解题思路-4" class="headerlink" title="解题思路"></a>解题思路</h3><p>我们这里将复杂链表的复制过程分解为三个步骤。在写代码的时候我们每一步定义一个函数，这样每个函数完成一个功能，整个过程的逻辑也就非常清晰明了了。<br>我们这里采用三步：<br>    第一步：复制复杂指针的label和next。但是这次我们把复制的结点跟在元结点后面，而不是直接创建新的链表；<br>    第二步：设置复制出来的结点的random。因为新旧结点是前后对应关系，所以也是一步就能找到random；<br>    第三步：拆分链表。奇数是原链表，偶数是复制的链表。<br>有图思路更清晰：</p>
+<p><img src="https://cuijiahua.com/wp-content/uploads/2017/12/basis_25_1.jpg" alt=""><br><img src="https://cuijiahua.com/wp-content/uploads/2017/12/basis_25_2.jpg" alt=""><br><img src="https://cuijiahua.com/wp-content/uploads/2017/12/basis_25_3.jpg" alt=""></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RandomListNode</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        self.label = x</span><br><span class="line">        self.next = <span class="keyword">None</span></span><br><span class="line">        self.random = <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 复杂链表</span></span><br><span class="line">node1 = RandomListNode(<span class="number">1</span>)</span><br><span class="line">node2 = RandomListNode(<span class="number">2</span>)</span><br><span class="line">node3 = RandomListNode(<span class="number">3</span>)</span><br><span class="line">node4 = RandomListNode(<span class="number">4</span>)</span><br><span class="line">node1.next = node2</span><br><span class="line">node2.next = node3</span><br><span class="line">node3.next = node4</span><br><span class="line">node1.random = node3</span><br><span class="line">node2.random = node4</span><br><span class="line">node3.random = node2</span><br><span class="line">node4.random = node1</span><br><span class="line"></span><br><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="comment"># class RandomListNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.label = x</span></span><br><span class="line"><span class="comment">#         self.next = None</span></span><br><span class="line"><span class="comment">#         self.random = None</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="comment"># 返回 RandomListNode</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">Clone</span><span class="params">(self, pHead)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> pHead:</span><br><span class="line">            <span class="keyword">return</span> pHead</span><br><span class="line">        <span class="comment"># 复制节点在源节点后面</span></span><br><span class="line">        cur = pHead</span><br><span class="line">        <span class="keyword">while</span> cur:</span><br><span class="line">            temp = cur.next</span><br><span class="line">            cur.next = RandomListNode(cur.label)</span><br><span class="line">            cur.next.next = temp</span><br><span class="line">            cur = temp</span><br><span class="line">        <span class="comment">#复杂随机节点</span></span><br><span class="line">        cur = pHead</span><br><span class="line">        <span class="keyword">while</span> cur:</span><br><span class="line">            <span class="keyword">if</span> cur.random:</span><br><span class="line">                cur.next.random = cur.random.next</span><br><span class="line">            cur = cur.next.next</span><br><span class="line">        <span class="comment">#分离新旧节点</span></span><br><span class="line">        res = pHead.next</span><br><span class="line">        temp = res</span><br><span class="line">        cur = pHead</span><br><span class="line">        <span class="keyword">while</span> cur:</span><br><span class="line">            cur.next = cur.next.next</span><br><span class="line">            <span class="keyword">if</span> temp.next:</span><br><span class="line">                temp.next = temp.next.next</span><br><span class="line">            cur = cur.next</span><br><span class="line">            temp = temp.next</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    result = Solution().Clone(node1)</span><br><span class="line">    <span class="keyword">while</span> result:</span><br><span class="line">        print(result.label, end = <span class="string">' '</span>)</span><br><span class="line">        result = result.next</span><br></pre></td></tr></table></figure>
+<h2 id="36-两个链表的第一个公共结点"><a href="#36-两个链表的第一个公共结点" class="headerlink" title="36 两个链表的第一个公共结点"></a>36 两个链表的第一个公共结点</h2><h3 id="题目描述-5"><a href="#题目描述-5" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/6ab1d9a29e88450685099d45c9e31e46?tpId=13&amp;tqId=11189&amp;rp=2&amp;ru=%2Fta%2Fcoding-interviews&amp;qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking&amp;tPage=2" target="_blank" rel="noopener">题目描述</a></h3><p>输入两个链表，找出它们的第一个公共结点。</p>
+<h3 id="解题思路-5"><a href="#解题思路-5" class="headerlink" title="解题思路"></a>解题思路</h3><p>思路1：把两个链表拼接起来，一个pHead1在前pHead2在后，一个pHead2在前pHead1在后，这样，生成了两个相同长度的链表，我们只要同时遍历这两个表，就一定能找到公共节点。时间复杂度O(m+n)，空间复杂度O(m+n).</p>
+<p>思路2：首先依次遍历两个链表，记录两个链表的长度m和n，如果 m &gt; n，那么我们就先让长度为m的链表走m-n个结点，然后两个链表同时遍历，当遍历到相同的结点的时候停止即可。对于 m &lt; n，同理。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListNode</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        self.val = x</span><br><span class="line">        self.next = <span class="keyword">None</span></span><br><span class="line">node1 = ListNode(<span class="number">1</span>)</span><br><span class="line">node2 = ListNode(<span class="number">2</span>)</span><br><span class="line">node3 = ListNode(<span class="number">3</span>)</span><br><span class="line">node4 = ListNode(<span class="number">4</span>)</span><br><span class="line">node5 = ListNode(<span class="number">5</span>)</span><br><span class="line">node6 = ListNode(<span class="number">6</span>)</span><br><span class="line">node1.next = node2</span><br><span class="line">node2.next = node5</span><br><span class="line">node5.next = node6</span><br><span class="line">node3.next = node4</span><br><span class="line">node4.next = node5</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">FindFirstCommonNode</span><span class="params">(self, pHead1, pHead2)</span>:</span></span><br><span class="line">        <span class="comment"># 方法1</span></span><br><span class="line">        <span class="comment"># if not pHead1 or not pHead2:</span></span><br><span class="line">        <span class="comment">#     return None</span></span><br><span class="line">        <span class="comment"># cur1, cur2 = pHead1, pHead2</span></span><br><span class="line">        <span class="comment"># while cur1 != cur2:</span></span><br><span class="line">        <span class="comment">#     cur1 = cur1.next if cur1 else pHead2</span></span><br><span class="line">        <span class="comment">#     cur2 = cur2.next if cur2 else pHead1</span></span><br><span class="line">        <span class="comment"># return cur1</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 方法2</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> pHead1 <span class="keyword">or</span> <span class="keyword">not</span> pHead2:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">        m = n = <span class="number">0</span></span><br><span class="line">        cur1, cur2 = pHead1, pHead2</span><br><span class="line">        <span class="keyword">while</span> cur1:</span><br><span class="line">            m += <span class="number">1</span></span><br><span class="line">            cur1 = cur1.next</span><br><span class="line">        <span class="keyword">while</span> cur2:</span><br><span class="line">            n += <span class="number">1</span></span><br><span class="line">            cur2 = cur2.next</span><br><span class="line">        <span class="keyword">if</span> m &gt; n:</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(m-n):</span><br><span class="line">                pHead1 = pHead1.next</span><br><span class="line">            <span class="keyword">while</span> pHead1:</span><br><span class="line">                <span class="keyword">if</span> pHead1 == pHead2:</span><br><span class="line">                    <span class="keyword">return</span> pHead1</span><br><span class="line">                pHead1, pHead2 = pHead1.next, pHead2.next</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(n-m):</span><br><span class="line">                pHead2 = pHead2.next</span><br><span class="line">            <span class="keyword">while</span> pHead1:</span><br><span class="line">                <span class="keyword">if</span> pHead1 == pHead2:</span><br><span class="line">                    <span class="keyword">return</span> pHead1</span><br><span class="line">                pHead1, pHead2 = pHead1.next, pHead2.next</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    result = Solution().FindFirstCommonNode(node1, node3)</span><br><span class="line">    <span class="keyword">while</span> result:</span><br><span class="line">        print(result.val, end = <span class="string">' '</span>)</span><br><span class="line">        result = result.next</span><br></pre></td></tr></table></figure></p>
+<h2 id="55-链表中环的入口结点"><a href="#55-链表中环的入口结点" class="headerlink" title="55 链表中环的入口结点"></a>55 链表中环的入口结点</h2><h3 id="题目描述-6"><a href="#题目描述-6" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/253d2c59ec3e4bc68da16833f79a38e4?tpId=13&amp;tqId=11208&amp;rp=2&amp;ru=%2Fta%2Fcoding-interviews&amp;qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking&amp;tPage=3" target="_blank" rel="noopener">题目描述</a></h3><p>给一个链表，若其中包含环，请找出该链表的环的入口结点，否则，输出null。</p>
+<h3 id="解题思路-6"><a href="#解题思路-6" class="headerlink" title="解题思路"></a>解题思路</h3><p>第一步：判断是否存在环，用快慢指针，一个走一步，一个走两步，如果最终达到同一节点，则说明有环</p>
+<p>第二步：寻找环的入口，假设入口结点距离头结点a个单位，fast和slow相遇在距离入口结点b个单位的位置，环剩下的长度为c，则有a+b+c+b = 2*(a+b) —&gt; a = c 。因此，在重合时候，将fast置为head，再一步一步地走，当与slow重合时的结点即为入口结点。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListNode</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,x)</span>:</span></span><br><span class="line">        self.val = x</span><br><span class="line">        self.next = <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line">node1 = ListNode(<span class="number">1</span>)</span><br><span class="line">node2 = ListNode(<span class="number">2</span>)</span><br><span class="line">node3 = ListNode(<span class="number">3</span>)</span><br><span class="line">node4 = ListNode(<span class="number">4</span>)</span><br><span class="line">node1.next = node2</span><br><span class="line">node2.next = node3</span><br><span class="line">node3.next = node4</span><br><span class="line">node4.next = node2</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">EntryNodeOfLoop</span><span class="params">(self, pHead)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> pHead <span class="keyword">or</span> <span class="keyword">not</span> pHead.next:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">        fast = slow = pHead</span><br><span class="line">        <span class="keyword">while</span> fast <span class="keyword">and</span> fast.next:</span><br><span class="line">            fast = fast.next.next</span><br><span class="line">            slow = slow.next</span><br><span class="line">            <span class="keyword">if</span> slow == fast:</span><br><span class="line">                <span class="comment"># 有环</span></span><br><span class="line">                fast = pHead</span><br><span class="line">                <span class="keyword">while</span> fast != slow:</span><br><span class="line">                    fast = fast.next</span><br><span class="line">                    slow = slow.next</span><br><span class="line">                <span class="keyword">return</span> fast</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    result = Solution().EntryNodeOfLoop(node1)</span><br></pre></td></tr></table></figure>
+<h2 id="56-删除链表中重复的结点"><a href="#56-删除链表中重复的结点" class="headerlink" title="56 删除链表中重复的结点"></a>56 删除链表中重复的结点</h2><h3 id="题目描述-7"><a href="#题目描述-7" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/fc533c45b73a41b0b44ccba763f866ef?tpId=13&amp;tqId=11209&amp;rp=2&amp;ru=/ta/coding-interviews&amp;qru=/ta/coding-interviews/question-ranking" target="_blank" rel="noopener">题目描述</a></h3><p>在一个排序的链表中，存在重复的结点，请删除该链表中重复的结点，重复的结点不保留，返回链表头指针。 例如，链表1-&gt;2-&gt;3-&gt;3-&gt;4-&gt;4-&gt;5 处理后为 1-&gt;2-&gt;5。</p>
+<h3 id="解题思路-7"><a href="#解题思路-7" class="headerlink" title="解题思路"></a>解题思路</h3><p>要删除有序链表中所有的重复节点，而头结点有可能就是重复节点。这样的比较好的解决方式就是新建头结点，然后往后遍历，同样的值就全部略过。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListNode</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        self.val = x</span><br><span class="line">        self.next = <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line">node1 = ListNode(<span class="number">1</span>)</span><br><span class="line">node2 = ListNode(<span class="number">2</span>)</span><br><span class="line">node3 = ListNode(<span class="number">3</span>)</span><br><span class="line">node4 = ListNode(<span class="number">3</span>)</span><br><span class="line">node5 = ListNode(<span class="number">4</span>)</span><br><span class="line">node6 = ListNode(<span class="number">4</span>)</span><br><span class="line">node7 = ListNode(<span class="number">5</span>)</span><br><span class="line">node1.next = node2</span><br><span class="line">node2.next = node3</span><br><span class="line">node3.next = node4</span><br><span class="line">node4.next = node5</span><br><span class="line">node5.next = node6</span><br><span class="line">node6.next = node7</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">deleteDuplication</span><span class="params">(self, pHead)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> pHead <span class="keyword">or</span> <span class="keyword">not</span> pHead.next:</span><br><span class="line">            <span class="keyword">return</span> pHead</span><br><span class="line">        first = ListNode(<span class="number">-1</span>)</span><br><span class="line">        first.next = pHead</span><br><span class="line">        last = first</span><br><span class="line">        cur = pHead</span><br><span class="line">        <span class="keyword">while</span> cur <span class="keyword">and</span> cur.next:</span><br><span class="line">            <span class="keyword">if</span> cur.val != cur.next.val:</span><br><span class="line">                cur = cur.next</span><br><span class="line">                last = last.next</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                val = cur.val</span><br><span class="line">                <span class="keyword">while</span> cur <span class="keyword">and</span> cur.val == val:</span><br><span class="line">                    cur = cur.next</span><br><span class="line">                last.next = cur</span><br><span class="line">        <span class="keyword">return</span> first.next</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    result = Solution().deleteDuplication(node1)</span><br><span class="line">    <span class="keyword">while</span> result:</span><br><span class="line">        print(result.val, end = <span class="string">' '</span>)</span><br><span class="line">        result = result.next</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Qiancun Huang WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Qiancun Huang Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    Qiancun Huang
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="http://huangqiancun.github.io/2019/07/14/剑指offer-链表/" title="剑指offer题解 - 链表">http://huangqiancun.github.io/2019/07/14/剑指offer-链表/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/剑指offer/" rel="tag"># 剑指offer</a>
+          
+            <a href="/tags/算法题解/" rel="tag"># 算法题解</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/14/剑指offer-数组/" rel="next" title="剑指offer题解 - 数组">
+                <i class="fa fa-chevron-left"></i> 剑指offer题解 - 数组
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/15/剑指offer-递归/" rel="prev" title="剑指offer题解 - 递归">
+                剑指offer题解 - 递归 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+	
+	
+  
+  
+  
+  </article>
+  <div>
+		
+			<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------------The End------------</div>
+    
+</div>
+		
+	</div>
+	
+ 
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/photo.jpg" alt="Qiancun Huang">
+            
+              <p class="site-author-name" itemprop="name">Qiancun Huang</p>
+              <p class="site-description motion-element" itemprop="description">A second-year graduate student in Southeast University</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">57</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/huangqiancun?tab=repositories" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto://huangqiancun@foxmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-从尾到头打印链表"><span class="nav-text">3. 从尾到头打印链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-链表中倒数第k个结点"><span class="nav-text">14.链表中倒数第k个结点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-1"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路-1"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-反转链表"><span class="nav-text">15.反转链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-2"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路-2"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-合并两个排序的链表"><span class="nav-text">16 合并两个排序的链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-3"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路-3"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#25-复杂链表的复制"><span class="nav-text">25 复杂链表的复制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-4"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路-4"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#36-两个链表的第一个公共结点"><span class="nav-text">36 两个链表的第一个公共结点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-5"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路-5"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#55-链表中环的入口结点"><span class="nav-text">55 链表中环的入口结点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-6"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路-6"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#56-删除链表中重复的结点"><span class="nav-text">56 删除链表中重复的结点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-7"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路-7"><span class="nav-text">解题思路</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qiancun Huang</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">483.9k</span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+
+</body>
+</html>

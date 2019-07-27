@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icons8-fox-32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icons8-fox-16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="算法题解,Leetcode,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="I'm Qiancun Huang" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="本系列为Leetcode刷题笔记，刷题平台为Leetcode中文站， 刷题按Tag分类。本系列题解汇总如下 (持续更新…)： 本文主要是排序相关题目题解总结。 [TOC] 排序快速排序用于求解 Kth 问题，使用快速排序的partition()进行实现，需要首先打乱数组，否则最坏情况下时间复杂度为O(N^2)。 堆排序用于求解 TopK 问题，通过维护一个大小为K的堆，堆中的元素就是TopK el">
+<meta name="keywords" content="算法题解,Leetcode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leetcode题解 - 排序">
+<meta property="og:url" content="http://huangqiancun.github.io/2019/07/16/Leetcode-排序/index.html">
+<meta property="og:site_name" content="I&#39;m Qiancun Huang">
+<meta property="og:description" content="本系列为Leetcode刷题笔记，刷题平台为Leetcode中文站， 刷题按Tag分类。本系列题解汇总如下 (持续更新…)： 本文主要是排序相关题目题解总结。 [TOC] 排序快速排序用于求解 Kth 问题，使用快速排序的partition()进行实现，需要首先打乱数组，否则最坏情况下时间复杂度为O(N^2)。 堆排序用于求解 TopK 问题，通过维护一个大小为K的堆，堆中的元素就是TopK el">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/0/0f/Insertion-sort-example-300px.gif">
+<meta property="og:updated_time" content="2019-07-27T16:57:11.593Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Leetcode题解 - 排序">
+<meta name="twitter:description" content="本系列为Leetcode刷题笔记，刷题平台为Leetcode中文站， 刷题按Tag分类。本系列题解汇总如下 (持续更新…)： 本文主要是排序相关题目题解总结。 [TOC] 排序快速排序用于求解 Kth 问题，使用快速排序的partition()进行实现，需要首先打乱数组，否则最坏情况下时间复杂度为O(N^2)。 堆排序用于求解 TopK 问题，通过维护一个大小为K的堆，堆中的元素就是TopK el">
+<meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/0/0f/Insertion-sort-example-300px.gif">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":8,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://huangqiancun.github.io/2019/07/16/Leetcode-排序/">
+
+
+
+
+
+  <title>Leetcode题解 - 排序 | I'm Qiancun Huang</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">I'm Qiancun Huang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Live it. Love it. Enjoy IT.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://huangqiancun.github.io/2019/07/16/Leetcode-排序/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Qiancun Huang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/photo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="I'm Qiancun Huang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Leetcode题解 - 排序</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-16T00:51:14+08:00">
+                2019-07-16
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-07-28T00:57:11+08:00">
+                2019-07-28
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">Leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  3.9k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+		  
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本系列为Leetcode刷题笔记，刷题平台为<a href="https://leetcode-cn.com/problemset/all/" target="_blank" rel="noopener">Leetcode中文站</a>， 刷题按<code>Tag</code>分类。本系列题解汇总如下 <strong>(持续更新…)：</strong></p>
+<p>本文主要是<code>排序</code>相关题目题解总结。</p>
+<p>[TOC]</p>
+<h1 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h1><h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><p>用于求解 Kth 问题，使用快速排序的partition()进行实现，需要首先打乱数组，否则最坏情况下时间复杂度为O(N^2)。</p>
+<h2 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h2><p>用于求解 TopK 问题，通过维护一个大小为K的堆，堆中的元素就是TopK elements；</p>
+<ul>
+<li>堆排序也可以用于求解 Kth 问题，堆顶元素就是 Kth elements；</li>
+<li>快速选择也可以求解 TopK Elements 问题，因为找到 Kth Element 之后，再遍历一次数组，所有小于等于 Kth Element 的元素都是 TopK Elements；</li>
+</ul>
+<p>因此快速选择和堆排序都可以求解 Kth Element 和 TopK Elements 问题。</p>
+<h2 id="桶排序"><a href="#桶排序" class="headerlink" title="桶排序"></a>桶排序</h2><p>使用空间换时间，首先统计出数组中元素的频次。接着，将数组中的元素按照出现频次进行分组，即出现频次为 i 的元素存放在第 i 个桶。最后，从桶中逆序取出前 k 个元素；<br>桶排序使用Hashmap散列表。</p>
+<h2 id="56-合并区间"><a href="#56-合并区间" class="headerlink" title="56. 合并区间"></a>56. 合并区间</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a><a href="https://leetcode-cn.com/problems/merge-intervals/" target="_blank" rel="noopener">题目描述</a></h3><p>给出一个区间的集合，请合并所有重叠的区间。</p>
+<ul>
+<li>示例 1:<blockquote>
+<p>输入: [[1,3],[2,6],[8,10],[15,18]]<br>输出: [[1,6],[8,10],[15,18]]<br>解释: 区间 [1,3] 和 [2,6] 重叠, 将它们合并为 [1,6].</p>
+</blockquote>
+</li>
+<li>示例 2:<blockquote>
+<p>输入: [[1,4],[4,5]]<br>输出: [[1,5]]<br>解释: 区间 [1,4] 和 [4,5] 可被视为重叠区间。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><ul>
+<li>将区间按起始元素排序，新建返回res数组，遍历所有区间；<blockquote>
+<p>若res为空或res中最后一个区间的结束元素小于当前区间的起始元素，则无需合并，直接将该区间添加到res中；<br>若res中最后一个区间的结束元素大于当前区间的起始元素，则需要合并，将res最后区间的结束元素置为原来的值与当前区间结束值的最大值。</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for an interval.</span></span><br><span class="line"><span class="comment"># class Interval(object):</span></span><br><span class="line"><span class="comment">#     def __init__(self, s=0, e=0):</span></span><br><span class="line"><span class="comment">#         self.start = s</span></span><br><span class="line"><span class="comment">#         self.end = e</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">merge</span><span class="params">(self, intervals)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type intervals: List[Interval]</span></span><br><span class="line"><span class="string">        :rtype: List[Interval]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        intervals = sorted(intervals, key=<span class="keyword">lambda</span> x:x.start)</span><br><span class="line">        res = []</span><br><span class="line">        <span class="keyword">for</span> t <span class="keyword">in</span> intervals:</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> res <span class="keyword">or</span> res[<span class="number">-1</span>].end &lt; t.start:</span><br><span class="line">                res.append(t)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                res[<span class="number">-1</span>].end = max(res[<span class="number">-1</span>].end,t.end)</span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
+<h2 id="75-颜色分类"><a href="#75-颜色分类" class="headerlink" title="75. 颜色分类"></a>75. 颜色分类</h2><h3 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a><a href="https://leetcode-cn.com/problems/sort-colors/submissions/" target="_blank" rel="noopener">题目描述</a></h3><p>给定一个包含红色、白色和蓝色，一共 n 个元素的数组，原地对它们进行排序，使得相同颜色的元素相邻，并按照红色、白色、蓝色顺序排列。<br>此题中，我们使用整数 0、 1 和 2 分别表示红色、白色和蓝色。</p>
+<ul>
+<li>注意:<blockquote>
+<p>不能使用代码库中的排序函数来解决这道题。</p>
+</blockquote>
+</li>
+<li>示例:<blockquote>
+<p>输入: [2,0,2,1,1,0]<br>输出: [0,0,1,1,2,2]</p>
+</blockquote>
+</li>
+<li>进阶：<blockquote>
+<p>一个直观的解决方案是使用计数排序的两趟扫描算法。<br>首先，迭代计算出0、1 和 2 元素的个数，然后按照0、1、2的排序，重写当前数组。<br>你能想出一个仅使用常数空间的一趟扫描算法吗？</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h3><ul>
+<li>设置两个头尾指针，头指针p0指向的位置是0该放置的位置，尾指针p2指向的位置是2该放置的位置。</li>
+<li>i用来遍历整个数组，碰到0把它和p0指向的数交换，碰到2把它和p2指向的数交换，碰到1继续向后遍历。</li>
+<li>有点类似快速排序的分割数组这一步。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sortColors</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: void Do not return anything, modify nums in-place instead.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        p0, p2 = <span class="number">0</span>, len(nums) <span class="number">-1</span> </span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> i &lt;= p2:</span><br><span class="line">            <span class="keyword">if</span> nums[i] == <span class="number">0</span>:</span><br><span class="line">                nums[i],nums[p0] = nums[p0], nums[i]</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">                p0 += <span class="number">1</span></span><br><span class="line">            <span class="keyword">elif</span> nums[i] == <span class="number">2</span>:</span><br><span class="line">                nums[i], nums[p2] = nums[p2], nums[i]</span><br><span class="line">                p2 -= <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                i += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h2 id="147-对链表进行插入排序"><a href="#147-对链表进行插入排序" class="headerlink" title="147. 对链表进行插入排序"></a>147. 对链表进行插入排序</h2><h3 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a><a href="https://leetcode-cn.com/problems/insertion-sort-list/submissions/" target="_blank" rel="noopener">题目描述</a></h3><p>对链表进行插入排序。<br><img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Insertion-sort-example-300px.gif" alt=""><br>插入排序的动画演示如上。从第一个元素开始，该链表可以被认为已经部分排序（用黑色表示）。<br>每次迭代时，从输入数据中移除一个元素（用红色表示），并原地将其插入到已排好序的链表中。</p>
+<ul>
+<li>插入排序算法：<blockquote>
+<p>插入排序是迭代的，每次只移动一个元素，直到所有元素可以形成一个有序的输出列表。<br>每次迭代中，插入排序只从输入数据中移除一个待排序的元素，找到它在序列中适当的位置，并将其插入。<br>重复直到所有输入数据插入完为止。</p>
+</blockquote>
+</li>
+<li>示例 1：<blockquote>
+<p>输入: 4-&gt;2-&gt;1-&gt;3<br>输出: 1-&gt;2-&gt;3-&gt;4</p>
+</blockquote>
+</li>
+<li>示例 2：<blockquote>
+<p>输入: -1-&gt;5-&gt;3-&gt;4-&gt;0<br>输出: -1-&gt;0-&gt;3-&gt;4-&gt;5</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="解题思路-2"><a href="#解题思路-2" class="headerlink" title="解题思路"></a>解题思路</h3><p>插入排序：插入排序的实现上，通常采用 in-place 排序（即只需用到O(1)的额外空间的排序），用指针 head 逐一向后遍历</p>
+<ul>
+<li>申请一个 dummyHead 节点，其下一个节点指向头结点。如果要在头结点出插入，dummyHead 会给我们带来便利；</li>
+<li>当 head 的值不大于下一节点值，就进行遍历下一节点；</li>
+<li>当 head 的值大于下一节点，那么就将 head 的下一节点取出，从前向后扫描，在第一个比它的值大的节点之前插入该节点。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode(object):</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.next = None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insertionSortList</span><span class="params">(self, head)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type head: ListNode</span></span><br><span class="line"><span class="string">        :rtype: ListNode</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> head <span class="keyword">or</span> <span class="keyword">not</span> head.next:</span><br><span class="line">            <span class="keyword">return</span> head</span><br><span class="line">        dummy = ListNode(<span class="number">0</span>)</span><br><span class="line">        dummy.next = head</span><br><span class="line">        <span class="keyword">while</span> head.next:</span><br><span class="line">            <span class="keyword">if</span> head.val &lt;= head.next.val:</span><br><span class="line">                head = head.next</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                temp = head.next</span><br><span class="line">                q = dummy</span><br><span class="line">                head.next = head.next.next</span><br><span class="line">                <span class="keyword">while</span> q.next <span class="keyword">and</span> q.next.val &lt; temp.val:</span><br><span class="line">                    q = q.next</span><br><span class="line">                temp.next = q.next</span><br><span class="line">                q.next = temp</span><br><span class="line">        <span class="keyword">return</span> dummy.next</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode(object):</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.next = None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insertionSortList</span><span class="params">(self, head)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type head: ListNode</span></span><br><span class="line"><span class="string">        :rtype: ListNode</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> head <span class="keyword">or</span> <span class="keyword">not</span> head.next:</span><br><span class="line">            <span class="keyword">return</span> head</span><br><span class="line">        </span><br><span class="line">        dummy = ListNode(<span class="number">0</span>)</span><br><span class="line">        dummy.next = head</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> head <span class="keyword">and</span> head.next:</span><br><span class="line">            <span class="keyword">if</span> head.val &lt;= head.next.val:</span><br><span class="line">                head = head.next</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                pre = dummy</span><br><span class="line">                <span class="keyword">while</span> pre.next <span class="keyword">and</span> pre.next.val &lt;= head.next.val:</span><br><span class="line">                    pre = pre.next</span><br><span class="line">                temp = head.next</span><br><span class="line">                head.next = temp.next</span><br><span class="line">                temp.next = pre.next</span><br><span class="line">                pre.next = temp</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> dummy.next</span><br></pre></td></tr></table></figure>
+<h2 id="148-排序链表"><a href="#148-排序链表" class="headerlink" title="148. 排序链表"></a>148. 排序链表</h2><h3 id="题目描述-3"><a href="#题目描述-3" class="headerlink" title="题目描述"></a><a href="https://leetcode-cn.com/problems/sort-list/submissions/" target="_blank" rel="noopener">题目描述</a></h3><p>在 O(n log n) 时间复杂度和常数级空间复杂度下，对链表进行排序。</p>
+<ul>
+<li>示例 1:<blockquote>
+<p>输入: 4-&gt;2-&gt;1-&gt;3<br>输出: 1-&gt;2-&gt;3-&gt;4</p>
+</blockquote>
+</li>
+<li>示例 2:<blockquote>
+<p>输入: -1-&gt;5-&gt;3-&gt;4-&gt;0<br>输出: -1-&gt;0-&gt;3-&gt;4-&gt;5</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="解题思路-3"><a href="#解题思路-3" class="headerlink" title="解题思路"></a>解题思路</h3><p>使用归并排序，使用快慢指针找到中间结点后进行递归。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListNode</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        self.val = x</span><br><span class="line">        self.next = <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line">head = ListNode(<span class="number">4</span>)</span><br><span class="line">head.next = ListNode(<span class="number">2</span>)</span><br><span class="line">head.next.next = ListNode(<span class="number">1</span>)</span><br><span class="line">head.next.next.next = ListNode(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sortList</span><span class="params">(self, head)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type head: ListNode</span></span><br><span class="line"><span class="string">        :rtype: ListNode</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> head <span class="keyword">or</span> <span class="keyword">not</span> head.next:</span><br><span class="line">            <span class="keyword">return</span> head</span><br><span class="line">        mid = self.getmiddle(head)</span><br><span class="line">        leftHead = head</span><br><span class="line">        rightHead = mid.next</span><br><span class="line">        mid.next = <span class="keyword">None</span></span><br><span class="line">        <span class="comment"># left = self.sortList(leftHead)</span></span><br><span class="line">        <span class="comment"># right = self.sortList(rightHead)</span></span><br><span class="line">        <span class="comment"># sortMerge = self.merge(left,right)</span></span><br><span class="line">        <span class="comment"># return sortMerge</span></span><br><span class="line">        <span class="keyword">return</span> self.merge(self.sortList(leftHead),self.sortList(rightHead))</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getmiddle</span><span class="params">(self,head)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> head:</span><br><span class="line">            <span class="keyword">return</span> head</span><br><span class="line">        fast = slow = head</span><br><span class="line">        <span class="keyword">while</span> fast.next <span class="keyword">and</span> fast.next.next:</span><br><span class="line">            fast = fast.next.next</span><br><span class="line">            slow = slow.next</span><br><span class="line">        <span class="keyword">return</span> slow</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">merge</span><span class="params">(self,leftHead,rightHead)</span>:</span></span><br><span class="line">        dummyNode = ListNode(<span class="number">0</span>)</span><br><span class="line">        dummyHead = dummyNode</span><br><span class="line">        i,j = leftHead, rightHead</span><br><span class="line">        <span class="keyword">while</span> i <span class="keyword">and</span> j:</span><br><span class="line">            <span class="keyword">if</span> i.val &lt; j.val:</span><br><span class="line">                dummyNode.next = i</span><br><span class="line">                i = i.next</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                dummyNode.next = j</span><br><span class="line">                j = j.next</span><br><span class="line">            dummyNode = dummyNode.next</span><br><span class="line">        <span class="keyword">if</span> i:</span><br><span class="line">             dummyNode.next = i</span><br><span class="line">        <span class="keyword">if</span> j:</span><br><span class="line">             dummyNode.next = j</span><br><span class="line">        <span class="keyword">return</span> dummyHead.next</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    result = Solution().sortList(head)</span><br><span class="line">    <span class="keyword">while</span> result:</span><br><span class="line">        print(result.val,end = <span class="string">' '</span>)</span><br><span class="line">        result = result.next</span><br></pre></td></tr></table></figure>
+<h2 id="179-最大数"><a href="#179-最大数" class="headerlink" title="179. 最大数"></a>179. 最大数</h2><h3 id="题目描述-4"><a href="#题目描述-4" class="headerlink" title="题目描述"></a><a href="https://leetcode-cn.com/problems/largest-number/" target="_blank" rel="noopener">题目描述</a></h3><p>给定一组非负整数，重新排列它们的顺序使之组成一个最大的整数。</p>
+<ul>
+<li>示例 1:<blockquote>
+<p>输入: [10,2]<br>输出: 210</p>
+</blockquote>
+</li>
+<li>示例 2:<blockquote>
+<p>输入: [3,30,34,5,9]<br>输出: 9534330</p>
+</blockquote>
+</li>
+<li>说明: <blockquote>
+<p>输出结果可能非常大，所以你需要返回一个字符串而不是整数。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="解题思路-4"><a href="#解题思路-4" class="headerlink" title="解题思路"></a>解题思路</h3><p>两层循环遍历，每一个数和之后的每一个数进行比较，交换大的数放在前面；<br>两个数谁应该放在前面：拼接两个字符串进行比较 a+b&gt;b+a，则a在前面。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">largestNumber</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: str</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> len(nums) == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">'0'</span></span><br><span class="line">        <span class="keyword">if</span> len(nums) == <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> str(nums[<span class="number">0</span>])</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)<span class="number">-1</span>):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(i+<span class="number">1</span>, len(nums)):</span><br><span class="line">                <span class="keyword">if</span> str(nums[i])+str(nums[j]) &lt; str(nums[j])+str(nums[i]):</span><br><span class="line">                    nums[i], nums[j] = nums[j], nums[i]</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="string">'0'</span> <span class="keyword">if</span> nums[<span class="number">0</span>] == <span class="number">0</span> <span class="keyword">else</span> <span class="string">''</span>.join([str(x) <span class="keyword">for</span> x <span class="keyword">in</span> nums])</span><br></pre></td></tr></table></figure>
+<h2 id="215-数组中的第K个最大元素"><a href="#215-数组中的第K个最大元素" class="headerlink" title="215. 数组中的第K个最大元素"></a>215. 数组中的第K个最大元素</h2><h3 id="题目描述-5"><a href="#题目描述-5" class="headerlink" title="题目描述"></a><strong><a href="https://leetcode-cn.com/problems/kth-largest-element-in-an-array/" target="_blank" rel="noopener">题目描述</a></strong></h3><p>在未排序的数组中找到第 k 个最大的元素。请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。</p>
+<ul>
+<li>示例 1:<blockquote>
+<p>输入: [3,2,1,5,6,4] 和 k = 2<br>输出: 5</p>
+</blockquote>
+</li>
+<li>示例 2:<blockquote>
+<p>输入: [3,2,3,1,2,4,5,5,6] 和 k = 4<br>输出: 4</p>
+</blockquote>
+</li>
+<li>说明:<blockquote>
+<p>你可以假设 k 总是有效的，且 1 ≤ k ≤ 数组的长度。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="解题思路-5"><a href="#解题思路-5" class="headerlink" title="解题思路"></a><strong>解题思路</strong></h3><p>思路1：利用堆排序</p>
+<ul>
+<li>堆排序（Heapsort）是指利用堆这种数据结构所设计的一种排序算法<blockquote>
+<p>堆积是一个近似完全二叉树的结构，并同时满足堆积的性质；<br>即子结点的键值或索引总是小于（或者大于）它的父节点。</p>
+</blockquote>
+</li>
+<li>通常堆是通过一维数组来实现的。在起始数组为 0 的情形中<blockquote>
+<p>父节点i的左子节点在位置 (2<em>i+1)；<br>父节点i的右子节点在位置 (2</em>i+2)；<br>子节点i的父节点在位置 floor((i-1)/2)。</p>
+</blockquote>
+</li>
+<li>堆的操作：在堆的数据结构中，堆中的最大值总是位于根节点。堆中定义以下几种操作<blockquote>
+<p>最大堆调整（Min_Heapify）：将堆的末端子结点作调整，使得子结点永远小于父结点；<br>创建最大堆（Build_Min_Heap）：将堆所有数据重新排序;<br>注：堆排序不是一种稳定排序。</p>
+</blockquote>
+</li>
+<li>用小根堆得办法寻找最大的K个数<blockquote>
+<p>用容量为K的最小堆来存储最大的K个数。最小堆的堆顶元素就是最大K个数中的最小的一个；<br>每次扫描一个数据X，如果X比堆顶元素Y小，则不需要改变原来的堆。如果X比堆顶元素大；<br>那么用X替换堆顶元素Y，在替换之后，X可能破坏了最小堆的结构，需要调整堆来维持堆的性质；<br>调整过程时间复杂度为O(logK)。 全部的时间复杂度为O(N*logK)；<br>这种方法当数据量比较大的时候，比较方便。因为对所有的数据只会遍历一次。</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>堆排序</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findKthLargest</span><span class="params">(self, nums, k)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :type k: int</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> len(nums) &lt; k <span class="keyword">or</span> k &lt;= <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        res = nums[:k]</span><br><span class="line">        change = <span class="keyword">True</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(k,len(nums)+<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> change:</span><br><span class="line">                <span class="keyword">for</span> j <span class="keyword">in</span> range(k//<span class="number">2</span>,<span class="number">-1</span>,<span class="number">-1</span>):</span><br><span class="line">                    self.adjust(res,j,k)</span><br><span class="line">                <span class="keyword">for</span> j <span class="keyword">in</span> range(k<span class="number">-1</span>,<span class="number">0</span>,<span class="number">-1</span>):</span><br><span class="line">                    res[j],res[<span class="number">0</span>] = res[<span class="number">0</span>],res[j]</span><br><span class="line">                    self.adjust(res,<span class="number">0</span>,j)</span><br><span class="line">                change = <span class="keyword">False</span></span><br><span class="line">            <span class="keyword">if</span> i != len(nums) <span class="keyword">and</span> nums[i] &gt; res[k<span class="number">-1</span>]:</span><br><span class="line">                res[k<span class="number">-1</span>] = nums[i]</span><br><span class="line">                change = <span class="keyword">True</span></span><br><span class="line">        <span class="keyword">return</span> res[k<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">adjust</span><span class="params">(self,res,parent,length)</span>:</span></span><br><span class="line">        temp = res[parent]</span><br><span class="line">        child = <span class="number">2</span>*parent+<span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> child &lt; length:</span><br><span class="line">            <span class="keyword">if</span> child+<span class="number">1</span> &lt; length <span class="keyword">and</span> res[child+<span class="number">1</span>]&lt;res[child]:</span><br><span class="line">                child = child+<span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> temp &lt; res[child]:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            res[parent] = res[child]</span><br><span class="line">            parent = child</span><br><span class="line">            child = <span class="number">2</span>*parent+<span class="number">1</span></span><br><span class="line">        res[parent] = temp</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    result = Solution().findKthLargest([<span class="number">3</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">6</span>],<span class="number">4</span>)</span><br><span class="line">    print(result)</span><br></pre></td></tr></table></figure></p>
+<p>思路2：利用快速排序</p>
+<ul>
+<li>快速排序的基本思想是：通过一趟排序将要排序的数据分割成独立的两部分：分割左边都是比它小的数，右边都是比它大的数。</li>
+<li>然后在按此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，因此达到整个数据变成有序序列。</li>
+<li>举例：nums = [3,2,1,5,6,4]<blockquote>
+<ul>
+<li>首先以nums[0]=3为基准点，设置指针left指向第一个元素(0)，right指向最后一个元素(len(nums)-1)；</li>
+<li>从右至左偏移right指针，寻找到第一个比基准点3小的元素，将该元素(这里为1)赋给left指针所指的位置，此时数组为[1,2,1,5,6,4];</li>
+<li>从左至右偏移left指针，寻找到第一个比基准点3大的元素，将该元素赋给right指针所指的位置，此时数组</li>
+<li>不断循环步骤一二，知道left和right重合，将基准点3赋给重合位置，一轮排序结束数组为[1,2,3,5,6,4];</li>
+<li>经过递归过程，最后排序结束。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p>**快速排序<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findKthLargest</span><span class="params">(self, nums, k)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :type k: int</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> len(nums) &lt; k <span class="keyword">or</span> k &lt;= <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        </span><br><span class="line">        self.Qsort(nums, <span class="number">0</span>, len(nums)<span class="number">-1</span>)</span><br><span class="line">        <span class="keyword">return</span> nums</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">Qsort</span><span class="params">(self, nums, left, right)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> left &lt; right:</span><br><span class="line">            index = self.division(nums, left, right)</span><br><span class="line">            self.Qsort(nums, left, index<span class="number">-1</span>)</span><br><span class="line">            self.Qsort(nums, index+<span class="number">1</span>, right)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">division</span><span class="params">(self, nums, left, right)</span>:</span></span><br><span class="line">        base = nums[left]</span><br><span class="line">        <span class="keyword">while</span> left &lt; right:</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">while</span> right &gt; left <span class="keyword">and</span> nums[right] &gt;= base:</span><br><span class="line">                right -= <span class="number">1</span></span><br><span class="line">            nums[left] = nums[right]</span><br><span class="line">            <span class="keyword">while</span> left &lt; right <span class="keyword">and</span> nums[left] &lt;= base:</span><br><span class="line">                left += <span class="number">1</span></span><br><span class="line">            nums[right] = nums[left]</span><br><span class="line">        nums[left] = base</span><br><span class="line">        <span class="keyword">return</span> left</span><br></pre></td></tr></table></figure></p>
+<p>思路3：归并排序<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findKthLargest</span><span class="params">(self, nums, k)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :type k: int</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> len(nums) &lt; k <span class="keyword">or</span> k &lt;= <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        </span><br><span class="line">        res = self.dfs(nums)</span><br><span class="line">        <span class="keyword">return</span> res[-k]</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> len(nums) &lt;= <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> nums</span><br><span class="line">        mid = len(nums)//<span class="number">2</span></span><br><span class="line">        left = self.dfs(nums[:mid])</span><br><span class="line">        right = self.dfs(nums[mid:])</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> self.merge(left, right)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">merge</span><span class="params">(self, left, right)</span>:</span></span><br><span class="line">        res = []</span><br><span class="line">        i, j = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> i &lt; len(left) <span class="keyword">and</span> j &lt; len(right):</span><br><span class="line">            <span class="keyword">if</span> left[i] &lt; right[j]:</span><br><span class="line">                res.append(left[i])</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                res.append(right[j])</span><br><span class="line">                j += <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> i &lt; len(left):</span><br><span class="line">            res += left[i:]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            res += right[j:]</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure></p>
+<h2 id="347-前K个高频元素"><a href="#347-前K个高频元素" class="headerlink" title="347. 前K个高频元素"></a>347. 前K个高频元素</h2><h3 id="题目描述-6"><a href="#题目描述-6" class="headerlink" title="题目描述"></a><a href="https://leetcode-cn.com/problems/top-k-frequent-elements/submissions/" target="_blank" rel="noopener">题目描述</a></h3><p>给定一个非空的整数数组，返回其中出现频率前 k 高的元素。</p>
+<ul>
+<li>示例 1:<blockquote>
+<p>输入: nums = [1,1,1,2,2,3], k = 2<br>输出: [1,2]</p>
+</blockquote>
+</li>
+<li>示例 2:<blockquote>
+<p>输入: nums = [1], k = 1<br>输出: [1]</p>
+</blockquote>
+</li>
+<li>说明：<blockquote>
+<p>你可以假设给定的 k 总是合理的，且 1 ≤ k ≤ 数组中不相同的元素的个数。<br>你的算法的时间复杂度必须优于 O(n log n) , n 是数组的大小。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="解题思路-6"><a href="#解题思路-6" class="headerlink" title="解题思路"></a>解题思路</h3><p>使用桶排序算法</p>
+<ul>
+<li>首先使用散列表统计数组中元素出现的频次；</li>
+<li>接着新建len(nums)+1个桶，用于保存出现次数对应的元素；</li>
+<li>最后，从逆序桶中取出前k个元素。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">topKFrequent</span><span class="params">(self, nums, k)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :type k: int</span></span><br><span class="line"><span class="string">        :rtype: List[int]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> len(nums)&lt;k:</span><br><span class="line">            <span class="keyword">return</span> []</span><br><span class="line">        Dict = &#123;&#125;</span><br><span class="line">        <span class="keyword">for</span> x <span class="keyword">in</span> nums:</span><br><span class="line">            Dict[x] = Dict.get(x,<span class="number">0</span>)+<span class="number">1</span></span><br><span class="line">        bucket = [[] <span class="keyword">for</span> _ <span class="keyword">in</span> range(len(nums)+<span class="number">1</span>)]</span><br><span class="line">        <span class="keyword">for</span> key, val <span class="keyword">in</span> Dict.items():</span><br><span class="line">            bucket[val].append(key)</span><br><span class="line">        res = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums),<span class="number">-1</span>,<span class="number">-1</span>):</span><br><span class="line">            <span class="keyword">if</span> bucket[i]:</span><br><span class="line">                res.extend(bucket[i])</span><br><span class="line">            <span class="keyword">if</span> len(res)&gt;=k:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    result = Solution().topKFrequent([<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>], <span class="number">2</span>)</span><br><span class="line">    print(result)</span><br></pre></td></tr></table></figure>
+<h2 id="451-根据字符出现频率排序"><a href="#451-根据字符出现频率排序" class="headerlink" title="451. 根据字符出现频率排序"></a>451. 根据字符出现频率排序</h2><h3 id="题目描述-7"><a href="#题目描述-7" class="headerlink" title="题目描述"></a><a href="https://leetcode-cn.com/problems/sort-characters-by-frequency/comments/" target="_blank" rel="noopener">题目描述</a></h3><p>给定一个字符串，请将字符串里的字符按照出现的频率降序排列。</p>
+<ul>
+<li>示例 1:<blockquote>
+<p>输入:”tree”<br>输出: “eert”<br>解释: ‘e’出现两次，’r’和’t’都只出现一次。因此’e’必须出现在’r’和’t’之前。此外，”eetr”也是一个有效的答案。</p>
+</blockquote>
+</li>
+<li>示例 2:<blockquote>
+<p>输入:”cccaaa”<br>输出:”cccaaa”<br>解释:’c’和’a’都出现三次。此外，”aaaccc”也是有效的答案。注意”cacaca”是不正确的，因为相同的字母必须放在一起。</p>
+</blockquote>
+</li>
+<li>示例 3:<blockquote>
+<p>输入:”Aabb”<br>输出:”bbAa”<br>解释:此外，”bbaA”也是一个有效的答案，但”Aabb”是不正确的。注意’A’和’a’被认为是两种不同的字符。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="解题思路-7"><a href="#解题思路-7" class="headerlink" title="解题思路"></a>解题思路</h3><p>桶排序</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">frequencySort</span><span class="params">(self, s)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type s: str</span></span><br><span class="line"><span class="string">        :rtype: str</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> len(s)==<span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">''</span></span><br><span class="line">        Dict = &#123;&#125;</span><br><span class="line">        <span class="keyword">for</span> x <span class="keyword">in</span> s:</span><br><span class="line">            Dict[x] = Dict.get(x,<span class="number">0</span>)+<span class="number">1</span></span><br><span class="line">        bucket = [<span class="string">''</span> <span class="keyword">for</span> _ <span class="keyword">in</span> range(len(s)+<span class="number">1</span>)]</span><br><span class="line">        <span class="keyword">for</span> key,val <span class="keyword">in</span> Dict.items():</span><br><span class="line">            bucket[val] += val * key</span><br><span class="line">        res = <span class="string">''</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(s),<span class="number">-1</span>,<span class="number">-1</span>):</span><br><span class="line">            <span class="keyword">if</span> bucket[i]:</span><br><span class="line">                res += bucket[i]</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    result = Solution().frequencySort(<span class="string">'tree'</span>)</span><br><span class="line">    print(result)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Qiancun Huang WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Qiancun Huang Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    Qiancun Huang
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="http://huangqiancun.github.io/2019/07/16/Leetcode-排序/" title="Leetcode题解 - 排序">http://huangqiancun.github.io/2019/07/16/Leetcode-排序/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/算法题解/" rel="tag"># 算法题解</a>
+          
+            <a href="/tags/Leetcode/" rel="tag"># Leetcode</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/16/Leetcode-分治算法/" rel="next" title="Leetcode题解 - 分治算法">
+                <i class="fa fa-chevron-left"></i> Leetcode题解 - 分治算法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/16/Leetcode-双指针/" rel="prev" title="Leetcode题解 - 双指针">
+                Leetcode题解 - 双指针 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+	
+	
+  
+  
+  
+  </article>
+  <div>
+		
+			<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------------The End------------</div>
+    
+</div>
+		
+	</div>
+	
+ 
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/photo.jpg" alt="Qiancun Huang">
+            
+              <p class="site-author-name" itemprop="name">Qiancun Huang</p>
+              <p class="site-description motion-element" itemprop="description">A second-year graduate student in Southeast University</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">57</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/huangqiancun?tab=repositories" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto://huangqiancun@foxmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#排序"><span class="nav-text">排序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#快速排序"><span class="nav-text">快速排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#堆排序"><span class="nav-text">堆排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#桶排序"><span class="nav-text">桶排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#56-合并区间"><span class="nav-text">56. 合并区间</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#75-颜色分类"><span class="nav-text">75. 颜色分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-1"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路-1"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#147-对链表进行插入排序"><span class="nav-text">147. 对链表进行插入排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-2"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路-2"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#148-排序链表"><span class="nav-text">148. 排序链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-3"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路-3"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#179-最大数"><span class="nav-text">179. 最大数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-4"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路-4"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#215-数组中的第K个最大元素"><span class="nav-text">215. 数组中的第K个最大元素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-5"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路-5"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#347-前K个高频元素"><span class="nav-text">347. 前K个高频元素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-6"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路-6"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#451-根据字符出现频率排序"><span class="nav-text">451. 根据字符出现频率排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-7"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路-7"><span class="nav-text">解题思路</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qiancun Huang</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">483.9k</span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+
+</body>
+</html>

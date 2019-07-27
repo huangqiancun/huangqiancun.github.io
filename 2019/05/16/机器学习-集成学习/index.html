@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icons8-fox-32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icons8-fox-16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="机器学习,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="I'm Qiancun Huang" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="本文主要是机器学习-集成学习相关内容。 1 集成学习的原理步骤集成学习(ensemble learning)通过构建并结合多个学习器来完成学习任务，有时也被称为多分类器系统(multi-classifier system)、基于委员会的学习(committee-based learning)等。集成学习一般可分为以下3个步骤。  找到误差互相独立的基分类器。 训练基分类器。 合并基分类器的结果。">
+<meta name="keywords" content="机器学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习-集成学习">
+<meta property="og:url" content="http://huangqiancun.github.io/2019/05/16/机器学习-集成学习/index.html">
+<meta property="og:site_name" content="I&#39;m Qiancun Huang">
+<meta property="og:description" content="本文主要是机器学习-集成学习相关内容。 1 集成学习的原理步骤集成学习(ensemble learning)通过构建并结合多个学习器来完成学习任务，有时也被称为多分类器系统(multi-classifier system)、基于委员会的学习(committee-based learning)等。集成学习一般可分为以下3个步骤。  找到误差互相独立的基分类器。 训练基分类器。 合并基分类器的结果。">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-07-27T17:14:45.071Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="机器学习-集成学习">
+<meta name="twitter:description" content="本文主要是机器学习-集成学习相关内容。 1 集成学习的原理步骤集成学习(ensemble learning)通过构建并结合多个学习器来完成学习任务，有时也被称为多分类器系统(multi-classifier system)、基于委员会的学习(committee-based learning)等。集成学习一般可分为以下3个步骤。  找到误差互相独立的基分类器。 训练基分类器。 合并基分类器的结果。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":8,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://huangqiancun.github.io/2019/05/16/机器学习-集成学习/">
+
+
+
+
+
+  <title>机器学习-集成学习 | I'm Qiancun Huang</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">I'm Qiancun Huang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Live it. Love it. Enjoy IT.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://huangqiancun.github.io/2019/05/16/机器学习-集成学习/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Qiancun Huang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/photo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="I'm Qiancun Huang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">机器学习-集成学习</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-16T01:54:14+08:00">
+                2019-05-16
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-07-28T01:14:45+08:00">
+                2019-07-28
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  6.3k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+		  
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本文主要是<code>机器学习-集成学习</code>相关内容。</p>
+<h2 id="1-集成学习的原理步骤"><a href="#1-集成学习的原理步骤" class="headerlink" title="1 集成学习的原理步骤"></a>1 集成学习的原理步骤</h2><p>集成学习(ensemble learning)通过构建并结合多个学习器来完成学习任务，有时也被称为多分类器系统(multi-classifier system)、基于委员会的学习(committee-based learning)等。集成学习一般可分为以下3个步骤。</p>
+<ul>
+<li>找到误差互相独立的基分类器。</li>
+<li>训练基分类器。</li>
+<li>合并基分类器的结果。</li>
+</ul>
+<h2 id="2-集成学习的合并策略"><a href="#2-集成学习的合并策略" class="headerlink" title="2 集成学习的合并策略"></a>2 集成学习的合并策略</h2><p>合并基分类器的主要有三种：平均法（averaging），投票法（voting），学习法（stacking）三种。</p>
+<p>平均法有简单平均法和加权平均法。在个体学习器性能相差较大时宜使用加权平均法，而在个体学习器性能相近时宜使用简单平均法。</p>
+<p>投票法有绝对多数投票法，相对多数投票法和加权投票法。标准的绝对多数投票法提供了”拒绝预测”选项，也就是在没有类别超过一半时不给出预测，这在可靠性要求较高的学习任务中是一个很好的机制.但若学习任务要求必须提供预测结果，则绝对多数投票法将退化为相对多数投票法。因此，在不允许拒绝预测的任务中，绝对多数、相对多数投票法统称为”多数投票法”。</p>
+<p>学习法通过另一个学习器，用串行的方式，Stacking先从初始数据集训练出初级学习器，然后”生成”一个新数据集用于训练次级学习器.在这个新数据集中，初级学习器的输出被当作样例输入到次级分类器，最后将所有基分类器的输出结果相加或者用更复杂的算法融合。比如把各基分类器的输出作为特征，使用逻辑回归作为融合模型进行最后的结果预测）作为最终的输出。在训练阶段，次级训练集是利用初级学习器产生的，若直接用初级学习器的训练集来产生次级训练集，则过拟合风险会比较大;因此一般是通过使用交叉验证或留一法这样的方式，用训练初级学习器未使用的样本来产生次级学习器的训练样本。</p>
+<p>此外还有一种方法为Blending，Blending步骤如下：<br>原始训练数据集划分为训练数据集和验证数据集，针对训练数据集训练多个模型，每个模型针对验证数据集的结果构成新的训练数据集，每个模型针对预测数据集的结果构成新的预测数据集。然后针对新的训练数据集训练模型，训练完成后，得到的模型对新的预测数据集的结果作为最终的结果。<br>Blending与Stacking大致相同，只是Blending的主要区别在于训练集不是通过K-Fold的CV策略来获得预测值从而生成第二阶段模型的特征，而是建立一个Holdout集。简单来说，Blending直接用不相交的数据集用于不同层的训练。</p>
+<h2 id="3-集成学习的分类boosting和bagging"><a href="#3-集成学习的分类boosting和bagging" class="headerlink" title="3 集成学习的分类boosting和bagging"></a>3 集成学习的分类boosting和bagging</h2><p>Boosting方法训练基分类器时采用串行的方式，各个基分类器之间有依赖。它的基本思路是将基分类器层层叠加，每一层在训练的时候，对前一层基分类器分错的样本，给予更高的权重。测试时，根据各层分类器的结果的加权得到最终结果。Boosting的过程很类似于人类学习的过程，我们学习新知识的过程往往是迭代式的，第一遍学习的时候，我们会记住一部分知识，但往往也会犯一些错误，对于这些错误，我们的印象会很深。第二遍学习的时候，就会针对犯过错误的知识加强学习，以减少类似的错误发生。不断循环往复，直到犯错误的次数减少到很低的程度。</p>
+<p>Bagging：Bagging与Boosting的串行训练方式不同，Bagging方法在训练过程中，各基分类器之间无强依赖，可以并行训练。它直接基于自助来样法(bootstrap sampling)。给定包含m个样本的数据集，我们先随机取出一个样本放入采样集中，再把该样本放回初始数据集，使得下次采样时该样本仍有可能被选中，这样，经过m次随机采样操作，我们得到含m个样本的采样集，初始训练集中有的样本在采样集里多次出现，有的则从未出现。初始训练集中约有63.2%的样本出现在来样集中。自助采样过程还给Bagging带来了另一个优点，由于每个基学习器只使用了初始训练集中约63.2%的样本，剩下约36.8%的样本可用作验证集来对泛化性能进行”包外估计”（oob）。<br>Bagging方法更像是一个集体决策的过程，每个个体都进行单独学习，学习的内容可以相同，也可以不同，也可以部分重叠。但由于个体之间存在差异性，最终做出的判断不会完全一致。在最终做决策时，每个个体单独作出判断，再通过投票的方式做出最后的集体决策。</p>
+<h2 id="4-建了5个GBM，没有一个模型比基准模型表现得更好。"><a href="#4-建了5个GBM，没有一个模型比基准模型表现得更好。" class="headerlink" title="4 建了5个GBM，没有一个模型比基准模型表现得更好。"></a>4 建了5个GBM，没有一个模型比基准模型表现得更好。</h2><p>组合的学习模型是基于合并弱的学习模型来创造一个强大的学习模型。但是，只有当各模型之间没有相关性的时候组合起来才比较强大，由于我们已经试了5个GBM，但没有提高精度，表明这些模型是相关的。具有相关性的模型的问题是，所有的模型提供相同的信息。</p>
+<h2 id="5-偏差、方差、噪声的含义"><a href="#5-偏差、方差、噪声的含义" class="headerlink" title="5 偏差、方差、噪声的含义"></a>5 偏差、方差、噪声的含义</h2><ul>
+<li>偏差度量了学习算法的期望预测与真实结果的偏离程度，即刻画了学习算法本身的拟合能力;</li>
+<li>方差度量了同样大小的训练集的变动所导致的学习性能的变化，即刻画了数据扰动所造成的影响;</li>
+<li>噪声则表达了在当前任务上任何学习算法所能达到的期望泛化误差的下界，即刻画了学习问题本身的难度.</li>
+</ul>
+<p>偏差一方差分解说明，泛化性能是由学习算法的能力、数据的充分性以及学习任务本身的难度所共同决定的.给定学习任务，为了取得好的泛化性能，则需使偏差较小，即能够充分拟合数据，并且使方差较小，即使得数据扰动产生的影响小.</p>
+<h2 id="6-从偏差-方差分解的角度理解Boosting和Bagging"><a href="#6-从偏差-方差分解的角度理解Boosting和Bagging" class="headerlink" title="6 从偏差-方差分解的角度理解Boosting和Bagging"></a>6 从偏差-方差分解的角度理解Boosting和Bagging</h2><p>基分类器，有时又被称为弱分类器，因为基分类器的错误率要大于集成分类器。基分类器的错误，是偏差和方差两种错误之和。偏差主要是由于分类器的表达能力有限导致的系统性错误，表现在训练误差不收敛。方差是由于分类器对于样本分布过于敏感，导致在训练样本数较少时，产生过拟合。</p>
+<p>Boosting方法是通过逐步聚焦于基分类器分错的样本，减小集成分类器的偏差。Bagging方法则是采取分而治之的策略，通过对训练样本多次采样，并分别训练出多个不同模型，然后做综合，来减小集成分类器的方差</p>
+<p>也就是Bagging能够提高弱分类器性能的原因是降低了方差，而Boosting能够提升弱分类器性能的原因是降低了偏差。</p>
+<h2 id="7-Bagging为什么会减小方差"><a href="#7-Bagging为什么会减小方差" class="headerlink" title="7 Bagging为什么会减小方差"></a>7 Bagging为什么会减小方差</h2><p>角度1：Bagging是Bootstrap Aggregating的简称，意思就是再抽样，然后在每个样本上训练出来的模型取平均，对n个独立不相关的模型的预测结果取平均，方差是原来单个模型的1/n。当然，模型之间不可能完全独立。为了追求模型的独立性，诸多Bagging的方法做了不同的改进。比如在随机森林算法中，每次选取节点分裂属性时，会随机抽取一个属性子集，而不是从所有属性中选取最优属性，这就是为了避免弱分类器之间过强的相关性。通过训练集的重采样也能够带来弱分类器之间的一定独立性，从而降低Bagging后模型的方差。</p>
+<p>角度2：Bagging每次减少了outlier的采样（原始数据集如果outlier很多的话，会 让Model记住太多噪声导致过拟合；bagging随机选取data的subset，outlier 因为比例比较低，参与model training的几率也比较低，所以bagging降低 了outliers和noise对model的影响，所以降低了variance（这个从outlier的 角度回答，所以很新颖）。</p>
+<p>再看Boosting，在Boosting的训练过程。在训练好一个弱分类器后，我们需要计算弱分类器的错误或者残差，作为下一个分类器的输入。这个过程本身就是在不断减小损失函数，来使模型不断逼近真实值，使得模型偏差不断降低。但Boosting的过程并不会显著降低方差。这是因为Boosting的训练过程使得各弱分类器之间是强相关的，缺乏独立性，所以并不会对降低方差有作用。</p>
+<h2 id="8-AdaBoost"><a href="#8-AdaBoost" class="headerlink" title="8 AdaBoost"></a>8 AdaBoost</h2><p>Boosting族算法最著名的代表是AdaBoost，它的思想是，对分类正确的样本降低了权重，对分类错误的样本升高或者保持权重不变。在最后进行模型融合的过程中，也根据错误率对基分类器进行加权融合。错误率低的分类器拥有更大的“话语权”。</p>
+<p>Boosting算法要求基学习器能对特定的数据分布进行学习，这可通过”重赋权法”(re-weighting)实施，即在训练过程的每一轮中，根据样本分布为每个训练样本重新赋予一个权重.对无法接受带权样本的基学习算法，则可通过”重采样法”(re-sampling)来处理，即在每一轮学习中，根据样本分布对训练集重新进行采样，再用重采样而得的样本集对基学习器进行训练.</p>
+<p>Boosting算法在训练的每一轮都要检查当前生成的基学习器是否满足基本条件(检查当前基分类器是否是比随机猜测好)，一旦条件不满足，则当前基学习器即被抛弃，且学习过程停止.在此种情形下，初始设置的学习轮数T也许遥远未达到，可能导致最终集成中只包含很少的基学习器而性能不佳.若采用”重采样法”，则可获得”重启动”机会以避免训练过程过早停止，即在抛弃不满足条件的当前基学习器之后，可根据当前分布重新对训练样本进行采样，再基于新的采样结果重新训练出基学习器，从而使得学习过程可以持续到预设的T轮完成.</p>
+<h2 id="9-随机森林-RF"><a href="#9-随机森林-RF" class="headerlink" title="9 随机森林 RF"></a>9 随机森林 RF</h2><p>随机森林(Random Forest，简称RF)是Bagging的一个扩展变体.在以决策树为基学习器构建Bagging集成的基础上，进一步在决策树的训练过程中引入了随机属性选择.</p>
+<p>具体来说，传统决策树在选择划分属性时是在当前结点的属性集合(假定有d个属性)中选择一个最优属性;而在RF中，对基决策树的每个结点，先从该结点的属性集合中随机选择一个包含k个属性的子集，然后再从这个子集中选择一个最优属性用于划分.这里的参数k控制了随机性的引入程度;若令k=d，则基决策树的构建与传统决策树相同;若令k=1，则是随机选择一个属性用于划分;一般情况下，推荐值k=log2d。</p>
+<p>随机森林的训练效率常优于Bagging，因为在个体决策树的构建过程中，Bagging使用的是”确定型”决策树，在选择划分属性时要对结点的所有属性进行考察，而随机森林使用的”随机型”决策树，即只需考察一个属性子集。这种属性扰动导致生成的决策树基分类器随机性较大，这样的不稳定的学习器更适合作为基分类器。因为样本随机性以及特征随机性保证了每棵树用的都是样本数据的一部分，使得每棵决策树之间的相关性减少，所以过拟合的可能性小。</p>
+<h2 id="10-随机森林如何处理缺失值"><a href="#10-随机森林如何处理缺失值" class="headerlink" title="10 随机森林如何处理缺失值"></a>10 随机森林如何处理缺失值</h2><ul>
+<li>缺失值较多的时候可以抛弃缺失值。</li>
+<li>缺失值较少时补充缺失值，对于训练集，同一个类别下的数据，如果是描述性数据缺少，用出现最多的值替换，如果是连续性数值，则用中位数替换。</li>
+<li>概率化缺失值，对缺失值的样本赋予该属性所有属性值的概率分布，即将缺失值按照其所在属性已知值的相对概率分布区创建决策树。</li>
+</ul>
+<h2 id="11-怎么理解决策树，Xgboost能处理缺失值？而有的模型（SVM）对缺失值比较敏感？"><a href="#11-怎么理解决策树，Xgboost能处理缺失值？而有的模型（SVM）对缺失值比较敏感？" class="headerlink" title="11 怎么理解决策树，Xgboost能处理缺失值？而有的模型（SVM）对缺失值比较敏感？"></a>11 怎么理解决策树，Xgboost能处理缺失值？而有的模型（SVM）对缺失值比较敏感？</h2><p>涉及到距离度量时，比如需要计算两个点的距离，缺失数据就变得比较重要。因为涉及到“距离”这个概念，那么缺失值处理不当就会导致效果很差，比如SVM，KNN等。</p>
+<p>树模型对于缺失值的敏感度降低，大部分时候可以在数据缺失的时候使用，决策树的缺失值可以用其所对应的类别中的中位数或者出现最多的数值替换，Xgboost可以为缺失值提供默认的分裂方向，使用能够最小化训练误差的方向作为默认的分裂方向。</p>
+<p>Note</p>
+<ul>
+<li>线性模型的代价函数往往涉及到距离的计算，计算预测值和真实值之间的差别，这容易导致对缺失值敏感。</li>
+<li>神经网络的鲁棒性强，对于缺失数据不是太敏感。</li>
+<li>贝叶斯模型对于缺失数据也比较稳定，数据量很小的时候首选贝叶斯。</li>
+<li>总结来看：数据量很小，用朴素贝叶斯；数据量适中或较大，用树模型，优先Xgboost；数据量大，使用神经网络；避免使用距离度量相关的模型，如KNN和SVM。</li>
+</ul>
+<h2 id="12-随机森林如何评估特征重要性"><a href="#12-随机森林如何评估特征重要性" class="headerlink" title="12 随机森林如何评估特征重要性"></a>12 随机森林如何评估特征重要性</h2><p>衡量变量重要性的方法有两种：mean decrease accuracy（平均降低精度）和mean decrease Gini（平均降低基尼系数）.</p>
+<ul>
+<li>Mean decrease accuracy：将一个变量的取值变为随机数，计算随机森林预测准确性的降低程度。该值越大表示该变量越重要。</li>
+<li>Mean decrease Gini：将一个变量的取值变为随机数，计算基尼系数变化的程度，从而比较变量的重要性。该值越大表示该变量越重要。</li>
+</ul>
+<h2 id="13-GBDT"><a href="#13-GBDT" class="headerlink" title="13 GBDT"></a>13 GBDT</h2><p>GBDT中文名是梯度提升决策树，它的核心思想是，每一棵树学的是之前所有树结论和的残差，这个残差就是一个加预测值后能得到真实值的累加量。具体来说就是根据当前模型损失函数的负梯度信息来训练新加入的弱分类器，然后将训练好的弱分类器以累加的形式结合到现有模型中。例如用户A的真实年龄是25岁，但第一棵决策树的预测年龄是22岁，差了3岁，即残差为3。那么在第二棵树里我们把A的年龄设为3岁去学习，如果第二棵树能把A分到3岁的叶子节点，那两棵树的结果相加就可以得到A的真实年龄；如果第二棵树的结论是5岁，则A仍然存在-2岁的残差，第三棵树里A的年龄就变成-2岁。这里使用残差继续学习，就是GBDT中Gradient Boosted所表达的意思。GBDT中使用的决策树通常为CART。</p>
+<h2 id="14-随机森林和GBDT之间的区别和联系"><a href="#14-随机森林和GBDT之间的区别和联系" class="headerlink" title="14 随机森林和GBDT之间的区别和联系"></a>14 随机森林和GBDT之间的区别和联系</h2><p>相同点：都是由多棵树组成，最终的结果都是由多棵树一起决定。</p>
+<p>不同点：最根本的区别是，随机森林算法使用bagging技术做出预测，GBDT采用boosting技术做预测，在bagging技术中，模型的训练是并行的，数据集用随机采样的方法被划分成n个样本集，然后，使用单一的学习算法，在所有样本上建模，接着利用投票或者求平均来组合所得到的预测。而boosting是串行运行的，在每一轮的预测之后，算法将分类出错的样本点加高权重，分对的降低权重，是分错的样本可以在后续一轮中得到校正，这种给予分类出错的样本高权重的顺序过程持续进行，直到达到停止标准为止。随机森林通过减少方差来提高模型的精度，生成树之间是不相关的，以把最大程度低减小方差。而GBDT提高了精度，减少了模型的偏差。</p>
+<h2 id="15-梯度提升和梯度下降的区别和联系是什么"><a href="#15-梯度提升和梯度下降的区别和联系是什么" class="headerlink" title="15 梯度提升和梯度下降的区别和联系是什么"></a>15 梯度提升和梯度下降的区别和联系是什么</h2><p>在最小化损失函数时，可以通过梯度下降思想来求得最小化的损失函数和对应的参数值，反过来，如果要求最大化的损失函数，可以通过梯度上升思想来求取。<br>两者都是在每一轮迭代中，利用损失函数相对于模型的负梯度方向的信息来对当前模型进行更新，只不过在梯度下降中，模型是以参数化形式表示，从而模型的更新等价于参数的更新。而在梯度提升中，模型并不需要进行参数化表示，而是直接定义在函数空间中，从而大大扩展了可以使用的模型种类。</p>
+<h2 id="16-GBDT的优点和局限性有哪些"><a href="#16-GBDT的优点和局限性有哪些" class="headerlink" title="16 GBDT的优点和局限性有哪些"></a>16 GBDT的优点和局限性有哪些</h2><p>优点</p>
+<ul>
+<li>在分布稠密的数据集上，泛化能力和表达能力都很好，这使得GBDT在Kaggle的众多竞赛中，经常名列榜首。</li>
+<li>采用决策树作为弱分类器使得GBDT模型具有较好的解释性和鲁棒性，能够自动发现特征间的高阶关系，并且也不需要对数据进行特殊的预处理如归一化等。</li>
+</ul>
+<p>局限性</p>
+<ul>
+<li>GBDT在高维稀疏的数据集上，表现不如支持向量机或者神经网络。</li>
+<li>GBDT在处理文本分类特征问题上，相对其他模型的优势不如它在处理数值特征时明显。</li>
+<li>训练过程需要串行训练。</li>
+</ul>
+<h2 id="17-XGBoost和GBDT的联系和区别"><a href="#17-XGBoost和GBDT的联系和区别" class="headerlink" title="17 XGBoost和GBDT的联系和区别"></a>17 XGBoost和GBDT的联系和区别</h2><p>原理：XGBoost类似于GBDT的优化版，在GBDT的基础上，目标函数增加了正则化项，并且在求解时做了二阶泰勒展开，不论是精度还是效率都有了提升。与GBDT相比，XGBoost具有以下的优点：</p>
+<ul>
+<li>损失函数是用泰勒展式二项逼近，同时用到了一阶和二阶导数，而GBDT只用到了一阶导数信息；另外，xgboost工具还支持自定义代价函数，只要函数可以求一阶和二阶求导。</li>
+<li>XGboost在损失函数中加入了正则化约束，降低了模型的方差，防止模型过拟合，降低了过拟合的可能性；</li>
+<li>节点分裂的方式不同，GBDT用的是基尼系数，XGBoost是经过优化推导后的，大致思想是根据百分位法列举几个可能成为分割点的候选特征，然后从候选特征中根据公式计算找出最佳的分割点。</li>
+<li>xgboost考虑了训练数据为稀疏值的情况，可以为缺失值指定默认的分裂方向，这能大大提升算法的效率。</li>
+<li>xgboost借鉴了随机森林中的特征采样技术，xgboost借鉴了随机森林的做法，支持列抽样，不仅能降低过拟合，还能减少计算，这也是xgboost异于传统gbdt的一个特性。</li>
+<li>缺失值的处理。对于特征的值有缺失的样本，xgboost可以自动学习出它的分裂方向。</li>
+<li>xgboost在一定程度上并行。xgboost的并行不是树维度上的并行，xgboost也是一次迭代完才能进行下一次迭代的。xgboost的并行是在特征维度上的。我们知道，决策树的学习最耗时的一个步骤就是对特征的值进行排序（因为要确定最佳分割点），xgboost在训练之前，预先对数据进行了排序，然后保存为block结构，后面的迭代中重复地使用这个结构，大大减小计算量。这个block结构也使得并行成为了可能，在进行节点的分裂时，需要计算每个特征的增益，最终选增益最大的那个特征去做分裂，那么各个特征的增益计算就可以开多线程进行。</li>
+<li>传统的GBDT以CART作为基分类器，XGBoost还支持线性分类器，这个时候XGBoost相当于带L1和L2正则化向的逻辑斯蒂回归（分类问题）或者线性回归（回归问题）。</li>
+<li>xgboost还考虑了当数据量比较大，内存不够时怎么有效使用磁盘，主要是结合多线程，数据压缩，分片的方法，尽可能的提高算法的效率。</li>
+<li>可并行的近似直方图算法，树节点在进行分裂时，我们需要计算每个特征的每个分割点对应的增益，即用贪心法枚举所有可能的分割点，当数据无法一次载入内存或在分布式情况下，贪心算法的效率就会变得很低，所以XGBoost提出了一种可并行的近似直方图算法，用于高效地生成候选的分割点。</li>
+</ul>
+<h2 id="18-为什么XGBoost要用泰勒展开"><a href="#18-为什么XGBoost要用泰勒展开" class="headerlink" title="18 为什么XGBoost要用泰勒展开"></a>18 为什么XGBoost要用泰勒展开</h2><ul>
+<li>Xgboost，当目标函数是MSE时，展开是一阶项（残差）+二阶项的形式，而其他目标函数，如logloss的展开式就没有这样的形式。为了能有个统一的形式，所以采用泰勒展开来得到二阶项，这样就能把MSE推导的那套直接复用到其他自定义损失函数上。简短来说，就是为了统一损失函数求导的形式以支持自定义损失函数。这是从为什么会想到引入泰勒二阶的角度来说的。</li>
+<li>二阶信息本身就能让梯度收敛更快更准确。这一点在优化算法里的牛顿法里已经证实了。可以简单认为一阶导指引梯度方向，二阶导指引梯度方向如何变化。这是从二阶导本身的性质，也就是为什么要用泰勒二阶展开的角度来说的。</li>
+</ul>
+<h2 id="19-XGBoost如何寻找最优特征？是有放回还是无放回的？"><a href="#19-XGBoost如何寻找最优特征？是有放回还是无放回的？" class="headerlink" title="19 XGBoost如何寻找最优特征？是有放回还是无放回的？"></a>19 XGBoost如何寻找最优特征？是有放回还是无放回的？</h2><p>xgboost在训练的过程中给出各个特征的增益评分，最大增益的特征会被选出来作为分裂依据,从而记忆了每个特征对在模型训练时的重要性—从根到叶子中间节点涉及某特征的次数作为该特征重要性排序.<br>XGBoost属于Boosting集成学习方法，样本是不放回的，因而每轮计算样本不重复，另一方面，XGBoost支持子采样，也就是每轮计算可以不适用全部样本，以减少过拟合，xgboost还支持列采样，每轮按照百分比随机采样一部分特征，既提高计算速度又减少过拟合。</p>
+<h2 id="20-AdaBoost-V-S-GBDT"><a href="#20-AdaBoost-V-S-GBDT" class="headerlink" title="20 AdaBoost V.S. GBDT"></a>20 AdaBoost V.S. GBDT</h2><p>它们都属于boosting提升方法，只是损失函数不同。AdaBoost用错分数据点来识别问题，通过调整错分数据点的权重来改进模型。GBDT通过负梯度来识别问题，通过计算负梯度来改进模型。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Qiancun Huang WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Qiancun Huang Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    Qiancun Huang
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="http://huangqiancun.github.io/2019/05/16/机器学习-集成学习/" title="机器学习-集成学习">http://huangqiancun.github.io/2019/05/16/机器学习-集成学习/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/16/机器学习-线性回归&逻辑回归&最大熵/" rel="next" title="机器学习-线性回归&逻辑回归&最大熵">
+                <i class="fa fa-chevron-left"></i> 机器学习-线性回归&逻辑回归&最大熵
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/16/机器学习-支持向量机/" rel="prev" title="机器学习-支持向量机">
+                机器学习-支持向量机 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+	
+	
+  
+  
+  
+  </article>
+  <div>
+		
+			<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------------The End------------</div>
+    
+</div>
+		
+	</div>
+	
+ 
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/photo.jpg" alt="Qiancun Huang">
+            
+              <p class="site-author-name" itemprop="name">Qiancun Huang</p>
+              <p class="site-description motion-element" itemprop="description">A second-year graduate student in Southeast University</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">57</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/huangqiancun?tab=repositories" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto://huangqiancun@foxmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-集成学习的原理步骤"><span class="nav-text">1 集成学习的原理步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-集成学习的合并策略"><span class="nav-text">2 集成学习的合并策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-集成学习的分类boosting和bagging"><span class="nav-text">3 集成学习的分类boosting和bagging</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-建了5个GBM，没有一个模型比基准模型表现得更好。"><span class="nav-text">4 建了5个GBM，没有一个模型比基准模型表现得更好。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-偏差、方差、噪声的含义"><span class="nav-text">5 偏差、方差、噪声的含义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-从偏差-方差分解的角度理解Boosting和Bagging"><span class="nav-text">6 从偏差-方差分解的角度理解Boosting和Bagging</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-Bagging为什么会减小方差"><span class="nav-text">7 Bagging为什么会减小方差</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-AdaBoost"><span class="nav-text">8 AdaBoost</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-随机森林-RF"><span class="nav-text">9 随机森林 RF</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-随机森林如何处理缺失值"><span class="nav-text">10 随机森林如何处理缺失值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-怎么理解决策树，Xgboost能处理缺失值？而有的模型（SVM）对缺失值比较敏感？"><span class="nav-text">11 怎么理解决策树，Xgboost能处理缺失值？而有的模型（SVM）对缺失值比较敏感？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-随机森林如何评估特征重要性"><span class="nav-text">12 随机森林如何评估特征重要性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-GBDT"><span class="nav-text">13 GBDT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-随机森林和GBDT之间的区别和联系"><span class="nav-text">14 随机森林和GBDT之间的区别和联系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-梯度提升和梯度下降的区别和联系是什么"><span class="nav-text">15 梯度提升和梯度下降的区别和联系是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-GBDT的优点和局限性有哪些"><span class="nav-text">16 GBDT的优点和局限性有哪些</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#17-XGBoost和GBDT的联系和区别"><span class="nav-text">17 XGBoost和GBDT的联系和区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#18-为什么XGBoost要用泰勒展开"><span class="nav-text">18 为什么XGBoost要用泰勒展开</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#19-XGBoost如何寻找最优特征？是有放回还是无放回的？"><span class="nav-text">19 XGBoost如何寻找最优特征？是有放回还是无放回的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#20-AdaBoost-V-S-GBDT"><span class="nav-text">20 AdaBoost V.S. GBDT</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qiancun Huang</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">483.9k</span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+
+</body>
+</html>

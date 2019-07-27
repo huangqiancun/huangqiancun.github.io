@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icons8-fox-32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icons8-fox-16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="机器学习,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="I'm Qiancun Huang" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="本文主要是机器学习-优化算法相关内容。 1 有监督学习涉及的损失函数有哪些0-1损失函数。该损失函数能够直观地刻画分类的错误率，但是由于其非凸、非光滑的特点，使得算法很难直接对该函数进行优化。  L(Y, f(X))=\left\{\begin{array}{ll}{1,} &amp; {Y \neq f(X)} \\ {0,} &amp; {Y=f(X)}\end{array}\right.平方损失函数：平方损">
+<meta name="keywords" content="机器学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习-优化算法">
+<meta property="og:url" content="http://huangqiancun.github.io/2019/05/17/机器学习-优化算法/index.html">
+<meta property="og:site_name" content="I&#39;m Qiancun Huang">
+<meta property="og:description" content="本文主要是机器学习-优化算法相关内容。 1 有监督学习涉及的损失函数有哪些0-1损失函数。该损失函数能够直观地刻画分类的错误率，但是由于其非凸、非光滑的特点，使得算法很难直接对该函数进行优化。  L(Y, f(X))=\left\{\begin{array}{ll}{1,} &amp; {Y \neq f(X)} \\ {0,} &amp; {Y=f(X)}\end{array}\right.平方损失函数：平方损">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-07-27T17:16:59.282Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="机器学习-优化算法">
+<meta name="twitter:description" content="本文主要是机器学习-优化算法相关内容。 1 有监督学习涉及的损失函数有哪些0-1损失函数。该损失函数能够直观地刻画分类的错误率，但是由于其非凸、非光滑的特点，使得算法很难直接对该函数进行优化。  L(Y, f(X))=\left\{\begin{array}{ll}{1,} &amp; {Y \neq f(X)} \\ {0,} &amp; {Y=f(X)}\end{array}\right.平方损失函数：平方损">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":8,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://huangqiancun.github.io/2019/05/17/机器学习-优化算法/">
+
+
+
+
+
+  <title>机器学习-优化算法 | I'm Qiancun Huang</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">I'm Qiancun Huang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Live it. Love it. Enjoy IT.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://huangqiancun.github.io/2019/05/17/机器学习-优化算法/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Qiancun Huang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/photo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="I'm Qiancun Huang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">机器学习-优化算法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-17T03:54:10+08:00">
+                2019-05-17
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-07-28T01:16:59+08:00">
+                2019-07-28
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  5.2k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+		  
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本文主要是<code>机器学习-优化算法</code>相关内容。</p>
+<h2 id="1-有监督学习涉及的损失函数有哪些"><a href="#1-有监督学习涉及的损失函数有哪些" class="headerlink" title="1 有监督学习涉及的损失函数有哪些"></a>1 有监督学习涉及的损失函数有哪些</h2><p>0-1损失函数。该损失函数能够直观地刻画分类的错误率，但是由于其非凸、非光滑的特点，使得算法很难直接对该函数进行优化。</p>
+<script type="math/tex; mode=display">
+L(Y, f(X))=\left\{\begin{array}{ll}{1,} & {Y \neq f(X)} \\ {0,} & {Y=f(X)}\end{array}\right.</script><p>平方损失函数：平方损失函数是光滑函数，能够用梯度下降法进行优化。然而，当预测值距离真实值越远时，平方损失函数的惩罚力度越大，因此它对异常点比较敏感。</p>
+<script type="math/tex; mode=display">
+L(Y, f(X))=(Y-f(X))^{2}</script><p>绝对损失函数：对损失函数相当于是在做中值回归，相比做均值回归的平方损失函数，绝对损失函数对异常点更鲁棒一些。但是，绝对损失函数在f=y处无法求导数。综合考虑可导性和对异常点的鲁棒性，</p>
+<script type="math/tex; mode=display">
+L(Y, f(X))=|Y-f(X)|</script><p>对数损失函数。</p>
+<script type="math/tex; mode=display">
+L(Y, P(Y | X))=-\log P(Y | X)</script><p>hinge损失函数：是0-1损失函数相对紧的凸上界，且当z≥1时，该函数不对其做任何惩罚。Hinge损失在z=1处不可导，因此不能用梯度下降法进行优化，而是用次梯度下降法（Sub gradient Descent Method）</p>
+<script type="math/tex; mode=display">
+\ell_{\text {hinge}}(z)=\max (0,1-z)</script><p>O-1损失函数：<br>Hinge损失：</p>
+<p>交叉熵损失函数</p>
+<script type="math/tex; mode=display">
+L(w)=\sum_{i=1}^{N}\left[y_{i} \log \pi\left(x_{i}\right)+\left(1-y_{i}\right) \log \left(1-\pi\left(x_{i}\right)\right)\right]</script><p>Note</p>
+<ul>
+<li>经验风险最小化：也就是损失函数最小，容易发生过拟合。</li>
+<li>结构风险最小化：经验风险最小化+正则化项，防止过拟合。</li>
+</ul>
+<h2 id="2-机器学习中的优化问题，哪些是凸优化问题，哪些是非凸优化问题？"><a href="#2-机器学习中的优化问题，哪些是凸优化问题，哪些是非凸优化问题？" class="headerlink" title="2 机器学习中的优化问题，哪些是凸优化问题，哪些是非凸优化问题？"></a>2 机器学习中的优化问题，哪些是凸优化问题，哪些是非凸优化问题？</h2><p>凸函数曲面上任意两点连接而成的线段，其上的任意一点都不会处于该函数曲面的下方，逻辑回归，对应的优化问题就是凸优化问题，通过计算目标函数的二阶Hessian矩阵来验证凸性。Hessian矩阵为半正定，则为凸优化问题，对于凸优化问题，所有的局部极小值都是全局极小值，因此这类问题一般认为是比较容易求解的问题。</p>
+<p>主成分分析对应的优化问题是非凸优化问题。一般来说，非凸优化问题被认为是比较难求解的问题，但主成分分析是一个特例，我们可以借助SVD直接得到主成分分析的全局极小值。<br>其他凸优化问题的例子包括支持向量机、线性回归等线性模型，非凸优化问题的例子包括低秩模型（如矩阵分解）、深度神经网络模型等。</p>
+<h2 id="3-无约束优化问题的优化方法"><a href="#3-无约束优化问题的优化方法" class="headerlink" title="3 无约束优化问题的优化方法"></a>3 无约束优化问题的优化方法</h2><p>经典的优化算法可以分为直接法和迭代法两大类。</p>
+<p>直接法，顾名思义，就是能够直接给出优化问题最优解的方法。这个方法听起来非常厉害的样子，但它不是万能的。直接法要求目标函数需要满足两个条件。第一个条件是，L(·)是凸函数。若L(·)是凸函数，那么θ是最优解的充分必要条件是L(·)在θ处的梯度为0。即▽L(θ<em>)=0，因此，为了能够直接求解出θ</em>，第二个条件是，上式有闭式解。同时满足这两个条件的经典例子是岭回归（Ridge Regression），其目标函数为$L(\theta)=|X \theta-y|_{2}^{2}+\lambda|\theta|_{2}^{2}$ 稍加推导就能得到最优解为$\theta^{*}=\left(X^{T} X+\lambda I\right)^{-1} X^{T} y$</p>
+<p>迭代法又可以分为一阶法和二阶法两类。一阶法也称梯度下降法，梯度就是目标函数的一阶信息。二阶法也称为牛顿法，Hessian矩阵就是目标函数的二阶信息。二阶法的收敛速度一般要远快于一阶法，但是在高维情况下，Hessian矩阵求逆的计算复杂度很大，而且当目标函数非凸时，二阶法有可能会收敛到鞍点（Saddle Point）。</p>
+<h2 id="4-梯度下降法。"><a href="#4-梯度下降法。" class="headerlink" title="4 梯度下降法。"></a>4 梯度下降法。</h2><p>梯度下降法是求解无约束最优化问题的一种常用方法，它是一种迭代算法，每一步需要求解目标函数的梯度向量，选取适当的初始值进行迭代，由于负梯度方向是使函数值下降最快的方向，在迭代的每一步中，以负梯度方向按规定步长更新x的值，从而达到函数的局部极小值。相反如果向正梯度方向进行搜索，则会达到函数的局部极大值点，这个过程被称为梯度上升法。</p>
+<p>Note</p>
+<ul>
+<li>梯度：一阶导数信息</li>
+<li>Hessian矩阵：二阶导数信息</li>
+<li>梯度下降的缺点：当变量没有归一化，变量值处于不同的量级，它的梯度图是一个狭长的椭圆时，梯度下降算法的迭代方向会呈现一种锯齿现象，其并不能朝着极小值点径直优化，所以它的迭代次数很多，收敛速度很慢。这是由于非线性函数局部的梯度方向并不一定就是朝着最优点。</li>
+<li>训练大规模神经网络时，因为有上万的参数，所以梯度下降法是比较有效的，因为梯度下降法的梯度算符向量规模为n，而Hessian矩阵存储的规模就为n^2，同时梯度的计算量也比Hessian矩阵小得多。</li>
+</ul>
+<h2 id="5-梯度下降法存在的问题"><a href="#5-梯度下降法存在的问题" class="headerlink" title="5 梯度下降法存在的问题"></a>5 梯度下降法存在的问题</h2><p>经典的梯度下降法采用所有训练数据的平均损失来近似目标函数，在每次对模型参数进行更新时，需要遍历所有的训练数据。当M很大时，这需要很大的计算量，耗费很长的计算时间，在实际应用中基本不可行。</p>
+<p>为了解决该问题，随机梯度下降法（Stochastic Gradient Descent，SGD）用单个训练样本的损失来近似平均损失，用单个训练数据即可对模型参数进行一次更新，大大加快了收敛速率。该方法也非常适用于数据源源不断到来的在线更新场景。</p>
+<h2 id="6-梯度下降法找到的一定是下降最快的方向吗"><a href="#6-梯度下降法找到的一定是下降最快的方向吗" class="headerlink" title="6 梯度下降法找到的一定是下降最快的方向吗"></a>6 梯度下降法找到的一定是下降最快的方向吗</h2><p>梯度下降法并不是全局下降最快的方向，它只是目标函数在当前的点的切平面上下降最快的方向，即在局部是下降最快，但在全局不是，所以梯度下降不一定能找到全局的最优解。当然，如果我们的损失函数是凸函数，梯度下降法得到的解就一定是全局最优解。</p>
+<h2 id="7-随机梯度下降法的问题和挑战"><a href="#7-随机梯度下降法的问题和挑战" class="headerlink" title="7 随机梯度下降法的问题和挑战"></a>7 随机梯度下降法的问题和挑战</h2><p>随机梯度下降法每一次更新只使用一个样本，需要更新很多次，它的最大的缺点在于每次更新可能并不会按照正确的方向进行，可能带来波动，使得最后的结果不是全局最优解。但是优点是训练速度很快，并且可以进行在线更新。 不过从另一个方面来看，随机梯度下降所带来的波动有个好处就是，对于类似盆地区域（即有很多局部极小值点），那么这个波动的特点可能会使优化的方向从当前的局部极小值点调到另一个局部极小值点，这样便可能对于非凸函数最终收敛到一个比较好的局部极值点，甚至是全局极值点。由于波动，会使迭代次数增多，即收敛速度变慢。</p>
+<p>梯度下降法分类：</p>
+<ul>
+<li>批梯度下降法：原始的梯度下降法，使用全部数据计算梯度，速度比较慢，需要较大内存，不允许在线更新模型。</li>
+<li>随机梯度下降法：每次梯度计算只使用一个样本。避免在类似样本上计算梯度造成的冗余计算，增加了跳出当前的局部最小值的潜力，在逐渐缩小学习率的情况下，有与批梯度下降法类似的收敛速度。</li>
+<li>小批量随机梯度下降法：每次梯度计算使用一个小批量样本。梯度计算比单样本更加稳定，可以很好的利用现成的高度优化的矩阵运算工具。主要遇到的困难：<ul>
+<li>如何选取参数m？在不同的应用中，最优的m通常会不一样，需要通过调参选取。一般m取2的幂次时能充分利用矩阵运算操作，所以可以在2的幂次中挑选最优的取值，例如32、64、128、256等。</li>
+<li>如何挑选m个训练数据？为了避免数据的特定顺序给算法收敛带来的影响，一般会在每次遍历训练数据之前，先对所有的数据进行随机排序，然后在每次迭代时按顺序挑选m个训练数据直至遍历完所有的数据。</li>
+<li>选择适当的学习率比较困难，太小的学习率会导致收敛缓慢，而学习速度太快会造成较大波动，可能会跳过全局最优点，通常会采用衰减学习速率的方案：一开始算法采用较大的学习速率，当误差曲线进入平台期后，减小学习速率做更精细的调整。最优的学习速率方案也通常需要调参才能得到。</li>
+</ul>
+</li>
+</ul>
+<h2 id="8-随机梯度下降法失效的原因—摸着石头下山。"><a href="#8-随机梯度下降法失效的原因—摸着石头下山。" class="headerlink" title="8 随机梯度下降法失效的原因—摸着石头下山。"></a>8 随机梯度下降法失效的原因—摸着石头下山。</h2><p>为了回答这个问题，我们先做一个形象的比喻。想象一下，你正在下山，视力很好，能看清自己所处位置的坡度，那么沿着坡向下走，最终你会走到山底。如果你被蒙上双眼，只能凭脚底踩石头的感觉判断当前位置的坡度，精确性就大大下降，有时候你认为的坡，实际上可能并不是坡，走上一段时间发现没有下山，或者曲曲折折走了好多弯路才下山。类似地，批量（原始）梯度下降法（Batch Gradient Descent，BGD）就好比正常下山，而随机梯度下降法就好比蒙着眼睛下山。</p>
+<p>为了获取准确的梯度，批量梯度下降法的每一步都把整个训练集载入进来进行计算，时间花费和内存开销都非常大，无法应用于大数据集、大模型的场景。相反，随机梯度下降法则放弃了对梯度准确性的追求，每步仅仅随机采样一个（或少量）样本来估计当前梯度，计算速度快，内存开销小。但由于每步接受的信息量有限，随机梯度下降法对梯度的估计常常出现偏差，造成目标函数曲线收敛得很不稳定，伴有剧烈波动，有时甚至出现不收敛的情况。</p>
+<h2 id="9-山谷和鞍点"><a href="#9-山谷和鞍点" class="headerlink" title="9 山谷和鞍点"></a>9 山谷和鞍点</h2><p>对随机梯度下降法来说，可怕的不是局部最优点，而是山谷和鞍点两类地形。</p>
+<ul>
+<li>山谷顾名思义就是狭长的山间小道，左右两边是峭壁；鞍点的形状像是一个马鞍，一个方向上两头翘，另一个方向上两头垂，而中心区域是一片近乎水平的平地。为什么随机梯度下降法最害怕遇上这两类地形呢？在山谷中，准确的梯度方向是沿山道向下，稍有偏离就会撞向山壁，而粗糙的梯度估计使得它在两山壁间来回反弹震荡，不能沿山道方向迅速下降，导致收敛不稳定和收敛速度慢。</li>
+<li>在鞍点处，随机梯度下降法会走入一片平坦之地（此时离最低点还很远，故也称plateau）。想象一下蒙着双眼只凭借脚底感觉坡度，如果坡度很明显，那么基本能估计出下山的大致方向；如果坡度不明显，则很可能走错方向。同样，在梯度近乎为零的区域，随机梯度下降法无法准确察觉出梯度的微小变化，结果就停滞下来。</li>
+</ul>
+<h2 id="10-改进随机梯度下降法-惯性保持和环境感知"><a href="#10-改进随机梯度下降法-惯性保持和环境感知" class="headerlink" title="10 改进随机梯度下降法-惯性保持和环境感知"></a>10 改进随机梯度下降法-惯性保持和环境感知</h2><ul>
+<li>动量法Momentum</li>
+</ul>
+<p>SGD的一个缺点是其更新方向完全依赖于当前batch计算出的梯度，因而十分不稳定。Momentum借用了物理中的动量概念，模拟物体运动时的惯性，在更新的时候在一定程度上保留之前更新的方向，同时利用当前批次的梯度微调最终的更新方向。可以增加稳定性，加快收敛速度，具有一定摆脱局部最优（山谷震荡和鞍点停滞）的能力。</p>
+<p>为了解决随机梯度下降法山谷震荡和鞍点停滞的问题，我们做一个简单的思维实验。想象一下纸团在山谷和鞍点处的运动轨迹，在山谷中纸团受重力作用沿山道滚下，两边是不规则的山壁，纸团不可避免地撞在山壁，由于质量小受山壁弹力的干扰大，从一侧山壁反弹回来撞向另一侧山壁，结果来回震荡地滚下；如果当纸团来到鞍点的一片平坦之地时，还是由于质量小，速度很快减为零。纸团的情况和随机梯度下降法遇到的问题简直如出一辙。直观地，如果换成一个铁球，当沿山谷滚下时，不容易受到途中旁力的干扰，轨迹会更稳更直；当来到鞍点中心处，在惯性作用下继续前行，从而有机会冲出这片平坦的陷阱。</p>
+<p>自适应学习率的方法：</p>
+<ul>
+<li>AdaGrad算法</li>
+</ul>
+<p>对出现频率较低的参数采用较大的学习率更新，相反，对出现频率较高的参数采用较小的学习率更新。非常适合处理稀疏数据。随机梯度下降法对环境的感知是指在参数空间中，根据不同参数的一些经验性判断，自适应地确定参数的学习速率，不同参数的更新步幅是不同的。例如，在文本处理中训练词嵌入模型的参数时，有的词或词组频繁出现，有的词或词组则极少出现。数据的稀疏性导致相应参数的梯度的稀疏性，不频繁出现的词或词组的参数的梯度在大多数情况下为零，从而这些参数被更新的频率很低。在应用中，我们希望更新频率低的参数可以拥有较大的更新步幅，而更新频率高的参数的步幅可以减小。AdaGrad方法采用“历史梯度平方和”来衡量不同参数的梯度的稀疏性，取值越小表明越稀疏。意味着随着时间推移，学习速率越来越小，从而保证了算法的最终收敛。</p>
+<ul>
+<li>Adam算法</li>
+</ul>
+<p>Adaptive Moment Estimation，Adam方法将惯性保持和环境感知这两个优点集于一身。一方面，Adam记录梯度的一阶矩（first moment），即过往梯度与当前梯度的平均，这体现了惯性保持；另一方面，Adam还记录梯度的二阶矩（second moment），即过往梯度平方与当前梯度平方的平均，这类似AdaGrad方法，体现了环境感知能力，为不同参数产生自适应的学习速率。一阶矩和二阶矩采用类似于滑动窗口内求平均的思想进行融合，即当前梯度和近一段时间内梯度的平均值，时间久远的梯度对当前平均值的贡献呈指数衰减。具体来说，一阶矩和二阶矩采用指数衰退平均。</p>
+<p>除了上述三种随机梯度下降法变种，研究者还提出了以下几种方法。</p>
+<ul>
+<li>Nesterov Accelerated Gradient。该方法扩展了动量方法，顺着惯性方向，计算未来可能位置处的梯度而非当前位置的梯度，这个“提前量”的设计让算法有了对前方环境预判的能力。</li>
+<li>AdaDelta和RMSProp。这两个方法非常类似，是对AdaGrad方法的改进。AdaGrad方法采用所有历史梯度平方和的平方根做分母，分母随时间单调递增，产生的自适应学习速率随时间衰减的速度过于激进。针对这个问题，AdaDelta和RMSProp采用指数衰退平均的计算方法，用过往梯度的均值代替它们的求和。</li>
+<li>AdaMax。该方法是基于Adam方法的一个变种方法，对梯度平方的处理由指数衰退平均改为指数衰退求最大值。</li>
+</ul>
+<h2 id="11-牛顿法和梯度下降法的区别"><a href="#11-牛顿法和梯度下降法的区别" class="headerlink" title="11 牛顿法和梯度下降法的区别"></a>11 牛顿法和梯度下降法的区别</h2><p>牛顿法是一个使用了Hessian矩阵求权重的二阶算法，它的目标就是采用损失函数的二阶偏导数寻找更好的训练方向，它比一阶收敛的梯度下降法只要更少的迭代次数就能下降到损失函数的极小值，因此函数收敛速度大幅加快。但是每一步需要求解目标函数的Hessian矩阵的逆矩阵，计算比较复杂，可以使用拟牛顿法通过正定矩阵近似Hessian矩阵的逆矩阵，简化了计算过程。</p>
+<p>牛顿法对初始值有一定的要求，因为牛顿法步长会越来越小，非凸问题容易陷入鞍点，而梯度下降法对初始点没有太强的要求，容易逃离鞍点。</p>
+<p>从应用场景来看，牛顿法适用于维度较小的场景，梯度下降法可以用于维度较大的场景。</p>
+<h2 id="12-拟牛顿法"><a href="#12-拟牛顿法" class="headerlink" title="12 拟牛顿法"></a>12 拟牛顿法</h2><p>拟牛顿法的本质思想是改善牛顿法在每次迭代中需要求解复杂的Hessian矩阵的逆矩阵的缺陷，使用了正定矩阵来近似Hessian矩阵的逆，从而简化了运算复杂度（从O(N^3)下降到O(N^2)），拟牛顿法和梯度下降法一样只要求在每一步迭代时知道目标函数的梯度，通过测量梯度的变化，构造一个目标函数的模型使之足以产生超线性的收敛。另外因为拟牛顿法不需要二阶导数信息，所以比牛顿法更为高效。</p>
+<h2 id="13-共轭梯度法"><a href="#13-共轭梯度法" class="headerlink" title="13 共轭梯度法"></a>13 共轭梯度法</h2><p>共轭梯度法是介于梯度下降法和牛顿法之间的一个方法，它仅需一阶导数信息，但克服了梯度下降法收敛慢的缺点，又避免了牛顿法需要存储和计算Hessian矩阵并求逆的缺点，共轭梯度法所需存储量小，沿着共轭方向进行搜索的，通常比沿着梯度方向更快收敛。</p>
+<h2 id="14-对所有优化问题来说，有没有可能找到比现在已知算法更好的算法"><a href="#14-对所有优化问题来说，有没有可能找到比现在已知算法更好的算法" class="headerlink" title="14 对所有优化问题来说，有没有可能找到比现在已知算法更好的算法"></a>14 对所有优化问题来说，有没有可能找到比现在已知算法更好的算法</h2><p>对于训练样本，不同的算法在不同的测试样本会有不同的表现，这表示对于一个学习算法A，若它在某些问题上比学习算法B更好，则必然存在一些问题，在那里B比A好，也就是说对于所有问题，无论A算法多好，B算法多差，它们的期望性能是相同的，但是这个结论的前提是假设所有问题出现的几率相同，但是在实际应用中，不同的场景，会有不同的问题分布，在优化算法时，需要针对具体问题进行分析。</p>
+<p>Note</p>
+<ul>
+<li>没有免费的午餐定理：没有一种机器学习算法时适用于所有情况的，对于所有机器学习问题，任何算法（包括瞎猜）的期望效果都是一样的。前提：所有机器学习问题都是同等重要的。</li>
+<li>奥卡姆剃刀定理：若有多个假设与观察一致，则选择最简单的那个，也就是说简单的就是最好的。</li>
+</ul>
+<p> </p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Qiancun Huang WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Qiancun Huang Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    Qiancun Huang
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="http://huangqiancun.github.io/2019/05/17/机器学习-优化算法/" title="机器学习-优化算法">http://huangqiancun.github.io/2019/05/17/机器学习-优化算法/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/17/机器学习-采样/" rel="next" title="机器学习-采样">
+                <i class="fa fa-chevron-left"></i> 机器学习-采样
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/03/ProjectExperience-BuildingEnergyStarScorePrediction/" rel="prev" title="Machine Learning Project - 建筑物能源之星分数预测">
+                Machine Learning Project - 建筑物能源之星分数预测 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+	
+	
+  
+  
+  
+  </article>
+  <div>
+		
+			<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------------The End------------</div>
+    
+</div>
+		
+	</div>
+	
+ 
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/photo.jpg" alt="Qiancun Huang">
+            
+              <p class="site-author-name" itemprop="name">Qiancun Huang</p>
+              <p class="site-description motion-element" itemprop="description">A second-year graduate student in Southeast University</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">57</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/huangqiancun?tab=repositories" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto://huangqiancun@foxmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-有监督学习涉及的损失函数有哪些"><span class="nav-text">1 有监督学习涉及的损失函数有哪些</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-机器学习中的优化问题，哪些是凸优化问题，哪些是非凸优化问题？"><span class="nav-text">2 机器学习中的优化问题，哪些是凸优化问题，哪些是非凸优化问题？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-无约束优化问题的优化方法"><span class="nav-text">3 无约束优化问题的优化方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-梯度下降法。"><span class="nav-text">4 梯度下降法。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-梯度下降法存在的问题"><span class="nav-text">5 梯度下降法存在的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-梯度下降法找到的一定是下降最快的方向吗"><span class="nav-text">6 梯度下降法找到的一定是下降最快的方向吗</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-随机梯度下降法的问题和挑战"><span class="nav-text">7 随机梯度下降法的问题和挑战</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-随机梯度下降法失效的原因—摸着石头下山。"><span class="nav-text">8 随机梯度下降法失效的原因—摸着石头下山。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-山谷和鞍点"><span class="nav-text">9 山谷和鞍点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-改进随机梯度下降法-惯性保持和环境感知"><span class="nav-text">10 改进随机梯度下降法-惯性保持和环境感知</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-牛顿法和梯度下降法的区别"><span class="nav-text">11 牛顿法和梯度下降法的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-拟牛顿法"><span class="nav-text">12 拟牛顿法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-共轭梯度法"><span class="nav-text">13 共轭梯度法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-对所有优化问题来说，有没有可能找到比现在已知算法更好的算法"><span class="nav-text">14 对所有优化问题来说，有没有可能找到比现在已知算法更好的算法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qiancun Huang</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">483.9k</span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+
+</body>
+</html>
