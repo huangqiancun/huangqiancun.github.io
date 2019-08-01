@@ -101,7 +101,7 @@
 
 
 
-  <meta name="keywords" content="机器学习,数据竞赛,">
+  <meta name="keywords" content="剑指offer,算法题解,">
 
 
 
@@ -114,29 +114,18 @@
 
 
 
-<meta name="description" content="前言模型融合主要方法有Voting，Averaging，Bagging，Boosting，Stacking几种方法，本文重点介绍Stacking方法。 1 Voting主要用于分类问题。简单投票，相对多数投票，绝对对数投票。 2 Averaging主要用于回归问题。简单平均，加权平均。 3 BaggingBagging就是采用有放回的方式进行抽样，用抽样的样本建立子模型，对子模型进行训练，这个过程">
-<meta name="keywords" content="机器学习,数据竞赛">
+<meta name="description" content="本系列为剑指offer刷题笔记，刷题平台为牛客网。 本文主要是回溯相关题目题解总结。 [TOC] 65.矩阵中的路径题目描述请设计一个函数，用来判断在一个矩阵中是否存在一条包含某字符串所有字符的路径。路径可以从矩阵中的任意一个格子开始，每一步可以在矩阵中向左，向右，向上，向下移动一个格子。如果一条路径经过了矩阵中的某一个格子，则之后不能再次进入这个格子。 例如 a b c e s f c s a">
+<meta name="keywords" content="剑指offer,算法题解">
 <meta property="og:type" content="article">
-<meta property="og:title" content="机器学习-模型融合">
-<meta property="og:url" content="http://huangqiancun.github.io/2019/05/15/机器学习-模型融合/index.html">
+<meta property="og:title" content="剑指offer题解 - 回溯">
+<meta property="og:url" content="http://huangqiancun.github.io/2019/06/15/剑指offer-回溯/index.html">
 <meta property="og:site_name" content="I&#39;m Qiancun Huang">
-<meta property="og:description" content="前言模型融合主要方法有Voting，Averaging，Bagging，Boosting，Stacking几种方法，本文重点介绍Stacking方法。 1 Voting主要用于分类问题。简单投票，相对多数投票，绝对对数投票。 2 Averaging主要用于回归问题。简单平均，加权平均。 3 BaggingBagging就是采用有放回的方式进行抽样，用抽样的样本建立子模型，对子模型进行训练，这个过程">
+<meta property="og:description" content="本系列为剑指offer刷题笔记，刷题平台为牛客网。 本文主要是回溯相关题目题解总结。 [TOC] 65.矩阵中的路径题目描述请设计一个函数，用来判断在一个矩阵中是否存在一条包含某字符串所有字符的路径。路径可以从矩阵中的任意一个格子开始，每一步可以在矩阵中向左，向右，向上，向下移动一个格子。如果一条路径经过了矩阵中的某一个格子，则之后不能再次进入这个格子。 例如 a b c e s f c s a">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-模型融合/1.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-模型融合/2.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-模型融合/3.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-模型融合/4.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-模型融合/5.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-模型融合/6.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-模型融合/7.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-模型融合/8.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-模型融合/9.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-模型融合/10.png">
-<meta property="og:updated_time" content="2019-07-27T17:14:21.561Z">
+<meta property="og:updated_time" content="2019-07-28T01:30:45.035Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="机器学习-模型融合">
-<meta name="twitter:description" content="前言模型融合主要方法有Voting，Averaging，Bagging，Boosting，Stacking几种方法，本文重点介绍Stacking方法。 1 Voting主要用于分类问题。简单投票，相对多数投票，绝对对数投票。 2 Averaging主要用于回归问题。简单平均，加权平均。 3 BaggingBagging就是采用有放回的方式进行抽样，用抽样的样本建立子模型，对子模型进行训练，这个过程">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-模型融合/1.png">
+<meta name="twitter:title" content="剑指offer题解 - 回溯">
+<meta name="twitter:description" content="本系列为剑指offer刷题笔记，刷题平台为牛客网。 本文主要是回溯相关题目题解总结。 [TOC] 65.矩阵中的路径题目描述请设计一个函数，用来判断在一个矩阵中是否存在一条包含某字符串所有字符的路径。路径可以从矩阵中的任意一个格子开始，每一步可以在矩阵中向左，向右，向上，向下移动一个格子。如果一条路径经过了矩阵中的某一个格子，则之后不能再次进入这个格子。 例如 a b c e s f c s a">
 
 
 
@@ -166,13 +155,13 @@
 
 
 
-  <link rel="canonical" href="http://huangqiancun.github.io/2019/05/15/机器学习-模型融合/">
+  <link rel="canonical" href="http://huangqiancun.github.io/2019/06/15/剑指offer-回溯/">
 
 
 
 
 
-  <title>机器学习-模型融合 | I'm Qiancun Huang</title>
+  <title>剑指offer题解 - 回溯 | I'm Qiancun Huang</title>
   
 
 
@@ -341,7 +330,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://huangqiancun.github.io/2019/05/15/机器学习-模型融合/">
+    <link itemprop="mainEntityOfPage" href="http://huangqiancun.github.io/2019/06/15/剑指offer-回溯/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Qiancun Huang">
@@ -358,7 +347,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">机器学习-模型融合</h1>
+          <h1 class="post-title" itemprop="name headline">剑指offer题解 - 回溯</h1>
         
 
         <div class="post-meta">
@@ -370,8 +359,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-15T00:55:14+08:00">
-                2019-05-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-15T00:54:14+08:00">
+                2019-06-15
               </time>
             
 
@@ -386,7 +375,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-07-28T01:14:21+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2019-07-28T09:30:45+08:00">
                 2019-07-28
               </time>
             
@@ -405,8 +394,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
+                  <a href="/categories/剑指offer/" itemprop="url" rel="index">
+                    <span itemprop="name">剑指offer</span>
                   </a>
                 </span>
 
@@ -436,7 +425,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  1.3k
+                  1.1k
                 </span>
               
 
@@ -462,47 +451,18 @@
       
 
       
-        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>模型融合主要方法有Voting，Averaging，Bagging，Boosting，Stacking几种方法，本文重点介绍Stacking方法。</p>
-<h4 id="1-Voting"><a href="#1-Voting" class="headerlink" title="1 Voting"></a>1 Voting</h4><p>主要用于分类问题。简单投票，相对多数投票，绝对对数投票。</p>
-<h4 id="2-Averaging"><a href="#2-Averaging" class="headerlink" title="2 Averaging"></a>2 Averaging</h4><p>主要用于回归问题。简单平均，加权平均。</p>
-<h4 id="3-Bagging"><a href="#3-Bagging" class="headerlink" title="3 Bagging"></a>3 Bagging</h4><p>Bagging就是采用有放回的方式进行抽样，用抽样的样本建立子模型，对子模型进行训练，这个过程可以并行重复多次，最后进行融合。大概分为这样两步：</p>
-<ul>
-<li>重复K次<ul>
-<li>有放回地重复抽样建模</li>
-<li>训练子模型</li>
-</ul>
-</li>
-<li>模型融合<ul>
-<li>分类问题：voting</li>
-<li>回归问题：average</li>
-</ul>
-</li>
-</ul>
-<p>Bagging算法不用我们自己实现，随机森林就是基于Bagging算法的一个典型例子，采用的基分类器是决策树。</p>
-<h4 id="4-Boosting"><a href="#4-Boosting" class="headerlink" title="4 Boosting"></a>4 Boosting</h4><p>Bagging算法可以并行处理，而Boosting的思想是一种迭代的方法，每一次训练的时候都更加关心分类错误的样例，给这些分类错误的样例增加更大的权重，下一次迭代的目标就是能够更容易辨别出上一轮分类错误的样例。最终将这些弱分类器进行加权相加。</p>
-<p>基于Boosting思想的有AdaBoost、GBDT等。</p>
-<h4 id="5-Stacking"><a href="#5-Stacking" class="headerlink" title="5 Stacking"></a>5 Stacking</h4><p>先从不太严谨但好理解的Stacking方法说起。<br>Stacking模型本质上是一种分层的结构，这里简单起见，只分析二级Stacking.假设我们有3个基模型M1、M2、M3。</p>
-<ol>
-<li><p>基模型M1，对训练集train训练，然后用于预测train和test的标签列，分别是P1，T1<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-模型融合/1.png" alt="mark"><br>对于M2和M3，重复相同的工作，这样也得到P2，T2, P3, T3。</p>
-</li>
-<li><p>分别把P1,P2,P3以及T1,T2,T3合并，得到一个新的训练集和测试集train2,test2.<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-模型融合/2.png" alt="mark"></p>
-</li>
-<li><p>再用第二层的模型M4训练train2,预测test2,得到最终的标签列。<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-模型融合/3.png" alt="mark"></p>
-</li>
-</ol>
-<p>Stacking本质上就是这么直接的思路，但是这样肯定是不行的，问题在于P1的得到是有问题的，用整个训练集训练的模型反过来去预测训练集的标签，毫无疑问过拟合是非常非常严重的.</p>
-<p>因此现在的问题变成了如何在解决过拟合的前提下得到P1、P2、P3，这就变成了熟悉的节奏——K折交叉验证。我们以2折交叉验证得到P1为例,假设训练集为4行3列.<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-模型融合/4.png" alt="mark"><br>将其划分为2部分<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-模型融合/5.png" alt="mark"><br>用traina训练模型M1，然后在trainb上进行预测得到preb3和pred4<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-模型融合/6.png" alt="mark"><br>在trainb上训练模型M1，然后在traina上进行预测得到pred1和pred2<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-模型融合/7.png" alt="mark"><br>然后把两个预测集进行拼接<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-模型融合/8.png" alt="mark"><br>对于测试集T1的得到，有两种方法。注意到刚刚是2折交叉验证，M1相当于训练了2次，所以一种方法是每一次训练M1，可以直接对整个test进行预测，这样2折交叉验证后测试集相当于预测了2次，然后对这两列求平均得到T1。或者直接对测试集只用M1预测一次直接得到T1。</p>
-<p>P1、T1得到之后，P2、T2、P3、T3也就是同样的方法。理解了2折交叉验证，对于K折的情况也就理解也就非常顺利了。<br>所以最终的代码是两层循环，第一层循环控制基模型的数目，每一个基模型要这样去得到P1，T1，第二层循环控制的是交叉验证的次数K，对每一个基模型，会训练K次最后拼接得到P1，取平均得到T1。</p>
-<p>网上流传的这张图极具误导性。图里显示每个模型只做一次交叉验证。<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-模型融合/9.png" alt="mark"></p>
-<p>实际上对于每一轮的 5-fold，Model 1都要做满5次的训练和预测。<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-模型融合/10.png" alt="mark"></p>
-<ul>
-<li>Stacking核心代码实例，对lgb，RF两个模型使用LR进行Stacking：</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">lgb_train</span><span class="params">(x_train, test, label, l)</span>:</span></span><br><span class="line">    skf = StratifiedKFold(n_splits=<span class="number">5</span>, shuffle=<span class="keyword">True</span>, random_state=<span class="number">2333</span>)</span><br><span class="line">    prob_oof = np.zeros(train.shape[<span class="number">0</span>])</span><br><span class="line">    test_pred = np.zeros(test.shape[<span class="number">0</span>])</span><br><span class="line">    <span class="keyword">for</span> i, (trn_idx, val_idx) <span class="keyword">in</span> enumerate(skf.split(x_train, label)):</span><br><span class="line">        print(i+<span class="number">1</span>, <span class="string">'fold...'</span>)</span><br><span class="line">        t = time.time()</span><br><span class="line">        trn_data = lgb.Dataset(x_train.iloc[trn_idx],  label = label.iloc[trn_idx])</span><br><span class="line">        val_data = lgb.Dataset(x_train.iloc[val_idx], label = label.iloc[val_idx])</span><br><span class="line">        num_round = <span class="number">10000</span></span><br><span class="line">        clf=lgb.train(params,trn_data,num_round, valid_sets=[trn_data,val_data],</span><br><span class="line">        early_stopping_rounds=<span class="number">200</span>, verbose_eval=<span class="number">500</span>)</span><br><span class="line">        prob_oof[val_idx] = clf.predict(x_train.iloc[val_idx],num_iteration=clf.best_iteration)</span><br><span class="line">        test_pred += clf.predict(test, num_iteration=clf.best_iteration) / skf.n_splits</span><br><span class="line">        print(<span class="string">'auc :'</span>,roc_auc_score(label[val_idx], prob_oof[val_idx]))</span><br><span class="line">        print(<span class="string">'runtime: &#123;&#125;\n'</span>.format(time.time() - t))</span><br><span class="line">    auc = roc_auc_score(label, prob_oof)</span><br><span class="line">    print(<span class="string">'auc_:'</span>+str(l)+<span class="string">':'</span>,auc)</span><br><span class="line">    <span class="keyword">return</span> test_pred, auc, clf, prob_oof</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">RF_train</span><span class="params">(x_train, test, label, l)</span>:</span></span><br><span class="line">    skf = StratifiedKFold(n_splits=<span class="number">5</span>, shuffle=<span class="keyword">True</span>, random_state=<span class="number">2333</span>)</span><br><span class="line">    prob_oof = np.zeros(train.shape[<span class="number">0</span>])</span><br><span class="line">    test_pred = np.zeros(test.shape[<span class="number">0</span>])</span><br><span class="line">    <span class="keyword">for</span> i, (trn_idx, val_idx) <span class="keyword">in</span> enumerate(skf.split(x_train, label)):</span><br><span class="line">        print(i+<span class="number">1</span>, <span class="string">'fold...'</span>)</span><br><span class="line">        t = time.time()</span><br><span class="line">        clf = RandomForestClassifier(n_estimators = <span class="number">1000</span>, n_jobs = <span class="number">-1</span>)</span><br><span class="line">        clf.fit(x_train.loc[trn_idx],label.iloc[trn_idx])</span><br><span class="line">        prob_oof[val_idx] = clf.predict_proba(x_train.loc[val_idx])[:,<span class="number">1</span>]</span><br><span class="line">        test_pred += clf.predict_proba(test)[:,<span class="number">1</span>] / skf.n_splits</span><br><span class="line">        </span><br><span class="line">        print(<span class="string">'auc :'</span>,roc_auc_score(label[val_idx], prob_oof[val_idx]))</span><br><span class="line">        print(<span class="string">'runtime: &#123;&#125;\n'</span>.format(time.time() - t))</span><br><span class="line">    auc = roc_auc_score(label, prob_oof)</span><br><span class="line">    print(<span class="string">'auc_:'</span>+str(l)+<span class="string">':'</span>,auc)</span><br><span class="line">    <span class="keyword">return</span> test_pred, auc, clf, prob_oof </span><br><span class="line"></span><br><span class="line"><span class="comment"># 训练两个模型</span></span><br><span class="line">test_pred_lgb, auc_1, clf, train_pred_lgb = lgb_train(train, test, label_1, <span class="number">1</span>)</span><br><span class="line">test_pred_RF, auc_1_RF, clf_RF, train_pred_RF = RF_train(train, test, label_1, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Stacking</span></span><br><span class="line">x_train = np.concatenate(( train_pred_lgb, train_pred_RF), axis=<span class="number">1</span>)</span><br><span class="line">x_test = np.concatenate(( test_pred_lgb, test_pred_RF), axis=<span class="number">1</span>)</span><br><span class="line">print(x_train.shape, x_test.shape)</span><br><span class="line"></span><br><span class="line">logit_clf = LogisticRegression()</span><br><span class="line">logit_clf.fit(x_train, label_1)</span><br><span class="line">logit_pre = logit_clf.predict_proba(x_test)[:,<span class="number">1</span>]</span><br><span class="line">print(len(logit_pre))</span><br></pre></td></tr></table></figure>
-<ul>
-<li>参考文献<br><a href="https://zhuanlan.zhihu.com/p/25836678" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/25836678</a><br><a href="https://github.com/denotepython/my_kaggle/blob/master/titanic/python/%E6%A8%A1%E5%9E%8B%E8%9E%8D%E5%90%88%E4%B9%8B%E6%B3%B0%E5%9D%A6%E5%B0%BC%E5%85%8B.py" target="_blank" rel="noopener">https://github.com/denotepython/my_kaggle/blob/master/titanic/python/%E6%A8%A1%E5%9E%8B%E8%9E%8D%E5%90%88%E4%B9%8B%E6%B3%B0%E5%9D%A6%E5%B0%BC%E5%85%8B.py</a></li>
-</ul>
-
+        <p>本系列为剑指offer刷题笔记，刷题平台为<a href="https://www.nowcoder.com/ta/coding-interviews" target="_blank" rel="noopener">牛客网</a>。</p>
+<p>本文主要是<code>回溯</code>相关题目题解总结。</p>
+<p>[TOC]</p>
+<h2 id="65-矩阵中的路径"><a href="#65-矩阵中的路径" class="headerlink" title="65.矩阵中的路径"></a>65.矩阵中的路径</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/c61c6999eecb4b8f88a98f66b273a3cc?tpId=13&amp;tqId=11218&amp;rp=1&amp;ru=/ta/coding-interviews&amp;qru=/ta/coding-interviews/question-ranking" target="_blank" rel="noopener">题目描述</a></h3><p>请设计一个函数，用来判断在一个矩阵中是否存在一条包含某字符串所有字符的路径。路径可以从矩阵中的任意一个格子开始，每一步可以在矩阵中向左，向右，向上，向下移动一个格子。如果一条路径经过了矩阵中的某一个格子，则之后不能再次进入这个格子。 例如 a b c e s f c s a d e e 这样的3 X 4 矩阵中包含一条字符串”bcced”的路径，但是矩阵中不包含”abcb”路径，因为字符串的第一个字符b占据了矩阵中的第一行第二个格子之后，路径不能再次进入该格子。</p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>这是一个可以用回溯法解决的典型问题。</p>
+<p>首先，遍历这个矩阵，我们很容易就能找到与字符串str中第一个字符相同的矩阵元素ch。然后遍历ch的上下左右四个字符，如果有和字符串str中下一个字符相同的，就把那个字符当作下一个字符（下一次遍历的起点），如果没有，就需要回退到上一个字符，然后重新遍历。为了避免路径重叠，需要一个辅助矩阵来记录路径情况。</p>
+<p>下面代码中，当矩阵坐标为（row，col）的格子和路径字符串中下标为pathLength的字符一样时，从4个相邻的格子（row，col-1）、（row-1，col）、（row，col+1）以及（row+1，col）中去定位路径字符串中下标为pathLength+1的字符。</p>
+<p>如果4个相邻的格子都没有匹配字符串中下标为pathLength+1的字符，表明当前路径字符串中下标为pathLength的字符在矩阵中的定位不正确，我们需要回到前一个字符串（pathLength-1），然后重新定位。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">hasPath</span><span class="params">(self, matrix, rows, cols, path)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> len(matrix) == <span class="number">0</span> <span class="keyword">or</span> rows &lt;= <span class="number">0</span> <span class="keyword">or</span> cols &lt;= <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        <span class="keyword">if</span> len(path) == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">        </span><br><span class="line">        visited = [<span class="keyword">False</span>]*(rows*cols)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(rows):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(cols):</span><br><span class="line">                <span class="keyword">if</span> self.HasPath(matrix, rows, cols, path, i, j, visited, <span class="number">0</span>):</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">HasPath</span><span class="params">(self, matrix, rows, cols, path, i, j, visited, pathLen)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> pathLen == len(path):</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">        curHasPath = <span class="keyword">False</span></span><br><span class="line">        <span class="keyword">if</span> <span class="number">0</span> &lt;= i &lt; rows <span class="keyword">and</span> <span class="number">0</span> &lt;= j &lt; cols <span class="keyword">and</span> matrix[i*cols+j] == path[pathLen] <span class="keyword">and</span> <span class="keyword">not</span> visited[i*cols+j]:</span><br><span class="line">            visited[i*cols+j] = <span class="keyword">True</span></span><br><span class="line">            pathLen += <span class="number">1</span></span><br><span class="line">            curHasPath = self.HasPath(matrix, rows, cols, path, i+<span class="number">1</span>, j, visited, pathLen) <span class="keyword">or</span> self.HasPath(matrix, rows, cols, path, i<span class="number">-1</span>, j, visited, pathLen) <span class="keyword">or</span> self.HasPath(matrix, rows, cols, path, i, j+<span class="number">1</span>, visited, pathLen) <span class="keyword">or</span> self.HasPath(matrix, rows, cols, path, i, j<span class="number">-1</span>, visited, pathLen)</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> curHasPath:</span><br><span class="line">                pathLen -= <span class="number">1</span></span><br><span class="line">                visited[i*cols+j] = <span class="keyword">False</span></span><br><span class="line">        <span class="keyword">return</span> curHasPath</span><br></pre></td></tr></table></figure>
+<h2 id="66-机器人的运动范围"><a href="#66-机器人的运动范围" class="headerlink" title="66 机器人的运动范围"></a>66 机器人的运动范围</h2><h3 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/6e5207314b5241fb83f2329e89fdecc8?tpId=13&amp;tqId=11219&amp;rp=1&amp;ru=/ta/coding-interviews&amp;qru=/ta/coding-interviews/question-ranking" target="_blank" rel="noopener">题目描述</a></h3><p>地上有一个m行和n列的方格。一个机器人从坐标0,0的格子开始移动，每一次只能向左，右，上，下四个方向移动一格，但是不能进入行坐标和列坐标的数位之和大于k的格子。 例如，当k为18时，机器人能够进入方格（35,37），因为3+5+3+7 = 18。但是，它不能进入方格（35,38），因为3+5+3+8 = 19。请问该机器人能够达到多少个格子？</p>
+<h3 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h3><p>和上一道题十分相似，只不过这次的限制条件变成了坐标位数之和。对于求坐标位数之和，我们单独用一个函数实现，然后套入上一道题的代码中即可。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">movingCount</span><span class="params">(self, threshold, rows, cols)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        <span class="keyword">if</span> rows &lt;= <span class="number">0</span> <span class="keyword">or</span> cols &lt;= <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        visited = [<span class="keyword">False</span>]*(rows*cols)</span><br><span class="line">        <span class="keyword">return</span> self.moving(threshold, rows, cols, <span class="number">0</span>, <span class="number">0</span>, visited)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">moving</span><span class="params">(self, threshold, rows, cols, i, j, visited)</span>:</span></span><br><span class="line">        count = <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> <span class="number">0</span> &lt;= i &lt; rows <span class="keyword">and</span> <span class="number">0</span> &lt;= j &lt; cols <span class="keyword">and</span> self.getnum(i)+self.getnum(j) &lt;= threshold <span class="keyword">and</span> <span class="keyword">not</span> visited[i*cols+j]:</span><br><span class="line">            visited[i*cols+j] = <span class="keyword">True</span></span><br><span class="line">            count = <span class="number">1</span> + self.moving(threshold, rows, cols, i+<span class="number">1</span>, j, visited)+ \</span><br><span class="line">            self.moving(threshold, rows, cols, i<span class="number">-1</span>, j, visited) + \</span><br><span class="line">            self.moving(threshold, rows, cols, i, j+<span class="number">1</span>, visited) + \</span><br><span class="line">            self.moving(threshold, rows, cols, i, j<span class="number">-1</span>, visited)</span><br><span class="line">        <span class="keyword">return</span> count</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getnum</span><span class="params">(self, num)</span>:</span></span><br><span class="line">        res = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> num:</span><br><span class="line">            res += num%<span class="number">10</span></span><br><span class="line">            num //= <span class="number">10</span></span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -551,7 +511,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link:</strong>
-    <a href="http://huangqiancun.github.io/2019/05/15/机器学习-模型融合/" title="机器学习-模型融合">http://huangqiancun.github.io/2019/05/15/机器学习-模型融合/</a>
+    <a href="http://huangqiancun.github.io/2019/06/15/剑指offer-回溯/" title="剑指offer题解 - 回溯">http://huangqiancun.github.io/2019/06/15/剑指offer-回溯/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice: </strong>
@@ -566,9 +526,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+            <a href="/tags/剑指offer/" rel="tag"># 剑指offer</a>
           
-            <a href="/tags/数据竞赛/" rel="tag"># 数据竞赛</a>
+            <a href="/tags/算法题解/" rel="tag"># 算法题解</a>
           
         </div>
       
@@ -581,8 +541,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/15/机器学习-特征工程/" rel="next" title="机器学习-特征工程">
-                <i class="fa fa-chevron-left"></i> 机器学习-特征工程
+              <a href="/2019/06/15/剑指offer-递归/" rel="next" title="剑指offer题解 - 递归">
+                <i class="fa fa-chevron-left"></i> 剑指offer题解 - 递归
               </a>
             
           </div>
@@ -591,8 +551,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/05/15/机器学习-模型评估/" rel="prev" title="机器学习-模型评估">
-                机器学习-模型评估 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/06/15/剑指offer-字符串/" rel="prev" title="剑指offer题解 - 字符串">
+                剑指offer题解 - 字符串 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -689,7 +649,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">57</span>
+                  <span class="site-state-item-count">56</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -767,7 +727,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Voting"><span class="nav-text">1 Voting</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Averaging"><span class="nav-text">2 Averaging</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Bagging"><span class="nav-text">3 Bagging</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Boosting"><span class="nav-text">4 Boosting</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-Stacking"><span class="nav-text">5 Stacking</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#65-矩阵中的路径"><span class="nav-text">65.矩阵中的路径</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#66-机器人的运动范围"><span class="nav-text">66 机器人的运动范围</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-1"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路-1"><span class="nav-text">解题思路</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -802,7 +762,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">483.9k</span>
+    <span title="Site words total count">488.4k</span>
   
 </div>
 
@@ -1318,26 +1278,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
