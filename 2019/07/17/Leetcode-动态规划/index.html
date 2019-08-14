@@ -122,9 +122,6 @@
 <meta property="og:site_name" content="I&#39;m Qiancun Huang">
 <meta property="og:description" content="本系列为Leetcode刷题笔记，刷题平台为Leetcode中文站，刷题按Tag分类。本系列题解汇总如下 (持续更新…)： 本文主要是动态规划相关题目题解总结。 [TOC] 动态规划递归和动态规划都是将原问题拆成多个子问题然后求解，他们之间最本质的区别是动态规划保存了子问题的解，避免重复计算。 动态规划与分治算法类似，都是通过组合子问题的解来求解原问题的：    分治算法将问题划分为互不相关的子问">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://latex.codecogs.com/png.latex?dp[i][j]=1">
-<meta property="og:image" content="http://latex.codecogs.com/png.latex?dp[i][i] = 1">
-<meta property="og:image" content="http://latex.codecogs.com/png.latex?dp[j][i] = (s[i] == s[j]">
 <meta property="og:image" content="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/22/robot_maze.png">
 <meta property="og:image" content="http://latex.codecogs.com/png.latex?dp[i][i] = dp[i-1][j] + dp[i][j-1]">
 <meta property="og:image" content="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/22/robot_maze.png">
@@ -132,11 +129,11 @@
 <meta property="og:image" content="https://i.imgur.com/Dzls0uC.png">
 <meta property="og:image" content="https://leetcode.com/media/original_images/221_Maximal_Square.PNG?raw=true">
 <meta property="og:image" content="https://leetcode.com/static/images/courses/range_sum_query_2d.png">
-<meta property="og:updated_time" content="2019-07-27T16:58:21.000Z">
+<meta property="og:updated_time" content="2019-08-14T02:03:02.699Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode题解 - 动态规划">
 <meta name="twitter:description" content="本系列为Leetcode刷题笔记，刷题平台为Leetcode中文站，刷题按Tag分类。本系列题解汇总如下 (持续更新…)： 本文主要是动态规划相关题目题解总结。 [TOC] 动态规划递归和动态规划都是将原问题拆成多个子问题然后求解，他们之间最本质的区别是动态规划保存了子问题的解，避免重复计算。 动态规划与分治算法类似，都是通过组合子问题的解来求解原问题的：    分治算法将问题划分为互不相关的子问">
-<meta name="twitter:image" content="http://latex.codecogs.com/png.latex?dp[i][j]=1">
+<meta name="twitter:image" content="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/22/robot_maze.png">
 
 
 
@@ -386,8 +383,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-07-28T00:58:21+08:00">
-                2019-07-28
+              <time title="Post modified" itemprop="dateModified" datetime="2019-08-14T10:03:02+08:00">
+                2019-08-14
               </time>
             
           </span>
@@ -513,7 +510,7 @@
 <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>暴力解决<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">longestPalindrome</span><span class="params">(self, s)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type s: str</span></span><br><span class="line"><span class="string">        :rtype: str</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> len(s) &lt; <span class="number">2</span>:</span><br><span class="line">            <span class="keyword">return</span> s</span><br><span class="line">        maxlen = <span class="number">0</span></span><br><span class="line">        start = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(s)):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(i+<span class="number">1</span>, len(s)+<span class="number">1</span>):</span><br><span class="line">                <span class="keyword">if</span> s[i:j] == s[i:j][::<span class="number">-1</span>] <span class="keyword">and</span> j-i &gt; maxlen:</span><br><span class="line">                    maxlen = j-i</span><br><span class="line">                    start = i</span><br><span class="line">        <span class="keyword">if</span> maxlen &gt; <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> s[start:start+maxlen]</span><br><span class="line">        <span class="keyword">return</span> <span class="string">''</span></span><br></pre></td></tr></table></figure></p>
 <p>动态规划  </p>
 <p>动态规划有两个特点：将大问题拆解为小问题，利用之前的计算结果。</p>
-<p>例子：”babad”<br>新建dp二维数组,<br><img src="http://latex.codecogs.com/png.latex?dp[i][j]=1" alt="Image Eqution"><br>时则说明第i到第j为回文子串。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[[0,0,0,0,0],</span><br><span class="line">[0,0,0,0,0],</span><br><span class="line">[0,0,0,0,0],</span><br><span class="line">[0,0,0,0,0],</span><br><span class="line">[0,0,0,0,0]]</span><br></pre></td></tr></table></figure></p>
+<p>例子：”babad”<br>新建dp二维数组,<br>$dp[i][j]=1$<br>时则说明第i到第j为回文子串。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[[0,0,0,0,0],</span><br><span class="line">[0,0,0,0,0],</span><br><span class="line">[0,0,0,0,0],</span><br><span class="line">[0,0,0,0,0],</span><br><span class="line">[0,0,0,0,0]]</span><br></pre></td></tr></table></figure></p>
 <ul>
 <li>首先计算长度为1的子串，必定是回文；</li>
 <li>然后判断长度为2的子串，根据相等与否判断是否为回文；</li>
@@ -524,7 +521,7 @@
 </li>
 <li>一直遍历到长度最长的字符串。</li>
 </ul>
-<p>即当i=j+1时相邻是为长度为2的情况，当i-j &gt; 2时为长度为3的情况，递推式为：<br><img src="http://latex.codecogs.com/png.latex?dp[i][i] = 1" alt="Image Eqution"><br><img src="http://latex.codecogs.com/png.latex?dp[j][i] = (s[i] == s[j]" alt="Image Eqution"> &amp; (i-j&lt;=2 | dp[j + 1][i - 1]))</p>
+<p>即当i=j+1时相邻是为长度为2的情况，当i-j &gt; 2时为长度为3的情况，递推式为：<br>$dp[i][i] = 1$<br>$dp[j][i] = (s[i] == s[j]) \&amp; (i-j&lt;=2 | dp[j + 1][i - 1])$</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">longestPalindrome</span><span class="params">(self, s)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type s: str</span></span><br><span class="line"><span class="string">        :rtype: str</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> len(s) &lt; <span class="number">2</span>:</span><br><span class="line">            <span class="keyword">return</span> s</span><br><span class="line">        dp = [[<span class="number">0</span>]*len(s) <span class="keyword">for</span> _ <span class="keyword">in</span> range(len(s))]</span><br><span class="line">        start, end, maxlen = <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(s)):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(i):</span><br><span class="line">                dp[j][i] = (s[i]==s[j]) &amp; ((i-j&lt;=<span class="number">2</span>) | dp[j+<span class="number">1</span>][i<span class="number">-1</span>])</span><br><span class="line">                <span class="keyword">if</span> dp[j][i] <span class="keyword">and</span> maxlen &lt; i-j+<span class="number">1</span>:</span><br><span class="line">                    maxlen = i-j+<span class="number">1</span></span><br><span class="line">                    start = j</span><br><span class="line">                    end = i</span><br><span class="line">            dp[i][i] = <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> s[start:end+<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
 <h2 id="53-最大子序和"><a href="#53-最大子序和" class="headerlink" title="53. 最大子序和"></a>53. 最大子序和</h2><h3 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a><a href="https://leetcode-cn.com/problems/maximum-subarray/" target="_blank" rel="noopener">题目描述</a></h3><p>给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。</p>
 <p>示例:</p>
@@ -996,7 +993,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">56</span>
+                  <span class="site-state-item-count">57</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1109,7 +1106,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">488.4k</span>
+    <span title="Site words total count">491.3k</span>
   
 </div>
 
