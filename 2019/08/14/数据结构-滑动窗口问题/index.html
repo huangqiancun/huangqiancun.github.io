@@ -101,7 +101,7 @@
 
 
 
-  <meta name="keywords" content="机器学习,">
+  <meta name="keywords" content="数据结构,">
 
 
 
@@ -114,18 +114,18 @@
 
 
 
-<meta name="description" content="本文主要是机器学习-线性回归&amp;amp;逻辑回归&amp;amp;最大熵相关内容。 1 线性回归原理给定数据集，线性回归试图学得一个线性模型以尽可能准确地预测实值。求解线性回归模型参数的策略是使均方误差最小化，基于均方误差最小化来进行模型求解的方法称为”最小二乘法”。在线性回归中，最小二乘法就是试图找到一条直线，使所有样本到直线上的欧氏距离之和最小。 2 逻辑斯蒂回归原理逻辑斯蒂回归的基础是线性回归，但是线">
-<meta name="keywords" content="机器学习">
+<meta name="description" content="原始问题分析给定一个数组和滑动窗口的大小，找出所有滑动窗口里数值的最大值。常规解法：时间复杂度为$O(N * w)$，也就是每次对一个窗口都需要遍历其中的 w 个数，选出最大值。 $O(N)$解法：准备一个双端队列，双端队列存放着数组中的下标值。假设当前为 arr[i]，则放入规则如下：left 和 right 指针都只会向右移动，不会回退。   right 右滑，窗口加数：  1）如果 queu">
+<meta name="keywords" content="数据结构">
 <meta property="og:type" content="article">
-<meta property="og:title" content="机器学习-线性回归&amp;逻辑回归&amp;最大熵">
-<meta property="og:url" content="http://huangqiancun.github.io/2019/05/16/机器学习-线性回归&逻辑回归&最大熵/index.html">
+<meta property="og:title" content="数据结构-滑动窗口问题">
+<meta property="og:url" content="http://huangqiancun.github.io/2019/08/14/数据结构-滑动窗口问题/index.html">
 <meta property="og:site_name" content="I&#39;m Qiancun Huang">
-<meta property="og:description" content="本文主要是机器学习-线性回归&amp;amp;逻辑回归&amp;amp;最大熵相关内容。 1 线性回归原理给定数据集，线性回归试图学得一个线性模型以尽可能准确地预测实值。求解线性回归模型参数的策略是使均方误差最小化，基于均方误差最小化来进行模型求解的方法称为”最小二乘法”。在线性回归中，最小二乘法就是试图找到一条直线，使所有样本到直线上的欧氏距离之和最小。 2 逻辑斯蒂回归原理逻辑斯蒂回归的基础是线性回归，但是线">
+<meta property="og:description" content="原始问题分析给定一个数组和滑动窗口的大小，找出所有滑动窗口里数值的最大值。常规解法：时间复杂度为$O(N * w)$，也就是每次对一个窗口都需要遍历其中的 w 个数，选出最大值。 $O(N)$解法：准备一个双端队列，双端队列存放着数组中的下标值。假设当前为 arr[i]，则放入规则如下：left 和 right 指针都只会向右移动，不会回退。   right 右滑，窗口加数：  1）如果 queu">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-07-27T17:17:51.000Z">
+<meta property="og:updated_time" content="2019-08-14T13:41:51.276Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="机器学习-线性回归&amp;逻辑回归&amp;最大熵">
-<meta name="twitter:description" content="本文主要是机器学习-线性回归&amp;amp;逻辑回归&amp;amp;最大熵相关内容。 1 线性回归原理给定数据集，线性回归试图学得一个线性模型以尽可能准确地预测实值。求解线性回归模型参数的策略是使均方误差最小化，基于均方误差最小化来进行模型求解的方法称为”最小二乘法”。在线性回归中，最小二乘法就是试图找到一条直线，使所有样本到直线上的欧氏距离之和最小。 2 逻辑斯蒂回归原理逻辑斯蒂回归的基础是线性回归，但是线">
+<meta name="twitter:title" content="数据结构-滑动窗口问题">
+<meta name="twitter:description" content="原始问题分析给定一个数组和滑动窗口的大小，找出所有滑动窗口里数值的最大值。常规解法：时间复杂度为$O(N * w)$，也就是每次对一个窗口都需要遍历其中的 w 个数，选出最大值。 $O(N)$解法：准备一个双端队列，双端队列存放着数组中的下标值。假设当前为 arr[i]，则放入规则如下：left 和 right 指针都只会向右移动，不会回退。   right 右滑，窗口加数：  1）如果 queu">
 
 
 
@@ -155,13 +155,13 @@
 
 
 
-  <link rel="canonical" href="http://huangqiancun.github.io/2019/05/16/机器学习-线性回归&逻辑回归&最大熵/">
+  <link rel="canonical" href="http://huangqiancun.github.io/2019/08/14/数据结构-滑动窗口问题/">
 
 
 
 
 
-  <title>机器学习-线性回归&逻辑回归&最大熵 | I'm Qiancun Huang</title>
+  <title>数据结构-滑动窗口问题 | I'm Qiancun Huang</title>
   
 
 
@@ -330,7 +330,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://huangqiancun.github.io/2019/05/16/机器学习-线性回归&逻辑回归&最大熵/">
+    <link itemprop="mainEntityOfPage" href="http://huangqiancun.github.io/2019/08/14/数据结构-滑动窗口问题/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Qiancun Huang">
@@ -347,7 +347,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">机器学习-线性回归&逻辑回归&最大熵</h1>
+          <h1 class="post-title" itemprop="name headline">数据结构-滑动窗口问题</h1>
         
 
         <div class="post-meta">
@@ -359,8 +359,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-16T00:59:14+08:00">
-                2019-05-16
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-14T19:30:01+08:00">
+                2019-08-14
               </time>
             
 
@@ -375,8 +375,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-07-28T01:17:51+08:00">
-                2019-07-28
+              <time title="Post modified" itemprop="dateModified" datetime="2019-08-14T21:41:51+08:00">
+                2019-08-14
               </time>
             
           </span>
@@ -394,8 +394,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
                   </a>
                 </span>
 
@@ -425,7 +425,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  2.9k
+                  1.7k
                 </span>
               
 
@@ -451,50 +451,40 @@
       
 
       
-        <p>本文主要是<code>机器学习-线性回归&amp;逻辑回归&amp;最大熵</code>相关内容。</p>
-<h2 id="1-线性回归原理"><a href="#1-线性回归原理" class="headerlink" title="1 线性回归原理"></a>1 线性回归原理</h2><p>给定数据集，线性回归试图学得一个线性模型以尽可能准确地预测实值。求解线性回归模型参数的策略是使均方误差最小化，基于均方误差最小化来进行模型求解的方法称为”最小二乘法”。在线性回归中，最小二乘法就是试图找到一条直线，使所有样本到直线上的欧氏距离之和最小。</p>
-<h2 id="2-逻辑斯蒂回归原理"><a href="#2-逻辑斯蒂回归原理" class="headerlink" title="2 逻辑斯蒂回归原理"></a>2 逻辑斯蒂回归原理</h2><p>逻辑斯蒂回归的基础是线性回归，但是线性回归做的是回归任务，而逻辑斯蒂回归利用一个单调可微的函数将分类任务的真实标记与线性回归模型的预测值联系起来，学习的是分类任务。它的优点是直接对分类的可能性进行建模，所以它不仅可以预测出类别，还可以得到属于该类别的概率，这对于许多需要利用概率辅助决策的任务很有用；此外，Sigmoid函数是任意阶可导函数，具有很好的数学性质。逻辑斯蒂回归模型的参数估计中，使用梯度下降法进行学习，一般使用小批量的数据进行迭代优化。</p>
-<h2 id="3-LR为什么用的是sigmoid函数而不用阶跃函数"><a href="#3-LR为什么用的是sigmoid函数而不用阶跃函数" class="headerlink" title="3 LR为什么用的是sigmoid函数而不用阶跃函数"></a>3 LR为什么用的是sigmoid函数而不用阶跃函数</h2><p>阶跃函数虽然能够直观刻画分类的错误率，但是由于其非凸、非光滑的特点，使得算法很难直接对该函数进行优化。而sigmoid函数本身的特征（光滑无限阶可导），以及完美的映射到概率空间，就用于逻辑回归了。同时对于二分类问题来说，因为伯努利分布属于指数族分布，具有最大熵的性质。</p>
-<h2 id="4-线性回归和逻辑斯蒂的区别"><a href="#4-线性回归和逻辑斯蒂的区别" class="headerlink" title="4 线性回归和逻辑斯蒂的区别"></a>4 线性回归和逻辑斯蒂的区别</h2><p>首先，逻辑回归处理的是分类问题，线性回归处理的是回归问题，这是两者的最本质的区别，另外，线性回归的损失函数是最小平方误差，而逻辑斯蒂回归的损失函数为交叉熵损失函数，也就是最小对数似然损失。</p>
-<p>逻辑回归和线性回归的相同在于，首先我们可以认为二者都使用了极大似然估计来对训练样本进行建模。线性回归使用最小二乘法，实际上就是在自变量x与超参数θ确定，因变量y服从正态分布的假设下，使用极大似然估计的一个化简；而逻辑回归中通过对似然函数的学习，得到最佳参数θ。另外，二者在求解超参数的过程中，都可以使用梯度下降的方法，这也是监督学习中一个常见的相似之处。</p>
-<h2 id="5-当使用逻辑回归处理多标签的分类问题时，有哪些常见做法，分别应用于哪些场景，它们之间又有怎样的关系"><a href="#5-当使用逻辑回归处理多标签的分类问题时，有哪些常见做法，分别应用于哪些场景，它们之间又有怎样的关系" class="headerlink" title="5 当使用逻辑回归处理多标签的分类问题时，有哪些常见做法，分别应用于哪些场景，它们之间又有怎样的关系"></a>5 当使用逻辑回归处理多标签的分类问题时，有哪些常见做法，分别应用于哪些场景，它们之间又有怎样的关系</h2><ul>
-<li>首先，如果一个样本只对应于一个标签，我们可以假设每个样本属于不同标签的概率服从于几何分布，使用多项逻辑回归（Softmax Regression）来进行分类</li>
-<li>当存在样本可能属于多个标签的情况时，我们可以训练k个二分类的逻辑回归分类器。第i个分类器用以区分每个样本是否可以归为第i类，训练该分类器时，需要把标签重新整理为“第i类标签”与“非第i类标签”两类。通过这样的办法，我们就解决了每个样本可能拥有多个标签的情况。</li>
-</ul>
-<h2 id="6-逻辑斯蒂回归为什么要对特征进行离散化"><a href="#6-逻辑斯蒂回归为什么要对特征进行离散化" class="headerlink" title="6 逻辑斯蒂回归为什么要对特征进行离散化"></a>6 逻辑斯蒂回归为什么要对特征进行离散化</h2><ul>
-<li>非线性。逻辑斯蒂回归属于广义线性模型，表达能力受限，离散化后增加了非线性成分，可以增强模型表达能力和拟合能力，离散特征的增加和减少都很容易，易于模型的快速迭代。</li>
-<li>速度快。稀疏向量内积乘法运算速度快，计算结果方便存储，容易扩展；</li>
-<li>鲁棒性。离散化后的特征对异常数据有很强的鲁棒性：比如一个特征是年龄&gt;30是1，否则0。如果特征没有离散化，一个异常数据“年龄300岁”会给模型造成很大的干扰；</li>
-<li>方便交叉与特征组合：离散化后可以进行特征交叉，由 $M+N$ 个变量变为$M*N$个变量，进一步引入非线性，提升表达能力；</li>
-<li>稳定性：特征离散化后，模型会更稳定，比如如果对用户年龄离散化，20-30作为一个区间，不会因为一个用户年龄长了一岁就变成一个完全不同的人。当然处于区间相邻处的样本会刚好相反，所以怎么划分区间是门学问；</li>
-<li>简化模型：特征离散化以后，起到了简化了逻辑回归模型的作用，降低了模型过拟合的风险。</li>
-</ul>
-<h2 id="7-LR和SVM各自的优缺点和适用场景"><a href="#7-LR和SVM各自的优缺点和适用场景" class="headerlink" title="7 LR和SVM各自的优缺点和适用场景"></a>7 LR和SVM各自的优缺点和适用场景</h2><ul>
-<li>最本质是他们的损失函数不同，LR是对数损失而SVM是合页损失函 数；</li>
-<li>LR可以给出每个点属于每一类的概率，而SVM是非概率的，一个 是基于统计的方法，一个基于几何的方法；</li>
-<li>支持向量机只考虑局部的 边界线附近的点（支持向量），而逻辑回归考虑所有的样本点，所以线性SVM不直接依赖于数据分布，分类平面不受一类点影响，LR则受所有数据点的影响对不平衡数据先做balance；</li>
-<li>同样是线性分类，如果异常点较多无法剔除，首先LR中每个样本都有贡献，最大似然后会自动压制异常的贡献，SVM + 软间隔对异常却比较敏感，因为其训练只需要支持向量，有效样本本来就不高，一旦被干扰，预测结果会难以预料；</li>
-<li>SVM的损失函数本省自带正则项，这就是为什么SVM是结构风险最小化算法，而LR必须另外在损失函数上添加正则项。</li>
-</ul>
-<h2 id="8-LR使用核函数解决线性不可分问题"><a href="#8-LR使用核函数解决线性不可分问题" class="headerlink" title="8 LR使用核函数解决线性不可分问题"></a>8 LR使用核函数解决线性不可分问题</h2><p>逻辑回归本质上是一个线性模型，但是，这不意味着只有线性可分的数据能通过LR求解，实际上，我们可以通过2种方式帮助LR实现：</p>
+        <h2 id="原始问题分析"><a href="#原始问题分析" class="headerlink" title="原始问题分析"></a>原始问题分析</h2><p>给定一个数组和滑动窗口的大小，找出所有滑动窗口里数值的最大值。<br>常规解法：时间复杂度为$O(N * w)$，也就是每次对一个窗口都需要遍历其中的 w 个数，选出最大值。</p>
+<p>$O(N)$解法：准备一个双端队列，双端队列存放着数组中的下标值。假设当前为 arr[i]，则放入规则如下：<br>left 和 right 指针都只会向右移动，不会回退。 </p>
 <ul>
-<li>利用特殊核函数，对特征进行变换：把低维空间转换到高维空间，而在低维空间不可分的数据，到高维空间中线性可分的几率会高一些。但在LR算法里，每个样本点都必须参与决策面的计算过程，也就是说，假设我们在LR里也运用核函数的原理，那么每个样本点都必须参与核计算，这带来的计算复杂度是相当高的。所以，在具体应用时，LR很少运用核函数机制。</li>
-<li>扩展LR算法，提出FM算法。</li>
+<li>right 右滑，窗口加数：<br>  1）如果 queue 为空，直接把下标 i 放入 queue  中；<br>  2）如果 queue  不为空，取出当前 queue  队尾存放的下标 j。如果 arr[j] &gt; arr[i]，则直接把 i 放入队尾；<br>  3）如果 arr[j] &lt;= arr[i]，则一直从 queue  的队尾弹出下标，直到某个下标在 queue  中的对应值大于 arr[i]，然后把 i 放入队尾 【为什么可以弹出，因为我永远比你晚过期，我又比你大或者和你一样大，有我在，你永远不可能最大，所以你可以弹出了】</li>
+<li>left 右滑，窗口减数：<br>  1）看弹出的 left 是否与队列头相等，如果相等，说明这个队列头已经不在窗口内了，所以弹出 queue  当前的队首元素 。</li>
 </ul>
-<h2 id="9-最大熵模型原理"><a href="#9-最大熵模型原理" class="headerlink" title="9 最大熵模型原理"></a>9 最大熵模型原理</h2><p>熵是随机变量不确定性的度量，不确定性越大，熵越大；为了准确估计随机变量的状态，我们一般最大化熵，认为在所有可能的概率模型（分布）中，熵最大的模型是最好的模型。也就是说，在已知部分知识的前提下，关于未知分布最合理的推理就是符合已知知识最不确定或者最随机的推断，其原则是承认已知知识，并且对未知事物不做任何假设，没有任何偏见。最大熵在解决二分类问题时就是逻辑回归，在解决多分类问题时就是多项逻辑回归（softmax）。</p>
-<p>Note</p>
+<p>双端队列的队头就是当前窗口最大值的下标。</p>
+<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><p>上面的滑动窗口的实现是通用结构，即 left 和 right 指针随便往右移，而在实际解题过程在，都是会限制窗口的大小。</p>
+<h3 id="1-剑指offer：滑动窗口的最大值"><a href="#1-剑指offer：滑动窗口的最大值" class="headerlink" title="1. 剑指offer：滑动窗口的最大值"></a>1. 剑指offer：滑动窗口的最大值</h3><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a><a href="https://www.nowcoder.com/practice/1624bc35a45c42c0bc17d17fa0cba788?tpId=13&amp;tqId=11217&amp;tPage=4&amp;rp=1&amp;ru=%2Fta%2Fcoding-interviews&amp;qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking" target="_blank" rel="noopener">题目描述</a></h3><p>给定一个数组和滑动窗口的大小，找出所有滑动窗口里数值的最大值。例如，如果输入数组{2,3,4,2,6,2,5,1}及滑动窗口的大小3，那么一共存在6个滑动窗口，他们的最大值分别为{4,4,6,6,6,5}； 针对数组{2,3,4,2,6,2,5,1}的滑动窗口有以下6个： {[2,3,4],2,6,2,5,1}， {2,[3,4,2],6,2,5,1}， {2,3,[4,2,6],2,5,1}， {2,3,4,[2,6,2],5,1}， {2,3,4,2,[6,2,5],1}， {2,3,4,2,6,[2,5,1]}。</p>
+<p>常规解法：<br>时间复杂度为O(N * w)，也就是每次对一个窗口都需要遍历其中的 w 个数，选出最大值。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxInWindows</span><span class="params">(self, num, size)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        <span class="keyword">if</span> len(num) &lt; size <span class="keyword">or</span> size == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> []</span><br><span class="line">        <span class="comment"># left, right = 0, size-1</span></span><br><span class="line">        <span class="comment"># res = []</span></span><br><span class="line">        <span class="comment"># while right &lt; len(num):</span></span><br><span class="line">        <span class="comment">#     maxindex = left</span></span><br><span class="line">        <span class="comment">#     for j in range(left+1,right+1):</span></span><br><span class="line">        <span class="comment">#         if num[j] &gt; num[maxindex]:</span></span><br><span class="line">        <span class="comment">#             maxindex = j</span></span><br><span class="line">        <span class="comment">#     res.append(num[maxindex])</span></span><br><span class="line">        <span class="comment">#     left += 1</span></span><br><span class="line">        <span class="comment">#     right += 1</span></span><br><span class="line">        <span class="comment"># return res</span></span><br><span class="line">        res = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(num)-size+<span class="number">1</span>):</span><br><span class="line">            res.append(max(num[i:i+size]))</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    result = Solution().maxInWindows([<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">1</span>],<span class="number">3</span>)</span><br><span class="line">    print(result)</span><br></pre></td></tr></table></figure>
+<p>$O(N)$解法：<br>和通用结构相比。只在弹出时稍微改变：<br>如果queue对应的下标等于i-size, 说明当前队首下标已经过期，则弹出queue当前队首下标。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxInWindows</span><span class="params">(self, num, size)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">        <span class="keyword">if</span> len(num) &lt; size <span class="keyword">or</span> size == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> []</span><br><span class="line">        res = [<span class="number">0</span>] * (len(num)-size+<span class="number">1</span>)</span><br><span class="line">        index = <span class="number">0</span></span><br><span class="line">        queue = deque()</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(num)):</span><br><span class="line">            <span class="keyword">while</span> len(queue) != <span class="number">0</span> <span class="keyword">and</span> num[queue[<span class="number">-1</span>]] &lt;= num[i]:</span><br><span class="line">                queue.pop()</span><br><span class="line">            queue.append(i)</span><br><span class="line">            <span class="keyword">if</span> queue[<span class="number">0</span>] == i-size:</span><br><span class="line">                queue.popleft()</span><br><span class="line">            <span class="keyword">if</span> i &gt;= size<span class="number">-1</span>:  <span class="comment"># 有窗口形成后，在计算窗口内最大值</span></span><br><span class="line">                res[index] = num[queue[<span class="number">0</span>]]</span><br><span class="line">                index += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
+<h3 id="2-最大值减去最小值小于或等于num的子数组数量"><a href="#2-最大值减去最小值小于或等于num的子数组数量" class="headerlink" title="2. 最大值减去最小值小于或等于num的子数组数量"></a>2. 最大值减去最小值小于或等于num的子数组数量</h3><p>给定数组arr和整数num，返回有多少个子数组满足如下情况:</p>
+<p>$max(arr[i:j]) - min(arr[i:j]) &lt;= num$</p>
+<p>$max(arr[i:j])$表示子数组$arr[i:j]$中的最大值，$min(arr[i:j])$表示子数组$arr[i:j]$中的最小值。</p>
+<p>要求：如果数组长度为 N，请实现时间复杂度为 O(N)的解法。</p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>子数组的数量：<br>以0开始：<code>0~0，0~1，...，0~N-1</code>，共N种情况；<br>以1开始：<code>1~1，1~2，...，1~N-1</code>，共N-1种情况；<br>……<br>以N-1开始：<code>N-1~N-1</code>，共1种情况。<br>所以总共有 $N+N-1+N-2+…+2+1=\frac{N(N-1)}{2}$种情况。</p>
+<p>暴力解法：<br>两层遍历所有情况，一层遍历求最大最小值，共三层遍历，时间复杂度$O(N^3)$。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">(self, arr, num)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line"></span><br><span class="line">        res = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> start <span class="keyword">in</span> range(len(arr)):</span><br><span class="line">            <span class="keyword">for</span> end <span class="keyword">in</span> range(start, len(arr)):</span><br><span class="line">                <span class="keyword">if</span> self.isValid(arr, start, end, num):</span><br><span class="line">                    res += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isValid</span><span class="params">(self, arr, start, end , num)</span>:</span></span><br><span class="line">        max_value = float(<span class="string">'-inf'</span>)</span><br><span class="line">        min_value = float(<span class="string">'inf'</span>)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(start, end+<span class="number">1</span>):</span><br><span class="line">            max_value = max(max_value, arr[i])</span><br><span class="line">            min_value = min(min_value, arr[i])</span><br><span class="line">        <span class="keyword">return</span> max_value-min_value &lt;= num</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    result = Solution().main([<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>,<span class="number">11</span>,<span class="number">13</span>,<span class="number">15</span>],<span class="number">4</span>)</span><br><span class="line">    print(result)</span><br></pre></td></tr></table></figure>
+<p>$O(N)$解法：</p>
+<p>两个结论：</p>
 <ul>
-<li>最大熵原理认为要选择的概率模型首先必须满足已有的事实，即约束条件。在没有更多信息的情况下，那些不确定的部分都是“等可能的”，最大熵原理通过熵的最大化来表示等可能性。</li>
-<li>例如，投掷一个骰子，如果问“每个面朝上的概率分别是多少”，你会说是等概率，即各点出现的概率均为1/6，因为对这个“一无所知”的骰子，什么都不确定，而假定它每一个面朝上概率均等则是最合理的做法。从投资的角度来看，这是风险最小的作法，从信息论的角度讲，就是保留了最大的不确定性，也就是说让熵达到最大。</li>
+<li>如果子数组arr[i:j]满足条件，那么arr[k:l]（i&lt;=k&lt;=l&lt;=j）一定满足条件，即若一个数组满足条件，它的所有子数组肯定满足条件，因为[max 变小  - min 变大 &lt;= num 肯定成立]。</li>
+<li>如果子数组 arr[i:j] 不满足条件，那么 arr[k:l] （k &lt;= i，I &gt;= j） 都不满足条件，即若一个数组不满足条件，所有包含它的数组肯定都不满足条件。因为[max变大 - min变小 &gt;= num肯定成立]。</li>
 </ul>
-<h2 id="10-SVM和logistic回归分别在什么情况下使用"><a href="#10-SVM和logistic回归分别在什么情况下使用" class="headerlink" title="10 SVM和logistic回归分别在什么情况下使用"></a>10 SVM和logistic回归分别在什么情况下使用</h2><ul>
-<li>如果特征的数量很大，跟样本数量差不多或者比样本多，选用逻辑斯蒂回归或者线性核的SVM。理由：特征数相对于训练样本数已经够大了，使用线性模型就能取得不错的效果，不需要过于复杂的模型；</li>
-<li>如果特征的数量比较小，样本数量一般，选用高斯核的SVM。理由：在训练样本数量足够大而特征数较小的情况下，可以通过使用复杂核函数的SVM来获得更好的预测性能，而且因为训练样本数量并没有达到百万级，使用复杂核函数的SVM也不会导致运算过慢；</li>
-<li>如果特征数量很小，而样本数量很多，需要手工添加一些特征变成第一种情况。理由：因为训练样本数量特别大，使用复杂核函数的SVM会导致运算很慢，因此应该考虑通过引入更多特征，然后使用线性核函数的SVM或者lr来构建预测性更好的模型。</li>
+<p>步骤：<br>准备两个双端队列，一个 maxQueue 是窗口内最大值更新结构，一个 minQueue 是窗口内最小值更新结构，left、right 表示窗口的左右边，窗口范围为 [left , right - 1]；算以 left 开头达标的子数组个数，每个 left 就可以算出一批答案，相加即可。</p>
+<ul>
+<li>1)以 left 开头的情况下，right 往外扩，扩到不达标就停【因为再往外肯定也不达标】，算以 left 开头的子数组有多少个【这些子数组都达标的】；</li>
+<li>2)left  右移一位，然后重复 1）。</li>
 </ul>
-<h2 id="11-SVM和逻辑斯特回归对同一样本A进行训练，如果某类中增加一些数据点，那么原来的决策边界分别会怎么变化？"><a href="#11-SVM和逻辑斯特回归对同一样本A进行训练，如果某类中增加一些数据点，那么原来的决策边界分别会怎么变化？" class="headerlink" title="11 SVM和逻辑斯特回归对同一样本A进行训练，如果某类中增加一些数据点，那么原来的决策边界分别会怎么变化？"></a>11 SVM和逻辑斯特回归对同一样本A进行训练，如果某类中增加一些数据点，那么原来的决策边界分别会怎么变化？</h2><p>不妨设只添加一个数据点，且它属于“+”的那一类。</p>
-<p>SVM：如果这个数据点本身在margin之外“+”的那一侧，那么判决边界不受影响。如果这个数据点在margin之内，或者在margin之外“-”的那一侧，那么这个点一定会成为新的支持向量。但是，判决边界并不一定发生变化，因为这个数据点可能能够被目标函数中的容错项处理掉。</p>
-<p>LR：当新数据点在“+”类这一边，但离判决边界比较近。新的模型为了能够正确判别这个数据点，会把判决边界向“-”类方向移动。当数据点在“+”类这一边，但离判决边界很远，旧模型已经可以毫无压力地把它判别正确。这时，新模型反倒会把判决边界向“+”类方向移动，这样虽然新的数据点的似然值减小了一点儿，但换来的是原来的“-”类数据似然值增加。</p>
+<p>因为 left，right 都不后退，且每个数都只进出一次，所以时间复杂度是 $O(N)$。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">(self, arr, num)</span>:</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line"></span><br><span class="line">        maxQueue = deque()</span><br><span class="line">        minQueue = deque()</span><br><span class="line">        left, right = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">        res = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> left &lt; len(arr):</span><br><span class="line">            <span class="keyword">while</span> right &lt; len(arr):</span><br><span class="line"></span><br><span class="line">                <span class="keyword">while</span> len(maxQueue) != <span class="number">0</span> <span class="keyword">and</span> arr[maxQueue[<span class="number">-1</span>]] &lt;= arr[right]:</span><br><span class="line">                    maxQueue.pop()</span><br><span class="line">                maxQueue.append(right)</span><br><span class="line"></span><br><span class="line">                <span class="keyword">while</span> len(minQueue) != <span class="number">0</span> <span class="keyword">and</span> arr[minQueue[<span class="number">-1</span>]] &gt;= arr[right]:</span><br><span class="line">                    minQueue.pop()</span><br><span class="line">                minQueue.append(right)</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> arr[maxQueue[<span class="number">0</span>]] - arr[minQueue[<span class="number">0</span>]] &gt; num: <span class="comment"># 不满足</span></span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">                right += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">            <span class="comment"># left向前推动， 两个双端队列调整</span></span><br><span class="line">            <span class="keyword">if</span> maxQueue[<span class="number">0</span>] == left:</span><br><span class="line">                maxQueue.popleft()</span><br><span class="line">            <span class="keyword">if</span> minQueue[<span class="number">0</span>] == left:</span><br><span class="line">                minQueue.popleft()</span><br><span class="line"></span><br><span class="line">            res += right - left <span class="comment"># 收集满足的结果</span></span><br><span class="line">            left += <span class="number">1</span> <span class="comment"># 下一个开头</span></span><br><span class="line">            </span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    result = Solution().main([<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>,<span class="number">11</span>,<span class="number">13</span>,<span class="number">15</span>],<span class="number">4</span>)</span><br><span class="line">    print(result)</span><br></pre></td></tr></table></figure>
+<p>参考文献：<br><a href="https://blog.csdn.net/pcwl1206/article/details/96431668" target="_blank" rel="noopener">https://blog.csdn.net/pcwl1206/article/details/96431668</a><br><a href="https://www.cnblogs.com/xieyupeng/p/10373585.html" target="_blank" rel="noopener">https://www.cnblogs.com/xieyupeng/p/10373585.html</a></p>
 
       
     </div>
@@ -544,7 +534,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link:</strong>
-    <a href="http://huangqiancun.github.io/2019/05/16/机器学习-线性回归&逻辑回归&最大熵/" title="机器学习-线性回归&逻辑回归&最大熵">http://huangqiancun.github.io/2019/05/16/机器学习-线性回归&逻辑回归&最大熵/</a>
+    <a href="http://huangqiancun.github.io/2019/08/14/数据结构-滑动窗口问题/" title="数据结构-滑动窗口问题">http://huangqiancun.github.io/2019/08/14/数据结构-滑动窗口问题/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice: </strong>
@@ -559,7 +549,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+            <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
           
         </div>
       
@@ -572,8 +562,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/16/机器学习-决策树/" rel="next" title="机器学习-决策树">
-                <i class="fa fa-chevron-left"></i> 机器学习-决策树
+              <a href="/2019/08/14/数据结构-BFPRT算法/" rel="next" title="数据结构-BFPRT算法">
+                <i class="fa fa-chevron-left"></i> 数据结构-BFPRT算法
               </a>
             
           </div>
@@ -582,8 +572,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/05/16/机器学习-集成学习/" rel="prev" title="机器学习-集成学习">
-                机器学习-集成学习 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/08/15/数据结构-单调栈/" rel="prev" title="数据结构-单调栈">
+                数据结构-单调栈 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -758,7 +748,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-线性回归原理"><span class="nav-text">1 线性回归原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-逻辑斯蒂回归原理"><span class="nav-text">2 逻辑斯蒂回归原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-LR为什么用的是sigmoid函数而不用阶跃函数"><span class="nav-text">3 LR为什么用的是sigmoid函数而不用阶跃函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-线性回归和逻辑斯蒂的区别"><span class="nav-text">4 线性回归和逻辑斯蒂的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-当使用逻辑回归处理多标签的分类问题时，有哪些常见做法，分别应用于哪些场景，它们之间又有怎样的关系"><span class="nav-text">5 当使用逻辑回归处理多标签的分类问题时，有哪些常见做法，分别应用于哪些场景，它们之间又有怎样的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-逻辑斯蒂回归为什么要对特征进行离散化"><span class="nav-text">6 逻辑斯蒂回归为什么要对特征进行离散化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-LR和SVM各自的优缺点和适用场景"><span class="nav-text">7 LR和SVM各自的优缺点和适用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-LR使用核函数解决线性不可分问题"><span class="nav-text">8 LR使用核函数解决线性不可分问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-最大熵模型原理"><span class="nav-text">9 最大熵模型原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-SVM和logistic回归分别在什么情况下使用"><span class="nav-text">10 SVM和logistic回归分别在什么情况下使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-SVM和逻辑斯特回归对同一样本A进行训练，如果某类中增加一些数据点，那么原来的决策边界分别会怎么变化？"><span class="nav-text">11 SVM和逻辑斯特回归对同一样本A进行训练，如果某类中增加一些数据点，那么原来的决策边界分别会怎么变化？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#原始问题分析"><span class="nav-text">原始问题分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用"><span class="nav-text">应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-剑指offer：滑动窗口的最大值"><span class="nav-text">1. 剑指offer：滑动窗口的最大值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-最大值减去最小值小于或等于num的子数组数量"><span class="nav-text">2. 最大值减去最小值小于或等于num的子数组数量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li></ol></li></ol></div>
             
 
           </div>
