@@ -122,7 +122,7 @@
 <meta property="og:site_name" content="I&#39;m Qiancun Huang">
 <meta property="og:description" content="本文主要是机器学习-决策树相关内容。 1 决策树的基本原理决策树是一种自上而下，递归地将样本数据进行树形分类的过程，由结点和有向边组成。结点分为内部结点和叶结点，其中每个内部结点表示一个特征或属性，叶结点表示类别。从顶部根结点开始，所有样本聚在一起。经过根结点的划分，样本被分到不同的子结点中。再根据子结点的特征进一步划分，直至所有样本都被归到某一个类别（即叶结点）中。 决策树的目标是从一组样本数据">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-07-27T17:14:35.000Z">
+<meta property="og:updated_time" content="2019-08-21T08:47:45.599Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习-决策树">
 <meta name="twitter:description" content="本文主要是机器学习-决策树相关内容。 1 决策树的基本原理决策树是一种自上而下，递归地将样本数据进行树形分类的过程，由结点和有向边组成。结点分为内部结点和叶结点，其中每个内部结点表示一个特征或属性，叶结点表示类别。从顶部根结点开始，所有样本聚在一起。经过根结点的划分，样本被分到不同的子结点中。再根据子结点的特征进一步划分，直至所有样本都被归到某一个类别（即叶结点）中。 决策树的目标是从一组样本数据">
@@ -375,8 +375,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-07-28T01:14:35+08:00">
-                2019-07-28
+              <time title="Post modified" itemprop="dateModified" datetime="2019-08-21T16:47:45+08:00">
+                2019-08-21
               </time>
             
           </span>
@@ -466,24 +466,24 @@ H(D | A)=\sum_{i=1}^{n} \frac{\left|D_{i}\right|}{|D|} H\left(D_{i}\right)=\sum_
 </li>
 <li><p>C4.5—最大信息增益比。</p>
 <script type="math/tex; mode=display">
-D, a )=\frac{\operatorname{Gain}(D, a)}{\operatorname{IV}(a)}</script><script type="math/tex; mode=display">
-\mathrm{IV}(a)=-\sum_{v=1}^{V} \frac{\left|D^{v}\right|}{|D|} \log _{2} \frac{\left|D^{v}\right|}{|D|}</script><p>$\mathrm{IV}(a)$ 是属性$a$的”固有值”(intrinsicvalue),属性$a$的可能取值数目越多(即 $V$ 越大)，则 $\mathrm{IV}(a)$  的值通常会越大，导致信息增益比小，因此信息增益比对可取值数目较少的属性有所偏好。</p>
+G_R(D, a)=\frac{\operatorname{Gain}(D, a)}{\operatorname{IV}(a)}</script><script type="math/tex; mode=display">
+\mathrm{IV}(a)=-\sum_{v=1}^{V} \frac{\left|D^{v}\right|}{|D|} \log _{2} \frac{\left|D^{v}\right|}{|D|}</script><p>$\mathrm{IV}(a)$ 是属性$a$的”固有值”(intrinsic value)，属性$a$的可能取值数目越多(即 $V$ 越大)，则 $\mathrm{IV}(a)$  的值通常会越大，导致信息增益比小，因此信息增益比对可取值数目较少的属性有所偏好。</p>
 </li>
 <li><p>CART—最小基尼指数。</p>
 <script type="math/tex; mode=display">
-(D, a)=\sum_{v=1}^{V} \frac{\left|D^{v}\right|}{|D|} \operatorname{Gini}\left(D^{v}\right)</script><script type="math/tex; mode=display">
+\operatorname{Gini}(D, a)=\sum_{v=1}^{V} \frac{\left|D^{v}\right|}{|D|} \operatorname{Gini}\left(D^{v}\right)</script><script type="math/tex; mode=display">
 \operatorname{Gini}(D)=1-\sum_{k=1}^{|y|} p_{k}^{2}</script><p>$\operatorname{Gini}(D)$ 越小，则数据集D的纯度越高，我们在候选属性集合A中，选择那个使得划分后基尼指数最小的属性作为最优划分属性。</p>
 </li>
 </ul>
 <h2 id="3-ID3，C4-5，CART的对比"><a href="#3-ID3，C4-5，CART的对比" class="headerlink" title="3 ID3，C4.5，CART的对比"></a>3 ID3，C4.5，CART的对比</h2><p>首先，ID3是采用信息增益作为评价标准，会倾向于取值较多的特征。因为，信息增益反映的是给定条件以后不确定性减少的程度，特征取值越多就意味着确定性更高，也就是条件熵越小，信息增益越大。这在实际应用中是一个缺陷。比如，我们引入特征“DNA”，每个人的DNA都不同，如果ID3按照“DNA”特征进行划分一定是最优的（条件熵接近于0），但这种分类的泛化能力是非常弱的。因此，C4.5实际上是对ID3进行优化，通过引入信息增益比，一定程度上对取值比较多的特征进行惩罚，避免ID3出现过拟合的特性，提升决策树的泛化能力。</p>
-<p>其次，从样本类型的角度，ID3只能处理离散型变量，而C4.5和CART都可以处理连续型变量。C4.5处理连续型变量时，通过对数据排序之后找到类别不同的分割线作为切分点，根据切分点把连续属性转换为布尔型，从而将连续型变量转换多个取值区间的离散型变量。而对于CART，由于其构建时每次都会对特征进行二值划分，即CART是一棵二叉树，采样二元切割法，每一步将数据按照特征的取值分成两份，分别进入左右子树，因此可以很好地适用于连续性变量。</p>
+<p>其次，从样本类型的角度，ID3只能处理离散型变量，而C4.5和CART都可以处理连续型变量。C4.5处理连续型变量时，通过对数据排序之后找到类别不同的分割线作为切分点，根据切分点把连续属性转换为布尔型，从而将连续型变量转换多个取值区间的离散型变量。而对于CART，由于其构建时每次都会对特征进行二值划分，即CART是一棵二叉树，采用二元切割法，每一步将数据按照特征的取值分成两份，分别进入左右子树，因此可以很好地适用于连续性变量。</p>
 <p>从应用角度，ID3和C4.5只能用于分类任务，而CART（Classification and Regression Tree，分类回归树）从名字就可以看出其不仅可以用于分类，也可以应用于回归任务（回归树使用最小平方误差准则）。</p>
-<h2 id="4-剪枝处理"><a href="#4-剪枝处理" class="headerlink" title="4 剪枝处理"></a>4 剪枝处理</h2><p>剪枝(pruning)是决策树学习算法对付”过拟合”的主要手段.在决策树学习中，为了尽可能正确分类训练样本，结点划分过程将不断重复，有时会造成决策树分支过多，这时就可能因训练样本学得”太好”了，以致于把训练集自身的一些特点当作所有数据都具有的一般性质而导致过拟合。因此可通过主动去掉一些分支来降低过拟合的风险。</p>
+<h2 id="4-剪枝处理"><a href="#4-剪枝处理" class="headerlink" title="4 剪枝处理"></a>4 剪枝处理</h2><p>剪枝(pruning)是决策树学习算法对付”过拟合”的主要手段。在决策树学习中，为了尽可能正确分类训练样本，结点划分过程将不断重复，有时会造成决策树分支过多，这时就可能因训练样本学得”太好”了，以致于把训练集自身的一些特点当作所有数据都具有的一般性质而导致过拟合。因此可通过主动去掉一些分支来降低过拟合的风险。</p>
 <p>决策树的剪枝通常有两种方法，预剪枝（Pre-Pruning）和后剪枝（Post-Pruning）。</p>
 <ul>
 <li><p>预剪枝：预剪枝是指在决策树生成过程中，对每个结点在划分前先进行估计，若当前结点的划分不能带来决策树泛化性能提升，则停止划分并将当前结点标记为叶结点，此时可能存在不同类别的样本同时存于该叶结点中，按照多数投票的原则判断该叶结点所属类别。预剪枝对于何时停止决策树的生长有以下几种方法：<br>  ①当树到达一定深度的时候，停止树的生长。<br>  ②当到达当前结点的样本数量小于某个阈值的时候，停止树的生长。<br>  ③计算每次分裂对测试集的准确度提升，当小于某个阈值的时候，不再继续扩展。<br>预剪枝具有思想直接、算法简单、效率高等特点，适合解决大规模问题。但如何准确地估计何时停止树的生长（即上述方法中的深度或阈值），针对不同问题会有很大差别，需要一定经验判断。且预剪枝存在一定局限性，有欠拟合的风险，虽然当前的划分会导致测试集准确率降低，但在之后的划分中，准确率可能会有显著上升。</p>
 </li>
-<li><p>后剪枝：后剪枝则是先从训练集生成一棵完整的决策树，然后自底向上地对非叶结点进行考察，若将该结点对应的子树替换为叶结点能带来决策树泛化性能提升，则将该子树替换为叶结点.该结点的类别同样按照多数投票的原则进行判断。同样地，后剪枝也可以通过在测试集上的准确率进行判断，如果剪枝过后准确率有所提升，则进行剪枝。相比于预剪枝，后剪枝方法通常可以得到泛化能力更强的决策树，但时间开销会更大。</p>
+<li><p>后剪枝：后剪枝则是先从训练集生成一棵完整的决策树，然后自底向上地对非叶结点进行考察，若将该结点对应的子树替换为叶结点能带来决策树泛化性能提升，则将该子树替换为叶结点。该结点的类别同样按照多数投票的原则进行判断。同样地，后剪枝也可以通过在测试集上的准确率进行判断，如果剪枝过后准确率有所提升，则进行剪枝。相比于预剪枝，后剪枝方法通常可以得到泛化能力更强的决策树，但时间开销会更大。</p>
 </li>
 </ul>
 <h2 id="5-树形结构为什么不需要归一化"><a href="#5-树形结构为什么不需要归一化" class="headerlink" title="5 树形结构为什么不需要归一化"></a>5 树形结构为什么不需要归一化</h2><p>树形结构算法通常是一个递归地选择最优特征，并根据该特征对训练数据进行分割，使得对各个子数据集有一个最好的分类的过程，数值缩放不影响特征值的排序顺序，因此所属的分支以及分裂点的位置就不会改变，所以归一化对树模型的结构不造成影响。而且树模型数不能进行梯度下降的，因为构建树模型是通过递归地寻找最优分裂点完成的，因此树模型是阶跃的，阶跃点是不可导的，并且求导没有意义，也就不需要归一化。</p>
@@ -672,7 +672,7 @@ D, a )=\frac{\operatorname{Gain}(D, a)}{\operatorname{IV}(a)}</script><script ty
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">61</span>
+                  <span class="site-state-item-count">64</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -683,7 +683,7 @@ D, a )=\frac{\operatorname{Gain}(D, a)}{\operatorname{IV}(a)}</script><script ty
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -694,7 +694,7 @@ D, a )=\frac{\operatorname{Gain}(D, a)}{\operatorname{IV}(a)}</script><script ty
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -785,7 +785,7 @@ D, a )=\frac{\operatorname{Gain}(D, a)}{\operatorname{IV}(a)}</script><script ty
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">501.9k</span>
+    <span title="Site words total count">509.4k</span>
   
 </div>
 
