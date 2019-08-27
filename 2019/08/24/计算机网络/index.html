@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icons8-fox-32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icons8-fox-16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="计算机网络,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="I'm Qiancun Huang" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="1 概述网络的网络网络把主机连接起来，而互联网是把不同的网络连接起来，因此互联网是网络的网络。 ISP互联网服务提供商ISP可以从互联网管理机构获得许多IP地址，同时拥有通信线路以及路由器等联网设备，个人或机构向ISP缴纳一定的费用就可以接入互联网。目前的互联网是一种多层次ISP结构，ISP根据覆盖面积的大小分为第一层ISP，区域ISP和接入ISP。互联网交换点IXP允许两个ISP直接相连而不用经">
+<meta name="keywords" content="计算机网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络">
+<meta property="og:url" content="http://huangqiancun.github.io/2019/08/24/计算机网络/index.html">
+<meta property="og:site_name" content="I&#39;m Qiancun Huang">
+<meta property="og:description" content="1 概述网络的网络网络把主机连接起来，而互联网是把不同的网络连接起来，因此互联网是网络的网络。 ISP互联网服务提供商ISP可以从互联网管理机构获得许多IP地址，同时拥有通信线路以及路由器等联网设备，个人或机构向ISP缴纳一定的费用就可以接入互联网。目前的互联网是一种多层次ISP结构，ISP根据覆盖面积的大小分为第一层ISP，区域ISP和接入ISP。互联网交换点IXP允许两个ISP直接相连而不用经">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/3.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/4.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/5.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/6.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/7.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/8.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/9.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/10.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/11.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/12.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/13.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/14.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/15.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/16.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/17.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/18.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/19.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/20.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/21.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/22.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/23.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/24.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/25.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/26.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/27.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/28.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/29.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/30.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/31.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/32.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/33.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/34.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/35.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/36.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/37.png">
+<meta property="og:updated_time" content="2019-08-26T09:36:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="计算机网络">
+<meta name="twitter:description" content="1 概述网络的网络网络把主机连接起来，而互联网是把不同的网络连接起来，因此互联网是网络的网络。 ISP互联网服务提供商ISP可以从互联网管理机构获得许多IP地址，同时拥有通信线路以及路由器等联网设备，个人或机构向ISP缴纳一定的费用就可以接入互联网。目前的互联网是一种多层次ISP结构，ISP根据覆盖面积的大小分为第一层ISP，区域ISP和接入ISP。互联网交换点IXP允许两个ISP直接相连而不用经">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":8,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://huangqiancun.github.io/2019/08/24/计算机网络/">
+
+
+
+
+
+  <title>计算机网络 | I'm Qiancun Huang</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">I'm Qiancun Huang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Live it. Love it. Enjoy IT.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://huangqiancun.github.io/2019/08/24/计算机网络/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Qiancun Huang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/photo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="I'm Qiancun Huang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">计算机网络</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-24T14:17:26+08:00">
+                2019-08-24
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-08-26T17:36:35+08:00">
+                2019-08-26
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机网络/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机网络</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  13.7k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+		  
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1 概述"></a>1 概述</h2><h3 id="网络的网络"><a href="#网络的网络" class="headerlink" title="网络的网络"></a>网络的网络</h3><p>网络把主机连接起来，而互联网是把不同的网络连接起来，因此互联网是网络的网络。</p>
+<h3 id="ISP"><a href="#ISP" class="headerlink" title="ISP"></a>ISP</h3><p>互联网服务提供商ISP可以从互联网管理机构获得许多IP地址，同时拥有通信线路以及路由器等联网设备，个人或机构向ISP缴纳一定的费用就可以接入互联网。<br>目前的互联网是一种多层次ISP结构，ISP根据覆盖面积的大小分为第一层ISP，区域ISP和接入ISP。互联网交换点IXP允许两个ISP直接相连而不用经过第三个ISP。</p>
+<h3 id="主机之间的通信方式"><a href="#主机之间的通信方式" class="headerlink" title="主机之间的通信方式"></a>主机之间的通信方式</h3><p>客户-服务器（C/S）：客户是服务的请求方，服务器是服务的提供方。<br>对等（P2P）：不区分客户和服务器。</p>
+<h3 id="电路交换和分组交换"><a href="#电路交换和分组交换" class="headerlink" title="电路交换和分组交换"></a>电路交换和分组交换</h3><p><strong>电路交换</strong><br>电路交换用于电话通信系统，两个用户要通信之前需要建立一条专用的物理链路，并且在整个通信过程中始终占用该链路。由于通信的过程中不可能一直在使用传输线路，因此电路交换对线路的利用率很低，往往不到10%。</p>
+<p><strong>分组交换</strong><br>每个分组都有首部和尾部，包含了源地址和目的地址等控制信息，在同一个传输线路上同时传输多个分组不会互相影响，因此在同一条传输线路上允许同时传输多个分组，也就是说分组交换不需要占用传输线路。在一个邮局通信系统中，邮局收到一封邮件之后，先存储下来，然后把相同目的邮件一起转发到下一个目的地，这个过程就是存储转发过程，分组交换也利用了存储转发过程。</p>
+<h3 id="时延"><a href="#时延" class="headerlink" title="时延"></a>时延</h3><p>总时延=排队时延+处理时延+传输时延+传播时延</p>
+<p><strong>排队时延</strong><br>分组在路由器的输入队列和输出队列中排队等待的时间，取决于网络当前的通信量。</p>
+<p><strong>处理时延</strong><br>主机或路由器收到分组时进行处理所需要的时间，例如分析首部，从分组中提取数据，进行差错校验或查找适当的路由等。</p>
+<p><strong>传输时延</strong><br>主机或路由器传输数据帧所需要的时间。</p>
+<script type="math/tex; mode=display">
+\operatorname{del} a y=\frac{l(b i t)}{v(b i t / s)}</script><p>其中$l$表示数据帧的长度，$v$表示传输速率。</p>
+<p><strong>传播延时</strong><br>电磁波在信道中传播所需要花费的时间，电磁波传播的速度接近光速。</p>
+<script type="math/tex; mode=display">
+\operatorname{del} a y=\frac{l(m)}{v(m / s)}</script><p>其中$l$表示信道长度，$v$表示电磁波在信道上的传播速度$3*10^8m/s$。</p>
+<h3 id="计算机网络体系结构"><a href="#计算机网络体系结构" class="headerlink" title="计算机网络体系结构"></a>计算机网络体系结构</h3><p><strong>OSI分层（七层）</strong><br>物理层，数据链路层，网络层，传输层，会话层，表示层，应用层<br><strong>TCP/IP分层（四层）</strong><br>网络接口层，网络层，传输层，应用层<br><strong>五层协议（五层）</strong><br>物理层，数据链路层，网络层，传输层，应用层</p>
+<p>每一层的协议如下：<br>物理层：RJ45，CLOCK，IEEE802.3（中继器，集线器）<br>数据链路层：PPP，FR，HDLC，VLAN，MAC（网桥，交换机）<br>网络层：IP，ICMP，ARP，RARP，OSPF，IPX，RIP，IGRP（路由器）<br>传输层：TCP，UDP，SPX<br>会话层：NFS，SQL，NETBIOS，RPC<br>表示层：JPEG，MPEG，ASII<br>应用层：TFTP，DNS，Telnet，SMTP，WWW，NFS</p>
+<p>每一层的作用：<br>物理层：通过媒介传输比特，确定机械以及电气规范。物理层的作用是尽可能屏蔽传输媒体和通信手段的差异，使数据链路层感觉不到这些差异。（中继器、集线器）</p>
+<p>数据链路层：将比特组装成帧和点到点的传递。网络层针对的是主机之间的数据传输服务，而主机之间可以有很多链路，链路层就是为同一链路的主机提供数据传输服务，数据链路层把网络层传下来的分组封装成帧。（网桥、交换机）</p>
+<p>网络层：负责数据包从源到宿的传递和网际互联。为主机提供数据传输服务，而传输层协议是为主机中的进程提供数据传输服务，网络层把传输层传递下来的报文段或者用户数据报封装成分组。（路由器）</p>
+<p>传输层：提供端到端的可靠报文传递和错误恢复。主要包括TCP和UDP，TCP（传输控制协议），提供面向连接、可靠的数据传输服务，数据单位为报文段；UDP（用户数据报协议），提供无连接、尽最大努力的数据传输服务，数据单位为用户数据报。TCP主要提供完整性服务，UDP主要提供及时性服务。</p>
+<p>会话层：建立、管理和终止会话。</p>
+<p>表示层：对数据进行翻译，加密和压缩，这使得应用程序不必关心在各台主机中数据内部格式不同的问题。</p>
+<p>应用层：允许访问OSI环境的手段。例如HTTP、DNS等协议，数据单位是报文。</p>
+<h3 id="数据在各层之间的传递过程"><a href="#数据在各层之间的传递过程" class="headerlink" title="数据在各层之间的传递过程"></a>数据在各层之间的传递过程</h3><p>在向下的过程中，需要添加下层协议所需要的首部或者尾部，而向上的过程中不断拆开首部和尾部。</p>
+<p>路由器只有下面三层协议，因为路由器位于网络核心，不需要为进程或者应用程序提供服务，因此也就不需要传输层和应用层。</p>
+<h3 id="各种协议的介绍"><a href="#各种协议的介绍" class="headerlink" title="各种协议的介绍"></a>各种协议的介绍</h3><p>ICMP协议：因特网控制报文协议，它是TCP/IP协议族的一个子协议，用于IP主机、路由器之间传递控制消息；</p>
+<p>FTP协议：是TCP/IP协议族中的一个用来在客户机与服务器之间进行简单文件传输的协议，提供不复杂、开销不大的文件传输服务；</p>
+<p>HTTP协议：超文本传输协议，是一个属于应用层的面向对象的协议，由于其便捷、快速的方式，适用于分布式超媒体信息系统；</p>
+<p>NAT协议：网络地址转换接入广域网技术，是一种将私有（保留）地址转化为合法IP地址的转换技术；</p>
+<p>DHCP协议：动态主机配置协议，是一种让系统得以连接到网络上，并获取所需要的配置参数手段，使用UDP协议工作。具体用途：给内部网络或网络服务供应商自动分配IP地址，给用户或者内部网络管理员作为对所有计算机作中央管理的手段。</p>
+<h3 id="交换机、路由器、网关"><a href="#交换机、路由器、网关" class="headerlink" title="交换机、路由器、网关"></a>交换机、路由器、网关</h3><p>交换机工作在数据链路层，具有自学习能力，学习的是交换表的内容，交换表中存储着MAC地址到接口的映射。正式由于这种自学能力，因此交换机是一种即插即用设备，不需要网络管理员手动配置交换表内容。</p>
+<p>路由器工作在网络层，主要完成两个功能：路由选择和分组转发，路由选择指的是决定数据包从来源端到目的所经过的路由路径；转发是指将路由器输入端的数据包送至适当的路由输出端。</p>
+<p>网关是连接两个网络的设备，能在网络间传递数据包，区别于路由器，网关中并没有路由表，它只能按照预先设定的不同网段来进行转发。</p>
+<h2 id="2-物理层"><a href="#2-物理层" class="headerlink" title="2 物理层"></a>2 物理层</h2><h3 id="通信方式"><a href="#通信方式" class="headerlink" title="通信方式"></a>通信方式</h3><p>根据信息在传输线上的传送方向，分为以下三种通信方式：<br>①单工通信：单向传输<br>②半双工通信：双向交替传输；<br>③全双工通信：双向同时传输</p>
+<h3 id="带通调制"><a href="#带通调制" class="headerlink" title="带通调制"></a>带通调制</h3><p>模拟信号是连续的信号，数字信号是离散的信号。带通调制把数字信号转换为模拟信号。</p>
+<h2 id="3-数据链路层"><a href="#3-数据链路层" class="headerlink" title="3 数据链路层"></a>3 数据链路层</h2><h3 id="基本问题"><a href="#基本问题" class="headerlink" title="基本问题"></a>基本问题</h3><p><strong>封装成帧</strong><br>将网络层传下来的分组添加首部和尾部，用于标记帧的开始和结束<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/1.png" alt=""></p>
+<p><strong>透明传输</strong><br>透明表示一个实际存在的事物看起来好像不存在一样。</p>
+<p>帧使用首部和尾部进行定界，如果帧的数据部分含有和首部尾部相同的内容，那么帧的开始和结束位置就会被错误的判定。需要把数据部分出现首部尾部相同的内容前面插入转义字符。如果数据部分出现转义字符，那么就在转义字符前面再加个转义字符。在接收端进行处理之后可以还原出原始数据。这个过程透明传输的内容是转义字符，用户察觉不到转义字符的存在。<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/2.png" alt=""></p>
+<p><strong>差错检测</strong><br>目前数据链路层广泛使用了循环冗余检验（CRC）来检查比特差错。</p>
+<h3 id="信道分类"><a href="#信道分类" class="headerlink" title="信道分类"></a>信道分类</h3><p><strong>广播信道</strong><br>一对多通信，一个节点发送的数据能够被广播信道上所有的节点接收到。所有节点都在同一个广播信道上发送数据，因此需要有专门的控制方法进行协调，避免发生冲突。主要有两种控制方法进行协调，一个是使用信道复用技术，一个是使用CSMA/CD协议。</p>
+<p><strong>点对点信道</strong><br>一对一通信。因此不会发生冲突，使用PPP（Point to Point Protocol）协议进行控制。</p>
+<h3 id="信道复用技术"><a href="#信道复用技术" class="headerlink" title="信道复用技术"></a>信道复用技术</h3><p><strong>频分复用</strong><br>频分复用的所有主机在相同的时间占用不同的频率带宽资源。<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/3.png" alt=""><br><strong>时分复用</strong><br>时分复用的所有主机在不同的时间占用相同的频率带宽资源。<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/4.png" alt=""></p>
+<p>使用频分复用和时分复用进行通信，在通信的过程中主机会一直占用一部分信道资源。但是由于计算机数据的突发性质，通信过程没必要一直占用信道资源而不让出给其他用户使用，因此这两种方式对信道的利用率都不高。</p>
+<p><strong>统计时分复用</strong><br>是对时分复用的一种改进，不固定每个用户在时分复用帧中的位置，只要有数据就集中起来组成统计时分复用帧然后发送。</p>
+<p><strong>波分复用</strong><br>光的频分复用。由于光的频率很高，因此习惯上用波长而不是频率来表示所使用的光载波。</p>
+<p><strong>码分复用</strong><br>为每个用户分配$m$ bit的码片，并且所有的码片正交，对于任意两个码片S和T有</p>
+<script type="math/tex; mode=display">
+\frac{1}{m} \vec{S} \cdot \vec{T}=0</script><p>为了讨论方便，取 $m=8$，设码片S为$00011011$，在拥有该码片的用户发送比特1时就发送该码片，发送比特0时就发送该码片的反码$11100100$.<br>在计算时将$00011011$记作（-1-1-1+1+1-1+1+1=1），可以得到</p>
+<script type="math/tex; mode=display">
+\frac{1}{m} \vec{S} \cdot \vec{S}=1</script><script type="math/tex; mode=display">
+\frac{1}{m} \vec{S} \cdot \overrightarrow{S^{\prime}}=-1</script><p>其中S’为S的反码。当接收端使用码片S对接收到的数据进行內积运算时，结果为0的是其他用户发送的数据，结果为1的是用户发送的比特1，结果为-1是用户发送的比特0。码分复用需要发送的数据量为原先的m倍。</p>
+<h3 id="CSMA-CD"><a href="#CSMA-CD" class="headerlink" title="CSMA/CD"></a>CSMA/CD</h3><p>CSMA/CD表示载波监听多点接入/碰撞检测Carrier Sense Multiple Access with Collision Detection。</p>
+<ul>
+<li>多点接入：说明这是总线型网络，许多主机以多点的方式连接到总线上。</li>
+<li>载波监听：每个主机都必须不停地监听信道。在发送前，如果监听到信道正在使用，就必须等待。</li>
+<li>碰撞检测：在发送中，如果监听到信道已有其他主机正在发送数据，就表示发生了碰撞。虽然每个主机在发送数据之前都已经监听到信道为空闲，但是由于电磁波的传播时延，还是有可能发生碰撞。</li>
+</ul>
+<p>记端到端的传播时延为T，最先发送的站点最多经过2T就可以知道是否发生了碰撞，称2T为争用期。只有经过争用期还没有检测到碰撞，才能肯定发送不会发生碰撞。</p>
+<p>当发生碰撞时，站点要停止发送，等待一段时间再发送，这个时间采用截断二进制指数退避算法来确定，从离散的整数集合${0,1，…,(2^k-1)}$中随机取出一个数，然后取$r$倍的争用期作为重传等待时间。</p>
+<h3 id="PPP协议"><a href="#PPP协议" class="headerlink" title="PPP协议"></a>PPP协议</h3><p>PPP协议表示Point to Point protocol。互联网用户通常需要连接到某个ISP之后才能接入到互联网，PPP协议是用户计算机和ISP进行通信时所使用的数据链路协议。<br>PPP的帧格式：</p>
+<ul>
+<li>F字段为帧的定界符</li>
+<li>A和C字段暂时没有意义</li>
+<li>FCS字段是使用CRC的校验序列</li>
+<li>信息部分的长度不超过1500</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/5.png" alt=""></p>
+<h3 id="MAC地址"><a href="#MAC地址" class="headerlink" title="MAC地址"></a>MAC地址</h3><p>MAC标识 Media Access Control 介质访问控制。MAC地址是链路层地址，长度为6字节（48位），用于唯一标识网络适配器（网卡）。一台主机拥有多少个网络适配器就有多少个MAC地址，例如笔记本电脑普遍存在无限网络适配器和有线网络适配器，因此就有两个MAC地址。</p>
+<h3 id="局域网"><a href="#局域网" class="headerlink" title="局域网"></a>局域网</h3><p>局域网是一种典型的广播信道，主要特点是网络为一个单位所拥有，且地理范围和站点数目均有限。主要有以太网、令牌环网、FDDI（Fiber Distributed Data Interface，光纤分布式数据接口）和ATM（asynchronous transfer mode，异步传输模式）等局域网技术，目前以太网占据着有线局域网市场。</p>
+<p>可以按照网络拓扑结构对局域网进行分类：星型，环型，总线型。</p>
+<h3 id="以太网"><a href="#以太网" class="headerlink" title="以太网"></a>以太网</h3><p>以太网是一种星型拓扑结构局域网。早期使用集线器进行连接，集线器是一种物理层设备，作用于比特而不是帧，当一个比特到达接口时，集线器重新生成这个比特，并将其能量强度放大，从而扩大网络的传输距离，之后再将这个比特发送到其他所有接口。如果集线器同时收到了两个不同接口的帧，那么就发生了碰撞。</p>
+<p>目前以太网使用了交换机替代了集线器，交换机是一种链路层设备，它不会发生碰撞，能根据MAC地址进行存储转发。<br>以太网帧格式：</p>
+<ul>
+<li>类型：标记上层使用的协议</li>
+<li>数据：长度在46~1500之间，如果太小则需要填充</li>
+<li>FCS：帧检验序列，使用的是CRC检验方法<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/6.png" alt=""></li>
+</ul>
+<h3 id="交换机"><a href="#交换机" class="headerlink" title="交换机"></a>交换机</h3><p>交换机具有自学习能力，学习的是交换表的内容，交换表中存储着MAC地址到接口的映射。正是由于这种自学能力，因此交换机是一种即插即用设备，不需要网络管理员手动配置交换表内容。</p>
+<p>下图中，交换机有 4 个接口，主机 A 向主机 B 发送数据帧时，交换机把主机 A 到接口 1 的映射写入交换表中。为了发送数据帧到 B，先查交换表，此时没有主机 B 的表项，那么主机 A 就发送广播帧，主机 C 和主机 D 会丢弃该帧，主机 B 回应该帧向主机 A 发送数据包时，交换机查找交换表得到主机 A 映射的接口为 1，就发送数据帧到接口 1，同时交换机添加主机 B 到接口 2 的映射。<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/7.png" alt=""></p>
+<h3 id="虚拟局域网（VLAN）"><a href="#虚拟局域网（VLAN）" class="headerlink" title="虚拟局域网（VLAN）"></a>虚拟局域网（VLAN）</h3><p>虚拟局域网可以建立与物理位置无关的逻辑组，只有在同一个虚拟局域网中的成员才会收到链路层广播信息。<br>例如下图中（A1,A2,A3,A4）属于一个虚拟局域网，A1发送的广播会被A2,A3,A4收到，而其他站点收不到。<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/8.png" alt=""><br>使用VLAN干线连接来建立虚拟局域网，每台交换机上的一个特殊接口被设置为干线接口，以互连交换机。IEEE定义了一种扩展的以太网帧格式802.1Q，它在标准以太网帧上加进了4字节首部VLAN标签，用于表示该帧属于哪一个虚拟局域网。</p>
+<h2 id="4-网络层"><a href="#4-网络层" class="headerlink" title="4 网络层"></a>4 网络层</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>因为网络层是整个互联网的核心，因此应当让网络层尽可能简单。网络层向上只提供简单灵活的、无连接的、尽最大努力交互的数据报服务。使用IP协议，可以把异构的物理网络连接起来，使得在网络层看起来好像是一个统一的网络。<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/9.png" alt=""><br>与IP协议配套使用的还有三个协议：</p>
+<ul>
+<li>地址解析协议ARP（address resolution protocol）</li>
+<li>网际控制报文协议ICMP（Internet control message protocol）</li>
+<li>网际组管理协议IGMP（Internet group management protocol）</li>
+</ul>
+<h3 id="IP数据报格式"><a href="#IP数据报格式" class="headerlink" title="IP数据报格式"></a>IP数据报格式</h3><p><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/10.png" alt=""></p>
+<ul>
+<li>版本：有4（ipv4）和6（ipv6）两个值</li>
+<li>首部长度：占4位，因此最大值为15。值为1表示是1个32位字的长度，也就是4字节。因为首部固定长度为20字节，因此最小值为5.如果可选字段的长度不是4字节的整数倍，就用尾部的填充部分来填充。</li>
+<li>区分服务：用来获得更好的服务，一般情况下不使用。</li>
+<li>总长度：包括首部长度和数据部分长度。</li>
+<li>生存时间：TTL，它的存在是为了防止无法交付的数据报在互联网中不断兜圈子，以路由器跳数为单位，当TTL为0时就丢弃数据报。</li>
+<li>协议：指出携带的数据应该上交给哪个协议进行处理，例如ICMP，TCP，UDP。</li>
+<li>首部检验和：因为数据报每经过一个路由器，都要重新计算校验和，因此检验和不包含数据部分可以减少计算的工作量。</li>
+<li>标识：在数据报长度过长从而发生分片的情况下，相同数据报的不同分片具有相同的标识符。</li>
+<li>片偏移：和标识符一起，用于发生分片的情况，片偏移的单位为8字节。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/11.png" alt=""></p>
+<h3 id="IP地址编址方式"><a href="#IP地址编址方式" class="headerlink" title="IP地址编址方式"></a>IP地址编址方式</h3><p>IP地址的编址方式经历了三个历史阶段：</p>
+<ul>
+<li>分类</li>
+<li>子网划分</li>
+<li>无分类</li>
+</ul>
+<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p>由两部分组成，网络号和主机号，其中不同的分类具有不同的网络号长度，并且是固定的。<br>IP地址={&lt;网络号&gt;,&lt;主机号&gt;}<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/12.png" alt=""></p>
+<p><strong>IP地址的分类</strong><br>A类地址：以0开头，第一个字节范围：1~126（1.0.0.0-126.255.255.255）<br>B类地址：以10开头，第一个字节范围：128-191（128.0.0.0-191.255.255.255）<br>C类地址：以110开头，第一个字节范围：192-223（192.0.0.0-223.255.255.255）<br>D类地址：以1110开头，第一个字节范围：224-239（224.0.0.0-239.255.255.255）；作为多播使用<br>E类地址：以1111开头，保留<br>其中A,B,C是基本类，D,E类作为多播和保留使用。</p>
+<p><strong>留用的内部私有地址</strong><br>A类：10.0.0.0-10.255.255.255<br>B类：172.16.0.0-172.31.255.255<br>C类：192.168.0.0-192.168.255.255</p>
+<p>IP地址与子网掩码相与得到网络号：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">	192.168.2.110</span><br><span class="line">&amp;	255.255.255.0</span><br><span class="line">	192.168.2.0</span><br></pre></td></tr></table></figure></p>
+<p>主机号全为0的是网络号（如192.168.2.0），主机号全为1的为广播地址（192.168.2.255）。</p>
+<h3 id="子网划分"><a href="#子网划分" class="headerlink" title="子网划分"></a>子网划分</h3><p>通过在主机号字段中拿出一部分作为子网号，把两级IP地址划分为三级IP地址。<br>IP地址={&lt;网络号&gt;,&lt;子网号&gt;,&lt;主机号&gt;}</p>
+<p>要使用子网，必须配置子网掩码。一个B类地址的默认子网掩码为255.255.0.0，如果B类地址的子网占两个比特，那么子网掩码为1111111 11111111 11000000 00000000，也就是255.255.192.0。<br>注意，外部网络看不到子网的存在。</p>
+<h3 id="无分类"><a href="#无分类" class="headerlink" title="无分类"></a>无分类</h3><p>无分类编址CIDR消除了传统A类、B类和C类地址以及划分子网的概念，使用网络前缀和主机号来对IP地址进行编码，网络前缀的长度可以根据需要变化。<br>IP地址={&lt;网络前缀号&gt;,&lt;主机号&gt;}</p>
+<p>CIDR的记法上采用在IP地址后面加上网络前缀长度的方法，例如128.14.35.7/20表示前20位为网络前缀。</p>
+<p>CIDR的地址掩码可以继续称为子网掩码，子网掩码首1长度为网络前缀的长度。</p>
+<p>一个CIDR地址块中有很多地址，一个CIDR表示的网络就可以表示原来的很多个网络，并且在路由表中只需要一个路由就可以代替原来的多个路由，减少了路由表项的数量。把这种通过使用网络前缀来减少路由表项的方式称为路由聚合，也称为构成超网。</p>
+<p>在路由表中的项目由“网络前缀”和“下一跳地址”组成，在查找时可能会得到不止一个匹配结果，应当采用最长前缀匹配来确定应该匹配哪一个。</p>
+<h3 id="地址解析协议ARP"><a href="#地址解析协议ARP" class="headerlink" title="地址解析协议ARP"></a>地址解析协议ARP</h3><p>网络层实现主机之间的通信，而链路层实现具体每段链路之间的通信。因此在通信过程中，IP数据报的源地址和目的地址始终不变，而MAC地址随着链路的改变而改变。<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/13.png" alt=""></p>
+<p>ARP 实现由 IP 地址得到 MAC 地址。<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/14.png" alt=""></p>
+<p><strong>ARP工作原理</strong><br>1 首先，每个主机都会在自己的ARP缓冲区建立一个ARP列表，以表示IP地址和MAC地址的对应关系；</p>
+<p>2 当源主机要发送数据时，首先检查ARP列表中是否有对应IP地址的目的主机的MAC地址，如果有，则直接发送数据，如果没有，就向本网段的所有主机发送ARP数据包，该数据包的内容包括：源主机IP地址，源主机MAC地址，目的主机的IP地址；</p>
+<p>3 当本网络的所有主机收到该ARP数据包时，首先检查数据报中的IP地址是否是自己的IP地址，如果不是，则忽略该数据包，如果是，则首先从数据包中取出源主机的IP和MAC地址写入到ARP列表中，如果已经存在，则覆盖，然后将自己的MAC地址写入ARP响应包中，告诉源主机自己是它想要找的MAC地址；</p>
+<p>4 源主机收到ARP响应包后，将目的主机的IP和MAC地址写入ARP列表中，并利用此信息发送数据，如果源主机已知没有收到ARP响应数据包，表示ARP查询失败。<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/15.png" alt=""><br>广播发送ARP请求，单播发送ARP响应。</p>
+<h3 id="逆地址解析协议RARP"><a href="#逆地址解析协议RARP" class="headerlink" title="逆地址解析协议RARP"></a>逆地址解析协议RARP</h3><p>RARP协议是逆地址解析协议，作用是完成MAC地址到IP地址的映射，主要用于无盘工作站，因为给无盘工作站配置的IP地址不能保存。工作流程：在网络中配置一台RARP服务器，里面保存着IP地址和MAC地址的映射关系，当无盘工作站启动后，就封装一个RARP数据包，里面有其MAC地址，然后广播到网络上去，当服务器收到请求包后，就查找对应的MAC地址的IP地址装入响应报文中发回给请求者。因为需要广播请求报文，因此RARP只能用于具有广播能力的网络。</p>
+<h3 id="网际控制报文协议ICMP"><a href="#网际控制报文协议ICMP" class="headerlink" title="网际控制报文协议ICMP"></a>网际控制报文协议ICMP</h3><p>ICMP是为了更有效地转发IP数据报和提高交付的机会，它封装在IP数据报中，但是不属于高层协议。<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/16.png" alt=""><br>ICMP报文分为差错报告报文和询问报文。<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/17.png" alt=""></p>
+<p><strong>Ping</strong><br>Ping是ICMP的一个重要应用，主要用来测试两台主机之间的连通性。</p>
+<p>Ping的原理是通过向目的主机发送ICMP Echo请求报文，目的主机收到之后会发送Echo回答报文，Ping会根据时间和成功响应的次数估算出数据包往返时间及丢包率。</p>
+<p><strong>Tracetoute</strong><br>Traceroute是ICMP的另一个应用，用来跟踪一个分组从源点到终点的路径。</p>
+<p>Traceroute发送的IP数据报封装的是无法交付的UDP用户数据报，并由目的主机发送终点不可达差错报告报文。</p>
+<ul>
+<li>源主机向目的主机发送一连串的IP数据报。第一个数据报P1的生存时间TTL设置为1，当P1到达路径上的第一个路由器R1时，R1收下它并把TTL减1，此时TTL等于0，R1就把P1丢弃，并向源主机发送一个ICMP时间超过差错报告报文；</li>
+<li>源主机接着发送第二个数据报P2，并把TTL设置为2。P2先到达R1，R1收下后把TTL减1在转发给R2，R2收下后也把TTL减1，此时TTL等于0，R2就丢弃P2，并向源主机发送一个ICMP时间超过差错报文；</li>
+<li>不断执行这样的步骤，直到最后一个数据报刚刚到达目的主机，主机不转发数据报，也不把TTL减1，但是因为数据报封装的是无法交付的UDP，因此目的主机要向源主机发送ICMP不可达差错报文；</li>
+<li>之后源主机知道了到达目的主机所经过的路由器IP地址及达到每个路由器的往返时间。</li>
+</ul>
+<h3 id="虚拟专用网VPN"><a href="#虚拟专用网VPN" class="headerlink" title="虚拟专用网VPN"></a>虚拟专用网VPN</h3><p>虚拟专用网表示Virtual Private Network。由于IP地址的紧缺，一个机构能申请到的IP地址数往往远小于本机构所拥有的主机数。并且一个机构并不需要把所有的主机接入到外部的互联网中，机构内的计算机可以使用仅在本机构有效的IP地址（专用地址）。<br>有三个专用地址块：</p>
+<ul>
+<li>10.0.0.0~10.255.255.255</li>
+<li>172.16.0.0~172.31.255.255</li>
+<li>192.168.0.0~192.168.255.255</li>
+</ul>
+<p>VPN使用公用的互联网作为本机构各专用网之间的通信载体。专用指机构内的主机只与本机构内的其他主机通信，虚拟指的是它经过公有的互联网。</p>
+<p>下图中，场所A和场所B的通信经过互联网，如果场所A的主机X要和另一个场所B的主机Y通信，IP数据报的源地址是10.1.0.1，目的地址是10.2.0.3。数据报先发送到与互联网相连的路由器R1，R1对内部数据进行加密，然后重新加上数据报的首部，源地址是路由器R1的全球地址125.1.2.3，目的地址是路由器R2的全球地址194.4.5.6。路由器R2收到数据报后将数据部分进行解密，恢复原来的数据报，此时目的地址为10.2.0.3，就交付给Y。<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/18.png" alt=""></p>
+<h3 id="网络地址转换NAT"><a href="#网络地址转换NAT" class="headerlink" title="网络地址转换NAT"></a>网络地址转换NAT</h3><p>专用网内部的主机使用本地IP地址又想和互联网上的主机通信时，可以使用NAT来将本地IP转换为全球IP。在以前，NAT将本地IP和全球IP一一对应，这种方式下拥有n个全球IP地址的专用网内最多只可以同时有n台主机接入互联网。为了更有效地利用全球IP地址，现在常用的NAT转换表把传输层的端口号也用上了，使得多个专用网内部的主机共用一个全球IP地址。使用端口号的NAT也叫作网络地址与端口转换NAPT。<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/19.png" alt=""></p>
+<h3 id="路由器的结构"><a href="#路由器的结构" class="headerlink" title="路由器的结构"></a>路由器的结构</h3><p>路由器从功能上可以划分为：路由选择和分组转发。<br>分组转发结构由三个部分组成：交换结构、一组输入端口和一组输出端口。<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/20.png" alt=""></p>
+<h3 id="路由器分组转发流程"><a href="#路由器分组转发流程" class="headerlink" title="路由器分组转发流程"></a>路由器分组转发流程</h3><ul>
+<li>从数据报的首部提取目的主机的IP地址D，得到目的网络地址N；</li>
+<li>若N 就是与此路由器直接相连的某个网络地址，则进行直接交付；</li>
+<li>若路由表中有目的地址为D的特定主机路由，则把数据报传送给表中所指明的下一跳路由器；</li>
+<li>若路由器中有到达网络N的路由，则把数据报传送给路由表中所指明的下一跳路由器；</li>
+<li>若路由表中有一个默认路由，则把数据报传送给路由表中所指明的默认路由器；</li>
+<li>否则，报文转发分组出错。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/21.png" alt=""></p>
+<h3 id="路由选择协议"><a href="#路由选择协议" class="headerlink" title="路由选择协议"></a>路由选择协议</h3><p>路由选择协议都是自适应的，能随着网络通信量和拓扑结构的变化而自适应地进行调整。<br>互联网可以划分为许多较小的自治系统 AS，一个 AS 可以使用一种和别的 AS 不同的路由选择协议。<br>可以把路由选择协议划分为两大类：</p>
+<ul>
+<li>自治系统内部的路由选择：RIP（路由信息协议 Routing information protocol）和OSPF（开放式最短路径优先 Open shortest pathfirst）</li>
+<li>自治系统间的路由选择：BGP（边界网关协议 border gateway protocol）</li>
+</ul>
+<p><strong>内部网关协议RIP</strong><br>RIP是一种基于距离向量的路由选择协议。距离是指跳数，直接相连的路由器跳数为1。跳数最多为15，超过15位不可达。</p>
+<p>RIP按固定的时间间隔仅和相邻路由器交换自己的路由表，经过若干次交换之后，所有路由器最终会知道到达本自治系统中任何一个网络的最短距离和下一跳路由器地址。</p>
+<p>距离向量算法：</p>
+<ul>
+<li>对地址为X的相邻路由器发来的RIP报文，先修改报文中的所有项目，把下一跳字段中的地址改为X，并把所有的距离字段加1；</li>
+<li>对修改后的 RIP 报文中的每一个项目，进行以下步骤：<ul>
+<li>原来的路由表中没有目的网络 N，则把该项目添加到路由表中；</li>
+<li>否则：若下一跳路由器地址是 X，则把收到的项目替换原来路由表中的项目；否则：若收到的项目中的距离 d 小于路由表中的距离，则进行更新（例如原始路由表项为 Net2, 5, P，新表项为 Net2, 4, X，则更新）；否则什么也不做。</li>
+<li>若 3 分钟还没有收到相邻路由器的更新路由表，则把该相邻路由器标为不可达，即把距离置为 16。</li>
+</ul>
+</li>
+</ul>
+<p>RIP协议实现简单，开销小，但是RIP能使用的最大距离为15，限制了网络的规模。并且当网络出现故障时，要经过比较长的时间才能将次消息传送到所有的路由器。</p>
+<p><strong>内部网关协议OSPF</strong><br>开放最短路径优先 OSPF，是为了克服 RIP 的缺点而开发出来的。<br>开放表示 OSPF 不受某一家厂商控制，而是公开发表的；最短路径优先表示使用了 Dijkstra 提出的最短路径算法 SPF。</p>
+<p>OSPF 具有以下特点：</p>
+<ul>
+<li>向本自治系统中的所有路由器发送信息，这种方法是洪泛法；</li>
+<li>发送的信息就是与相邻路由器的链路状态，链路状态包括与哪些路由器相连以及链路的度量，度量用费用、距离、时延、带宽等来表示；</li>
+<li>只有当链路状态发生变化时，路由器才会发送信息。<br>所有路由器都具有全网的拓扑结构图，并且是一致的。相比于 RIP，OSPF 的更新过程收敛的很快。</li>
+</ul>
+<p><strong>外部网关协议BGP</strong><br>BGP（Border gateway protocol， 边界网关协议）<br>AS之间的路由选择很困难，主要是由于：</p>
+<ul>
+<li>互联网的规模很大；</li>
+<li>各个AS内部使用不同的路由选择协议，无法准确定义路径的度量；</li>
+<li>AS之间的路由选择必须考虑有关的策略，比如有些AS不愿意让其他AS经过。</li>
+</ul>
+<p>BGP只能寻找一条比较好的路由，而不是最佳路由。<br>每个AS都必须配置BGP发言人，通过在两个相邻BGP发言人之间建立TCP连接来交换路由信息。<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/22.png" alt=""></p>
+<h2 id="5-传输层"><a href="#5-传输层" class="headerlink" title="5 传输层"></a>5 传输层</h2><p>网络组只把分组发送到目的主机，但是真正通信的并不是主机而是主机中的进程。传输层提供了进程间的逻辑通信，传输层向高层用户屏蔽了下面网络层的核心细节，使应用程序看起来像是在两个传输层实体之间有一条端到端的逻辑通信信道。</p>
+<h3 id="UDP和TCP的特点"><a href="#UDP和TCP的特点" class="headerlink" title="UDP和TCP的特点"></a>UDP和TCP的特点</h3><p>TCP是面向连接的，可靠的数据流传输，有流量控制，拥塞控制，提供全双工，传输单位是TCP报文段，每一条TCP连接都是点对点的（一对一的），安全性较高。</p>
+<p>UDP是无连接的，不可靠的，尽最大可能交付的数据流传输，没有拥塞控制，传输单位是用户数据报，支持一对一，一对多，多对一和多对多的交互通信，安全性一般。</p>
+<h3 id="TCP对应的协议"><a href="#TCP对应的协议" class="headerlink" title="TCP对应的协议"></a>TCP对应的协议</h3><p>FTP：定义了文件传输协议，使用21端口<br>Telnet：一种远程登录的端口，使用23端口，用户可以以自己的身份远程连接到计算机上，可提供DOS模式下的通信服务<br>SMTP：简单邮件传输协议，用于发送邮件，使用25号端口<br>POP3：它是与SMTP对应，POP3用于接收邮件，POP3协议所用的是110端口<br>HTTP：是从Web服务器传输超文本到本地浏览器的传送协议</p>
+<h3 id="UDP对应的协议"><a href="#UDP对应的协议" class="headerlink" title="UDP对应的协议"></a>UDP对应的协议</h3><p>DNS：用于域名解析服务，将域名地址转换为IP地址，使用53号端口<br>SNMP：简单网络管理协议，用来管理网络设备，由于网络设备很多，无连接的服务就体现在其优势，使用的是161端口<br>TFTP（Trivial File Transfer Protocol）：简单文件传输协议，该协议在熟知端口69上使用UDP服务。</p>
+<p><strong>同一个IP同一个端口可以同时建立tcp和udp的连接</strong><br>同一个端口虽然udp和tcp的端口数字是一样的，但实质他们是不同的端口，所以是没有影响的，从底层实质分析，对于每一个连接内核维护了一个五元组，包含了源ip，目的ip、源端口目的端口、以及传输协议，在这里尽管前4项都一样，但是传输协议是不一样的，所以内核会认为是2个不同的连接，在ip层就会进行开始分流，tcp的走tcp，udp走udp。</p>
+<h3 id="UDP首部格式"><a href="#UDP首部格式" class="headerlink" title="UDP首部格式"></a>UDP首部格式</h3><p><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/23.png" alt=""><br>首部字段8个字节，包括源端口、目的端口、长度和校验和。12字节的伪首部是为了计算检验和临时添加的。</p>
+<h3 id="TCP首部格式"><a href="#TCP首部格式" class="headerlink" title="TCP首部格式"></a>TCP首部格式</h3><p><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/24.png" alt=""></p>
+<ul>
+<li>序号 ：用于对字节流进行编号，例如序号为 301，表示第一个字节的编号为 301，如果携带的数据长度为 100 字节，那么下一个报文段的序号应为 401。</li>
+<li>确认号 ：期望收到的下一个报文段的序号。例如 B 正确收到 A 发送来的一个报文段，序号为 501，携带的数据长度为 200 字节，因此 B 期望下一个报文段的序号为 701，B 发送给 A 的确认报文段中确认号就为 701。</li>
+<li>数据偏移 ：指的是数据部分距离报文段起始处的偏移量，实际上指的是首部的长度。</li>
+<li>确认 ACK ：当 ACK=1 时确认号字段有效，否则无效。TCP 规定，在连接建立后所有传送的报文段都必须把 ACK 置 1。</li>
+<li>同步 SYN ：在连接建立时用来同步序号。当 SYN=1，ACK=0 时表示这是一个连接请求报文段。若对方同意建立连接，则响应报文中 SYN=1，ACK=1。</li>
+<li>终止 FIN ：用来释放一个连接，当 FIN=1 时，表示此报文段的发送方的数据已发送完毕，并要求释放连接。</li>
+<li>窗口 ：窗口值作为接收方让发送方设置其发送窗口的依据。之所以要有这个限制，是因为接收方的数据缓存空间是有限的。</li>
+</ul>
+<h3 id="TCP的三次握手"><a href="#TCP的三次握手" class="headerlink" title="TCP的三次握手"></a>TCP的三次握手</h3><p><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/25.png" alt=""><br>假设A为客户端，B为服务器端：</p>
+<ul>
+<li>首先B处理Listen（监听）状态，等待客户的连接请求；</li>
+<li>A向B发送连接请求报文，SYN=1，ACK=0，选择一个初始的序号x；</li>
+<li>B收到连接请求报文，则向A发送连接确认报文，SYN=1，ACK=1，确认号为x+1，同时也选择一个初始的序号y；</li>
+<li>A收到B的连接确认报文后，还要向B发出确认，确认号为y+1，序号为x+1；</li>
+<li>B收到A的确认后，建立连接。</li>
+</ul>
+<p>总结：主机A向服务器B发送连接请求；B对收到的报文进行确认，A再次对B的确认进行确认。</p>
+<h3 id="三次握手的原因"><a href="#三次握手的原因" class="headerlink" title="三次握手的原因"></a>三次握手的原因</h3><p>第三次握手是为了防止失效的连接请求到达服务器，让服务器错误地打开连接。<br>客户端发送的连接请求如果在网络中滞留，那么就会隔很长时间才会收到服务器端发回的连接确认。客户端等待一个超时重传时间之后，就会重新请求连接。但是前面那个滞留的连接请求还是会到达服务器，如果不进行三次握手，那么服务器就会打开两个连接。如果有第三次握手，客户端会忽略服务器之后发送的对滞留连接请求的连接确认，不进行第三次握手，因此就不会再次打开连接。</p>
+<h3 id="TCP的四次挥手"><a href="#TCP的四次挥手" class="headerlink" title="TCP的四次挥手"></a>TCP的四次挥手</h3><p><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/26.png" alt=""><br>以下描述不讨论序号和确认号，因为序号和确认号的规则比较简单。并且不讨论 ACK，因为 ACK 在连接建立之后都为 1。</p>
+<ul>
+<li>A发送连接释放报文，FIN=1；（finish）</li>
+<li>B收到之后发出确认，此时TCP处于半关闭状态，B能向A发送数据但是A不能向B发送数据；</li>
+<li>当B不再需要连接时，发送连接释放报文，FIN=1；</li>
+<li>A收到之后发出确认，进入TIME-WAIT状态，等到2MSL （Maximum Segment Lifetime，最大报文存活时间）后释放连接；</li>
+<li>B收到A的确认后释放连接</li>
+</ul>
+<h3 id="四次挥手的原因"><a href="#四次挥手的原因" class="headerlink" title="四次挥手的原因"></a>四次挥手的原因</h3><p>客户端发送了FIN连接释放报文之后，服务器收到了这个报文，就进入了CLOSE-WAIT状态，这个状态是为了让服务器发送还未传送完毕的数据，传送完毕之后，服务器会发送FIN连接释放报文。客户端收到服务器端的FIN报文后进入TIME-WAIT状态，此时并不是直接进入CLOSED状态，还需要等待2MSL，这么做有两个理由：</p>
+<ul>
+<li>确保最后一个确认报文能够到达，如果B没收到A发送来的确认报文，那么就会重新发送连接释放请求报文，A等待一段时间就是为了处理这种情况的发生；</li>
+<li>等待一段时间是为了让本连接持续时间内所产生的所有报文都从网络中消失，使得下一个新的连接不会出现旧的连接请求报文。</li>
+</ul>
+<h3 id="TCP可靠传输"><a href="#TCP可靠传输" class="headerlink" title="TCP可靠传输"></a>TCP可靠传输</h3><p>TCP使用超时重传来实现可靠传输：如果一个已经发送的报文在超时时间内没有收到确认，那么就重传这个报文段。</p>
+<p>一个报文段从发送再到接收到确认所经过的时间称为往返时间RTT，加权平均往返时间RTTs计算如下：</p>
+<script type="math/tex; mode=display">
+R T T s=(1-a) *(R T T s)+a * R T T</script><p>其中，$0 \leqslant a&lt;1$，RTTs 随着 a 的增加更容易受到 RTT 的影响。<br>超时时间 RTO 应该略大于 RTTs，TCP 使用的超时时间计算如下：</p>
+<script type="math/tex; mode=display">
+R T O=R T T s+4 * R TT_{d}</script><p>其中 RTTd 为偏差的加权平均值。</p>
+<h3 id="TCP滑动窗口"><a href="#TCP滑动窗口" class="headerlink" title="TCP滑动窗口"></a>TCP滑动窗口</h3><p>窗口是缓存的一部分，用来暂时存放字节流。发送方和接收方各有一个窗口，接收方通过TCP报文段中的窗口字段告诉发送方自己的窗口大小，发送方根据这个值和其他信息设置自己的窗口大小。</p>
+<p>发送窗口内的字节都允许被发送，接收窗口内的字节都允许被接收。如果发送窗口左部的字节已经发送并且收到了确认，那么就将发送窗口向右滑动一定距离，直到左部第一个字节不是已发送并且已确认的状态；接收窗口的滑动类似，接收窗口左部字节已经发送确认并交付主机，就向右滑动接收窗口。</p>
+<p>接收窗口只会对窗口内最后一个按序到达的字节进行确认，例如接收窗口已经收到的字节为 {31, 34, 35}，其中 {31} 按序到达，而 {34, 35} 就不是，因此只对字节 31 进行确认。发送方得到一个字节的确认之后，就知道这个字节之前的所有字节都已经被接收。<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/27.png" alt=""></p>
+<h3 id="TCP流量控制"><a href="#TCP流量控制" class="headerlink" title="TCP流量控制"></a>TCP流量控制</h3><p>流量控制是为了控制发送方发送速率，保证接收方来得及接收。接收方发送的确认报文中的窗口字段可以用来控制发送方窗口大小，从而影响发送方的发送速率，将窗口字段设置为0，则发送方不能发送数据。</p>
+<h3 id="TCP拥塞控制"><a href="#TCP拥塞控制" class="headerlink" title="TCP拥塞控制"></a>TCP拥塞控制</h3><p>如果网络出现拥塞，分组将会丢失，此时发送方会继续重传，从而导致网络拥塞程度更高，因此当出现拥塞时，应当控制发送方的速率。这一点和流量控制很像，但是出发点不一样。流量控制是为了接收方能来得及接收，而拥塞控制是为了降低整个网络的拥塞程度。<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/28.png" alt=""></p>
+<p>TCP主要通过四个算法来进行拥塞控制：慢开始、拥塞避免、快重传、快恢复。<br>发送方需要维护一个叫做拥塞窗口（congestion window，cwnd）的状态变量，注意拥塞窗口与发送方窗口的区别：拥塞窗口只是一个状态变量，实际决定发送方能发送多少数据的是发送方窗口。</p>
+<p>为了便于讨论，做如下假设：</p>
+<ul>
+<li>接收方有足够大的接收缓存，因此不会发生流量控制；</li>
+<li>虽然 TCP 的窗口基于字节，但是这里设窗口的大小单位为报文段。</li>
+</ul>
+<p><strong>慢开始与拥塞避免</strong><br>发送的最初执行慢开始，令 cwnd = 1，发送方只能发送 1 个报文段；当收到确认后，将 cwnd 加倍，因此之后发送方能够发送的报文段数量为：2、4、8 …</p>
+<p>注意到慢开始每个轮次都将 cwnd 加倍，这样会让 cwnd 增长速度非常快，从而使得发送方发送的速度增长速度过快，网络拥塞的可能性也就更高。设置一个慢开始门限 ssthresh，当 cwnd &gt;= ssthresh 时，进入拥塞避免，每个轮次只将 cwnd 加 1。<br>如果出现了超时，则令 ssthresh = cwnd / 2，然后重新执行慢开始。<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/29.png" alt=""></p>
+<p><strong>快重传与快恢复</strong><br>在接收方，要求每次接收到报文段都应该对最后一个已收到的有序报文段进行确认。例如已经接收到 M1 和 M2，此时收到 M4，应当发送对 M2 的确认。</p>
+<p>在发送方，如果收到三个重复确认，那么可以知道下一个报文段丢失，此时执行快重传，立即重传下一个报文段。例如收到三个 M2，则 M3 丢失，立即重传 M3。</p>
+<p>在这种情况下，只是丢失个别报文段，而不是网络拥塞。因此执行快恢复，令 ssthresh = cwnd / 2 ，cwnd = ssthresh，注意到此时直接进入拥塞避免。</p>
+<p>慢开始和快恢复的快慢指的是 cwnd 的设定值，而不是 cwnd 的增长速率。慢开始 cwnd 设定为 1，而快恢复 cwnd 设定为 ssthresh。<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/30.png" alt=""></p>
+<h2 id="6-应用层"><a href="#6-应用层" class="headerlink" title="6 应用层"></a>6 应用层</h2><h3 id="域名系统"><a href="#域名系统" class="headerlink" title="域名系统"></a>域名系统</h3><p>DNS是一个分布式数据库，提供了主机名和IP地址之间相互转化的服务。这里的分布式数据库是指，每个站点只保留它自己的那部分数据。<br>域名具有层次结构，从上到下依次为：根域名、顶级域名、二级域名。<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/31.png" alt=""></p>
+<h3 id="DNS域名系统工作原理"><a href="#DNS域名系统工作原理" class="headerlink" title="DNS域名系统工作原理"></a>DNS域名系统工作原理</h3><p>当DNS客户机需要在程序中使用域名时，需要查询DNS服务器来解析该域名，客户机发送的每条查询信息包括三条信息：包括指定的DNS域名，指定的查询类型，DNS域名的指定类别，DNS可以使用UDP或者TCP进行传输，使用的端口号是53,，大多数情况下使用UDP进行传输，在两种情况下会使用TCP进行传输：</p>
+<ul>
+<li>如果返回的响应超过512字节（UDP最大只支持512字节的数据）。</li>
+<li>区域传送（区域传送是主域名服务器向辅助域名服务器传送变化的那部分数据）。</li>
+</ul>
+<h3 id="文件传送协议FTP"><a href="#文件传送协议FTP" class="headerlink" title="文件传送协议FTP"></a>文件传送协议FTP</h3><p>FTP使用TCP进行连接，它需要两个连接来传送一个文件：</p>
+<ul>
+<li>控制连接：服务器打开端口号21等待客户端的连接，客户端主动建立连接后，使用这个连接将客户端的命令传送给服务器，并传回服务器的应答；</li>
+<li>数据连接：用来传送一个文件数据。</li>
+</ul>
+<p>根据数据连接是否是服务器端主动建立，FTP有主动和被动两种模式：</p>
+<ul>
+<li>主动模式：服务器端主动建立数据连接，其中服务器端的端口号为20，客户端的端口号随机，但是必须大于1024，因为0~1023是熟知端口号；</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/32.png" alt=""></p>
+<ul>
+<li>被动模式：客户端主动建立数据连接，其中客户端的端口号由客户端自己指定，服务器端的端口号随机。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/33.png" alt=""></p>
+<p>主动模式要求客户端开放端口号给服务器端，需要去配置客户端的防火墙。被动模式只需要服务器端开放端口号即可，无需客户端配置防火墙。但是被动模式会导致服务器端的安全性减弱，因为开放了过多的端口号。</p>
+<h3 id="动态主机配置协议DHCP"><a href="#动态主机配置协议DHCP" class="headerlink" title="动态主机配置协议DHCP"></a>动态主机配置协议DHCP</h3><p>DHCP (Dynamic Host Configuration Protocol) 提供了即插即用的连网方式，用户不再需要去手动配置 IP 地址等信息。<br>DHCP配置的内容不仅是IP地址，还包括子网掩码，网关IP地址。</p>
+<p>DHCP工作过程如下：</p>
+<ul>
+<li>客户端发送 Discover 报文，该报文的目的地址为 255.255.255.255:67，源地址为 0.0.0.0:68，被放入 UDP 中，该报文被广播到同一个子网的所有主机上。如果客户端和 DHCP 服务器不在同一个子网，就需要使用中继代理。</li>
+<li>DHCP 服务器收到 Discover 报文之后，发送 Offer 报文给客户端，该报文包含了客户端所需要的信息。因为客户端可能收到多个 DHCP 服务器提供的信息，因此客户端需要进行选择。</li>
+<li>如果客户端选择了某个 DHCP 服务器提供的信息，那么就发送 Request 报文给该 DHCP 服务器。</li>
+<li>DHCP 服务器发送 Ack 报文，表示客户端此时可以使用提供给它的信息。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/34.png" alt=""></p>
+<h3 id="远程登录协议"><a href="#远程登录协议" class="headerlink" title="远程登录协议"></a>远程登录协议</h3><p>TELNET用于登录到远程主机上，并且远程主机上的输出也会返回。TELNET 可以适应许多计算机和操作系统的差异，例如不同操作系统系统的换行符定义。</p>
+<h3 id="电子邮件协议"><a href="#电子邮件协议" class="headerlink" title="电子邮件协议"></a>电子邮件协议</h3><p>一个电子邮件系统由三部分组成：用户代理、邮件服务器以及邮件协议。<br>邮件协议包含发送协议和读取协议，发送协议常用 SMTP，读取协议常用 POP3 和 IMAP。<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/35.png" alt=""><br><strong>SMTP</strong><br>SMTP 只能发送 ASCII 码，而互联网邮件扩充 MIME 可以发送二进制文件。MIME 并没有改动或者取代 SMTP，而是增加邮件主体的结构，定义了非 ASCII 码的编码规则。<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/36.png" alt=""></p>
+<p><strong>POP3</strong><br>POP3 （Post Office Protocol - Version 3 邮局协议版本3）的特点是只要用户从服务器上读取了邮件，就把该邮件删除。</p>
+<p><strong>IMAP</strong><br>IMAP（Internet Mail Access Protocol, Internet邮件访问协议）协议中客户端和服务器上的邮件保持同步，如果不手动删除邮件，那么服务器上的邮件也不会被删除。IMAP 这种做法可以让用户随时随地去访问服务器上的邮件。</p>
+<h3 id="常用端口"><a href="#常用端口" class="headerlink" title="常用端口"></a>常用端口</h3><p><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/计算机网络/37.png" alt=""></p>
+<h3 id="Web页面请求过程"><a href="#Web页面请求过程" class="headerlink" title="Web页面请求过程"></a>Web页面请求过程</h3><p><strong>1 DHCP配置主机信息</strong></p>
+<ul>
+<li>假设主机最开始没有 IP 地址以及其它信息，那么就需要先使用 DHCP 来获取。</li>
+<li>主机生成一个 DHCP 请求报文，并将这个报文放入具有目的端口 67 和源端口 68 的 UDP 报文段中。</li>
+<li>该报文段则被放入在一个具有广播 IP 目的地址(255.255.255.255) 和源 IP 地址（0.0.0.0）的 IP 数据报中。</li>
+<li>该数据报则被放置在 MAC 帧中，该帧具有目的地址 FFFFFFFFFF:FF，将广播到与交换机连接的所有设备。</li>
+<li>连接在交换机的 DHCP 服务器收到广播帧之后，不断地向上分解得到 IP 数据报、UDP 报文段、DHCP 请求报文，之后生成 DHCP ACK 报文，该报文包含以下信息：IP 地址、DNS 服务器的 IP 地址、默认网关路由器的 IP 地址和子网掩码。该报文被放入 UDP 报文段中，UDP 报文段有被放入 IP 数据报中，最后放入 MAC 帧中。</li>
+<li>该帧的目的地址是请求主机的 MAC 地址，因为交换机具有自学习能力，之前主机发送了广播帧之后就记录了 MAC 地址到其转发接口的交换表项，因此现在交换机就可以直接知道应该向哪个接口发送该帧。</li>
+<li>主机收到该帧后，不断分解得到 DHCP 报文。之后就配置它的 IP 地址、子网掩码和 DNS 服务器的 IP 地址，并在其 IP 转发表中安装默认网关。</li>
+</ul>
+<p><strong>2 ARP解析MAC地址</strong></p>
+<ul>
+<li>主机通过浏览器生成一个 TCP 套接字，套接字向 HTTP 服务器发送 HTTP 请求。为了生成该套接字，主机需要知道网站的域名对应的 IP 地址。</li>
+<li>主机生成一个 DNS 查询报文，该报文具有 53 号端口，因为 DNS 服务器的端口号是 53。</li>
+<li>该 DNS 查询报文被放入目的地址为 DNS 服务器 IP 地址的 IP 数据报中。</li>
+<li>该 IP 数据报被放入一个以太网帧中，该帧将发送到网关路由器。</li>
+<li>DHCP 过程只知道网关路由器的 IP 地址，为了获取网关路由器的 MAC 地址，需要使用 ARP 协议。</li>
+<li>主机生成一个包含目的地址为网关路由器 IP 地址的 ARP 查询报文，将该 ARP 查询报文放入一个具有广播目的地址（FFFFFFFFFF:FF）的以太网帧中，并向交换机发送该以太网帧，交换机将该帧转发给所有的连接设备，包括网关路由器。</li>
+<li>网关路由器接收到该帧后，不断向上分解得到 ARP 报文，发现其中的 IP 地址与其接口的 IP 地址匹配，因此就发送一个 ARP 回答报文，包含了它的 MAC 地址，发回给主机。</li>
+</ul>
+<p><strong>3 DNS解析域名</strong></p>
+<ul>
+<li>知道了网关路由器的MAC地址之后，就可以继续DNS的解析过程了</li>
+<li>网关路由器接收到包含 DNS 查询报文的以太网帧后，抽取出 IP 数据报，并根据转发表决定该 IP 数据报应该转发的路由器。</li>
+<li>因为路由器具有内部网关协议（RIP、OSPF）和外部网关协议（BGP）这两种路由选择协议，因此路由表中已经配置了网关路由器到达 DNS 服务器的路由表项。</li>
+<li>到达 DNS 服务器之后，DNS 服务器抽取出 DNS 查询报文，并在 DNS 数据库中查找待解析的域名。</li>
+<li>找到 DNS 记录之后，发送 DNS 回答报文，将该回答报文放入 UDP 报文段中，然后放入 IP 数据报中，通过路由器反向转发回网关路由器，并经过以太网交换机到达主机。</li>
+</ul>
+<p><strong>4 HTTP 请求页面</strong></p>
+<ul>
+<li><p>有了 HTTP 服务器的 IP 地址之后，主机就能够生成 TCP 套接字，该套接字将用于向 Web 服务器发送 HTTP GET 报文。</p>
+</li>
+<li><p>在生成 TCP 套接字之前，必须先与 HTTP 服务器进行三次握手来建立连接。生成一个具有目的端口 80 的 TCP SYN 报文段，并向 HTTP 服务器发送该报文段。</p>
+</li>
+<li><p>HTTP 服务器收到该报文段之后，生成 TCP SYN ACK 报文段，发回给主机。</p>
+</li>
+<li><p>连接建立之后，浏览器生成 HTTP GET 报文，并交付给 HTTP 服务器。</p>
+</li>
+<li><p>HTTP 服务器从 TCP 套接字读取 HTTP GET 报文，生成一个 HTTP 响应报文，将 Web 页面内容放入报文主体中，发回给主机。</p>
+</li>
+<li><p>浏览器收到 HTTP 响应报文后，抽取出 Web 页面内容，之后进行渲染，显示 Web 页面。</p>
+</li>
+</ul>
+<p>Reference：</p>
+<ol>
+<li><a href="https://cyc2018.github.io/CS-Notes/#/notes/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%20-%20%E7%9B%AE%E5%BD%951" target="_blank" rel="noopener">cyc2018博客：计算机网络</a>  (本文大部分内容参考该文，感谢原作者的辛勤付出)</li>
+<li><a href="https://www.nowcoder.com/ta/review-network" target="_blank" rel="noopener">牛客网：计算机网络专题</a></li>
+<li><a href="https://book.douban.com/subject/26176870/" target="_blank" rel="noopener">计算机网络（第6版）(自顶向下方法)</a></li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Qiancun Huang WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Qiancun Huang Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    Qiancun Huang
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="http://huangqiancun.github.io/2019/08/24/计算机网络/" title="计算机网络">http://huangqiancun.github.io/2019/08/24/计算机网络/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/计算机网络/" rel="tag"># 计算机网络</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/22/推荐系统-协同过滤/" rel="next" title="推荐系统-协同过滤">
+                <i class="fa fa-chevron-left"></i> 推荐系统-协同过滤
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+	
+	
+  
+  
+  
+  </article>
+  <div>
+		
+			<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------------The End------------</div>
+    
+</div>
+		
+	</div>
+	
+ 
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/photo.jpg" alt="Qiancun Huang">
+            
+              <p class="site-author-name" itemprop="name">Qiancun Huang</p>
+              <p class="site-description motion-element" itemprop="description">A second-year graduate student in Southeast University</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">65</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/huangqiancun?tab=repositories" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto://huangqiancun@foxmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-概述"><span class="nav-text">1 概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#网络的网络"><span class="nav-text">网络的网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ISP"><span class="nav-text">ISP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主机之间的通信方式"><span class="nav-text">主机之间的通信方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#电路交换和分组交换"><span class="nav-text">电路交换和分组交换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时延"><span class="nav-text">时延</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算机网络体系结构"><span class="nav-text">计算机网络体系结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据在各层之间的传递过程"><span class="nav-text">数据在各层之间的传递过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#各种协议的介绍"><span class="nav-text">各种协议的介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#交换机、路由器、网关"><span class="nav-text">交换机、路由器、网关</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-物理层"><span class="nav-text">2 物理层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#通信方式"><span class="nav-text">通信方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#带通调制"><span class="nav-text">带通调制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-数据链路层"><span class="nav-text">3 数据链路层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本问题"><span class="nav-text">基本问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#信道分类"><span class="nav-text">信道分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#信道复用技术"><span class="nav-text">信道复用技术</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSMA-CD"><span class="nav-text">CSMA/CD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PPP协议"><span class="nav-text">PPP协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MAC地址"><span class="nav-text">MAC地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#局域网"><span class="nav-text">局域网</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#以太网"><span class="nav-text">以太网</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#交换机"><span class="nav-text">交换机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟局域网（VLAN）"><span class="nav-text">虚拟局域网（VLAN）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-网络层"><span class="nav-text">4 网络层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP数据报格式"><span class="nav-text">IP数据报格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP地址编址方式"><span class="nav-text">IP地址编址方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分类"><span class="nav-text">分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子网划分"><span class="nav-text">子网划分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无分类"><span class="nav-text">无分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#地址解析协议ARP"><span class="nav-text">地址解析协议ARP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逆地址解析协议RARP"><span class="nav-text">逆地址解析协议RARP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网际控制报文协议ICMP"><span class="nav-text">网际控制报文协议ICMP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟专用网VPN"><span class="nav-text">虚拟专用网VPN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络地址转换NAT"><span class="nav-text">网络地址转换NAT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路由器的结构"><span class="nav-text">路由器的结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路由器分组转发流程"><span class="nav-text">路由器分组转发流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路由选择协议"><span class="nav-text">路由选择协议</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-传输层"><span class="nav-text">5 传输层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UDP和TCP的特点"><span class="nav-text">UDP和TCP的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP对应的协议"><span class="nav-text">TCP对应的协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UDP对应的协议"><span class="nav-text">UDP对应的协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UDP首部格式"><span class="nav-text">UDP首部格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP首部格式"><span class="nav-text">TCP首部格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP的三次握手"><span class="nav-text">TCP的三次握手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三次握手的原因"><span class="nav-text">三次握手的原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP的四次挥手"><span class="nav-text">TCP的四次挥手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四次挥手的原因"><span class="nav-text">四次挥手的原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP可靠传输"><span class="nav-text">TCP可靠传输</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP滑动窗口"><span class="nav-text">TCP滑动窗口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP流量控制"><span class="nav-text">TCP流量控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP拥塞控制"><span class="nav-text">TCP拥塞控制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-应用层"><span class="nav-text">6 应用层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#域名系统"><span class="nav-text">域名系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DNS域名系统工作原理"><span class="nav-text">DNS域名系统工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件传送协议FTP"><span class="nav-text">文件传送协议FTP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态主机配置协议DHCP"><span class="nav-text">动态主机配置协议DHCP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#远程登录协议"><span class="nav-text">远程登录协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#电子邮件协议"><span class="nav-text">电子邮件协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用端口"><span class="nav-text">常用端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web页面请求过程"><span class="nav-text">Web页面请求过程</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qiancun Huang</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">523.8k</span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+
+</body>
+</html>
