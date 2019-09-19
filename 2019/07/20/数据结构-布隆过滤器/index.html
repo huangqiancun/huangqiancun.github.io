@@ -101,7 +101,7 @@
 
 
 
-  <meta name="keywords" content="机器学习,">
+  <meta name="keywords" content="数据结构,海量数据处理,">
 
 
 
@@ -114,18 +114,22 @@
 
 
 
-<meta name="description" content="本文主要是机器学习-线性回归&amp;amp;逻辑回归&amp;amp;最大熵相关内容。 1 线性回归原理给定数据集，线性回归试图学得一个线性模型以尽可能准确地预测实值。求解线性回归模型参数的策略是使均方误差最小化，基于均方误差最小化来进行模型求解的方法称为”最小二乘法”。在线性回归中，最小二乘法就是试图找到一条直线，使所有样本到直线上的欧氏距离之和最小。 2 逻辑斯蒂回归原理逻辑斯蒂回归的基础是线性回归，但是线">
-<meta name="keywords" content="机器学习">
+<meta name="description" content="本系列为数据结构学习笔记(待汇总)。 布隆过滤器背景虽然位图可以节省空间，但是数据量大的时候需要的内存还是比较大的。布隆过滤器就是为了解决这个问题，对位图数据结构的一种改进。 举例：考虑数据个数是1千万，数字范围是1到10亿，使用位图需要10亿个二进制位，而布隆过滤器的做法是，使用一个1亿个二进制大小的位图，然后通过哈希函数，对数字进行处理，让它落在这1到1亿范围内。比如我们把哈希函数设计成 $f">
+<meta name="keywords" content="数据结构,海量数据处理">
 <meta property="og:type" content="article">
-<meta property="og:title" content="机器学习-线性回归&amp;逻辑回归&amp;最大熵">
-<meta property="og:url" content="http://huangqiancun.github.io/2019/05/16/机器学习-线性回归&逻辑回归&最大熵/index.html">
+<meta property="og:title" content="数据结构-布隆过滤器">
+<meta property="og:url" content="http://huangqiancun.github.io/2019/07/20/数据结构-布隆过滤器/index.html">
 <meta property="og:site_name" content="I&#39;m Qiancun Huang">
-<meta property="og:description" content="本文主要是机器学习-线性回归&amp;amp;逻辑回归&amp;amp;最大熵相关内容。 1 线性回归原理给定数据集，线性回归试图学得一个线性模型以尽可能准确地预测实值。求解线性回归模型参数的策略是使均方误差最小化，基于均方误差最小化来进行模型求解的方法称为”最小二乘法”。在线性回归中，最小二乘法就是试图找到一条直线，使所有样本到直线上的欧氏距离之和最小。 2 逻辑斯蒂回归原理逻辑斯蒂回归的基础是线性回归，但是线">
+<meta property="og:description" content="本系列为数据结构学习笔记(待汇总)。 布隆过滤器背景虽然位图可以节省空间，但是数据量大的时候需要的内存还是比较大的。布隆过滤器就是为了解决这个问题，对位图数据结构的一种改进。 举例：考虑数据个数是1千万，数字范围是1到10亿，使用位图需要10亿个二进制位，而布隆过滤器的做法是，使用一个1亿个二进制大小的位图，然后通过哈希函数，对数字进行处理，让它落在这1到1亿范围内。比如我们把哈希函数设计成 $f">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-07-27T17:17:51.000Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-布隆过滤器/1.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-布隆过滤器/2.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-布隆过滤器/3.jpg">
+<meta property="og:updated_time" content="2019-08-27T14:34:22.249Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="机器学习-线性回归&amp;逻辑回归&amp;最大熵">
-<meta name="twitter:description" content="本文主要是机器学习-线性回归&amp;amp;逻辑回归&amp;amp;最大熵相关内容。 1 线性回归原理给定数据集，线性回归试图学得一个线性模型以尽可能准确地预测实值。求解线性回归模型参数的策略是使均方误差最小化，基于均方误差最小化来进行模型求解的方法称为”最小二乘法”。在线性回归中，最小二乘法就是试图找到一条直线，使所有样本到直线上的欧氏距离之和最小。 2 逻辑斯蒂回归原理逻辑斯蒂回归的基础是线性回归，但是线">
+<meta name="twitter:title" content="数据结构-布隆过滤器">
+<meta name="twitter:description" content="本系列为数据结构学习笔记(待汇总)。 布隆过滤器背景虽然位图可以节省空间，但是数据量大的时候需要的内存还是比较大的。布隆过滤器就是为了解决这个问题，对位图数据结构的一种改进。 举例：考虑数据个数是1千万，数字范围是1到10亿，使用位图需要10亿个二进制位，而布隆过滤器的做法是，使用一个1亿个二进制大小的位图，然后通过哈希函数，对数字进行处理，让它落在这1到1亿范围内。比如我们把哈希函数设计成 $f">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-布隆过滤器/1.jpg">
 
 
 
@@ -155,13 +159,13 @@
 
 
 
-  <link rel="canonical" href="http://huangqiancun.github.io/2019/05/16/机器学习-线性回归&逻辑回归&最大熵/">
+  <link rel="canonical" href="http://huangqiancun.github.io/2019/07/20/数据结构-布隆过滤器/">
 
 
 
 
 
-  <title>机器学习-线性回归&逻辑回归&最大熵 | I'm Qiancun Huang</title>
+  <title>数据结构-布隆过滤器 | I'm Qiancun Huang</title>
   
 
 
@@ -330,7 +334,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://huangqiancun.github.io/2019/05/16/机器学习-线性回归&逻辑回归&最大熵/">
+    <link itemprop="mainEntityOfPage" href="http://huangqiancun.github.io/2019/07/20/数据结构-布隆过滤器/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Qiancun Huang">
@@ -347,7 +351,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">机器学习-线性回归&逻辑回归&最大熵</h1>
+          <h1 class="post-title" itemprop="name headline">数据结构-布隆过滤器</h1>
         
 
         <div class="post-meta">
@@ -359,8 +363,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-16T00:59:14+08:00">
-                2019-05-16
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-20T00:54:23+08:00">
+                2019-07-20
               </time>
             
 
@@ -375,8 +379,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-07-28T01:17:51+08:00">
-                2019-07-28
+              <time title="Post modified" itemprop="dateModified" datetime="2019-08-27T22:34:22+08:00">
+                2019-08-27
               </time>
             
           </span>
@@ -394,8 +398,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
                   </a>
                 </span>
 
@@ -425,7 +429,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  2.9k
+                  1.5k
                 </span>
               
 
@@ -451,50 +455,25 @@
       
 
       
-        <p>本文主要是<code>机器学习-线性回归&amp;逻辑回归&amp;最大熵</code>相关内容。</p>
-<h2 id="1-线性回归原理"><a href="#1-线性回归原理" class="headerlink" title="1 线性回归原理"></a>1 线性回归原理</h2><p>给定数据集，线性回归试图学得一个线性模型以尽可能准确地预测实值。求解线性回归模型参数的策略是使均方误差最小化，基于均方误差最小化来进行模型求解的方法称为”最小二乘法”。在线性回归中，最小二乘法就是试图找到一条直线，使所有样本到直线上的欧氏距离之和最小。</p>
-<h2 id="2-逻辑斯蒂回归原理"><a href="#2-逻辑斯蒂回归原理" class="headerlink" title="2 逻辑斯蒂回归原理"></a>2 逻辑斯蒂回归原理</h2><p>逻辑斯蒂回归的基础是线性回归，但是线性回归做的是回归任务，而逻辑斯蒂回归利用一个单调可微的函数将分类任务的真实标记与线性回归模型的预测值联系起来，学习的是分类任务。它的优点是直接对分类的可能性进行建模，所以它不仅可以预测出类别，还可以得到属于该类别的概率，这对于许多需要利用概率辅助决策的任务很有用；此外，Sigmoid函数是任意阶可导函数，具有很好的数学性质。逻辑斯蒂回归模型的参数估计中，使用梯度下降法进行学习，一般使用小批量的数据进行迭代优化。</p>
-<h2 id="3-LR为什么用的是sigmoid函数而不用阶跃函数"><a href="#3-LR为什么用的是sigmoid函数而不用阶跃函数" class="headerlink" title="3 LR为什么用的是sigmoid函数而不用阶跃函数"></a>3 LR为什么用的是sigmoid函数而不用阶跃函数</h2><p>阶跃函数虽然能够直观刻画分类的错误率，但是由于其非凸、非光滑的特点，使得算法很难直接对该函数进行优化。而sigmoid函数本身的特征（光滑无限阶可导），以及完美的映射到概率空间，就用于逻辑回归了。同时对于二分类问题来说，因为伯努利分布属于指数族分布，具有最大熵的性质。</p>
-<h2 id="4-线性回归和逻辑斯蒂的区别"><a href="#4-线性回归和逻辑斯蒂的区别" class="headerlink" title="4 线性回归和逻辑斯蒂的区别"></a>4 线性回归和逻辑斯蒂的区别</h2><p>首先，逻辑回归处理的是分类问题，线性回归处理的是回归问题，这是两者的最本质的区别，另外，线性回归的损失函数是最小平方误差，而逻辑斯蒂回归的损失函数为交叉熵损失函数，也就是最小对数似然损失。</p>
-<p>逻辑回归和线性回归的相同在于，首先我们可以认为二者都使用了极大似然估计来对训练样本进行建模。线性回归使用最小二乘法，实际上就是在自变量x与超参数θ确定，因变量y服从正态分布的假设下，使用极大似然估计的一个化简；而逻辑回归中通过对似然函数的学习，得到最佳参数θ。另外，二者在求解超参数的过程中，都可以使用梯度下降的方法，这也是监督学习中一个常见的相似之处。</p>
-<h2 id="5-当使用逻辑回归处理多标签的分类问题时，有哪些常见做法，分别应用于哪些场景，它们之间又有怎样的关系"><a href="#5-当使用逻辑回归处理多标签的分类问题时，有哪些常见做法，分别应用于哪些场景，它们之间又有怎样的关系" class="headerlink" title="5 当使用逻辑回归处理多标签的分类问题时，有哪些常见做法，分别应用于哪些场景，它们之间又有怎样的关系"></a>5 当使用逻辑回归处理多标签的分类问题时，有哪些常见做法，分别应用于哪些场景，它们之间又有怎样的关系</h2><ul>
-<li>首先，如果一个样本只对应于一个标签，我们可以假设每个样本属于不同标签的概率服从于几何分布，使用多项逻辑回归（Softmax Regression）来进行分类</li>
-<li>当存在样本可能属于多个标签的情况时，我们可以训练k个二分类的逻辑回归分类器。第i个分类器用以区分每个样本是否可以归为第i类，训练该分类器时，需要把标签重新整理为“第i类标签”与“非第i类标签”两类。通过这样的办法，我们就解决了每个样本可能拥有多个标签的情况。</li>
-</ul>
-<h2 id="6-逻辑斯蒂回归为什么要对特征进行离散化"><a href="#6-逻辑斯蒂回归为什么要对特征进行离散化" class="headerlink" title="6 逻辑斯蒂回归为什么要对特征进行离散化"></a>6 逻辑斯蒂回归为什么要对特征进行离散化</h2><ul>
-<li>非线性。逻辑斯蒂回归属于广义线性模型，表达能力受限，离散化后增加了非线性成分，可以增强模型表达能力和拟合能力，离散特征的增加和减少都很容易，易于模型的快速迭代。</li>
-<li>速度快。稀疏向量内积乘法运算速度快，计算结果方便存储，容易扩展；</li>
-<li>鲁棒性。离散化后的特征对异常数据有很强的鲁棒性：比如一个特征是年龄&gt;30是1，否则0。如果特征没有离散化，一个异常数据“年龄300岁”会给模型造成很大的干扰；</li>
-<li>方便交叉与特征组合：离散化后可以进行特征交叉，由 $M+N$ 个变量变为$M*N$个变量，进一步引入非线性，提升表达能力；</li>
-<li>稳定性：特征离散化后，模型会更稳定，比如如果对用户年龄离散化，20-30作为一个区间，不会因为一个用户年龄长了一岁就变成一个完全不同的人。当然处于区间相邻处的样本会刚好相反，所以怎么划分区间是门学问；</li>
-<li>简化模型：特征离散化以后，起到了简化了逻辑回归模型的作用，降低了模型过拟合的风险。</li>
-</ul>
-<h2 id="7-LR和SVM各自的优缺点和适用场景"><a href="#7-LR和SVM各自的优缺点和适用场景" class="headerlink" title="7 LR和SVM各自的优缺点和适用场景"></a>7 LR和SVM各自的优缺点和适用场景</h2><ul>
-<li>最本质是他们的损失函数不同，LR是对数损失而SVM是合页损失函 数；</li>
-<li>LR可以给出每个点属于每一类的概率，而SVM是非概率的，一个 是基于统计的方法，一个基于几何的方法；</li>
-<li>支持向量机只考虑局部的 边界线附近的点（支持向量），而逻辑回归考虑所有的样本点，所以线性SVM不直接依赖于数据分布，分类平面不受一类点影响，LR则受所有数据点的影响对不平衡数据先做balance；</li>
-<li>同样是线性分类，如果异常点较多无法剔除，首先LR中每个样本都有贡献，最大似然后会自动压制异常的贡献，SVM + 软间隔对异常却比较敏感，因为其训练只需要支持向量，有效样本本来就不高，一旦被干扰，预测结果会难以预料；</li>
-<li>SVM的损失函数本省自带正则项，这就是为什么SVM是结构风险最小化算法，而LR必须另外在损失函数上添加正则项。</li>
-</ul>
-<h2 id="8-LR使用核函数解决线性不可分问题"><a href="#8-LR使用核函数解决线性不可分问题" class="headerlink" title="8 LR使用核函数解决线性不可分问题"></a>8 LR使用核函数解决线性不可分问题</h2><p>逻辑回归本质上是一个线性模型，但是，这不意味着只有线性可分的数据能通过LR求解，实际上，我们可以通过2种方式帮助LR实现：</p>
-<ul>
-<li>利用特殊核函数，对特征进行变换：把低维空间转换到高维空间，而在低维空间不可分的数据，到高维空间中线性可分的几率会高一些。但在LR算法里，每个样本点都必须参与决策面的计算过程，也就是说，假设我们在LR里也运用核函数的原理，那么每个样本点都必须参与核计算，这带来的计算复杂度是相当高的。所以，在具体应用时，LR很少运用核函数机制。</li>
-<li>扩展LR算法，提出FM算法。</li>
-</ul>
-<h2 id="9-最大熵模型原理"><a href="#9-最大熵模型原理" class="headerlink" title="9 最大熵模型原理"></a>9 最大熵模型原理</h2><p>熵是随机变量不确定性的度量，不确定性越大，熵越大；为了准确估计随机变量的状态，我们一般最大化熵，认为在所有可能的概率模型（分布）中，熵最大的模型是最好的模型。也就是说，在已知部分知识的前提下，关于未知分布最合理的推理就是符合已知知识最不确定或者最随机的推断，其原则是承认已知知识，并且对未知事物不做任何假设，没有任何偏见。最大熵在解决二分类问题时就是逻辑回归，在解决多分类问题时就是多项逻辑回归（softmax）。</p>
-<p>Note</p>
-<ul>
-<li>最大熵原理认为要选择的概率模型首先必须满足已有的事实，即约束条件。在没有更多信息的情况下，那些不确定的部分都是“等可能的”，最大熵原理通过熵的最大化来表示等可能性。</li>
-<li>例如，投掷一个骰子，如果问“每个面朝上的概率分别是多少”，你会说是等概率，即各点出现的概率均为1/6，因为对这个“一无所知”的骰子，什么都不确定，而假定它每一个面朝上概率均等则是最合理的做法。从投资的角度来看，这是风险最小的作法，从信息论的角度讲，就是保留了最大的不确定性，也就是说让熵达到最大。</li>
-</ul>
-<h2 id="10-SVM和logistic回归分别在什么情况下使用"><a href="#10-SVM和logistic回归分别在什么情况下使用" class="headerlink" title="10 SVM和logistic回归分别在什么情况下使用"></a>10 SVM和logistic回归分别在什么情况下使用</h2><ul>
-<li>如果特征的数量很大，跟样本数量差不多或者比样本多，选用逻辑斯蒂回归或者线性核的SVM。理由：特征数相对于训练样本数已经够大了，使用线性模型就能取得不错的效果，不需要过于复杂的模型；</li>
-<li>如果特征的数量比较小，样本数量一般，选用高斯核的SVM。理由：在训练样本数量足够大而特征数较小的情况下，可以通过使用复杂核函数的SVM来获得更好的预测性能，而且因为训练样本数量并没有达到百万级，使用复杂核函数的SVM也不会导致运算过慢；</li>
-<li>如果特征数量很小，而样本数量很多，需要手工添加一些特征变成第一种情况。理由：因为训练样本数量特别大，使用复杂核函数的SVM会导致运算很慢，因此应该考虑通过引入更多特征，然后使用线性核函数的SVM或者lr来构建预测性更好的模型。</li>
-</ul>
-<h2 id="11-SVM和逻辑斯特回归对同一样本A进行训练，如果某类中增加一些数据点，那么原来的决策边界分别会怎么变化？"><a href="#11-SVM和逻辑斯特回归对同一样本A进行训练，如果某类中增加一些数据点，那么原来的决策边界分别会怎么变化？" class="headerlink" title="11 SVM和逻辑斯特回归对同一样本A进行训练，如果某类中增加一些数据点，那么原来的决策边界分别会怎么变化？"></a>11 SVM和逻辑斯特回归对同一样本A进行训练，如果某类中增加一些数据点，那么原来的决策边界分别会怎么变化？</h2><p>不妨设只添加一个数据点，且它属于“+”的那一类。</p>
-<p>SVM：如果这个数据点本身在margin之外“+”的那一侧，那么判决边界不受影响。如果这个数据点在margin之内，或者在margin之外“-”的那一侧，那么这个点一定会成为新的支持向量。但是，判决边界并不一定发生变化，因为这个数据点可能能够被目标函数中的容错项处理掉。</p>
-<p>LR：当新数据点在“+”类这一边，但离判决边界比较近。新的模型为了能够正确判别这个数据点，会把判决边界向“-”类方向移动。当数据点在“+”类这一边，但离判决边界很远，旧模型已经可以毫无压力地把它判别正确。这时，新模型反倒会把判决边界向“+”类方向移动，这样虽然新的数据点的似然值减小了一点儿，但换来的是原来的“-”类数据似然值增加。</p>
+        <p>本系列为数据结构学习笔记(待汇总)。</p>
+<h2 id="布隆过滤器"><a href="#布隆过滤器" class="headerlink" title="布隆过滤器"></a>布隆过滤器</h2><h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><p>虽然位图可以节省空间，但是数据量大的时候需要的内存还是比较大的。布隆过滤器就是为了解决这个问题，对位图数据结构的一种改进。</p>
+<p>举例：考虑数据个数是1千万，数字范围是1到10亿，使用位图需要10亿个二进制位，而布隆过滤器的做法是，使用一个1亿个二进制大小的位图，然后通过哈希函数，对数字进行处理，让它落在这1到1亿范围内。比如我们把哈希函数设计成 $f(x)=x%n$。其中，x表示数字，n表示位图的大小（1亿），也就是，对数字跟位图的大小进行取模求余。</p>
+<p>这时哈希函数会存在冲突的问题啊，一亿零一和1两个数字，经过你刚刚那个取模求余的哈希函数处理之后，最后的结果都是1。这样我就无法区分，位图存储的是1还是一亿零一了。如何降低冲突的概率？用K个哈希函数！！</p>
+<h4 id="布隆过滤器定义"><a href="#布隆过滤器定义" class="headerlink" title="布隆过滤器定义"></a>布隆过滤器定义</h4><p>布隆过滤器是一种空间效率很高的随机数据结构，它的原理是当一个元素被加入集合时，通过K个Hash函数将这个元素映射成一个位阵列（Bit array）中的K个点，将它们置为1。检索时，我们只要看看这些点是不是都是1就大约知道集合中有没有它了：如果这些点有任何一个点为0，则被检索元素一定不在；如果都是1，则被检索元素很可能在。这就是布隆过滤器的基本思想。</p>
+<p>但布隆过滤器的这种高效是有代价的：在判断一个元素是否属于某个集合时，有可能会把不属于这个集合的元素误认为属于这个集合（false positive）。因此，Bloom filter不适合那些“零错误”的应用场合。而在能容忍低错误率的场景下，布隆过滤器通过极少的错误换取了存储空间的极大节省。</p>
+<p>布隆过滤器的误判有一个特点，那就是，它只会对存在的情况有误判。如果某个数字经过布隆过滤器判断不存在，那说明这个数字真的不存在，不会发生误判；如果某个数字经过布隆过滤器判断存在，这个时候才会有可能误判，有可能并不存在。不过，只要我们调整哈希函数的个数、位图大小跟要存储数字的个数之间的比例，那就可以将这种误判的概率降到非常低。</p>
+<h2 id="集合表示和元素查询"><a href="#集合表示和元素查询" class="headerlink" title="集合表示和元素查询"></a>集合表示和元素查询</h2><p>具体来看Bloom Filter是如何用位数组表示集合的。初始状态时，Bloom Filter是一个包含m位的位数组，每一位都置为0。<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-布隆过滤器/1.jpg" alt="mark"></p>
+<p>为了表达$ \mathrm{S}=\left\{\mathrm{x}_{1}, \mathrm{x}_{2}, \ldots, \mathrm{x}_{\mathrm{n}}\right\} $这样一个$n$个元素的集合，Bloom Filter使用$k$个相互独立的哈希函数（Hash Function），它们分别将集合中的每个元素映射到$\{1,…,m\}$的范围中。对任意一个元素$x$，第$i$个哈希函数映射的位置$h_i(x)$就会被置为1（$1≤i≤k$）。注意，如果一个位置多次被置为1，那么只有第一次会起作用，后面几次将没有任何效果。在下图中，k=3，且有两个哈希函数选中同一个位置（从左边数第五位，即第二个“1“处）。<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-布隆过滤器/2.jpg" alt="mark"></p>
+<p>在判断y是否属于这个集合时，我们对y应用k次哈希函数，如果所有$h_i(y)$的位置都是1（1≤i≤k），那么我们就认为y是集合中的元素，否则就认为y不是集合中的元素。下图中$y_1$就不是集合中的元素（因为$y_1$有一处指向了“0”位）。$y_2$或者属于这个集合，或者刚好是一个false positive。<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-布隆过滤器/3.jpg" alt="mark"></p>
+<h2 id="位数组大小"><a href="#位数组大小" class="headerlink" title="位数组大小"></a>位数组大小</h2><p>对于给定的p（误判率）和将要加入集合的元素个数n，位数组大小m由如下公式定义：</p>
+<script type="math/tex; mode=display">
+m=-\frac{n \cdot \ln p}{(\ln 2)^{2}}</script><h2 id="最优的哈希函数个数"><a href="#最优的哈希函数个数" class="headerlink" title="最优的哈希函数个数"></a>最优的哈希函数个数</h2><p>对于给定的位数组大小m和将要加入集合的元素个数n，使得误判率最小的哈希函数个数k通过如下公式定义： </p>
+<script type="math/tex; mode=display">
+k=\frac{m}{n} \ln 2 \approx 0.7 \cdot \frac{m}{n}</script><h2 id="误判率估计"><a href="#误判率估计" class="headerlink" title="误判率估计"></a>误判率估计</h2><p>对于给定的位数组大小m，将要加入集合的元素个数n，及哈希函数个数k，误判率可以重新计算为： </p>
+<script type="math/tex; mode=display">
+p=\left(1-\mathrm{e}^{-k n / m}\right)^{k}</script><h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><p>在计算机科学中，我们常常会碰到时间换空间或者空间换时间的情况，即为了达到某一个方面的最优而牺牲另一个方面。Bloom Filter在时间空间这两个因素之外又引入了另一个因素：错误率。在使用Bloom Filter判断一个元素是否属于某个集合时，会有一定的错误率。也就是说，有可能把不属于这个集合的元素误认为属于这个集合（False Positive），但不会把属于这个集合的元素误认为不属于这个集合（False Negative）。在增加了错误率这个因素之后，Bloom Filter通过允许少量的错误来节省大量的存储空间。</p>
+<p>Bloom Filter就被广泛用于拼写检查和数据库系统中。 也可以用来实现数据字典，进行数据的判重，或者集合求交集 。</p>
+<p>参考文献：<br><a href="https://blog.csdn.net/v_july_v/article/details/6685894" target="_blank" rel="noopener">https://blog.csdn.net/v_july_v/article/details/6685894</a><br><a href="https://blog.csdn.net/jiaomeng/article/details/1495500" target="_blank" rel="noopener">https://blog.csdn.net/jiaomeng/article/details/1495500</a><br><a href="https://blog.csdn.net/tick_tock97/article/details/78688159" target="_blank" rel="noopener">https://blog.csdn.net/tick_tock97/article/details/78688159</a></p>
 
       
     </div>
@@ -544,7 +523,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link:</strong>
-    <a href="http://huangqiancun.github.io/2019/05/16/机器学习-线性回归&逻辑回归&最大熵/" title="机器学习-线性回归&逻辑回归&最大熵">http://huangqiancun.github.io/2019/05/16/机器学习-线性回归&逻辑回归&最大熵/</a>
+    <a href="http://huangqiancun.github.io/2019/07/20/数据结构-布隆过滤器/" title="数据结构-布隆过滤器">http://huangqiancun.github.io/2019/07/20/数据结构-布隆过滤器/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice: </strong>
@@ -559,7 +538,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+            <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
+          
+            <a href="/tags/海量数据处理/" rel="tag"># 海量数据处理</a>
           
         </div>
       
@@ -572,8 +553,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/16/机器学习-决策树/" rel="next" title="机器学习-决策树">
-                <i class="fa fa-chevron-left"></i> 机器学习-决策树
+              <a href="/2019/07/18/数据结构-跳表/" rel="next" title="数据结构-跳表">
+                <i class="fa fa-chevron-left"></i> 数据结构-跳表
               </a>
             
           </div>
@@ -582,8 +563,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/05/16/机器学习-集成学习/" rel="prev" title="机器学习-集成学习">
-                机器学习-集成学习 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/07/21/数据结构-哈希表/" rel="prev" title="数据结构 - 哈希表">
+                数据结构 - 哈希表 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -680,7 +661,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">65</span>
+                  <span class="site-state-item-count">49</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -691,7 +672,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -702,7 +683,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -758,7 +739,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-线性回归原理"><span class="nav-text">1 线性回归原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-逻辑斯蒂回归原理"><span class="nav-text">2 逻辑斯蒂回归原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-LR为什么用的是sigmoid函数而不用阶跃函数"><span class="nav-text">3 LR为什么用的是sigmoid函数而不用阶跃函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-线性回归和逻辑斯蒂的区别"><span class="nav-text">4 线性回归和逻辑斯蒂的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-当使用逻辑回归处理多标签的分类问题时，有哪些常见做法，分别应用于哪些场景，它们之间又有怎样的关系"><span class="nav-text">5 当使用逻辑回归处理多标签的分类问题时，有哪些常见做法，分别应用于哪些场景，它们之间又有怎样的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-逻辑斯蒂回归为什么要对特征进行离散化"><span class="nav-text">6 逻辑斯蒂回归为什么要对特征进行离散化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-LR和SVM各自的优缺点和适用场景"><span class="nav-text">7 LR和SVM各自的优缺点和适用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-LR使用核函数解决线性不可分问题"><span class="nav-text">8 LR使用核函数解决线性不可分问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-最大熵模型原理"><span class="nav-text">9 最大熵模型原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-SVM和logistic回归分别在什么情况下使用"><span class="nav-text">10 SVM和logistic回归分别在什么情况下使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-SVM和逻辑斯特回归对同一样本A进行训练，如果某类中增加一些数据点，那么原来的决策边界分别会怎么变化？"><span class="nav-text">11 SVM和逻辑斯特回归对同一样本A进行训练，如果某类中增加一些数据点，那么原来的决策边界分别会怎么变化？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#布隆过滤器"><span class="nav-text">布隆过滤器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#背景"><span class="nav-text">背景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#布隆过滤器定义"><span class="nav-text">布隆过滤器定义</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#集合表示和元素查询"><span class="nav-text">集合表示和元素查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#位数组大小"><span class="nav-text">位数组大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最优的哈希函数个数"><span class="nav-text">最优的哈希函数个数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#误判率估计"><span class="nav-text">误判率估计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用"><span class="nav-text">应用</span></a></li></div>
             
 
           </div>
@@ -793,7 +774,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">523.8k</span>
+    <span title="Site words total count">450.5k</span>
   
 </div>
 

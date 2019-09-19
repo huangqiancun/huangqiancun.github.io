@@ -101,7 +101,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="数据结构,海量数据处理,">
 
 
 
@@ -114,16 +114,22 @@
 
 
 
-<meta name="description" content="A second-year graduate student in Southeast University">
-<meta property="og:type" content="website">
-<meta property="og:title" content="I&#39;m Qiancun Huang">
-<meta property="og:url" content="http://huangqiancun.github.io/page/7/index.html">
+<meta name="description" content="本系列为数据结构学习笔记(待汇总)。 位图所谓bit-map就是用一个bit位来标记某个元素的value，而bit数组的下标是表示该元素，由于采用了bit为单位来存储数据，因此在存储空间方面，可以大大节省。位图通过使用位数组来表示已知范围内的某些元素是否存在，可进行数据的快速查找、判重、删除 举例：假设我们要对0~7内的5个元素（4,7,2,5,3）排序（这里假设这些元素没有重复），可以采用bit">
+<meta name="keywords" content="数据结构,海量数据处理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构-位图">
+<meta property="og:url" content="http://huangqiancun.github.io/2019/07/11/数据结构-位图/index.html">
 <meta property="og:site_name" content="I&#39;m Qiancun Huang">
-<meta property="og:description" content="A second-year graduate student in Southeast University">
+<meta property="og:description" content="本系列为数据结构学习笔记(待汇总)。 位图所谓bit-map就是用一个bit位来标记某个元素的value，而bit数组的下标是表示该元素，由于采用了bit为单位来存储数据，因此在存储空间方面，可以大大节省。位图通过使用位数组来表示已知范围内的某些元素是否存在，可进行数据的快速查找、判重、删除 举例：假设我们要对0~7内的5个元素（4,7,2,5,3）排序（这里假设这些元素没有重复），可以采用bit">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-位图/1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-位图/2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-位图/3.png">
+<meta property="og:updated_time" content="2019-08-27T14:38:21.605Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="I&#39;m Qiancun Huang">
-<meta name="twitter:description" content="A second-year graduate student in Southeast University">
+<meta name="twitter:title" content="数据结构-位图">
+<meta name="twitter:description" content="本系列为数据结构学习笔记(待汇总)。 位图所谓bit-map就是用一个bit位来标记某个元素的value，而bit数组的下标是表示该元素，由于采用了bit为单位来存储数据，因此在存储空间方面，可以大大节省。位图通过使用位数组来表示已知范围内的某些元素是否存在，可进行数据的快速查找、判重、删除 举例：假设我们要对0~7内的5个元素（4,7,2,5,3）排序（这里假设这些元素没有重复），可以采用bit">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-位图/1.png">
 
 
 
@@ -153,13 +159,13 @@
 
 
 
-  <link rel="canonical" href="http://huangqiancun.github.io/page/7/">
+  <link rel="canonical" href="http://huangqiancun.github.io/2019/07/11/数据结构-位图/">
 
 
 
 
 
-  <title>I'm Qiancun Huang</title>
+  <title>数据结构-位图 | I'm Qiancun Huang</title>
   
 
 
@@ -178,8 +184,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -314,9 +319,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -329,7 +334,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://huangqiancun.github.io/2019/05/15/机器学习-模型评估/">
+    <link itemprop="mainEntityOfPage" href="http://huangqiancun.github.io/2019/07/11/数据结构-位图/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Qiancun Huang">
@@ -346,9 +351,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/15/机器学习-模型评估/" itemprop="url">机器学习-模型评估</a></h1>
+          <h1 class="post-title" itemprop="name headline">数据结构-位图</h1>
         
 
         <div class="post-meta">
@@ -360,8 +363,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-15T02:54:14+08:00">
-                2019-05-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-11T00:54:14+08:00">
+                2019-07-11
               </time>
             
 
@@ -376,576 +379,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-07-28T01:14:28+08:00">
-                2019-07-28
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  3.3k
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-		  
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          本文主要是机器学习-模型评估相关内容。
-1 模型评估定义模型评估主要分为离线评估和在线评估两个阶段。
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/05/15/机器学习-模型评估/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-	
-	
-  
-  
-  
-  </article>
-  <div>
-		
-	</div>
-	
- 
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://huangqiancun.github.io/2019/05/15/机器学习-特征工程/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Qiancun Huang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/photo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="I'm Qiancun Huang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/15/机器学习-特征工程/" itemprop="url">机器学习-特征工程</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-15T00:54:14+08:00">
-                2019-05-15
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2019-07-28T01:14:14+08:00">
-                2019-07-28
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  8.5k
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-		  
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          本文主要是机器学习-特征工程相关内容。
-1 什么是特征工程对于一个机器学习问题，数据和特征往往决定了
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/05/15/机器学习-特征工程/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-	
-	
-  
-  
-  
-  </article>
-  <div>
-		
-	</div>
-	
- 
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://huangqiancun.github.io/2019/05/15/机器学习-基本概念/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Qiancun Huang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/photo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="I'm Qiancun Huang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/15/机器学习-基本概念/" itemprop="url">机器学习-基本概念</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-15T00:32:14+08:00">
-                2019-05-15
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2019-07-28T01:14:51+08:00">
-                2019-07-28
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  3.4k
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-		  
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          本文主要是机器学习-基本概念相关内容。
-1 完整机器学习项目的流程
-明确要解决的问题，并将问题抽象成
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/05/15/机器学习-基本概念/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-	
-	
-  
-  
-  
-  </article>
-  <div>
-		
-	</div>
-	
- 
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://huangqiancun.github.io/2019/05/13/数据结构-排序算法/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Qiancun Huang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/photo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="I'm Qiancun Huang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/13/数据结构-排序算法/" itemprop="url">数据结构 - 排序算法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-13T00:54:14+08:00">
-                2019-05-13
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2019-07-29T16:53:25+08:00">
-                2019-07-29
+              <time title="Post modified" itemprop="dateModified" datetime="2019-08-27T22:38:21+08:00">
+                2019-08-27
               </time>
             
           </span>
@@ -994,7 +429,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  4.7k
+                  986
                 </span>
               
 
@@ -1020,19 +455,23 @@
       
 
       
-        
-          
-          本系列为数据结构学习笔记(待汇总)。
-1 排序假设含有n个记录的序列为${r_1,r_2,…,r_n
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/05/13/数据结构-排序算法/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <p>本系列为数据结构学习笔记(待汇总)。</p>
+<h2 id="位图"><a href="#位图" class="headerlink" title="位图"></a>位图</h2><p>所谓bit-map就是用一个bit位来标记某个元素的value，而bit数组的下标是表示该元素，由于采用了bit为单位来存储数据，因此在存储空间方面，可以大大节省。<br>位图通过使用位数组来表示已知范围内的某些元素是否存在，可进行数据的快速查找、判重、删除</p>
+<p>举例：假设我们要对0~7内的5个元素（4,7,2,5,3）排序（这里假设这些元素没有重复），可以采用bit-map的方法来达到排序的目的，要表示8个数，我们就只需要8个bit（1Bytes），首先我们开辟1Byte的空间，将这些空间的所有bit位都置为0，如下图：<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-位图/1.png" alt="mark"><br>然后遍历这五个元素，首先第一个是4，那么就把4对应的位置5（从0开始）置1：<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-位图/2.png" alt="mark"><br>然后在处理第二个元素7，将第8个位置置1，接着在处理第三个元素，一直到最后一个元素，处理完的bit位状态：<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-位图/3.png" alt="mark"><br>现在我们遍历一遍bit区域，将该位是1的位的编号输出（2,3,4,5,7），这样就达到了排序的目的。</p>
+<p>举例2：我们有1千万个整数，整数的范围在1到1亿之间。如何快速查找某个整数是否在这1千万个整数中呢？</p>
+<p>使用位图。我们申请一个大小为1亿、数据类型为布尔类型（true或者false）的数组。我们将这1千万个整数作为数组下标，将对应的数组值设置成true。比如，整数5对应下标为5的数组值设置为true，也就是array[5]=true。</p>
+<p>当我们查询某个整数K是否在这1千万个整数中的时候，我们只需要将对应的数组值array[K]取出来，看是否等于true。如果等于true，那说明1千万整数中包含这个整数K；相反，就表示不包含这个整数K。</p>
+<p>问题实例：</p>
+<ul>
+<li><p>已知某个文件内包含一些电话号码，每个号码为8位数字，统计不同号码的个数<br>8位最多99999999，大概需要99M个bit，大概10几M的内存即可，然后进行遍历将对应的位置1，统计位置上出现1的个数。</p>
+</li>
+<li><p>2.5亿个整数中找出不重复的整数的个数，内存空间不足以容纳这2.5亿个整数。<br>将bit-map扩展一下，用2bit表示一个数即可，0表示未出现，1表示出现一次，2表示出现2次及以上，在遍历这些数的时候，如果对应位置为0，则置1，如果是1，则置2，如果是2，则保持不变。最后统计位置上的值为1的个数。</p>
+</li>
+<li><p>实现网页爬虫中的URL去重功能<br>同一个网页链接有可能被包含在多个页面中，这就会导致爬虫在爬取的过程中，重复爬取相同的网页。如果你是一名负责爬虫的工程师，你会如何避免这些重复的爬取呢？<br>假设需要判重的网页有10亿，那我们可以用一个10倍大小的位图来存储，也就是100亿个二进制位，换算成字节，那就是大约1.2GB。（即布隆过滤器，因为该位图无法覆盖所有的网页，会出现误判冲突，布隆过滤器利用K个哈希函数实现有误判的位图，降低存储空间，提高效率。点击查看<a href="https://huangqiancun.github.io/2019/07/01/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8/">布隆过滤器</a>）</p>
+</li>
+</ul>
+<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><p>适用范围：可进行数据的快速查找，判重，删除，一般来说数据范围是int的10倍以下<br>基本思想：使用bit数组表示某些元素是否存在。</p>
+
       
     </div>
     
@@ -1042,185 +481,94 @@
     
 
     
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
 
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Qiancun Huang WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Qiancun Huang Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    Qiancun Huang
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="http://huangqiancun.github.io/2019/07/11/数据结构-位图/" title="数据结构-位图">http://huangqiancun.github.io/2019/07/11/数据结构-位图/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
     
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-	
-	
-  
-  
-  
-  </article>
-  <div>
-		
-	</div>
-	
- 
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://huangqiancun.github.io/2019/05/01/hello-world/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Qiancun Huang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/photo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="I'm Qiancun Huang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/01/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-01T00:54:14+08:00">
-                2019-05-01
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2019-07-28T01:25:01+08:00">
-                2019-07-28
-              </time>
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
           
-            
+            <a href="/tags/海量数据处理/" rel="tag"># 海量数据处理</a>
           
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  73
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-		  
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          
-          Welcome to Hexo! This is your very first post. Che
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/05/01/hello-world/#more" rel="contents">
-              Read more &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/10/数据库SQL实战题解/" rel="next" title="数据库SQL实战题解">
+                <i class="fa fa-chevron-left"></i> 数据库SQL实战题解
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/12/数据结构-红黑树/" rel="prev" title="数据结构-红黑树">
+                数据结构-红黑树 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
 
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -1234,18 +582,21 @@
   </article>
   <div>
 		
+			<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------------The End------------</div>
+    
+</div>
+		
 	</div>
 	
  
 
-    
-  </section>
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span>
-  </nav>
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -1253,6 +604,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -1273,8 +631,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -1291,7 +658,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">65</span>
+                  <span class="site-state-item-count">49</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1302,7 +669,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -1313,7 +680,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -1360,6 +727,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#位图"><span class="nav-text">位图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用"><span class="nav-text">应用</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -1388,7 +771,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">523.8k</span>
+    <span title="Site words total count">450.5k</span>
   
 </div>
 
@@ -1519,6 +902,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

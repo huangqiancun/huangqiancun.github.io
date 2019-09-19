@@ -129,7 +129,7 @@
 <meta property="og:image" content="https://github.com/huangqiancun/githubPage-Assets/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E8%B5%AB%E5%A4%AB%E6%9B%BC%E6%A0%91%E5%8F%8A%E8%B5%AB%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81/5.png?raw=true">
 <meta property="og:image" content="https://github.com/huangqiancun/githubPage-Assets/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E8%B5%AB%E5%A4%AB%E6%9B%BC%E6%A0%91%E5%8F%8A%E8%B5%AB%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81/6.png?raw=true">
 <meta property="og:image" content="https://github.com/huangqiancun/githubPage-Assets/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E8%B5%AB%E5%A4%AB%E6%9B%BC%E6%A0%91%E5%8F%8A%E8%B5%AB%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81/7.png?raw=true">
-<meta property="og:updated_time" content="2019-07-27T17:25:58.958Z">
+<meta property="og:updated_time" content="2019-08-27T14:29:25.521Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构-赫夫曼树及赫夫曼编码">
 <meta name="twitter:description" content="本系列为数据结构学习笔记(待汇总)。 1 赫夫曼树先看如下两棵树： 从树中一个结点到另一个结点之间的分支构成两个结点之间的路径，路径上的分支数目称为路径长度。 二叉树 a 中， 根结点到结点 D 的路径长度为 4，二叉树 b 中根结点到结点 D 的路径长度为 2。 树的路径长度就是从树根到每一结点的路径长度之和 。 二 叉树 a 的树路径长度就为 1+1+2+2+3+3+4+4=20。二叉树 b">
@@ -383,8 +383,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-07-28T01:25:58+08:00">
-                2019-07-28
+              <time title="Post modified" itemprop="dateModified" datetime="2019-08-27T22:29:25+08:00">
+                2019-08-27
               </time>
             
           </span>
@@ -465,11 +465,11 @@
 <p>二叉树 a 中， 根结点到结点 D 的路径长度为 4，二叉树 b 中根结点到结点 D 的路径长度为 2。 树的路径长度就是从树根到每一结点的路径长度之和 。 二 叉树 a 的树路径长度就为 1+1+2+2+3+3+4+4=20。二叉树 b 的树路径长度就为1+2+3+3+2+1+2+2=16。</p>
 <p>考虑到带权的结点，结点的带权的路径长度为该结点到树根之间的路径长度与结点上权的乘积。树的带权路径长度为树中所有叶子结点的带权路径长度之和。假设有n个权值$\{w_1,w_2,…,w_n\}$，构造一棵有 n 个叶子结点的二叉树，每个叶子结点带权 $W_k$，每个叶子的路径长度为 $l_k$，<strong>则其中带权路径长度(WPL)最小的二叉树称做赫夫曼树</strong>，也称为最优二叉树。</p>
 <ul>
-<li>二叉树 a 的 $WPL=5 x 1+15 x 2+40 x  3+30 x 4+10 x 4 = 315 $</li>
-<li>二叉树 b 的 $WPL=5 x 3+ 15 x 3+40 x 2+30 x 2+ 10 x 2 = 220 $</li>
+<li>二叉树 a 的 $WPL=5 <em> 1+15 </em> 2+40 <em>  3+30 </em> 4+10 * 4 = 315 $</li>
+<li>二叉树 b 的 $WPL=5 <em> 3+ 15 </em> 3+40 <em> 2+30 </em> 2+ 10 * 2 = 220 $</li>
 </ul>
 <h1 id="2-赫夫曼树构造方法"><a href="#2-赫夫曼树构造方法" class="headerlink" title="2 赫夫曼树构造方法"></a>2 赫夫曼树构造方法</h1><ol>
-<li>先把有权值的叶子结点按照从小到大的顺序排列成一个有序序列，即 :A5，<br>E10 , B15 , D30, C40。</li>
+<li>先把有权值的叶子结点按照从小到大的顺序排列成一个有序序列，即 : A5，E10 , B15 , D30, C40。</li>
 <li>取头两个最小权值的结点作为一个新节点 N1的两个子结点， 注意相对较小的 是左孩子，这里就是 A 为 N1 的左孩子， E 为 N1的右孩子，如图 6-12-5 所 示。新结点的权值为两个叶子权值的和 5+10=15。</li>
 <li>将 N1替换 A 与 E，插入有序序列中， 保持从小到大排列。 即: N1-15, B-15 , D-30, C-40。</li>
 <li>重复步骤 2. 将 N1 与 B 作为一个新节点 N2的两个子结点。 如图 6-12-6 所 示。 N2 的权值=15+15=30。<br><img src="https://github.com/huangqiancun/githubPage-Assets/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E8%B5%AB%E5%A4%AB%E6%9B%BC%E6%A0%91%E5%8F%8A%E8%B5%AB%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81/2.png?raw=true" alt="mark"></li>
@@ -480,7 +480,8 @@
 </ol>
 <p>构造赫夫曼树的赫夫曼算法描述：</p>
 <ol>
-<li>根据给定的 n 个权值$\{w_1,w_2,…,w_n\}$构成 n 棵二叉树的集合 $F = \{T_1,T_2,…,T_n\}$， 其中每棵二叉树 $T_i $中只有一个带权为 $W_i$根结点，其左右子树均为空。<br>2 . 在 F 中选取两棵根结点的权值最小的树作为左右子树构造一棵新的二叉树，且 置新的二叉树的根结点的权值为其左右子树上根结点的权值之和。<br>3 . 在 F 中删除这两棵树，同时将新得到的二叉树加入 F 中。</li>
+<li>根据给定的 n 个权值$\{w_1,w_2,…,w_n\}$构成 n 棵二叉树的集合 $F = \{T_1,T_2,…,T_n\}$， 其中每棵二叉树 $T_i $中只有一个带权为 $w_i$根结点，其左右子树均为空。</li>
+<li>在 F 中选取两棵根结点的权值最小的树作为左右子树构造一棵新的二叉树，且 置新的二叉树的根结点的权值为其左右子树上根结点的权值之和。</li>
 <li>重复 2 和 3 步骤，直到 F 只含一棵树为止。这棵树便是赫夫曼树。</li>
 </ol>
 <h1 id="3-赫夫曼编码"><a href="#3-赫夫曼编码" class="headerlink" title="3 赫夫曼编码"></a>3 赫夫曼编码</h1><p>用于压缩和解压缩文件，把要压缩的文本进行重新编码，以减少不必要的空间。<br>比如我们有一段文字内容为 “BADCADFEED” 要网络传输给别人，显然用二进制 的数字 (0 和 1) 来表示是很自然的想法。我们现在这段文字只有六个字母 ABCDEF，那么我们可以用相应的二进制数据表示：<br><img src="https://github.com/huangqiancun/githubPage-Assets/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E8%B5%AB%E5%A4%AB%E6%9B%BC%E6%A0%91%E5%8F%8A%E8%B5%AB%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81/4.png?raw=true" alt="mark"></p>
@@ -685,7 +686,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">65</span>
+                  <span class="site-state-item-count">49</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -696,7 +697,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -707,7 +708,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -798,7 +799,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">523.8k</span>
+    <span title="Site words total count">450.5k</span>
   
 </div>
 

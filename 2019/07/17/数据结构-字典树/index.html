@@ -114,20 +114,20 @@
 
 
 
-<meta name="description" content="本系列为数据结构学习笔记(待汇总)。 字典树字典树，即Trie树，又称单词查找树或键树，是一种树形结构，常用于统计和排序大量字符串等场景（但不限于字符串），且经常被搜索引擎用于文本词频统计。它的优点是最大限度减少无谓的字符串比较，查询效率比较高。Trie树的核心思想是以空间换时间，利用字符串的公共前缀来降低查询时间的开销，已达到提高效率的目的。它有以下三个基本性质：  根结点不包含字符，除根结点外">
+<meta name="description" content="本系列为数据结构学习笔记(待汇总)。 字典树字典树，即Trie树，又称单词查找树或键树，是一种树形结构，常用于统计和排序大量字符串等场景（但不限于字符串），且经常被搜索引擎用于文本词频统计。它的优点是最大限度减少无谓的字符串比较，查询效率比较高。Trie树的核心思想是以空间换时间，利用字符串的公共前缀来降低查询时间的开销，以达到提高效率的目的。它有以下三个基本性质：  根结点不包含字符，除根结点外">
 <meta name="keywords" content="数据结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据结构-字典树">
 <meta property="og:url" content="http://huangqiancun.github.io/2019/07/17/数据结构-字典树/index.html">
 <meta property="og:site_name" content="I&#39;m Qiancun Huang">
-<meta property="og:description" content="本系列为数据结构学习笔记(待汇总)。 字典树字典树，即Trie树，又称单词查找树或键树，是一种树形结构，常用于统计和排序大量字符串等场景（但不限于字符串），且经常被搜索引擎用于文本词频统计。它的优点是最大限度减少无谓的字符串比较，查询效率比较高。Trie树的核心思想是以空间换时间，利用字符串的公共前缀来降低查询时间的开销，已达到提高效率的目的。它有以下三个基本性质：  根结点不包含字符，除根结点外">
+<meta property="og:description" content="本系列为数据结构学习笔记(待汇总)。 字典树字典树，即Trie树，又称单词查找树或键树，是一种树形结构，常用于统计和排序大量字符串等场景（但不限于字符串），且经常被搜索引擎用于文本词频统计。它的优点是最大限度减少无谓的字符串比较，查询效率比较高。Trie树的核心思想是以空间换时间，利用字符串的公共前缀来降低查询时间的开销，以达到提高效率的目的。它有以下三个基本性质：  根结点不包含字符，除根结点外">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://github.com/huangqiancun/githubPage-Assets/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%AD%97%E5%85%B8%E6%A0%91/1.png?raw=true">
 <meta property="og:image" content="https://github.com/huangqiancun/githubPage-Assets/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%AD%97%E5%85%B8%E6%A0%91/2.png?raw=true">
-<meta property="og:updated_time" content="2019-07-27T17:25:39.305Z">
+<meta property="og:updated_time" content="2019-09-10T10:47:45.359Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构-字典树">
-<meta name="twitter:description" content="本系列为数据结构学习笔记(待汇总)。 字典树字典树，即Trie树，又称单词查找树或键树，是一种树形结构，常用于统计和排序大量字符串等场景（但不限于字符串），且经常被搜索引擎用于文本词频统计。它的优点是最大限度减少无谓的字符串比较，查询效率比较高。Trie树的核心思想是以空间换时间，利用字符串的公共前缀来降低查询时间的开销，已达到提高效率的目的。它有以下三个基本性质：  根结点不包含字符，除根结点外">
+<meta name="twitter:description" content="本系列为数据结构学习笔记(待汇总)。 字典树字典树，即Trie树，又称单词查找树或键树，是一种树形结构，常用于统计和排序大量字符串等场景（但不限于字符串），且经常被搜索引擎用于文本词频统计。它的优点是最大限度减少无谓的字符串比较，查询效率比较高。Trie树的核心思想是以空间换时间，利用字符串的公共前缀来降低查询时间的开销，以达到提高效率的目的。它有以下三个基本性质：  根结点不包含字符，除根结点外">
 <meta name="twitter:image" content="https://github.com/huangqiancun/githubPage-Assets/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%AD%97%E5%85%B8%E6%A0%91/1.png?raw=true">
 
 
@@ -378,8 +378,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-07-28T01:25:39+08:00">
-                2019-07-28
+              <time title="Post modified" itemprop="dateModified" datetime="2019-09-10T18:47:45+08:00">
+                2019-09-10
               </time>
             
           </span>
@@ -428,7 +428,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  1.6k
+                  2k
                 </span>
               
 
@@ -455,14 +455,14 @@
 
       
         <p>本系列为数据结构学习笔记(待汇总)。</p>
-<h1 id="字典树"><a href="#字典树" class="headerlink" title="字典树"></a>字典树</h1><p>字典树，即Trie树，又称单词查找树或键树，是一种树形结构，常用于统计和排序大量字符串等场景（但不限于字符串），且经常被搜索引擎用于文本词频统计。它的优点是最大限度减少无谓的字符串比较，查询效率比较高。<br>Trie树的核心思想是以空间换时间，利用字符串的公共前缀来降低查询时间的开销，已达到提高效率的目的。<br>它有以下三个基本性质：</p>
+<h1 id="字典树"><a href="#字典树" class="headerlink" title="字典树"></a>字典树</h1><p>字典树，即Trie树，又称单词查找树或键树，是一种树形结构，常用于统计和排序大量字符串等场景（但不限于字符串），且经常被搜索引擎用于文本词频统计。它的优点是最大限度减少无谓的字符串比较，查询效率比较高。<br>Trie树的核心思想是以空间换时间，利用字符串的公共前缀来降低查询时间的开销，以达到提高效率的目的。<br>它有以下三个基本性质：</p>
 <ul>
 <li>根结点不包含字符，除根结点外每一个结点都只包含一个字符；</li>
 <li>从根节点到某一节点。路径上经过的字符连接起来，就是该节点对应的字符串；</li>
 <li>每个节点的所有子节点包含的字符都不相同。</li>
 </ul>
 <h2 id="树的构建"><a href="#树的构建" class="headerlink" title="树的构建"></a>树的构建</h2><p>举例：<br>题目：给你100000个长度不超过10的单词。对于每一个单词，我们要判断他出没出现过，如果出现了，求第一次出现在第几个位置。<br>分析：这题当然可以用hash来解决，但是本文重点介绍的是trie树，因为在某些方面它的用途更大。比如说对于某一个单词，我们要询问它的前缀是否出现过。这样hash就不好搞了，而用trie还是很简单。<br>现在回到例子中，如果我们用最傻的方法，对于每一个单词，我们都要去查找它前面的单词中是否有它。那么这个算法的复杂度就是$O(n^2)$。显然对于100000的范围难以接受。现在我们换个思路想。假设我要查询的单词是abcd，那么在他前面的单词中，以b，c，d，f之类开头的我显然不必考虑。而只要找以a开头的中是否存在abcd就可以了。同样的，在以a开头中的单词中，我们只要考虑以b作为第二个字母的，一次次缩小范围和提高针对性，这样一个树的模型就渐渐清晰了。<br>好比假设有b，abc，abd，bcd，abcd，efg，hii 这6个单词，我们构建的树就是如下图这样的：<br><img src="https://github.com/huangqiancun/githubPage-Assets/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%AD%97%E5%85%B8%E6%A0%91/1.png?raw=true" alt="mark"></p>
-<p>如上图所示，从根结点遍历到每个结点的路径就是一个单词，如果这个结点被标记为红色，就表示这个单词存在，否则不存在。<br>那么，对于一个单词，只要顺着它从根走到对应的结点，再看这个结点是否被标记为红色就可以知道它是否出现过了。<br>把这个节点标记为红色，就相当于插入了这个单词。这样一来我们查询和插入可以一起完成<br>我们可以看到，trie树每一层的节点数是$26^i$级别的。为了节省空间，还可以动态链表，或者用数组来模拟动态。空间的花费，不会超过单词数乘以单词长度。<br>声明：本文为博主原创文章，转载请附上博文链接！</p>
+<p>如上图所示，从根结点遍历到每个结点的路径就是一个单词，如果这个结点被标记为红色，就表示这个单词存在，否则不存在。<br>那么，对于一个单词，只要顺着它从根走到对应的结点，再看这个结点是否被标记为红色就可以知道它是否出现过了。<br>把这个节点标记为红色，就相当于插入了这个单词。这样一来我们查询和插入可以一起完成<br>我们可以看到，trie树每一层的节点数是$26^i$级别的。为了节省空间，还可以动态链表，或者用数组来模拟动态。空间的花费，不会超过单词数乘以单词长度。</p>
 <h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><p>Trie树是简单但实用的数据结构，通常用于实现字典查询。我们做即时响应用户输入的AJAX搜索框时，就是Trie开始。本质上，Trie是一颗存储多个字符串的树。相邻节点间的边代表一个字符，这样树的每条分支代表一则子串，而树的叶节点则代表完整的字符串。和普通树不同的地方是，相同的字符串前缀共享同一条分支。下面，再举一个例子。给出一组单词，inn, int, at, age, adv, ant, 我们可以得到下面的Trie：<br><img src="https://github.com/huangqiancun/githubPage-Assets/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%AD%97%E5%85%B8%E6%A0%91/2.png?raw=true" alt="mark"></p>
 <p>可以看出：</p>
 <ul>
@@ -472,6 +472,15 @@
 </ul>
 <p>查询操纵非常简单。比如要查找int，顺着路径i -&gt; in -&gt; int就找到了。</p>
 <p>搭建Trie的基本算法也很简单，无非是逐一把每则单词的每个字母插入Trie。插入前先看前缀是否存在。如果存在，就共享，否则创建对应的节点和边。比如要插入单词add，就有下面几步：<br>考察前缀”a”，发现边a已经存在。于是顺着边a走到节点a。<br>考察剩下的字符串”dd”的前缀”d”，发现从节点a出发，已经有边d存在。于是顺着边d走到节点ad<br>考察最后一个字符”d”，这下从节点ad出发没有边d了，于是创建节点ad的子节点add，并把边ad-&gt;add标记为d。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>性质：</p>
+<ul>
+<li>根节点不包含字符，除根节点外的每一个子节点都包含一个字符。</li>
+<li>从根节点到某一个节点，路径上经过的字符连接起来，为该节点对应的字符串。</li>
+<li>每个节点的所有子节点包含的字符互不相同。</li>
+<li>通常在实现的时候，会在节点结构中设置一个标志，用来标记该结点处是否构成一个单词（关键字）。</li>
+</ul>
+<p>可以看出，Trie树的关键字一般都是字符串，而且Trie树把每个关键字保存在一条路径上，而不是一个结点中。另外，两个有公共前缀的关键字，在Trie树中前缀部分的路径相同，所以Trie树又叫做前缀树（Prefix Tree）。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> collections</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.children = collections.defaultdict(Node)</span><br><span class="line">        self.isWord = <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Trie</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Initialize your data structure here.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        self.root = Node()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insert</span><span class="params">(self, word)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Inserts a word into the trie.</span></span><br><span class="line"><span class="string">        :type word: str</span></span><br><span class="line"><span class="string">        :rtype: None</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        cur = self.root</span><br><span class="line">        <span class="keyword">for</span> w <span class="keyword">in</span> word:</span><br><span class="line">            cur = cur.children[w]</span><br><span class="line">        cur.isWord = <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">search</span><span class="params">(self, word)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Returns if the word is in the trie.</span></span><br><span class="line"><span class="string">        :type word: str</span></span><br><span class="line"><span class="string">        :rtype: bool</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        cur = self.root</span><br><span class="line">        <span class="keyword">for</span> w <span class="keyword">in</span> word:</span><br><span class="line">            cur = cur.children.get(w)</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> cur:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        <span class="keyword">return</span> cur.isWord</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">startsWith</span><span class="params">(self, prefix)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Returns if there is any word in the trie that starts with the given prefix.</span></span><br><span class="line"><span class="string">        :type prefix: str</span></span><br><span class="line"><span class="string">        :rtype: bool</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        cur = self.root</span><br><span class="line">        <span class="keyword">for</span> w <span class="keyword">in</span> prefix:</span><br><span class="line">            cur = cur.children.get(w)</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> cur:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line"><span class="comment"># Your Trie object will be instantiated and called as such:</span></span><br><span class="line">    obj = Trie()</span><br><span class="line">    obj.insert(<span class="string">'apple'</span>)</span><br><span class="line">    print(obj.search(<span class="string">'apple'</span>))</span><br><span class="line">    print(obj.search(<span class="string">'app'</span>))</span><br><span class="line">    print(obj.startsWith(<span class="string">'app'</span>))</span><br><span class="line">    obj.insert(<span class="string">'app'</span>)</span><br><span class="line">    print(obj.search(<span class="string">'app'</span>))</span><br></pre></td></tr></table></figure>
 <h2 id="问题实例"><a href="#问题实例" class="headerlink" title="问题实例"></a>问题实例</h2><ul>
 <li><p>Q. 10个频繁出现的词： 一个文本文件，大约有一万行，每行一个词，要求统计出其中最频繁出现的前10个词，请给出思想，给出时间复杂度分析。<br>A. 用Trie树统计每个词出现的次数，时间复杂度是$O(nl)$（$l$表示单词的平均长度，最终用最小堆找到出现次数最频繁的10个词，时间复杂度为$O(nlog10)$</p>
 </li>
@@ -566,8 +575,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/07/17/深度学习小结/" rel="prev" title="深度学习小结">
-                深度学习小结 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/07/18/数据结构-串的模式匹配/" rel="prev" title="数据结构-串的模式匹配">
+                数据结构-串的模式匹配 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -664,7 +673,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">65</span>
+                  <span class="site-state-item-count">49</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -675,7 +684,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -686,7 +695,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -742,7 +751,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#字典树"><span class="nav-text">字典树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#树的构建"><span class="nav-text">树的构建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询"><span class="nav-text">查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题实例"><span class="nav-text">问题实例</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#字典树"><span class="nav-text">字典树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#树的构建"><span class="nav-text">树的构建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询"><span class="nav-text">查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-text">实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题实例"><span class="nav-text">问题实例</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -777,7 +786,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">523.8k</span>
+    <span title="Site words total count">450.5k</span>
   
 </div>
 
