@@ -122,14 +122,14 @@
 <meta property="og:site_name" content="I&#39;m Qiancun Huang">
 <meta property="og:description" content="本系列为数据结构学习笔记(待汇总)。 位图所谓bit-map就是用一个bit位来标记某个元素的value，而bit数组的下标是表示该元素，由于采用了bit为单位来存储数据，因此在存储空间方面，可以大大节省。位图通过使用位数组来表示已知范围内的某些元素是否存在，可进行数据的快速查找、判重、删除 举例：假设我们要对0~7内的5个元素（4,7,2,5,3）排序（这里假设这些元素没有重复），可以采用bit">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-位图/1.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-位图/2.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-位图/3.png">
-<meta property="og:updated_time" content="2019-08-27T14:38:21.605Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构/数据结构-位图/1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构/数据结构-位图/2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构/数据结构-位图/3.png">
+<meta property="og:updated_time" content="2019-10-19T13:27:45.775Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构-位图">
 <meta name="twitter:description" content="本系列为数据结构学习笔记(待汇总)。 位图所谓bit-map就是用一个bit位来标记某个元素的value，而bit数组的下标是表示该元素，由于采用了bit为单位来存储数据，因此在存储空间方面，可以大大节省。位图通过使用位数组来表示已知范围内的某些元素是否存在，可进行数据的快速查找、判重、删除 举例：假设我们要对0~7内的5个元素（4,7,2,5,3）排序（这里假设这些元素没有重复），可以采用bit">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-位图/1.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构/数据结构-位图/1.png">
 
 
 
@@ -379,8 +379,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-08-27T22:38:21+08:00">
-                2019-08-27
+              <time title="Post modified" itemprop="dateModified" datetime="2019-10-19T21:27:45+08:00">
+                2019-10-19
               </time>
             
           </span>
@@ -457,7 +457,7 @@
       
         <p>本系列为数据结构学习笔记(待汇总)。</p>
 <h2 id="位图"><a href="#位图" class="headerlink" title="位图"></a>位图</h2><p>所谓bit-map就是用一个bit位来标记某个元素的value，而bit数组的下标是表示该元素，由于采用了bit为单位来存储数据，因此在存储空间方面，可以大大节省。<br>位图通过使用位数组来表示已知范围内的某些元素是否存在，可进行数据的快速查找、判重、删除</p>
-<p>举例：假设我们要对0~7内的5个元素（4,7,2,5,3）排序（这里假设这些元素没有重复），可以采用bit-map的方法来达到排序的目的，要表示8个数，我们就只需要8个bit（1Bytes），首先我们开辟1Byte的空间，将这些空间的所有bit位都置为0，如下图：<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-位图/1.png" alt="mark"><br>然后遍历这五个元素，首先第一个是4，那么就把4对应的位置5（从0开始）置1：<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-位图/2.png" alt="mark"><br>然后在处理第二个元素7，将第8个位置置1，接着在处理第三个元素，一直到最后一个元素，处理完的bit位状态：<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-位图/3.png" alt="mark"><br>现在我们遍历一遍bit区域，将该位是1的位的编号输出（2,3,4,5,7），这样就达到了排序的目的。</p>
+<p>举例：假设我们要对0~7内的5个元素（4,7,2,5,3）排序（这里假设这些元素没有重复），可以采用bit-map的方法来达到排序的目的，要表示8个数，我们就只需要8个bit（1Bytes），首先我们开辟1Byte的空间，将这些空间的所有bit位都置为0，如下图：<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构/数据结构-位图/1.png" alt="mark"><br>然后遍历这五个元素，首先第一个是4，那么就把4对应的位置5（从0开始）置1：<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构/数据结构-位图/2.png" alt="mark"><br>然后在处理第二个元素7，将第8个位置置1，接着在处理第三个元素，一直到最后一个元素，处理完的bit位状态：<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构/数据结构-位图/3.png" alt="mark"><br>现在我们遍历一遍bit区域，将该位是1的位的编号输出（2,3,4,5,7），这样就达到了排序的目的。</p>
 <p>举例2：我们有1千万个整数，整数的范围在1到1亿之间。如何快速查找某个整数是否在这1千万个整数中呢？</p>
 <p>使用位图。我们申请一个大小为1亿、数据类型为布尔类型（true或者false）的数组。我们将这1千万个整数作为数组下标，将对应的数组值设置成true。比如，整数5对应下标为5的数组值设置为true，也就是array[5]=true。</p>
 <p>当我们查询某个整数K是否在这1千万个整数中的时候，我们只需要将对应的数组值array[K]取出来，看是否等于true。如果等于true，那说明1千万整数中包含这个整数K；相反，就表示不包含这个整数K。</p>

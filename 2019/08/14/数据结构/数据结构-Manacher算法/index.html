@@ -122,17 +122,17 @@
 <meta property="og:site_name" content="I&#39;m Qiancun Huang">
 <meta property="og:description" content="背景给定一个字符串，求出其最长回文子串。例如：  s=”abcd”，最长回文长度为 1； s=”ababa”，最长回文长度为 5； s=”abccb”，最长回文长度为 4，即 bccb。  以上问题的传统思路大概是，遍历每一个字符，以该字符为中心向两边查找。其时间复杂度为 $O(n^2)$，效率很差。 1975 年，一个叫 Manacher 的人发明了一个算法，Manacher 算法（中文名：马拉">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-Manacher算法/1.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-Manacher算法/2.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-Manacher算法/3.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-Manacher算法/4.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-Manacher算法/5.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-Manacher算法/6.png">
-<meta property="og:updated_time" content="2019-08-14T02:04:33.000Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构/数据结构-Manacher算法/1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构/数据结构-Manacher算法/2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构/数据结构-Manacher算法/3.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构/数据结构-Manacher算法/4.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构/数据结构-Manacher算法/5.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构/数据结构-Manacher算法/6.png">
+<meta property="og:updated_time" content="2019-10-19T13:24:38.150Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构-Manacher算法">
 <meta name="twitter:description" content="背景给定一个字符串，求出其最长回文子串。例如：  s=”abcd”，最长回文长度为 1； s=”ababa”，最长回文长度为 5； s=”abccb”，最长回文长度为 4，即 bccb。  以上问题的传统思路大概是，遍历每一个字符，以该字符为中心向两边查找。其时间复杂度为 $O(n^2)$，效率很差。 1975 年，一个叫 Manacher 的人发明了一个算法，Manacher 算法（中文名：马拉">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-Manacher算法/1.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构/数据结构-Manacher算法/1.png">
 
 
 
@@ -382,8 +382,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-08-14T10:04:33+08:00">
-                2019-08-14
+              <time title="Post modified" itemprop="dateModified" datetime="2019-10-19T21:24:38+08:00">
+                2019-10-19
               </time>
             
           </span>
@@ -523,7 +523,7 @@
 </table>
 </div>
 <p>可以看出，<code>p[i] - 1</code>正好是原字符串中最长回文串的长度。</p>
-<p>接下来的重点就是求解 p 数组，如下图：<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-Manacher算法/1.png" alt="mark"></p>
+<p>接下来的重点就是求解 p 数组，如下图：<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构/数据结构-Manacher算法/1.png" alt="mark"></p>
 <p>设置两个变量，mx 和 id 。mx 代表以 id 为中心的最长回文的右边界，也就是<code>mx = id + p[id]</code>。</p>
 <p>假设我们现在求<code>p[i]</code>，也就是以 i 为中心的最长回文半径，如果<code>i &lt; mx</code>，如上图，那么：</p>
 <pre><code>if (i &lt; mx)  
@@ -532,9 +532,9 @@
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">manacher</span><span class="params">(self, s)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> len(s) == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        s = self.init(s)</span><br><span class="line">        p = [<span class="number">0</span>] * len(s)</span><br><span class="line">        id = <span class="number">-1</span></span><br><span class="line">        mx = <span class="number">-1</span></span><br><span class="line">        res = <span class="number">0</span></span><br><span class="line">        center = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(s)):</span><br><span class="line">            p[i] = min(p[<span class="number">2</span>*id-i], mx-i) <span class="keyword">if</span> i &lt; mx <span class="keyword">else</span> <span class="number">1</span></span><br><span class="line">            <span class="keyword">while</span> i + p[i] &lt; len(s) <span class="keyword">and</span> i - p[i] &gt; <span class="number">-1</span>:</span><br><span class="line">                <span class="keyword">if</span> s[i+p[i]] == s[i-p[i]]:</span><br><span class="line">                    p[i] += <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">if</span> i + p[i] &gt; mx:</span><br><span class="line">                mx = i + p[i]</span><br><span class="line">                id = i <span class="comment"># id是最右回文子串的中心</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res<span class="number">-1</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">init</span><span class="params">(self, s)</span>:</span></span><br><span class="line"></span><br><span class="line">        res = <span class="string">'#'</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(s)):</span><br><span class="line">            res += s[i]</span><br><span class="line">            res += <span class="string">'#'</span></span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    res = Solution().manacher(<span class="string">"cbbd"</span>)</span><br><span class="line">    print(res)</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
 <h2 id="算法复杂度分析"><a href="#算法复杂度分析" class="headerlink" title="算法复杂度分析"></a>算法复杂度分析</h2><p>文章开头已经提及，Manacher 算法为线性算法，即使最差情况下其时间复杂度亦为 O(n)O(n)，在进行证明之前，我们还需要更加深入地理解上述算法过程。</p>
 <p>根据回文的性质，<code>p[i]</code>的值基于以下三种情况得出：</p>
-<p>（1）：<strong>j 的回文串有一部分在 id 的之外</strong>，如下图：<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-Manacher算法/2.png" alt="mark"><br>上图中，黑线为 id 的回文，i 与 j 关于 id 对称，红线为 j 的回文。那么根据代码此时<code>p[i] = mx - i</code>，即紫线。那么<code>p[i]</code>还可以更大么？答案是不可能！见下图：<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-Manacher算法/3.png" alt="mark"><br>假设右侧新增的紫色部分是<code>p[i]</code>可以增加的部分，那么根据回文的性质，a 等于 d ，也就是说 id 的回文不仅仅是黑线，而是黑线 + 两条紫线，矛盾，所以假设不成立，故<code>p[i] = mx - i</code>，不可以再增加一分。</p>
-<p>（2）：<strong>j 回文串全部在 id 的内部</strong>，如下图：<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-Manacher算法/4.png" alt="mark"><br>根据代码，此时<code>p[i] = p[j]</code>，那么<code>p[i]</code>还可以更大么？答案亦是不可能！见下图：<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-Manacher算法/5.png" alt="mark"><br>假设右侧新增的红色部分是<code>p[i]</code>可以增加的部分，那么根据回文的性质，a 等于 b ，也就是说 j 的回文应该再加上 a 和 b ，矛盾，所以假设不成立，故<code>p[i] = p[j]</code>，也不可以再增加一分。</p>
-<p>（3）：<strong>j 回文串左端正好与 id 的回文串左端重合</strong>，见下图：<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-Manacher算法/6.png" alt="mark"><br>根据代码，此时<code>p[i] = p[j]</code>或<code>p[i] = mx - i</code>，并且<code>p[i]</code>还可以继续增加，所以需要</p>
+<p>（1）：<strong>j 的回文串有一部分在 id 的之外</strong>，如下图：<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构/数据结构-Manacher算法/2.png" alt="mark"><br>上图中，黑线为 id 的回文，i 与 j 关于 id 对称，红线为 j 的回文。那么根据代码此时<code>p[i] = mx - i</code>，即紫线。那么<code>p[i]</code>还可以更大么？答案是不可能！见下图：<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构/数据结构-Manacher算法/3.png" alt="mark"><br>假设右侧新增的紫色部分是<code>p[i]</code>可以增加的部分，那么根据回文的性质，a 等于 d ，也就是说 id 的回文不仅仅是黑线，而是黑线 + 两条紫线，矛盾，所以假设不成立，故<code>p[i] = mx - i</code>，不可以再增加一分。</p>
+<p>（2）：<strong>j 回文串全部在 id 的内部</strong>，如下图：<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构/数据结构-Manacher算法/4.png" alt="mark"><br>根据代码，此时<code>p[i] = p[j]</code>，那么<code>p[i]</code>还可以更大么？答案亦是不可能！见下图：<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构/数据结构-Manacher算法/5.png" alt="mark"><br>假设右侧新增的红色部分是<code>p[i]</code>可以增加的部分，那么根据回文的性质，a 等于 b ，也就是说 j 的回文应该再加上 a 和 b ，矛盾，所以假设不成立，故<code>p[i] = p[j]</code>，也不可以再增加一分。</p>
+<p>（3）：<strong>j 回文串左端正好与 id 的回文串左端重合</strong>，见下图：<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构/数据结构-Manacher算法/6.png" alt="mark"><br>根据代码，此时<code>p[i] = p[j]</code>或<code>p[i] = mx - i</code>，并且<code>p[i]</code>还可以继续增加，所以需要</p>
 <pre><code>while (s[i - p[i]] == s[i + p[i]]) 
     p[i]++;
 </code></pre><p>根据（1）（2）（3），很容易推出 Manacher 算法的最坏情况，即为字符串内全是相同字符的时候。在这里我们重点研究 Manacher（）中的 for 语句，推算发现 for 语句内平均访问每个字符 5 次，即时间复杂度为：$T_{worst}(n)=O(n)$。</p>

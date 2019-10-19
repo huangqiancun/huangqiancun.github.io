@@ -122,20 +122,20 @@
 <meta property="og:site_name" content="I&#39;m Qiancun Huang">
 <meta property="og:description" content="本系列为数据结构学习笔记(待汇总)。 跳表跳表(SkipList)：增加了向前指针的链表叫做跳表。跳表全称叫做跳跃表，简称跳表。跳表是一个随机化的数据结构，实质是一种可以进行二分查找的有序链表。跳表在原有的有序链表上增加了多级索引，通过索引来实现快速查询。跳表不仅能提高搜索性能，同时也可以提高插入和删除操作的性能。 跳表是redis的一个核心组件，也同时被广泛地运用到了各种缓存地实现当中，它的主要">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-跳表/有序表1.jpg">
-<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-跳表/有序表2.jpg">
-<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-跳表/有序表3.jpg">
-<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-跳表/跳表.jpg">
-<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-跳表/跳表的搜索.jpg">
-<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-跳表/跳表的插入.jpg">
-<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-跳表/跳表的插入2.jpg">
-<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-跳表/跳表的复杂度.jpg">
-<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-跳表/跳表的删除.jpg">
-<meta property="og:updated_time" content="2019-07-27T17:19:42.642Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构/数据结构-跳表/有序表1.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构/数据结构-跳表/有序表2.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构/数据结构-跳表/有序表3.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构/数据结构-跳表/跳表.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构/数据结构-跳表/跳表的搜索.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构/数据结构-跳表/跳表的插入.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构/数据结构-跳表/跳表的插入2.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构/数据结构-跳表/跳表的复杂度.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构/数据结构-跳表/跳表的删除.jpg">
+<meta property="og:updated_time" content="2019-10-19T13:28:21.881Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构-跳表">
 <meta name="twitter:description" content="本系列为数据结构学习笔记(待汇总)。 跳表跳表(SkipList)：增加了向前指针的链表叫做跳表。跳表全称叫做跳跃表，简称跳表。跳表是一个随机化的数据结构，实质是一种可以进行二分查找的有序链表。跳表在原有的有序链表上增加了多级索引，通过索引来实现快速查询。跳表不仅能提高搜索性能，同时也可以提高插入和删除操作的性能。 跳表是redis的一个核心组件，也同时被广泛地运用到了各种缓存地实现当中，它的主要">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-跳表/有序表1.jpg">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构/数据结构-跳表/有序表1.jpg">
 
 
 
@@ -385,8 +385,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-07-28T01:19:42+08:00">
-                2019-07-28
+              <time title="Post modified" itemprop="dateModified" datetime="2019-10-19T21:28:21+08:00">
+                2019-10-19
               </time>
             
           </span>
@@ -465,30 +465,30 @@
 <h2 id="跳表"><a href="#跳表" class="headerlink" title="跳表"></a>跳表</h2><p>跳表(SkipList)：增加了向前指针的链表叫做跳表。跳表全称叫做跳跃表，简称跳表。跳表是一个随机化的数据结构，实质是一种可以进行二分查找的有序链表。跳表在原有的有序链表上增加了多级索引，通过索引来实现快速查询。跳表不仅能提高搜索性能，同时也可以提高插入和删除操作的性能。</p>
 <p>跳表是redis的一个核心组件，也同时被广泛地运用到了各种缓存地实现当中，它的主要优点，就是可以跟红黑树、AVL等平衡树一样，做到比较稳定地插入、查询与删除。理论插入查询删除的算法时间复杂度为O(logN)。</p>
 <h2 id="有序表的搜索"><a href="#有序表的搜索" class="headerlink" title="有序表的搜索"></a>有序表的搜索</h2><p>背景：考虑一个有序表，我们要查找其中的元素，我们只能从头开始遍历链表，直到查找到元素为止。<br>链表是有序的，但是不能使用二分查找，是不是很捉急？（P.S.数组可以实现二分查找）<br>那么，有没有什么方法可以实现有序链表的二分查找呢？<br>答案是肯定的，那就是我们将要介绍的这种数据结构——跳表。</p>
-<p><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-跳表/有序表1.jpg" alt="mark"></p>
-<p>从该有序表中搜索元素 &lt; 23, 43, 59 &gt; ，需要比较的次数分别为 &lt; 2, 4, 6 &gt;，总共比较的次数<br>为 2 + 4 + 6 = 12 次。有没有优化的算法吗?  链表是有序的，但不能使用二分查找。类似二叉<br>搜索树，我们把一些节点提取出来，作为索引。得到如下结构：<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-跳表/有序表2.jpg" alt="mark"></p>
-<p>这里我们把 &lt; 14, 34, 50, 72 &gt; 提取出来作为一级索引，这样搜索的时候就可以减少比较次数了。<br>我们还可以再从一级索引提取一些元素出来，作为二级索引，变成如下结构：<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-跳表/有序表3.jpg" alt="mark"></p>
+<p><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构/数据结构-跳表/有序表1.jpg" alt="mark"></p>
+<p>从该有序表中搜索元素 &lt; 23, 43, 59 &gt; ，需要比较的次数分别为 &lt; 2, 4, 6 &gt;，总共比较的次数<br>为 2 + 4 + 6 = 12 次。有没有优化的算法吗?  链表是有序的，但不能使用二分查找。类似二叉<br>搜索树，我们把一些节点提取出来，作为索引。得到如下结构：<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构/数据结构-跳表/有序表2.jpg" alt="mark"></p>
+<p>这里我们把 &lt; 14, 34, 50, 72 &gt; 提取出来作为一级索引，这样搜索的时候就可以减少比较次数了。<br>我们还可以再从一级索引提取一些元素出来，作为二级索引，变成如下结构：<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构/数据结构-跳表/有序表3.jpg" alt="mark"></p>
 <p>这里元素不多，体现不出优势，如果元素足够多，这种索引结构就能体现出优势来了。</p>
-<h2 id="跳表的结构"><a href="#跳表的结构" class="headerlink" title="跳表的结构"></a>跳表的结构</h2><p>下面的结构是就是跳表：<br>其中 -1 表示 INT_MIN， 链表的最小值，1 表示 INT_MAX，链表的最大值。<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-跳表/跳表.jpg" alt="mark"></p>
+<h2 id="跳表的结构"><a href="#跳表的结构" class="headerlink" title="跳表的结构"></a>跳表的结构</h2><p>下面的结构是就是跳表：<br>其中 -1 表示 INT_MIN， 链表的最小值，1 表示 INT_MAX，链表的最大值。<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构/数据结构-跳表/跳表.jpg" alt="mark"></p>
 <h2 id="跳表的性质"><a href="#跳表的性质" class="headerlink" title="跳表的性质"></a>跳表的性质</h2><p>(1) 由很多层结构组成<br>(2) 每一层都是一个有序的链表<br>(3) 最底层(Level 1)的链表包含所有元素<br>(4) 如果一个元素出现在 Level i 的链表中，则它在 Level i 之下的链表也都会出现。<br>(5) 每个节点包含两个指针，一个指向同一链表中的下一个元素，一个指向下面一层的元素。</p>
-<h2 id="跳表的搜索"><a href="#跳表的搜索" class="headerlink" title="跳表的搜索"></a>跳表的搜索</h2><p><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-跳表/跳表的搜索.jpg" alt="mark"></p>
+<h2 id="跳表的搜索"><a href="#跳表的搜索" class="headerlink" title="跳表的搜索"></a>跳表的搜索</h2><p><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构/数据结构-跳表/跳表的搜索.jpg" alt="mark"></p>
 <p>例子：查找元素 117<br>(1) 比较 21， 比 21 大，往后面找<br>(2) 比较 37,   比 37大，比链表最大值小，从 37 的下面一层开始找<br>(3) 比较 71,  比 71 大，比链表最大值小，从 71 的下面一层开始找<br>(4) 比较 85， 比 85 大，从后面找<br>(5) 比较 117， 等于 117， 找到了节点。</p>
 <ul>
 <li>具体的搜索算法如下，C代码<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 如果存在 x, 返回 x 所在的节点， </span></span><br><span class="line"><span class="comment"> * 否则返回 x 的后继节点 */</span>  </span><br><span class="line">find(x)   </span><br><span class="line">&#123;  </span><br><span class="line">    p = top;  </span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;  </span><br><span class="line">        <span class="keyword">while</span> (p-&gt;next-&gt;key &lt; x)  </span><br><span class="line">            p = p-&gt;next;  </span><br><span class="line">        <span class="keyword">if</span> (p-&gt;down == <span class="literal">NULL</span>)   </span><br><span class="line">            <span class="keyword">return</span> p-&gt;next;  </span><br><span class="line">        p = p-&gt;down;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="跳表的插入"><a href="#跳表的插入" class="headerlink" title="跳表的插入"></a>跳表的插入</h2><p>先确定该元素要占据的层数 K（采用丢硬币的方式，这完全是随机的）<br>然后在 Level 1 … Level K 各个层的链表都插入元素。<br>例子：插入 119， K = 2<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-跳表/跳表的插入.jpg" alt="mark"></p>
-<p>如果 K 大于链表的层数，则要添加新的层。<br>例子：插入 119， K = 4<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-跳表/跳表的插入2.jpg" alt="mark"></p>
+<h2 id="跳表的插入"><a href="#跳表的插入" class="headerlink" title="跳表的插入"></a>跳表的插入</h2><p>先确定该元素要占据的层数 K（采用丢硬币的方式，这完全是随机的）<br>然后在 Level 1 … Level K 各个层的链表都插入元素。<br>例子：插入 119， K = 2<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构/数据结构-跳表/跳表的插入.jpg" alt="mark"></p>
+<p>如果 K 大于链表的层数，则要添加新的层。<br>例子：插入 119， K = 4<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构/数据结构-跳表/跳表的插入2.jpg" alt="mark"></p>
 <ul>
 <li>丢硬币决定 K<br>插入元素的时候，元素所占有的层数完全是随机的，通过一下随机算法产生：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">random_level</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    K = <span class="number">1</span>;  </span><br><span class="line">    <span class="keyword">while</span> (random(<span class="number">0</span>,<span class="number">1</span>))  </span><br><span class="line">        K++;  </span><br><span class="line">    <span class="keyword">return</span> K;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>相当与做一次丢硬币的实验，如果遇到正面，继续丢，遇到反面，则停止，<br>用实验中丢硬币的次数 K 作为元素占有的层数。显然随机变量 K 满足参数为 $p = 1/2$ 的几何分布，K 的期望值 $E[K] = 1/p = 2$. 就是说，各个元素的层数，期望值是 2 层。</p>
 <h2 id="跳表的复杂度"><a href="#跳表的复杂度" class="headerlink" title="跳表的复杂度"></a>跳表的复杂度</h2><p>在跳表中每两个结点都会抽出一个结点作为上一级索引的结点。如果链表里有n个结点，那么第一级索引的个数大约就是n/2，第二级的索引大约就是n/4，第三级的索引就是n/8，依次类推，也就是说，第k级索引的结点个数是第k-1级索引的结点个数的1/2，那么第k级的索引结点个数为：$\frac{n}{2^k}$。如果最高级索引有 2 个结点，即$\frac{n}{2^k}=2$，那总的索引级数 $k=log_2n−1$，如果我们算上原始链表的话，那也就是跳表的高度为$log_2n$级。</p>
-<p>在第 k 级索引中，假设我们要查找的数据为 x，当我们查找到 y 结点时，发现 $y&lt;x&lt;z $时此时我们就要下降到 k−1 级索引继续查找。在第 k−1 级索引中，y 和 z 之间只有三个结点，因此，我们最多只需要查找 3 个结点。以此类推，每一级的索引最多都只需要遍历 3 个结点。<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-跳表/跳表的复杂度.jpg" alt="mark"></p>
+<p>在第 k 级索引中，假设我们要查找的数据为 x，当我们查找到 y 结点时，发现 $y&lt;x&lt;z $时此时我们就要下降到 k−1 级索引继续查找。在第 k−1 级索引中，y 和 z 之间只有三个结点，因此，我们最多只需要查找 3 个结点。以此类推，每一级的索引最多都只需要遍历 3 个结点。<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构/数据结构-跳表/跳表的复杂度.jpg" alt="mark"></p>
 <p>而总的级别数为 $log_2n$，因此查找的时间复杂度就为 $3∗log_2n=logn$。跳表查找的时间复杂度和二分查找一样，但这其实是以空间来换时间的设计思路。</p>
 <p>跳表的所有额外索引结点总数为 $\frac{n}{2} + \frac{n}{4} + \frac{n}{8} + … + 4 + 2 = n-2$，所以跳表的空间复杂度为$O(n)$。</p>
-<h2 id="跳表的删除"><a href="#跳表的删除" class="headerlink" title="跳表的删除"></a>跳表的删除</h2><p>在各个层中找到包含 x 的节点，使用标准的 delete from list 方法删除该节点。<br>例子：删除 71<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构-跳表/跳表的删除.jpg" alt="mark"></p>
+<h2 id="跳表的删除"><a href="#跳表的删除" class="headerlink" title="跳表的删除"></a>跳表的删除</h2><p>在各个层中找到包含 x 的节点，使用标准的 delete from list 方法删除该节点。<br>例子：删除 71<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/数据结构/数据结构-跳表/跳表的删除.jpg" alt="mark"></p>
 <h2 id="跳表的应用"><a href="#跳表的应用" class="headerlink" title="跳表的应用"></a>跳表的应用</h2><p>Redis中的有序集合使用跳表。Redis 中的有序集合支持的核心操作主要有以下几个：</p>
 <ul>
 <li>插入一个数据</li>
