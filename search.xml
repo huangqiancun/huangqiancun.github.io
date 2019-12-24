@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[LeetCode第166场周赛]]></title>
-    <url>%2F2019%2F12%2F08%2FLeetCodeWeeklyContest%2FLeetCode%E7%AC%AC166%E5%9C%BA%E5%91%A8%E8%B5%9B%2F</url>
-    <content type="text"><![CDATA[本文是leetcode contest 106的题解，包括：12345279.整数的各位积和之差（简单）5280.用户分组 （中等）5281.使结果不超过阈值的最小除数 （中等）5282.转化为全零矩阵的最少反转次数（困难） 第一次打比赛，AC前三题，全国248 / 1675，全球1289 / 5585。 5279. 整数的各位积和之差题目描述给你一个整数 n，请你帮忙计算并返回该整数「各位数字之积」与「各位数字之和」的差。 示例 1：123456输入：n = 234输出：15 解释：各位数之积 = 2 * 3 * 4 = 24 各位数之和 = 2 + 3 + 4 = 9 结果 = 24 - 9 = 15 示例 2：123456输入：n = 4421输出：21解释： 各位数之积 = 4 * 4 * 2 * 1 = 32 各位数之和 = 4 + 4 + 2 + 1 = 11 结果 = 32 - 11 = 21 提示：11 &lt;= n &lt;= 10^5 解题思路123456789101112class Solution &#123; public int subtractProductAndSum(int n) &#123; int mut = 1, sum = 0; while (n &gt; 0)&#123; int temp = n % 10; mut *= temp; sum += temp; n /= 10; &#125; return mut - sum; &#125;&#125; 5280. 用户分组题目描述有 n 位用户参加活动，他们的 ID 从 0 到 n - 1，每位用户都 恰好 属于某一用户组。给你一个长度为 n 的数组 groupSizes，其中包含每位用户所处的用户组的大小，请你返回用户分组情况（存在的用户组以及每个组中用户的 ID）。 你可以任何顺序返回解决方案，ID 的顺序也不受限制。此外，题目给出的数据保证至少存在一种解决方案。 示例 1：1234输入：groupSizes = [3,3,3,3,3,1,3]输出：[[5],[0,1,2],[3,4,6]]解释： 其他可能的解决方案有 [[2,1,6],[5],[0,4,3]] 和 [[5],[0,6,2],[4,3,1]]。 示例 2：12输入：groupSizes = [2,1,3,3,3,2]输出：[[1],[0,5],[2,3,4]] 提示：123groupSizes.length == n1 &lt;= n &lt;= 5001 &lt;= groupSizes[i] &lt;= n 解题思路12345678910111213141516171819202122232425262728293031323334import java.util.ArrayList;import java.util.HashMap;import java.util.List;import java.util.Map;class Solution &#123; public List&lt;List&lt;Integer&gt;&gt; groupThePeople(int[] groupSizes) &#123; // 将原数据转化为map，key为分组长度，value为索引 Map&lt;Integer, List&lt;Integer&gt;&gt; map = new HashMap&lt;&gt;(); for (int i = 0; i &lt; groupSizes.length; i++)&#123; if (!map.containsKey(groupSizes[i]))&#123; List&lt;Integer&gt; temp = new ArrayList&lt;&gt;(); temp.add(i); map.put(groupSizes[i], temp); &#125;else&#123; map.get(groupSizes[i]).add(i); &#125; &#125; List&lt;List&lt;Integer&gt;&gt; res = new ArrayList&lt;&gt;(); // 将map中数据按照长度拆分存入res for (Map.Entry&lt;Integer, List&lt;Integer&gt;&gt; entry:map.entrySet())&#123; if (entry.getKey() == entry.getValue().size())&#123; res.add(entry.getValue()); &#125;else&#123; for (int i = 0; i &lt; entry.getValue().size(); i += entry.getKey())&#123; List&lt;Integer&gt; temp = entry.getValue().subList(i, i+entry.getKey()); res.add(temp); &#125; &#125; &#125; return res; &#125;&#125; 5281. 使结果不超过阈值的最小除数题目描述给你一个整数数组 nums 和一个正整数 threshold ，你需要选择一个正整数作为除数，然后将数组里每个数都除以它，并对除法结果求和。 请你找出能够使上述结果小于等于阈值 threshold 的除数中 最小 的那个。 每个数除以除数后都向上取整，比方说 7/3 = 3 ， 10/2 = 5 。 题目保证一定有解。 示例 1：1234输入：nums = [1,2,5,9], threshold = 6输出：5解释：如果除数为 1 ，我们可以得到和为 17 （1+2+5+9）。如果除数为 4 ，我们可以得到和为 7 (1+1+2+3) 。如果除数为 5 ，和为 5 (1+1+1+2)。 示例 2：12输入：nums = [2,3,5,7,11], threshold = 11输出：3 示例 3：12输入：nums = [19], threshold = 5输出：4 提示：1231 &lt;= nums.length &lt;= 5 * 10^41 &lt;= nums[i] &lt;= 10^6nums.length &lt;= threshold &lt;= 10^6 解题思路除数越大，除法结果和越小。 使用二分，除数范围为1~ max(nums)。因为提示中nums有界，为了少一轮遍历求数组最大值，可直接将上界取为10^6+1。 如果这个除法结果和大于阀值， 说明除数mid取的太小了，我们在[mid+1, right]中继续查找 如果这个除法结果和小于等于阀值，说明除数mid或者取得太大，或者满足要求，我们在[left,mid]中继续查找。 注意在2的情形下，mid可能是我们所要求的解，不应被剔除在搜索区间之外。 1234567891011121314151617181920class Solution &#123; public int smallestDivisor(int[] nums, int threshold) &#123; int left = 1, right = 1000000+1; while (left &lt; right) &#123; int mid = left + (right - left) / 2; int sum = 0; for (int num : nums) &#123; //向上取整 sum += num / mid + ((num % mid == 0) ? 0 : 1); &#125; if (sum &gt; threshold) &#123; left = mid + 1; &#125; else &#123; right = mid; &#125; &#125; return right; &#125;&#125; 5282. 转化为全零矩阵的最少反转次数题目描述给你一个 m x n 的二进制矩阵 mat。 每一步，你可以选择一个单元格并将它反转（反转表示 0 变 1 ，1 变 0 ）。如果存在和它相邻的单元格，那么这些相邻的单元格也会被反转。（注：相邻的两个单元格共享同一条边。） 请你返回将矩阵 mat 转化为全零矩阵的最少反转次数，如果无法转化为全零矩阵，请返回 -1 。 二进制矩阵的每一个格子要么是 0 要么是 1 。 全零矩阵是所有格子都为 0 的矩阵。 示例 1：123输入：mat = [[0,0],[0,1]]输出：3解释：一个可能的解是反转 (1, 0)，然后 (0, 1) ，最后是 (1, 1) 。 示例 2：123输入：mat = [[0]]输出：0解释：给出的矩阵是全零矩阵，所以你不需要改变它。 示例 3：12输入：mat = [[1,1,1],[1,0,1],[0,0,0]]输出：6 示例 4：123输入：mat = [[1,0,0],[1,0,0]]输出：-1解释：该矩阵无法转变成全零矩阵 提示：12345m == mat.lengthn == mat[0].length1 &lt;= m &lt;= 31 &lt;= n &lt;= 3mat[i][j] 是 0 或 1 。 解题思路使用位向量（即整数）保存矩阵的状态，使用BFS对每一个可能的状态，对其中的每一位进行翻转。 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283import java.util.ArrayDeque;import java.util.HashSet;import java.util.Queue;import java.util.Set;class Solution &#123; int n, m; public int minFlips(int[][] mat) &#123; n = mat.length; m = mat[0].length; //初始化状态 int bitVec = createBitVec(mat); if (bitVec == 0) &#123; return 0; &#125; Queue&lt;Integer&gt; queue = new ArrayDeque&lt;&gt;(); // 队列 queue.offer(bitVec); Set&lt;Integer&gt; visited = new HashSet&lt;&gt;(); // 保存访问过的数 int res = 0; // 常规BFS while (!queue.isEmpty()) &#123; int queueLen = queue.size(); for (int k = 0; k &lt; queueLen; k++) &#123; int curVec = queue.poll(); // 取出队顶元素 if (curVec == 0) &#123; //如果为0,返回 return res; &#125; //如果当前元素不为0,对其中每一位进行翻转 for (int i = 0; i &lt; n; i++) &#123; for (int j = 0; j &lt; m; j++) &#123; bitVec = getFlip(i, j, curVec); // 获取翻转后的数值 if (!visited.contains(bitVec)) &#123; //如果没访问过，加入队列和访问过的数的集合 queue.offer(bitVec); visited.add(bitVec); &#125; &#125; &#125; &#125; res++; &#125; return -1; &#125; public int createBitVec(int[][] mat) &#123; /*初始状态：获得矩阵的值 [[1,1,1], [1,0,1], [0,0,0]] 转化为二进制 111101000-&gt;十进制 488 */ int bitVec = 0; for (int i = 0; i &lt; n; i++) &#123; for (int j = 0; j &lt; m; j++) &#123; bitVec &lt;&lt;= 1; bitVec |= mat[i][j]; &#125; &#125; return bitVec; &#125; public int getFlip(int i, int j, int bitVec) &#123; int pos = i * m + j; //根据i,j位置得到对应位 bitVec ^= (1 &lt;&lt; pos); //翻转 int[][] dirs = new int[][]&#123;&#123;0, 1&#125;, &#123;0, -1&#125;, &#123;1, 0&#125;, &#123;-1, 0&#125;&#125;; //翻转四个方向的 for (int[] dir : dirs) &#123; int x = i + dir[0], y = j + dir[1]; if (x &gt;= 0 &amp;&amp; x &lt; n &amp;&amp; y &gt;= 0 &amp;&amp; y &lt; m) &#123; pos = x * m + y; bitVec ^= (1 &lt;&lt; pos); &#125; &#125; return bitVec; &#125;&#125;]]></content>
+    <title><![CDATA[LeetCode第167场周赛]]></title>
+    <url>%2F2019%2F12%2F16%2FLeetCodeWeeklyContest%2FLeetCode%E7%AC%AC167%E5%9C%BA%E5%91%A8%E8%B5%9B%2F</url>
+    <content type="text"><![CDATA[本文是leetcode contest 107的题解，包括：12341290.二进制链表转整数（简单）1291. 顺次数 （中等）1283.使结果不超过阈值的最小除数 （中等）1284.转化为全零矩阵的最少反转次数（困难） AC1290和1292两题。 1290. 二进制链表转整数题目描述给你一个单链表的引用结点 head。链表中每个结点的值不是 0 就是 1。已知此链表是一个整数数字的二进制表示形式。 请你返回该链表所表示数字的 十进制值 。 示例 1：123输入：head = [1,0,1]输出：5解释：二进制数 (101) 转化为十进制数 (5) 示例 2：12输入：head = [0]输出：0 示例 3：12输入：head = [1]输出：1 示例 4：12输入：head = [1,0,0,1,0,0,1,1,1,0,0,0,0,0,0]输出：18880 示例 5：12输入：head = [0,0]输出：0 提示：123链表不为空。链表的结点总数不超过 30。每个结点的值不是 0 就是 1。 解题思路复杂度：O(30) 123456789101112131415161718192021/** * Definition for singly-linked list. * public class ListNode &#123; * int val; * ListNode next; * ListNode(int x) &#123; val = x; &#125; * &#125; */class Solution &#123; public int getDecimalValue(ListNode head) &#123; int res = 0; while (head != null)&#123; res = res * 2 + head.val; head = head.next; &#125; return res; &#125;&#125; 1291. 顺次数题目描述我们定义「顺次数」为：每一位上的数字都比前一位上的数字大 1 的整数。 请你返回由 [low, high] 范围内所有顺次数组成的 有序 列表（从小到大排序）。 示例 1：12输出：low = 100, high = 300输出：[123,234] 示例 2：12输出：low = 1000, high = 13000输出：[1234,2345,3456,4567,5678,6789,12345] 提示：110 &lt;= low &lt;= high &lt;= 10^9 解题思路枚举所有的顺次数，如果符合条件则加入结果列表中，最后排序。 12345678910111213141516171819202122import java.util.ArrayList;import java.util.Collections;import java.util.List;class Solution &#123; public List&lt;Integer&gt; sequentialDigits(int low, int high) &#123; List&lt;Integer&gt; res = new ArrayList&lt;&gt;(); for (int i = 1; i &lt;= 9; i++)&#123; int val = 0; for (int j = i; j &lt;= 9; j++)&#123; val = val *10 + j; if (low &lt;=val &amp;&amp; val &lt;= high)&#123; res.add(val); &#125; &#125; &#125; Collections.sort(res); return res; &#125;&#125; 1292. 元素和小于等于阈值的正方形的最大边长题目描述 给你一个大小为 m x n 的矩阵 mat 和一个整数阈值 threshold。 请你返回元素总和小于或等于阈值的正方形区域的最大边长；如果没有这样的正方形区域，则返回 0 。 示例 1： 123输入：mat = [[1,1,3,2,4,3,2],[1,1,3,2,4,3,2],[1,1,3,2,4,3,2]], threshold = 4输出：2解释：总和小于 4 的正方形的最大边长为 2，如图所示。 示例 2：12输入：mat = [[2,2,2,2,2],[2,2,2,2,2],[2,2,2,2,2],[2,2,2,2,2],[2,2,2,2,2]], threshold = 1输出：0 示例 3：12输入：mat = [[1,1,1,1],[1,0,0,0],[1,0,0,0],[1,0,0,0]], threshold = 6输出：3 示例 4：12输入：mat = [[18,70],[61,1],[25,85],[14,40],[11,96],[97,96],[63,45]], threshold = 40184输出：2 提示：123451 &lt;= m, n &lt;= 300m == mat.lengthn == mat[i].length0 &lt;= mat[i][j] &lt;= 100000 &lt;= threshold &lt;= 10^5 解题思路维护二维前缀和（304题），，然后枚举正方形子矩阵的起点和变长，然后用二维子矩阵的和与threshold比较，如果满足就更新答案。复杂度：O(n*m*min(n,m)) 1234567891011121314151617181920212223242526272829303132class Solution &#123; public int maxSideLength(int[][] mat, int threshold) &#123; int m = mat.length, n = mat[0].length; int[][] dp = new int[m+1][n+1]; for (int i = 1; i &lt;= m; i++)&#123; for (int j = 1; j &lt;= n; j++)&#123; dp[i][j] = dp[i-1][j] + dp[i][j-1] - dp[i-1][j-1] + mat[i-1][j-1]; &#125; &#125; int res = 0; for (int i = 0; i &lt;= m; i++)&#123; for (int j = 0; j &lt;= n; j++) &#123; int index = 1; while (i+index &lt;= m &amp;&amp; j+index &lt;= n)&#123; int sum = dp[i+index][j+index] - dp[i+index][j] - dp[i][j+index] + dp[i][j]; if (sum &lt;= threshold)&#123; res = Math.max(res, index); &#125; index ++; &#125; &#125; &#125; return res; &#125;&#125; 1293. 网格中的最短路径题目描述给你一个 m * n 的网格，其中每个单元格不是 0（空）就是 1（障碍物）。每一步，您都可以在空白单元格中上、下、左、右移动。 如果您 最多 可以消除 k 个障碍物，请找出从左上角 (0, 0) 到右下角 (m-1, n-1) 的最短路径，并返回通过该路径所需的步数。如果找不到这样的路径，则返回 -1。 示例 1：123456789101112输入： grid = [[0,0,0], [1,1,0], [0,0,0], [0,1,1], [0,0,0]], k = 1输出：6解释：不消除任何障碍的最短路径是 10。消除位置 (3,2) 处的障碍后，最短路径是 6 。该路径是 (0,0) -&gt; (0,1) -&gt; (0,2) -&gt; (1,2) -&gt; (2,2) -&gt; (3,2) -&gt; (4,2). 示例 2：123456789输入：grid = [[0,1,1], [1,1,1], [1,0,0]], k = 1输出：-1解释：我们至少需要消除两个障碍才能找到这样的路径。 提示：123456grid.length == mgrid[0].length == n1 &lt;= m, n &lt;= 401 &lt;= k &lt;= m*ngrid[i][j] == 0 or 1grid[0][0] == grid[m-1][n-1] == 0 解题思路BFS暴力搜索。 搜索的过程中携带三个状态 (x, y, cost)，(x, y) 代表点的位置，cost 代表这个点已经花费的消除次数。 dp[x][y][cost]：记录到达 (x, y) 且花费消除次数为 cost 的情况是否存在。如果存在这个情况或者cost&gt;k则忽略当前点。 123456789101112131415161718192021222324252627282930313233343536373839404142434445import java.util.ArrayDeque;import java.util.Queue;class Solution &#123; class Node &#123; private int x; private int y; private int cost; private int step; public Node(int x, int y, int cost, int step) &#123; this.x = x; this.y = y; this.cost = cost; this.step = step; &#125; &#125; public int shortestPath(int[][] grid, int k) &#123; int m = grid.length, n = grid[0].length; boolean[][][] dp = new boolean[m][n][k + 1]; int[][] dirs = new int[][]&#123;&#123;1, 0&#125;, &#123;-1, 0&#125;, &#123;0, 1&#125;, &#123;0, -1&#125;&#125;; Queue&lt;Node&gt; queue = new ArrayDeque&lt;&gt;(); queue.offer(new Node(0, 0, 0, 0)); while (!queue.isEmpty()) &#123; Node node = queue.poll(); if (node.x == m - 1 &amp;&amp; node.y == n - 1) &#123; return node.step; &#125; for (int[] dir : dirs) &#123; int x = node.x + dir[0], y = node.y + dir[1]; if (x &gt;= 0 &amp;&amp; x &lt; m &amp;&amp; y &gt;= 0 &amp;&amp; y &lt; n) &#123; int cost = node.cost + grid[x][y]; if (cost &gt; k || dp[x][y][cost]) continue; dp[x][y][cost] = true; queue.offer(new Node(x, y, cost, node.step + 1)); &#125; &#125; &#125; return -1; &#125;&#125;]]></content>
       <categories>
         <category>LeetCode周赛</category>
       </categories>
       <tags>
-        <tag>算法题解</tag>
         <tag>Leetcode</tag>
+        <tag>算法题解</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode第166场周赛]]></title>
+    <url>%2F2019%2F12%2F08%2FLeetCodeWeeklyContest%2FLeetCode%E7%AC%AC166%E5%9C%BA%E5%91%A8%E8%B5%9B%2F</url>
+    <content type="text"><![CDATA[本文是leetcode contest 106的题解，包括：12341281.整数的各位积和之差（简单）1282.用户分组 （中等）1283.使结果不超过阈值的最小除数 （中等）1284.转化为全零矩阵的最少反转次数（困难） 第一次打比赛，AC前三题，全国248 / 1675，全球1289 / 5585。 1281. 整数的各位积和之差题目描述给你一个整数 n，请你帮忙计算并返回该整数「各位数字之积」与「各位数字之和」的差。 示例 1：123456输入：n = 234输出：15 解释：各位数之积 = 2 * 3 * 4 = 24 各位数之和 = 2 + 3 + 4 = 9 结果 = 24 - 9 = 15 示例 2：123456输入：n = 4421输出：21解释： 各位数之积 = 4 * 4 * 2 * 1 = 32 各位数之和 = 4 + 4 + 2 + 1 = 11 结果 = 32 - 11 = 21 提示：11 &lt;= n &lt;= 10^5 解题思路123456789101112class Solution &#123; public int subtractProductAndSum(int n) &#123; int mut = 1, sum = 0; while (n &gt; 0)&#123; int temp = n % 10; mut *= temp; sum += temp; n /= 10; &#125; return mut - sum; &#125;&#125; 1282. 用户分组题目描述有 n 位用户参加活动，他们的 ID 从 0 到 n - 1，每位用户都 恰好 属于某一用户组。给你一个长度为 n 的数组 groupSizes，其中包含每位用户所处的用户组的大小，请你返回用户分组情况（存在的用户组以及每个组中用户的 ID）。 你可以任何顺序返回解决方案，ID 的顺序也不受限制。此外，题目给出的数据保证至少存在一种解决方案。 示例 1：1234输入：groupSizes = [3,3,3,3,3,1,3]输出：[[5],[0,1,2],[3,4,6]]解释： 其他可能的解决方案有 [[2,1,6],[5],[0,4,3]] 和 [[5],[0,6,2],[4,3,1]]。 示例 2：12输入：groupSizes = [2,1,3,3,3,2]输出：[[1],[0,5],[2,3,4]] 提示：123groupSizes.length == n1 &lt;= n &lt;= 5001 &lt;= groupSizes[i] &lt;= n 解题思路12345678910111213141516171819202122232425262728293031323334import java.util.ArrayList;import java.util.HashMap;import java.util.List;import java.util.Map;class Solution &#123; public List&lt;List&lt;Integer&gt;&gt; groupThePeople(int[] groupSizes) &#123; // 将原数据转化为map，key为分组长度，value为索引 Map&lt;Integer, List&lt;Integer&gt;&gt; map = new HashMap&lt;&gt;(); for (int i = 0; i &lt; groupSizes.length; i++)&#123; if (!map.containsKey(groupSizes[i]))&#123; List&lt;Integer&gt; temp = new ArrayList&lt;&gt;(); temp.add(i); map.put(groupSizes[i], temp); &#125;else&#123; map.get(groupSizes[i]).add(i); &#125; &#125; List&lt;List&lt;Integer&gt;&gt; res = new ArrayList&lt;&gt;(); // 将map中数据按照长度拆分存入res for (Map.Entry&lt;Integer, List&lt;Integer&gt;&gt; entry:map.entrySet())&#123; if (entry.getKey() == entry.getValue().size())&#123; res.add(entry.getValue()); &#125;else&#123; for (int i = 0; i &lt; entry.getValue().size(); i += entry.getKey())&#123; List&lt;Integer&gt; temp = entry.getValue().subList(i, i+entry.getKey()); res.add(temp); &#125; &#125; &#125; return res; &#125;&#125; 1283. 使结果不超过阈值的最小除数题目描述给你一个整数数组 nums 和一个正整数 threshold ，你需要选择一个正整数作为除数，然后将数组里每个数都除以它，并对除法结果求和。 请你找出能够使上述结果小于等于阈值 threshold 的除数中 最小 的那个。 每个数除以除数后都向上取整，比方说 7/3 = 3 ， 10/2 = 5 。 题目保证一定有解。 示例 1：1234输入：nums = [1,2,5,9], threshold = 6输出：5解释：如果除数为 1 ，我们可以得到和为 17 （1+2+5+9）。如果除数为 4 ，我们可以得到和为 7 (1+1+2+3) 。如果除数为 5 ，和为 5 (1+1+1+2)。 示例 2：12输入：nums = [2,3,5,7,11], threshold = 11输出：3 示例 3：12输入：nums = [19], threshold = 5输出：4 提示：1231 &lt;= nums.length &lt;= 5 * 10^41 &lt;= nums[i] &lt;= 10^6nums.length &lt;= threshold &lt;= 10^6 解题思路除数越大，除法结果和越小。 使用二分，除数范围为1~ max(nums)。因为提示中nums有界，为了少一轮遍历求数组最大值，可直接将上界取为10^6+1。 如果这个除法结果和大于阀值， 说明除数mid取的太小了，我们在[mid+1, right]中继续查找 如果这个除法结果和小于等于阀值，说明除数mid或者取得太大，或者满足要求，我们在[left,mid]中继续查找。 注意在2的情形下，mid可能是我们所要求的解，不应被剔除在搜索区间之外。 1234567891011121314151617181920class Solution &#123; public int smallestDivisor(int[] nums, int threshold) &#123; int left = 1, right = 1000000+1; while (left &lt; right) &#123; int mid = left + (right - left) / 2; int sum = 0; for (int num : nums) &#123; //向上取整 sum += num / mid + ((num % mid == 0) ? 0 : 1); &#125; if (sum &gt; threshold) &#123; left = mid + 1; &#125; else &#123; right = mid; &#125; &#125; return right; &#125;&#125; 1284. 转化为全零矩阵的最少反转次数题目描述给你一个 m x n 的二进制矩阵 mat。 每一步，你可以选择一个单元格并将它反转（反转表示 0 变 1 ，1 变 0 ）。如果存在和它相邻的单元格，那么这些相邻的单元格也会被反转。（注：相邻的两个单元格共享同一条边。） 请你返回将矩阵 mat 转化为全零矩阵的最少反转次数，如果无法转化为全零矩阵，请返回 -1 。 二进制矩阵的每一个格子要么是 0 要么是 1 。 全零矩阵是所有格子都为 0 的矩阵。 示例 1： 123输入：mat = [[0,0],[0,1]]输出：3解释：一个可能的解是反转 (1, 0)，然后 (0, 1) ，最后是 (1, 1) 。 示例 2：123输入：mat = [[0]]输出：0解释：给出的矩阵是全零矩阵，所以你不需要改变它。 示例 3：12输入：mat = [[1,1,1],[1,0,1],[0,0,0]]输出：6 示例 4：123输入：mat = [[1,0,0],[1,0,0]]输出：-1解释：该矩阵无法转变成全零矩阵 提示：12345m == mat.lengthn == mat[0].length1 &lt;= m &lt;= 31 &lt;= n &lt;= 3mat[i][j] 是 0 或 1 。 解题思路使用位向量（即整数）保存矩阵的状态，使用BFS对每一个可能的状态，对其中的每一位进行翻转。 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283import java.util.ArrayDeque;import java.util.HashSet;import java.util.Queue;import java.util.Set;class Solution &#123; int n, m; public int minFlips(int[][] mat) &#123; n = mat.length; m = mat[0].length; //初始化状态 int bitVec = createBitVec(mat); if (bitVec == 0) &#123; return 0; &#125; Queue&lt;Integer&gt; queue = new ArrayDeque&lt;&gt;(); // 队列 queue.offer(bitVec); Set&lt;Integer&gt; visited = new HashSet&lt;&gt;(); // 保存访问过的数 int res = 0; // 常规BFS while (!queue.isEmpty()) &#123; int queueLen = queue.size(); for (int k = 0; k &lt; queueLen; k++) &#123; int curVec = queue.poll(); // 取出队顶元素 if (curVec == 0) &#123; //如果为0,返回 return res; &#125; //如果当前元素不为0,对其中每一位进行翻转 for (int i = 0; i &lt; n; i++) &#123; for (int j = 0; j &lt; m; j++) &#123; bitVec = getFlip(i, j, curVec); // 获取翻转后的数值 if (!visited.contains(bitVec)) &#123; //如果没访问过，加入队列和访问过的数的集合 queue.offer(bitVec); visited.add(bitVec); &#125; &#125; &#125; &#125; res++; &#125; return -1; &#125; public int createBitVec(int[][] mat) &#123; /*初始状态：获得矩阵的值 [[1,1,1], [1,0,1], [0,0,0]] 转化为二进制 111101000-&gt;十进制 488 */ int bitVec = 0; for (int i = 0; i &lt; n; i++) &#123; for (int j = 0; j &lt; m; j++) &#123; bitVec &lt;&lt;= 1; bitVec |= mat[i][j]; &#125; &#125; return bitVec; &#125; public int getFlip(int i, int j, int bitVec) &#123; int pos = i * m + j; //根据i,j位置得到对应位 bitVec ^= (1 &lt;&lt; pos); //翻转 int[][] dirs = new int[][]&#123;&#123;0, 1&#125;, &#123;0, -1&#125;, &#123;1, 0&#125;, &#123;-1, 0&#125;&#125;; //翻转四个方向的 for (int[] dir : dirs) &#123; int x = i + dir[0], y = j + dir[1]; if (x &gt;= 0 &amp;&amp; x &lt; n &amp;&amp; y &gt;= 0 &amp;&amp; y &lt; m) &#123; pos = x * m + y; bitVec ^= (1 &lt;&lt; pos); &#125; &#125; return bitVec; &#125;&#125;]]></content>
+      <categories>
+        <category>LeetCode周赛</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>算法题解</tag>
       </tags>
   </entry>
   <entry>
@@ -153,8 +165,8 @@
         <category>Leetcode</category>
       </categories>
       <tags>
-        <tag>算法题解</tag>
         <tag>Leetcode</tag>
+        <tag>算法题解</tag>
         <tag>数据库</tag>
         <tag>SQL</tag>
       </tags>
@@ -167,8 +179,8 @@
         <category>Leetcode</category>
       </categories>
       <tags>
-        <tag>算法题解</tag>
         <tag>Leetcode</tag>
+        <tag>算法题解</tag>
       </tags>
   </entry>
   <entry>
@@ -201,8 +213,8 @@
         <category>Leetcode</category>
       </categories>
       <tags>
-        <tag>算法题解</tag>
         <tag>Leetcode</tag>
+        <tag>算法题解</tag>
       </tags>
   </entry>
   <entry>
@@ -213,8 +225,8 @@
         <category>Leetcode</category>
       </categories>
       <tags>
-        <tag>算法题解</tag>
         <tag>Leetcode</tag>
+        <tag>算法题解</tag>
       </tags>
   </entry>
   <entry>
@@ -225,8 +237,8 @@
         <category>Leetcode</category>
       </categories>
       <tags>
-        <tag>算法题解</tag>
         <tag>Leetcode</tag>
+        <tag>算法题解</tag>
       </tags>
   </entry>
   <entry>
@@ -237,8 +249,8 @@
         <category>Leetcode</category>
       </categories>
       <tags>
-        <tag>算法题解</tag>
         <tag>Leetcode</tag>
+        <tag>算法题解</tag>
       </tags>
   </entry>
   <entry>
@@ -249,8 +261,8 @@
         <category>Leetcode</category>
       </categories>
       <tags>
-        <tag>算法题解</tag>
         <tag>Leetcode</tag>
+        <tag>算法题解</tag>
       </tags>
   </entry>
   <entry>
@@ -261,8 +273,8 @@
         <category>Leetcode</category>
       </categories>
       <tags>
-        <tag>算法题解</tag>
         <tag>Leetcode</tag>
+        <tag>算法题解</tag>
       </tags>
   </entry>
   <entry>
@@ -273,8 +285,8 @@
         <category>Leetcode</category>
       </categories>
       <tags>
-        <tag>算法题解</tag>
         <tag>Leetcode</tag>
+        <tag>算法题解</tag>
       </tags>
   </entry>
   <entry>
@@ -285,8 +297,8 @@
         <category>Leetcode</category>
       </categories>
       <tags>
-        <tag>算法题解</tag>
         <tag>Leetcode</tag>
+        <tag>算法题解</tag>
       </tags>
   </entry>
   <entry>
@@ -297,8 +309,8 @@
         <category>Leetcode</category>
       </categories>
       <tags>
-        <tag>算法题解</tag>
         <tag>Leetcode</tag>
+        <tag>算法题解</tag>
       </tags>
   </entry>
   <entry>
@@ -309,8 +321,8 @@
         <category>Leetcode</category>
       </categories>
       <tags>
-        <tag>算法题解</tag>
         <tag>Leetcode</tag>
+        <tag>算法题解</tag>
       </tags>
   </entry>
   <entry>
@@ -321,8 +333,8 @@
         <category>Leetcode</category>
       </categories>
       <tags>
-        <tag>算法题解</tag>
         <tag>Leetcode</tag>
+        <tag>算法题解</tag>
       </tags>
   </entry>
   <entry>
@@ -333,8 +345,8 @@
         <category>Leetcode</category>
       </categories>
       <tags>
-        <tag>算法题解</tag>
         <tag>Leetcode</tag>
+        <tag>算法题解</tag>
       </tags>
   </entry>
   <entry>
@@ -345,8 +357,8 @@
         <category>Leetcode</category>
       </categories>
       <tags>
-        <tag>算法题解</tag>
         <tag>Leetcode</tag>
+        <tag>算法题解</tag>
       </tags>
   </entry>
   <entry>
@@ -357,8 +369,8 @@
         <category>Leetcode</category>
       </categories>
       <tags>
-        <tag>算法题解</tag>
         <tag>Leetcode</tag>
+        <tag>算法题解</tag>
       </tags>
   </entry>
   <entry>
@@ -369,8 +381,8 @@
         <category>Leetcode</category>
       </categories>
       <tags>
-        <tag>算法题解</tag>
         <tag>Leetcode</tag>
+        <tag>算法题解</tag>
       </tags>
   </entry>
   <entry>
@@ -381,8 +393,8 @@
         <category>剑指offer</category>
       </categories>
       <tags>
-        <tag>剑指offer</tag>
         <tag>算法题解</tag>
+        <tag>剑指offer</tag>
       </tags>
   </entry>
   <entry>
@@ -427,8 +439,8 @@
         <category>剑指offer</category>
       </categories>
       <tags>
-        <tag>剑指offer</tag>
         <tag>算法题解</tag>
+        <tag>剑指offer</tag>
       </tags>
   </entry>
   <entry>
@@ -439,8 +451,8 @@
         <category>剑指offer</category>
       </categories>
       <tags>
-        <tag>剑指offer</tag>
         <tag>算法题解</tag>
+        <tag>剑指offer</tag>
       </tags>
   </entry>
   <entry>
@@ -451,8 +463,8 @@
         <category>剑指offer</category>
       </categories>
       <tags>
-        <tag>剑指offer</tag>
         <tag>算法题解</tag>
+        <tag>剑指offer</tag>
       </tags>
   </entry>
   <entry>
@@ -463,8 +475,8 @@
         <category>剑指offer</category>
       </categories>
       <tags>
-        <tag>剑指offer</tag>
         <tag>算法题解</tag>
+        <tag>剑指offer</tag>
       </tags>
   </entry>
   <entry>
@@ -475,8 +487,8 @@
         <category>剑指offer</category>
       </categories>
       <tags>
-        <tag>剑指offer</tag>
         <tag>算法题解</tag>
+        <tag>剑指offer</tag>
       </tags>
   </entry>
   <entry>
@@ -487,8 +499,8 @@
         <category>剑指offer</category>
       </categories>
       <tags>
-        <tag>剑指offer</tag>
         <tag>算法题解</tag>
+        <tag>剑指offer</tag>
       </tags>
   </entry>
   <entry>
@@ -499,8 +511,8 @@
         <category>剑指offer</category>
       </categories>
       <tags>
-        <tag>剑指offer</tag>
         <tag>算法题解</tag>
+        <tag>剑指offer</tag>
       </tags>
   </entry>
   <entry>
