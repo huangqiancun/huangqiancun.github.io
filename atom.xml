@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://huangqiancun.github.io/"/>
-  <updated>2019-12-16T08:59:31.092Z</updated>
+  <updated>2019-12-25T07:35:50.076Z</updated>
   <id>http://huangqiancun.github.io/</id>
   
   <author>
@@ -17,9 +17,36 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>GitNotes</title>
+    <link href="http://huangqiancun.github.io/2019/12/25/StudyNotes/GitNotes/"/>
+    <id>http://huangqiancun.github.io/2019/12/25/StudyNotes/GitNotes/</id>
+    <published>2019-12-25T07:32:18.000Z</published>
+    <updated>2019-12-25T07:35:50.076Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;本地库初始化&lt;br&gt;  git
+        
+      
+    
+    </summary>
+    
+      <category term="StudyNotes" scheme="http://huangqiancun.github.io/categories/StudyNotes/"/>
+    
+    
+      <category term="StudyNotes" scheme="http://huangqiancun.github.io/tags/StudyNotes/"/>
+    
+  </entry>
+  
+  <entry>
     <title>LeetCode第167场周赛</title>
-    <link href="http://huangqiancun.github.io/2019/12/16/LeetCodeWeeklyContest/LeetCode%E7%AC%AC167%E5%9C%BA%E5%91%A8%E8%B5%9B/"/>
-    <id>http://huangqiancun.github.io/2019/12/16/LeetCodeWeeklyContest/LeetCode第167场周赛/</id>
+    <link href="http://huangqiancun.github.io/2019/12/16/LeetCodeContest/LeetCode%E7%AC%AC167%E5%9C%BA%E5%91%A8%E8%B5%9B/"/>
+    <id>http://huangqiancun.github.io/2019/12/16/LeetCodeContest/LeetCode第167场周赛/</id>
     <published>2019-12-16T11:07:14.000Z</published>
     <updated>2019-12-16T08:59:31.092Z</updated>
     
@@ -46,10 +73,10 @@
   
   <entry>
     <title>LeetCode第166场周赛</title>
-    <link href="http://huangqiancun.github.io/2019/12/08/LeetCodeWeeklyContest/LeetCode%E7%AC%AC166%E5%9C%BA%E5%91%A8%E8%B5%9B/"/>
-    <id>http://huangqiancun.github.io/2019/12/08/LeetCodeWeeklyContest/LeetCode第166场周赛/</id>
+    <link href="http://huangqiancun.github.io/2019/12/08/LeetCodeContest/LeetCode%E7%AC%AC166%E5%9C%BA%E5%91%A8%E8%B5%9B/"/>
+    <id>http://huangqiancun.github.io/2019/12/08/LeetCodeContest/LeetCode第166场周赛/</id>
     <published>2019-12-08T11:07:14.000Z</published>
-    <updated>2019-12-16T08:36:47.306Z</updated>
+    <updated>2019-12-25T07:30:29.271Z</updated>
     
     <summary type="html">
     
@@ -525,34 +552,6 @@
         
         
           &lt;p&gt;本系列为Leetcode刷题笔记，刷题平台为&lt;a href=&quot;https://Leetcode-cn.com/problemset/all/&quot; target=&quot;_blank&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://huangqiancun.github.io/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://huangqiancun.github.io/tags/Leetcode/"/>
-    
-      <category term="算法题解" scheme="http://huangqiancun.github.io/tags/%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode题解 - 位运算</title>
-    <link href="http://huangqiancun.github.io/2019/07/17/LeetCode/Leetcode-%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
-    <id>http://huangqiancun.github.io/2019/07/17/LeetCode/Leetcode-位运算/</id>
-    <published>2019-07-16T16:58:14.000Z</published>
-    <updated>2019-10-21T02:30:34.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;本系列为Leetcode刷题笔记，刷题平台为&lt;a href=&quot;https://Leetcode-cn.com/problemset/all/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Leetcode中文站&lt;/a&gt;，
         
       
     
