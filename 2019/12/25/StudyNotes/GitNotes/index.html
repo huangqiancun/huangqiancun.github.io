@@ -114,18 +114,18 @@
 
 
 
-<meta name="description" content="本地库初始化  git init  设置签名  作用：区分不同开发人员的身份。与登录远程库的账号密码没有关系  项目级别/仓库级别：仅在当前本地库范围内有效 git config user.name xxx git config user.email xxx@xxx.com 信息保存位置：././git/config文件  系统用户级别：登录当前操作系统的用户范围  git config —gl">
+<meta name="description" content="本地库初始化  git init  设置签名  作用：区分不同开发人员的身份。与登录远程库的账号密码没有关系  项目级别/仓库级别：仅在当前本地库范围内有效 123git config user.name xxxgit config user.email xxx@xxx.com信息保存位置：././git/config文件  系统用户级别：登录当前操作系统的用户范围 123git config">
 <meta name="keywords" content="StudyNotes">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GitNotes">
 <meta property="og:url" content="http://huangqiancun.github.io/2019/12/25/StudyNotes/GitNotes/index.html">
 <meta property="og:site_name" content="I&#39;m Qiancun Huang">
-<meta property="og:description" content="本地库初始化  git init  设置签名  作用：区分不同开发人员的身份。与登录远程库的账号密码没有关系  项目级别/仓库级别：仅在当前本地库范围内有效 git config user.name xxx git config user.email xxx@xxx.com 信息保存位置：././git/config文件  系统用户级别：登录当前操作系统的用户范围  git config —gl">
+<meta property="og:description" content="本地库初始化  git init  设置签名  作用：区分不同开发人员的身份。与登录远程库的账号密码没有关系  项目级别/仓库级别：仅在当前本地库范围内有效 123git config user.name xxxgit config user.email xxx@xxx.com信息保存位置：././git/config文件  系统用户级别：登录当前操作系统的用户范围 123git config">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-25T07:35:50.076Z">
+<meta property="og:updated_time" content="2020-08-02T02:22:41.134Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GitNotes">
-<meta name="twitter:description" content="本地库初始化  git init  设置签名  作用：区分不同开发人员的身份。与登录远程库的账号密码没有关系  项目级别/仓库级别：仅在当前本地库范围内有效 git config user.name xxx git config user.email xxx@xxx.com 信息保存位置：././git/config文件  系统用户级别：登录当前操作系统的用户范围  git config —gl">
+<meta name="twitter:description" content="本地库初始化  git init  设置签名  作用：区分不同开发人员的身份。与登录远程库的账号密码没有关系  项目级别/仓库级别：仅在当前本地库范围内有效 123git config user.name xxxgit config user.email xxx@xxx.com信息保存位置：././git/config文件  系统用户级别：登录当前操作系统的用户范围 123git config">
 
 
 
@@ -375,8 +375,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-12-25T15:35:50+08:00">
-                2019-12-25
+              <time title="Post modified" itemprop="dateModified" datetime="2020-08-02T10:22:41+08:00">
+                2020-08-02
               </time>
             
           </span>
@@ -425,7 +425,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  871
+                  1.1k
                 </span>
               
 
@@ -459,19 +459,16 @@
 <li><p>作用：区分不同开发人员的身份。与登录远程库的账号密码没有关系</p>
 </li>
 <li><p>项目级别/仓库级别：仅在当前本地库范围内有效</p>
-<pre><code>git config user.name xxx
-git config user.email xxx@xxx.com
-信息保存位置：././git/config文件
-</code></pre></li>
-<li><p>系统用户级别：登录当前操作系统的用户范围<br>  git config —global username xxx<br>  git config —global useremail xxx@xxx.com<br>  信息保存位置：~/.gitconfig 文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config user.name xxx</span><br><span class="line">git config user.email xxx@xxx.com</span><br><span class="line">信息保存位置：././git/config文件</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>系统用户级别：登录当前操作系统的用户范围</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global username xxx</span><br><span class="line">git config --global useremail xxx@xxx.com</span><br><span class="line">信息保存位置：~/.gitconfig 文件</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 </ul>
 <pre><code>- 级别优先级：
-    就近原则：项目级别优先于系统用户级别，二者都有时采用项目级别的签名
-    如果只有系统用户级别的签名，就以系统用户级别的签名为准
-    二者至少有一个
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">就近原则：项目级别优先于系统用户级别，二者都有时采用项目级别的签名</span><br><span class="line">如果只有系统用户级别的签名，就以系统用户级别的签名为准</span><br><span class="line">二者至少有一个</span><br></pre></td></tr></table></figure>
 </code></pre><ul>
 <li><p>基本操作</p>
 <ul>
@@ -479,6 +476,9 @@ git config user.email xxx@xxx.com
 </li>
 <li><p>添加<br>git add [filename]</p>
 <p>将工作区的“新建/修改”添加到暂存区</p>
+</li>
+<li><p>提交<br>  git commit -m “commit message”</p>
+<p>将暂存区内容提交到本地库</p>
 </li>
 <li><p>查看历史记录</p>
 <p>1、git log</p>
@@ -490,6 +490,7 @@ git config user.email xxx@xxx.com
 <p>1、基于索引值操作</p>
 <ul>
 <li>git reset —hard [局部索引值]</li>
+<li>如 git reset — hard a6ace91</li>
 </ul>
 <p>2、使用^符号：只能后退</p>
 <ul>
@@ -505,7 +506,7 @@ git config user.email xxx@xxx.com
 <ul>
 <li>—soft参数：仅在本地库移动HEAD指针</li>
 <li>—mixed参数：在本地库移动HEAD指针，重置暂存区</li>
-<li>—head参数：在本地库移动HEAD指针，重置暂存区，重置工作区</li>
+<li>—hard参数：在本地库移动HEAD指针，重置暂存区，重置工作区</li>
 </ul>
 </li>
 <li><p>删除文件并找回</p>
@@ -535,6 +536,11 @@ git config user.email xxx@xxx.com
 </li>
 <li><p>分支管理</p>
 <ul>
+<li>分支的好处<ul>
+<li>同时并行推进多个功能开发，提高开发效率</li>
+<li>各个分支在开发过程中，如果某一个分支开发失败，不会对其他分支有任何影响，失败的分支重新开始即可</li>
+</ul>
+</li>
 <li>创建分支<ul>
 <li>git branch [分支名]</li>
 </ul>
@@ -554,11 +560,24 @@ git config user.email xxx@xxx.com
 </ul>
 </li>
 <li>解决冲突<ul>
-<li>第一步：编辑文件，删除特殊符号并修改文件，保存退出</li>
+<li>第一步：编辑文件，删除特殊符号</li>
+<li>第二步：修改文件，保存退出</li>
 <li>第二步：git add [文件名]</li>
 <li>第三步：git commit -m “日志消息” （此时commit不带具体文件名）</li>
 </ul>
 </li>
+</ul>
+</li>
+<li><p>Git基本原理</p>
+<ul>
+<li>哈希算法是一个系列的加密算法，各个不同的哈希算法虽然加密强度不同，但是有以下几个共同点：<ul>
+<li>不管输入数据的数据量有多大，输入同一个哈希算法，得到的加密结果长度固定。</li>
+<li>哈希算法确定，输入数据确定，输出数据能够保证不变</li>
+<li>哈希算法确定，输入数据有变化，输出数据一定有变化，而且通常变化很大</li>
+<li>哈希算法不可逆</li>
+</ul>
+</li>
+<li>Git底层采用的是SHA-1算法（哈希算法的一种）</li>
 </ul>
 </li>
 <li><p>GitHub</p>
@@ -577,6 +596,12 @@ git config user.email xxx@xxx.com
 </li>
 <li>克隆<ul>
 <li>git clone [远程地址]</li>
+<li>效果：<ul>
+<li>完整的把远程库下载到本地</li>
+<li>创建origin 远程地址别名</li>
+<li>初始化本地库</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>拉取<ul>
@@ -874,7 +899,7 @@ git config user.email xxx@xxx.com
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">178.9k</span>
+    <span title="Site words total count">179.1k</span>
   
 </div>
 
