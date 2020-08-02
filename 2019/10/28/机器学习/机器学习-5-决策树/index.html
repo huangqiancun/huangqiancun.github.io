@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icons8-fox-32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icons8-fox-16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="机器学习,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="I'm Qiancun Huang" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="前言决策树是一种基本的分类与回归方法。本文主要讨论用于分类的决策树。决策树模型呈树形结构，在分类问题中，表示基于特征对实例进行分类的过程，它可以认为是if-then规则的集合，也可以认为是定义在特征空间与类空间上的条件概率分布。其主要优点是模型具有可读性，分类速度快。学习时，利用训练数据，根据损失函数最小化的原则建立决策树模型。预测时，对新的数据，利用决策树模型进行分类。 决策树学习包括三个步骤：">
+<meta name="keywords" content="机器学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习-5-决策树">
+<meta property="og:url" content="http://huangqiancun.github.io/2019/10/28/机器学习/机器学习-5-决策树/index.html">
+<meta property="og:site_name" content="I&#39;m Qiancun Huang">
+<meta property="og:description" content="前言决策树是一种基本的分类与回归方法。本文主要讨论用于分类的决策树。决策树模型呈树形结构，在分类问题中，表示基于特征对实例进行分类的过程，它可以认为是if-then规则的集合，也可以认为是定义在特征空间与类空间上的条件概率分布。其主要优点是模型具有可读性，分类速度快。学习时，利用训练数据，根据损失函数最小化的原则建立决策树模型。预测时，对新的数据，利用决策树模型进行分类。 决策树学习包括三个步骤：">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-11-02T14:13:09.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="机器学习-5-决策树">
+<meta name="twitter:description" content="前言决策树是一种基本的分类与回归方法。本文主要讨论用于分类的决策树。决策树模型呈树形结构，在分类问题中，表示基于特征对实例进行分类的过程，它可以认为是if-then规则的集合，也可以认为是定义在特征空间与类空间上的条件概率分布。其主要优点是模型具有可读性，分类速度快。学习时，利用训练数据，根据损失函数最小化的原则建立决策树模型。预测时，对新的数据，利用决策树模型进行分类。 决策树学习包括三个步骤：">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":8,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://huangqiancun.github.io/2019/10/28/机器学习/机器学习-5-决策树/">
+
+
+
+
+
+  <title>机器学习-5-决策树 | I'm Qiancun Huang</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">I'm Qiancun Huang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Live it. Love it. Enjoy IT.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://huangqiancun.github.io/2019/10/28/机器学习/机器学习-5-决策树/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Qiancun Huang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/photo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="I'm Qiancun Huang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">机器学习-5-决策树</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-28T17:24:00+08:00">
+                2019-10-28
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-11-02T22:13:09+08:00">
+                2019-11-02
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  6.1k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+		  
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>决策树是一种基本的分类与回归方法。本文主要讨论用于分类的决策树。决策树模型呈树形结构，在分类问题中，表示基于特征对实例进行分类的过程，它可以认为是<code>if-then</code>规则的集合，也可以认为是定义在特征空间与类空间上的条件概率分布。其主要优点是模型具有可读性，分类速度快。学习时，利用训练数据，根据损失函数最小化的原则建立决策树模型。预测时，对新的数据，利用决策树模型进行分类。</p>
+<p>决策树学习包括三个步骤：特征选择、决策树的生成和决策树的修剪。</p>
+<h3 id="决策树模型与学习"><a href="#决策树模型与学习" class="headerlink" title="决策树模型与学习"></a>决策树模型与学习</h3><h4 id="决策树模型"><a href="#决策树模型" class="headerlink" title="决策树模型"></a>决策树模型</h4><p>分类决策树模型是一种描述对实例进行分类的树形结构。决策树由结点和有向边组成，结点有两种类型：内部结点和叶结点。内部结点表示一个特征或属性，叶结点表示一个类。</p>
+<p>用决策树分类，从根结点开始，对实例的某一特征进行测试，根据测试结果，将实例分配到其子结点；这时，每一个子结点对应着该特征的一个取值。如此递归地对实例进行测试并分配，直至到达叶结点。最后将实例分到叶结点的类中。</p>
+<h4 id="决策树与if-then规则"><a href="#决策树与if-then规则" class="headerlink" title="决策树与if-then规则"></a>决策树与<code>if-then</code>规则</h4><p>可以将决策树看成一个<code>if-then</code>规则的集合。将决策树转换成<code>if-then</code>规则的过程是这样的：由决策树的根结点到叶结点的每一条路径构建一条规则；路径上内部结点的特征对应着规则的条件，而叶结点对应着规则的结论。决策树的路径是互斥并且完备的。即每一个实例都被一条路径或一条规则所覆盖，并且只被一条路径或一条规则所覆盖。</p>
+<h4 id="决策树与条件概率分布"><a href="#决策树与条件概率分布" class="headerlink" title="决策树与条件概率分布"></a>决策树与条件概率分布</h4><p>决策树还表示给定特征条件下类的条件概率分布。这一条件概率分布定义在特征空间的一个划分上。将特征空间划分为互不相交的单元或区域，并在每个单元定义一个类的概率分布就构成了一个条件概率分布。决策树的一条路径对应于划分中的一个单元。决策树所表示的条件概率分布由各个单元给定条件下类的条件概率分布组成。</p>
+<h4 id="决策树学习"><a href="#决策树学习" class="headerlink" title="决策树学习"></a>决策树学习</h4><p>决策树学习，假设给定训练数据集$D=\left\{\left(x_{1}, y_{1}\right),\left(x_{2}, y_{2}\right), \cdots,\left(x_{N}, y_{N}\right)\right\}$，其中$x_{i}=\left(x_{i}^{(1)}, x_{i}^{(2)}, \cdots, x_{i}^{(n)}\right)^{\mathrm{T}}$为输入实例，$n$为特征个数，$y_i \in \{1,2,\cdots,K\}$为类标记，$i=1,2,\cdots,N$，$N$为样本容量。学习的目标是根据给定的训练数据集构建一个决策树模型，使它能够对实例进行正确的分类。</p>
+<p>决策树学习的本质是从给定的训练数据集中依据属性或特征归纳出一组分类规则。与给定的训练数据集相符合的分类规则可能有多个，决策树模型就是需要从多个符合的分类规则中找到损失最小的，泛化能力最好的一组分类规则。</p>
+<p>决策树常用的损失函数是正则化的极大似然函数，决策树的学习策略是以损失函数为目标函数的最小化。由于所有可能的决策树组成的解空间较大，从中找到最优的决策树是NP完全问题，因此一般多采用启发式算法来近似求解。</p>
+<p>决策树学习的算法通常是一个递归的选择最优特征的过程。从可选的特征集合中选出最优的特征（即依据该特征能最有效的将训练数据集分类），按照这一特征将数据集分割成子集，该特征作为这些子集的根节点。如果这些子集已经基本可以正确分类，那么构建叶节点，并将这些子集分到所对应的的叶节点中去。如果还有子集不能被正确分类，那么对这些子集选取新的最优特征，继续对其进行分割，直至所有训练数据都被正确分类。至此就构建出来一颗决策树。</p>
+<p>通过上述步骤构建的决策树可以对训练数据集进行很好的分类，但是并不一定有很好的泛化能力，即可能发生过拟合现象。为了增强其泛化能力，我们需要对构建好的决策树进行自底向上的剪枝，即将树变得更简单一点。通过去掉决策树中过于细分的叶节点，使其回退到父节点甚至更高节点，用父节点或更高节点作为新的叶节点。</p>
+<h3 id="特征选择"><a href="#特征选择" class="headerlink" title="特征选择"></a>特征选择</h3><p>特征选择在于选取对训练数据具有良好分类能力的特征，这样可以提高决策树的学习效率。通常特征选择的准则是信息增益或信息增益比。</p>
+<h4 id="信息增益"><a href="#信息增益" class="headerlink" title="信息增益"></a>信息增益</h4><p><strong>熵</strong>：表示随机变量不确定性的度量。设$X$是一个取有限个值的离散随机变量，其概率分布为</p>
+<script type="math/tex; mode=display">
+P(X=x_i)=p_i,\quad i = 1,2,\cdots,n</script><p>则随机变量$X$的熵定义为</p>
+<script type="math/tex; mode=display">
+H(X) = -\sum^n_{i=1}p_ilogp_i</script><p>熵越大，随机变量的不确定性就越大。$0\le H(X)\le logn$。</p>
+<p><strong>条件熵</strong>：条件熵$H(Y|X)$表示在已知随机变量$X$的条件下随机变量$Y$的不确定性。定义为$X$给定条件下$Y$的条件概率分布的熵对$X$的数学期望</p>
+<script type="math/tex; mode=display">
+H(Y|X)=\sum^n_{i=1}p_iH(Y|x_i)</script><p>其中$p_i=P(X=x_i),\quad i = 1,2,\cdots,n$。</p>
+<p>当熵和条件熵重的概率由数据估计（极大似然估计） 得到时，所对应的熵与条件熵分别称为经验熵和经验条件熵。</p>
+<p><strong>信息增益</strong>：表示得知特征$X$的信息而使得类$Y$的信息的不确定性减少的程度。</p>
+<p>特征$A$对训练数据集$D$的信息增益$g(D,A)$，定义为集合$D$的经验熵$H(D)$与给定条件下$D$的经验条件熵$H(D|A)$之差，即</p>
+<script type="math/tex; mode=display">
+g(D,A)=H(D)-H(D|A)</script><p>信息增益等价于类与特征的互信息。</p>
+<p><strong>信息增益大的特征具有更强的分类能力。</strong>根据信息增益准则进行特征选择：对训练数据集（或子集），计算其每个特征的信息增益，选择信息增益最大的特征。</p>
+<h4 id="信息增益比"><a href="#信息增益比" class="headerlink" title="信息增益比"></a>信息增益比</h4><p>以信息增益作为选择特征的准则，存在偏向于选择取值较多的特征的问题。即当一个特征可能的取值较多时，其计算出来的信息增益可能会较高，但是并不一定就一定是一个更有效的分类特征。采用信息增益比可以对这一问题进行校正，这是特征选择的另一准则。</p>
+<p>特征$A$对训练数据集$D$的信息增益比$g_R(D,A)$定义为其信息增益$g(D,A)$与训练数据集$D$的经验熵$H(D)$之比：</p>
+<script type="math/tex; mode=display">
+g_R(D,A)=\frac{g(D,A)}{H(D)}</script><p>其中$H_{A}(D)=-\sum_{i=1}^{n} \frac{\left|D_{i}\right|}{|D|} \log _{2} \frac{\left|D_{i}\right|}{|D|}$，$n$是特征$A$取值的个数。</p>
+<h3 id="决策树的生成"><a href="#决策树的生成" class="headerlink" title="决策树的生成"></a>决策树的生成</h3><h4 id="ID3-算法"><a href="#ID3-算法" class="headerlink" title="$ID3$算法"></a>$ID3$算法</h4><p>在决策树各个结点上应用信息增益准则选择特征，递归地构建决策树。</p>
+<p><strong>算法：$ID3$算法</strong></p>
+<p>输入：训练数据集$D$，特征集$A$，阈值$\epsilon$；</p>
+<p>输出：决策树$T$。</p>
+<p>（1）若$D$中所有实例属于同一类$C_k$，则$T$为单结点树，并将类$C_k$作为该结点的类标记，返回$T$；</p>
+<p>（2）若$A=\emptyset$，则$T$为单结点树，并将$D$中实例数最大的类$C_k$作为该结点的类标记，返回$T$；</p>
+<p>（3）否则，计算$A$中各特征对$D$的信息增益，选择信息增益最大的特征$A_g$；</p>
+<p>（4）如果$A_g$的信息增益小于阈值$\epsilon$，则置$T$为单结点树，并将$D$中实例数最大的类$C_k$作为该结点的类标记，返回$T$；</p>
+<p>（5）否则，对$A_g$的每一个可能值$a_i$，依$A_g=a_i$将$D$分割为若干非空子集$D_i$，将$D_i$中实例数最大的类作为标记，构建子结点，由结点及其子结点构成树$T$，返回$T$；</p>
+<p>（6）对第$i$个子结点，以$D_i$为训练集，以$A-\{A_g\}$为特征集，递归地调用步（1）~（5），得到子树$T_i$，返回$T_i$。</p>
+<h4 id="C4-5-算法"><a href="#C4-5-算法" class="headerlink" title="$C4.5$算法"></a>$C4.5$算法</h4><p>$C4.5$算法对$ID3$算法进行了改进，使用信息增益比来选择特征。</p>
+<p><strong>算法：$C4.5$算法</strong></p>
+<p>输入：训练数据集$D$，特征集$A$，阈值$\epsilon$；</p>
+<p>输出：决策树$T$。</p>
+<p>（1）若$D$中所有实例属于同一类$C_k$，则$T$为单结点树，并将类$C_k$作为该结点的类标记，返回$T$；</p>
+<p>（2）若$A=\emptyset$，则$T$为单结点树，并将$D$中实例数最大的类$C_k$作为该结点的类标记，返回$T$；</p>
+<p>（3）否则，计算$A$中各特征对$D$的<strong>信息增益比</strong>，<strong>选择信息增益比最大的特征</strong>$A_g$；</p>
+<p>（4）如果$A_g$的信息增益小于阈值$\epsilon$，则置$T$为单结点树，并将$D$中实例数最大的类$C_k$作为该结点的类标记，返回$T$；</p>
+<p>（5）否则，对$A_g$的每一个可能值$a_i$，依$A_g=a_i$将$D$分割为若干非空子集$D_i$，将$D_i$中实例数最大的类作为标记，构建子结点，由结点及其子结点构成树$T$，返回$T$；</p>
+<p>（6）对第$i$个子结点，以$D_i$为训练集，以$A-\{A_g\}$为特征集，递归地调用步（1）~（5），得到子树$T_i$，返回$T_i$。</p>
+<h3 id="决策树的剪枝"><a href="#决策树的剪枝" class="headerlink" title="决策树的剪枝"></a>决策树的剪枝</h3><p>通过前边决策树生成算法的步骤生成的决策树可能对训练数据有很好的拟合效果，但是由于分支过细，可能会包含太多训练集中的信息，导致泛化能力很差，对未知的数据没有准确的分类。解决这个问题的办法是考虑决策树的复杂度，对已生成的决策树进行简化。</p>
+<p>剪枝是从已生成的树上裁掉一些子树或叶结点，并将其根结点或父节点作为新的叶结点，从而简化分类树模型。通过极小化决策树整体的损失函数或代价函数来实现。</p>
+<p>设树$T$的叶结点个数为$|T|$，$t$是树$T$的叶结点，该叶结点有$N_t$个样本点，其中$k$类的样本点有$N_{tk}$个，则损失函数可以定义为：</p>
+<script type="math/tex; mode=display">
+C_{\alpha}(T)=\sum_{t=1}^{|T |} N_{t} H_{t}(T)+\alpha|T|</script><p>其中右边第一项为经验熵表示模型对训练数据的预测误差，即模型与训练数据的拟合程度，$T$表示模型复杂度，参数$\alpha \ge0$控制两者之间的影响。较大的$\alpha$促使选择较简单的模型，较小的$\alpha$促使选择较复杂的模型。</p>
+<p>决策树的生成只考虑通过提高信息增益（或信息增益比）对训练数据进行更好的拟合，而决策树剪枝通过优化损失函数还考虑了减小模型复杂度。决策树生成学习局部的模型，而决策树剪枝学习整体的模型。</p>
+<p><strong>算法：树的剪枝算法</strong></p>
+<p>输入：生成算法产生的整个树$T$，参数$\alpha$；</p>
+<p>输出：修剪后的子树$T_\alpha$。</p>
+<p>（1）计算每个结点的经验熵；</p>
+<p>（2）递归地从树的叶结点向上回缩；设一组叶结点回缩到其父结点之前与之后的整体树分别为$T_B$与$T_A$，其对应的损失函数值分别为$C_\alpha(T_B)$与$C_\alpha(T_A)$，如果 $C_\alpha(T_A) \le C_\alpha(T_B)$则进行剪枝，即将父结点变为新的叶结点；</p>
+<p>（3）返回（2），直至不能继续为止，得到损失函数最小的子树$T_\alpha$。</p>
+<h3 id="CART算法"><a href="#CART算法" class="headerlink" title="CART算法"></a>CART算法</h3><p>CART可以用于分类也可以用于回归。CART在给定输入随机变量$X$条件下输出随机变量$Y$的条件概率分布的学习方法。它假设决策时是二叉树，内部结点特征的取值为“是”和“否”，左分支是取值为“是”的分支，右分支是取值为“否”的分支，这样的决策树等价于递归地二分每个特征，将输入空间即特征空间划分为有限个单元，并在这些单元上确定预测的概率分布，也就是在输入给定的条件下输出的条件概率分布。</p>
+<p>CART算法由两步组成：</p>
+<p>（1）决策树生成：基于训练数据集生成决策树，生成的决策树要尽量大；</p>
+<p>（2）决策树剪枝：用验证数据集对已生成的树进行剪枝并选择最优子树，这时用损失函数最小作为剪枝的标准。</p>
+<h4 id="CART生成"><a href="#CART生成" class="headerlink" title="CART生成"></a>CART生成</h4><p>决策树的生成就是递归地构建二叉决策树的过程，对回归树用平方误差最小化准确，对分类树用基尼指数最小化准则，进行特征选择，生成二叉树。</p>
+<p><strong>回归树的生成</strong></p>
+<p><strong>算法：最小二乘回归树生成算法</strong></p>
+<p>输入：训练数据集$D$；</p>
+<p>输出：回归树$f(x)$。</p>
+<p>在训练数据集所在的输入空间中，递归地将每个区域划分为两个子区域并决定每个子区域上的输出值，构建二叉决策树。</p>
+<p>（1）选择最优切分变量$j$与切分点$s$，求解</p>
+<script type="math/tex; mode=display">
+\min _{j, s}\left[\min _{c_1} \sum_{x_i \in R_{1}(j,s)}\left(y_{i}-c_{1}\right)^{2}+\min _{c_{2}} \sum_{x_i \in R_{2} (j, s)}\left(y_{i}-c_{2}\right)^{2}\right]</script><p>遍历变量$j$，对固定的切分变量$j$扫描切分点$s$，选择使上式达到最小值的对$(j,s)$。</p>
+<p>（2）用选定的对$(j,s)$划分区域并决定相应的输出值：</p>
+<script type="math/tex; mode=display">
+\begin{aligned} R_{1}(j, s) &=\left\{x | x^{(j)} \leqslant s\right\}, \quad R_{2}(j, s)=\left\{x | x^{(j)}>s\right\} \\ \hat{c}_{m} &=\frac{1}{N_{m}} \sum_{x_{i} \in R_{m}(j, s)} y_{i}, \quad x \in R_{m}, \quad m=1,2 \end{aligned}</script><p>（3）继续对两个子区域调用步骤（1），（2），直至满足停止条件。</p>
+<p>（4）将输入空间划分为$M$个区域$R_1,R_2,\cdots,R_M$，生成决策树：</p>
+<script type="math/tex; mode=display">
+f(x) = \sum^M_{m=1}\hat{c}_mI(x\in R_m)</script><p><strong>分类树的生成</strong></p>
+<p>分类树用基尼指数最小选择最优特征，同时决定该特征的最优二值切分点。</p>
+<p><strong>基尼指数</strong>：分类问题中，假设有$K$个类，样本点属于第$k$类的概率为$p_k$，则概率分布的基尼指数定义为：</p>
+<script type="math/tex; mode=display">
+\operatorname{Gini}(p)=\sum_{k=1}^{K} p_{k}\left(1-p_{k}\right)=1-\sum_{k=1}^{K} p_{k}^{2}</script><p>对于给定的样本集合$D$，其基尼指数为：</p>
+<script type="math/tex; mode=display">
+\operatorname{Gini}(D)=1-\sum_{k=1}^{K} \left(\frac{|C_k|}{D} \right)^2</script><p>这里$C_k$是$D$中属于第$k$类的样本子集，$K$是类的个数。</p>
+<p>如果样本集合$D$根据特征$A$是否取某一可能值$a$被分割成$D_1$和$D_2$两部分，则在特征$A$的条件下，集合$D$的基尼指数为：</p>
+<script type="math/tex; mode=display">
+\operatorname{Gini}(D, A)=\frac{\left|D_{1}\right|}{|D|} \operatorname{Gini}\left(D_{1}\right)+\frac{\left|D_{2}\right|}{|D|} \operatorname{Gini}\left(D_{2}\right)</script><p>基尼指数越大，样本集合的不确定性越大。</p>
+<p><strong>算法：CART生成算法</strong></p>
+<p>输入：训练数据集$D$，停止计算的条件；</p>
+<p>输出：CART决策树。</p>
+<p>根据训练数据集，从根结点开始，递归地对每个结点进行以下操作，构建二叉决策树：</p>
+<p>（1）设结点的训练数据集为$D$，计算现有特征对该数据集的基尼指数。对每一个特征，对其每一个可能取值$a$，根据样本点对$A$是否等于$a$将$D$分割成$D_1$和$D_2$两部分，利用上式计算$A=a$时的基尼指数。</p>
+<p>（2）在所有可能的特征$A$以及它们所有可能的切分点$a$中，选择基尼指数最小的特征及其对应的切分点作为最优特征与最优切分点。依最优特征与最优切分点，从现结点生成两个子结点，将训练数据集依特征分配到两个子结点中去。</p>
+<p>（3）对两个子结点递归地调用（1）（2），直至满足停止条件。</p>
+<p>（4）生成CART决策树。</p>
+<p>算法停止的条件是结点中的样本个数小于预定阈值，或样本集的基尼指数小于预定阈值（样本基本属于同一类），或者没有更多特征。</p>
+<h4 id="CART的剪枝"><a href="#CART的剪枝" class="headerlink" title="CART的剪枝"></a>CART的剪枝</h4><p>CART剪枝主要由两步构成：</p>
+<p>（1）首先从生成算法产生的决策树$T_0$底端开始不断剪枝，直到$T_0$的根结点，形成一个子树序列$\{T_0,T_1,\cdots,T_n\}$；</p>
+<p>（2）通过交叉验证的方式在独立的验证数据集上对子树序列进行测试，从中选择最优子树。</p>
+<p><strong>算法：CART剪枝算法</strong></p>
+<p>输入：CART算法生成的决策树$T_0$；</p>
+<p>输出：最优决策树$T_\alpha$。</p>
+<p>（1）设$k=0,~T=T_0$；</p>
+<p>（2）设$\alpha = +\infty$；</p>
+<p>（3）自下而上地对各内部结点$t$计算$C(T_t)$，$|T_t|$以及</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+g(t)=\frac{C(t)-C\left(T_{t}\right)}{\left|T_{t}\right|-1}\\
+\alpha = \min(\alpha,g(t))\
+\end{aligned}</script><p>其中$T_t$表示以$t$为根结点的子树，$C(T_t)$是对训练数据的预测误差，$|T_t|$是$T_t$的叶结点个数，$g(t)$表示剪枝后整体损失函数减少的程度。</p>
+<p>（4）自上而下地访问内部结点$t$，如果有$g(t)=\alpha$，进行剪枝，并对叶结点$t$以多数表决法决定其类，得到树$T$。</p>
+<p>（5）设$k=k+1$，$\alpha_k=\alpha$，$T_k=T$。</p>
+<p>（6）如果$T$不是由根结点单独构成的树，则回到步骤（4）。</p>
+<p>（7）采用交叉验证法在子树序列$T_0,T_1,\cdots,T_n$中选取最优子树$T_\alpha$。</p>
+<h3 id="例5-2-根据信息增益选择最优特征"><a href="#例5-2-根据信息增益选择最优特征" class="headerlink" title="例5.2 根据信息增益选择最优特征"></a>例5.2 根据信息增益选择最优特征</h3><h3 id="例5-3-ID3算法生成决策树"><a href="#例5-3-ID3算法生成决策树" class="headerlink" title="例5.3 ID3算法生成决策树"></a>例5.3 ID3算法生成决策树</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="comment">## 例5.2 根据信息增益选择最优特征</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_date</span><span class="params">()</span>:</span></span><br><span class="line">    datasets = [[<span class="string">'青年'</span>, <span class="string">'否'</span>, <span class="string">'否'</span>, <span class="string">'一般'</span>, <span class="string">'否'</span>],</span><br><span class="line">                [<span class="string">'青年'</span>, <span class="string">'否'</span>, <span class="string">'否'</span>, <span class="string">'好'</span>, <span class="string">'否'</span>],</span><br><span class="line">                [<span class="string">'青年'</span>, <span class="string">'是'</span>, <span class="string">'否'</span>, <span class="string">'好'</span>, <span class="string">'是'</span>],</span><br><span class="line">                [<span class="string">'青年'</span>, <span class="string">'是'</span>, <span class="string">'是'</span>, <span class="string">'一般'</span>, <span class="string">'是'</span>],</span><br><span class="line">                [<span class="string">'青年'</span>, <span class="string">'否'</span>, <span class="string">'否'</span>, <span class="string">'一般'</span>, <span class="string">'否'</span>],</span><br><span class="line">                [<span class="string">'中年'</span>, <span class="string">'否'</span>, <span class="string">'否'</span>, <span class="string">'一般'</span>, <span class="string">'否'</span>],</span><br><span class="line">                [<span class="string">'中年'</span>, <span class="string">'否'</span>, <span class="string">'否'</span>, <span class="string">'好'</span>, <span class="string">'否'</span>],</span><br><span class="line">                [<span class="string">'中年'</span>, <span class="string">'是'</span>, <span class="string">'是'</span>, <span class="string">'好'</span>, <span class="string">'是'</span>],</span><br><span class="line">                [<span class="string">'中年'</span>, <span class="string">'否'</span>, <span class="string">'是'</span>, <span class="string">'非常好'</span>, <span class="string">'是'</span>],</span><br><span class="line">                [<span class="string">'中年'</span>, <span class="string">'否'</span>, <span class="string">'是'</span>, <span class="string">'非常好'</span>, <span class="string">'是'</span>],</span><br><span class="line">                [<span class="string">'老年'</span>, <span class="string">'否'</span>, <span class="string">'是'</span>, <span class="string">'非常好'</span>, <span class="string">'是'</span>],</span><br><span class="line">                [<span class="string">'老年'</span>, <span class="string">'否'</span>, <span class="string">'是'</span>, <span class="string">'好'</span>, <span class="string">'是'</span>],</span><br><span class="line">                [<span class="string">'老年'</span>, <span class="string">'是'</span>, <span class="string">'否'</span>, <span class="string">'好'</span>, <span class="string">'是'</span>],</span><br><span class="line">                [<span class="string">'老年'</span>, <span class="string">'是'</span>, <span class="string">'否'</span>, <span class="string">'非常好'</span>, <span class="string">'是'</span>],</span><br><span class="line">                [<span class="string">'老年'</span>, <span class="string">'否'</span>, <span class="string">'否'</span>, <span class="string">'一般'</span>, <span class="string">'否'</span>],</span><br><span class="line">                ]</span><br><span class="line">    labels = [<span class="string">u'年龄'</span>, <span class="string">u'有工作'</span>, <span class="string">u'有自己的房子'</span>, <span class="string">u'信贷情况'</span>, <span class="string">u'类别'</span>]</span><br><span class="line">    <span class="keyword">return</span> datasets, labels</span><br><span class="line"></span><br><span class="line"><span class="comment"># 熵的计算</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">calc_ent</span><span class="params">(datasets)</span>:</span></span><br><span class="line">    data_length = len(datasets)</span><br><span class="line">    label_count = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(data_length):</span><br><span class="line">        label = datasets[i][<span class="number">-1</span>]</span><br><span class="line">        <span class="keyword">if</span> label <span class="keyword">not</span> <span class="keyword">in</span> label_count:</span><br><span class="line">            label_count[label] = <span class="number">0</span></span><br><span class="line">        label_count[label] += <span class="number">1</span></span><br><span class="line">    ent = -sum([(p/data_length) * np.log2(p/data_length) <span class="keyword">for</span> p <span class="keyword">in</span> label_count.values()])</span><br><span class="line">    <span class="keyword">return</span> ent</span><br><span class="line"></span><br><span class="line"><span class="comment"># 经验条件熵</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cond_ent</span><span class="params">(datasets, axis=<span class="number">0</span>)</span>:</span></span><br><span class="line">    <span class="comment"># axis代表选定的特征列</span></span><br><span class="line">    data_length = len(datasets)</span><br><span class="line">    feature_sets = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(data_length):</span><br><span class="line">        feature = datasets[i][axis]</span><br><span class="line">        <span class="keyword">if</span> feature <span class="keyword">not</span> <span class="keyword">in</span> feature_sets:</span><br><span class="line">            feature_sets[feature] = []</span><br><span class="line">        feature_sets[feature].append(datasets[i])</span><br><span class="line">    cond_ent = sum(len(p) / data_length * calc_ent(p) <span class="keyword">for</span> p <span class="keyword">in</span> feature_sets.values())</span><br><span class="line">    <span class="keyword">return</span> cond_ent</span><br><span class="line"></span><br><span class="line"><span class="comment"># 信息增益</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">info_gain</span><span class="params">(ent, cond_ent)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> ent - cond_ent</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取最优特征</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">info_gain_train</span><span class="params">(datasets)</span>:</span></span><br><span class="line">    count = len(datasets[<span class="number">0</span>]) - <span class="number">1</span></span><br><span class="line">    ent = calc_ent(datasets)</span><br><span class="line">    best_feature = []</span><br><span class="line">    <span class="keyword">for</span> c <span class="keyword">in</span> range(count):</span><br><span class="line">        c_info_gain = info_gain(ent, cond_ent(datasets, axis=c))</span><br><span class="line">        best_feature.append((c, c_info_gain))</span><br><span class="line">        print(<span class="string">"特征(&#123;&#125;) - info_gain - &#123;:.3f&#125;"</span>.format(labels[c], c_info_gain))</span><br><span class="line">    best_ = max(best_feature, key=<span class="keyword">lambda</span> x:x[<span class="number">-1</span>])</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'特征(&#123;&#125;)的信息增益最大，选择为根节点特征'</span>.format(labels[best_[<span class="number">0</span>]])</span><br><span class="line"></span><br><span class="line"><span class="comment">## 例5.3 ID3算法生成决策树</span></span><br><span class="line"><span class="comment"># 定义结点类 二叉树</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, root=True, label=None, feature_name=None, feature=None)</span>:</span></span><br><span class="line">        self.root = root</span><br><span class="line">        self.label = label</span><br><span class="line">        self.feature_name = feature_name</span><br><span class="line">        self.feature = feature</span><br><span class="line">        self.tree = &#123;&#125;</span><br><span class="line">        self.result = &#123;</span><br><span class="line">            <span class="string">'label:'</span>: self.label,</span><br><span class="line">            <span class="string">'feature'</span>: self.feature,</span><br><span class="line">            <span class="string">'tree'</span>: self.tree</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">'&#123;&#125;'</span>.format(self.result)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_node</span><span class="params">(self, val, node)</span>:</span></span><br><span class="line">        self.tree[val] = node</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">predict</span><span class="params">(self, features)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.root <span class="keyword">is</span> <span class="keyword">True</span>:</span><br><span class="line">            <span class="keyword">return</span> self.label</span><br><span class="line">        <span class="keyword">return</span> self.tree[features[self.feature]].predict(features)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DTree</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, epsilon=<span class="number">0.1</span>)</span>:</span></span><br><span class="line">        self.epsilon = epsilon</span><br><span class="line">        self._tree = &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 熵</span></span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">calc_ent</span><span class="params">(datasets)</span>:</span></span><br><span class="line">        data_length = len(datasets)</span><br><span class="line">        label_count = &#123;&#125;</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(data_length):</span><br><span class="line">            label = datasets[i][<span class="number">-1</span>]</span><br><span class="line">            <span class="keyword">if</span> label <span class="keyword">not</span> <span class="keyword">in</span> label_count:</span><br><span class="line">                label_count[label] = <span class="number">0</span></span><br><span class="line">            label_count[label] += <span class="number">1</span></span><br><span class="line">        ent = -sum([(p / data_length) * np.log2(p / data_length) <span class="keyword">for</span> p <span class="keyword">in</span> label_count.values()])</span><br><span class="line">        <span class="keyword">return</span> ent</span><br><span class="line">    <span class="comment"># 经验条件熵</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">cond_ent</span><span class="params">(self, datasets, axis=<span class="number">0</span>)</span>:</span></span><br><span class="line">        <span class="comment"># axis代表选定的特征列</span></span><br><span class="line">        data_length = len(datasets)</span><br><span class="line">        feature_sets = &#123;&#125;</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(data_length):</span><br><span class="line">            feature = datasets[i][axis]</span><br><span class="line">            <span class="keyword">if</span> feature <span class="keyword">not</span> <span class="keyword">in</span> feature_sets:</span><br><span class="line">                feature_sets[feature] = []</span><br><span class="line">            feature_sets[feature].append(datasets[i])</span><br><span class="line">        cond_ent = sum(len(p) / data_length * calc_ent(p) <span class="keyword">for</span> p <span class="keyword">in</span> feature_sets.values())</span><br><span class="line">        <span class="keyword">return</span> cond_ent</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 信息增益</span></span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">info_gain</span><span class="params">(ent, cond_ent)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> ent - cond_ent</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 获取最优特征</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">info_gain_train</span><span class="params">(self, datasets)</span>:</span></span><br><span class="line">        count = len(datasets[<span class="number">0</span>]) - <span class="number">1</span></span><br><span class="line">        ent = calc_ent(datasets)</span><br><span class="line">        best_feature = []</span><br><span class="line">        <span class="keyword">for</span> c <span class="keyword">in</span> range(count):</span><br><span class="line">            c_info_gain = info_gain(ent, cond_ent(datasets, axis=c))</span><br><span class="line">            best_feature.append((c, c_info_gain))</span><br><span class="line">            print(<span class="string">"特征(&#123;&#125;) - info_gain - &#123;:.3f&#125;"</span>.format(labels[c], c_info_gain))</span><br><span class="line">        best_ = max(best_feature, key=<span class="keyword">lambda</span> x: x[<span class="number">-1</span>])</span><br><span class="line">        print(<span class="string">'特征(&#123;&#125;)的信息增益最大，选择为节点特征'</span>.format(labels[best_[<span class="number">0</span>]]))</span><br><span class="line">        <span class="keyword">return</span> best_</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">train</span><span class="params">(self, train_data)</span>:</span></span><br><span class="line">        _, y_train, features = train_data.iloc[:, :<span class="number">-1</span>], train_data.iloc[:, <span class="number">-1</span>], train_data.columns[:<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 1,若D中实例属于同一类Ck，则T为单节点树，并将类Ck作为结点的类标记，返回T</span></span><br><span class="line">        <span class="keyword">if</span> len(y_train.value_counts())==<span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> Node(root=<span class="keyword">True</span>, label=y_train.iloc[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 2, 若A为空，则T为单节点树，将D中实例树最大的类Ck作为该节点的类标记，返回T</span></span><br><span class="line">        <span class="keyword">if</span> len(features) == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> Node(root=<span class="keyword">True</span>, label=y_train.value_counts().sort_values(ascending=<span class="keyword">False</span>).index[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 3,计算A中各特征对D的信息增益，选择最大信息增益的特征Ag</span></span><br><span class="line">        max_feature, max_info_gain = self.info_gain_train(np.array(train_data))</span><br><span class="line">        max_feature_name = features[max_feature]</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 4,Ag的信息增益小于阈值eta,则置T为单节点树，并将D中是实例数最大的类Ck作为该节点的类标记，返回T</span></span><br><span class="line">        <span class="keyword">if</span> max_info_gain &lt; self.epsilon:</span><br><span class="line">            <span class="keyword">return</span> Node(root=<span class="keyword">True</span>, label=y_train.value_counts().sort_values(ascending=<span class="keyword">False</span>).index[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 5 构建Ag子集</span></span><br><span class="line">        node_tree = Node(root=<span class="keyword">False</span>, feature_name=max_feature_name, feature=max_feature)</span><br><span class="line"></span><br><span class="line">        feature_list = train_data[max_feature_name].value_counts().index</span><br><span class="line">        <span class="keyword">for</span> f <span class="keyword">in</span> feature_list:</span><br><span class="line">            sub_train_df = train_data.loc[train_data[max_feature_name]==f].drop([max_feature_name],axis=<span class="number">1</span>)</span><br><span class="line">            <span class="comment"># 6 递归生成树</span></span><br><span class="line">            sub_tree = self.train(sub_train_df)</span><br><span class="line">            node_tree.add_node(f, sub_tree)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> node_tree</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fit</span><span class="params">(self, train_data)</span>:</span></span><br><span class="line">        self._tree = self.train(train_data)</span><br><span class="line">        <span class="keyword">return</span> self._tree</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">predict</span><span class="params">(self, X_test)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self._tree.predict(X_test)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="comment"># 例5.2</span></span><br><span class="line">    print(<span class="string">"\n例题5.2=="</span>)</span><br><span class="line">    datasets, labels = create_date()</span><br><span class="line">    train_data = pd.DataFrame(datasets, columns=labels)</span><br><span class="line">    print(info_gain_train(np.array(datasets)))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 例5.3</span></span><br><span class="line">    print(<span class="string">"\n例题5.3=="</span>)</span><br><span class="line">    datasets, labels = create_date()</span><br><span class="line">    data_df = pd.DataFrame(datasets, columns=labels)</span><br><span class="line">    dt = DTree()</span><br><span class="line">    tree = dt.fit(data_df)</span><br><span class="line">    print(tree)</span><br><span class="line">    res = dt.predict([<span class="string">'老年'</span>, <span class="string">'否'</span>, <span class="string">'否'</span>, <span class="string">'一般'</span>])</span><br><span class="line">    print(res)</span><br></pre></td></tr></table></figure>
+<p><strong>输出</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">例题5.2==</span><br><span class="line">特征(年龄) - info_gain - 0.083</span><br><span class="line">特征(有工作) - info_gain - 0.324</span><br><span class="line">特征(有自己的房子) - info_gain - 0.420</span><br><span class="line">特征(信贷情况) - info_gain - 0.363</span><br><span class="line">特征(有自己的房子)的信息增益最大，选择为根节点特征</span><br><span class="line"></span><br><span class="line">例题5.3==</span><br><span class="line">特征(年龄) - info_gain - 0.083</span><br><span class="line">特征(有工作) - info_gain - 0.324</span><br><span class="line">特征(有自己的房子) - info_gain - 0.420</span><br><span class="line">特征(信贷情况) - info_gain - 0.363</span><br><span class="line">特征(有自己的房子)的信息增益最大，选择为节点特征</span><br><span class="line">特征(年龄) - info_gain - 0.252</span><br><span class="line">特征(有工作) - info_gain - 0.918</span><br><span class="line">特征(有自己的房子) - info_gain - 0.474</span><br><span class="line">特征(有工作)的信息增益最大，选择为节点特征</span><br><span class="line">&#123;&apos;label:&apos;: None, &apos;feature&apos;: 2, &apos;tree&apos;: &#123;&apos;否&apos;: &#123;&apos;label:&apos;: None, &apos;feature&apos;: 1, &apos;tree&apos;: &#123;&apos;否&apos;: &#123;&apos;label:&apos;: &apos;否&apos;, &apos;feature&apos;: None, &apos;tree&apos;: &#123;&#125;&#125;, &apos;是&apos;: &#123;&apos;label:&apos;: &apos;是&apos;, &apos;feature&apos;: None, &apos;tree&apos;: &#123;&#125;&#125;&#125;&#125;, &apos;是&apos;: &#123;&apos;label:&apos;: &apos;是&apos;, &apos;feature&apos;: None, &apos;tree&apos;: &#123;&#125;&#125;&#125;&#125;</span><br><span class="line">否</span><br></pre></td></tr></table></figure>
+<h3 id="sklearn实现"><a href="#sklearn实现" class="headerlink" title="sklearn实现"></a>sklearn实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeClassifier</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_data</span><span class="params">()</span>:</span></span><br><span class="line">    iris = load_iris()</span><br><span class="line">    df = pd.DataFrame(iris.data, columns=iris.feature_names)</span><br><span class="line">    df[<span class="string">'label'</span>] = iris.target</span><br><span class="line">    df.columns = [<span class="string">'sepal length'</span>, <span class="string">'sepal width'</span>, <span class="string">'petal length'</span>, <span class="string">'petal width'</span>, <span class="string">'label'</span>]</span><br><span class="line">    data = np.array(df.iloc[:<span class="number">100</span>, [<span class="number">0</span>,<span class="number">1</span>,<span class="number">-1</span>]])</span><br><span class="line">    <span class="keyword">return</span> data[:,:<span class="number">2</span>], data[:,<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    X,y = create_data()</span><br><span class="line">    X_train, X_test, y_train, y_test = train_test_split(X, y,test_size=<span class="number">0.3</span>)</span><br><span class="line">    clf = DecisionTreeClassifier()</span><br><span class="line">    print(clf.fit(X_train, y_train))</span><br><span class="line">    print(clf.score(X_test, y_test))</span><br></pre></td></tr></table></figure>
+<p><strong>参考文献</strong><br><a href="https://book.douban.com/subject/10590856/" target="_blank" rel="noopener">统计学习方法. 李航</a><br><a href="https://github.com/fengdu78/lihang-code/tree/master/%E7%AC%AC05%E7%AB%A0%20%E5%86%B3%E7%AD%96%E6%A0%91" target="_blank" rel="noopener">https://github.com/fengdu78/lihang-code/tree/master/%E7%AC%AC05%E7%AB%A0%20%E5%86%B3%E7%AD%96%E6%A0%91</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Qiancun Huang WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Qiancun Huang Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    Qiancun Huang
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="http://huangqiancun.github.io/2019/10/28/机器学习/机器学习-5-决策树/" title="机器学习-5-决策树">http://huangqiancun.github.io/2019/10/28/机器学习/机器学习-5-决策树/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/25/机器学习/机器学习-4-朴素贝叶斯法/" rel="next" title="机器学习-4-朴素贝叶斯法">
+                <i class="fa fa-chevron-left"></i> 机器学习-4-朴素贝叶斯法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/11/04/机器学习/机器学习-7-支持向量机/" rel="prev" title="机器学习-7-支持向量机">
+                机器学习-7-支持向量机 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+	
+	
+  
+  
+  
+  </article>
+  <div>
+		
+			<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------------The End------------</div>
+    
+</div>
+		
+	</div>
+	
+ 
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/photo.jpg" alt="Qiancun Huang">
+            
+              <p class="site-author-name" itemprop="name">Qiancun Huang</p>
+              <p class="site-description motion-element" itemprop="description">A second-year graduate student in Southeast University</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/huangqiancun?tab=repositories" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto://huangqiancun@foxmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#决策树模型与学习"><span class="nav-text">决策树模型与学习</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#决策树模型"><span class="nav-text">决策树模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#决策树与if-then规则"><span class="nav-text">决策树与if-then规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#决策树与条件概率分布"><span class="nav-text">决策树与条件概率分布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#决策树学习"><span class="nav-text">决策树学习</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特征选择"><span class="nav-text">特征选择</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息增益"><span class="nav-text">信息增益</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#信息增益比"><span class="nav-text">信息增益比</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#决策树的生成"><span class="nav-text">决策树的生成</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ID3-算法"><span class="nav-text">$ID3$算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#C4-5-算法"><span class="nav-text">$C4.5$算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#决策树的剪枝"><span class="nav-text">决策树的剪枝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CART算法"><span class="nav-text">CART算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CART生成"><span class="nav-text">CART生成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CART的剪枝"><span class="nav-text">CART的剪枝</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例5-2-根据信息增益选择最优特征"><span class="nav-text">例5.2 根据信息增益选择最优特征</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例5-3-ID3算法生成决策树"><span class="nav-text">例5.3 ID3算法生成决策树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sklearn实现"><span class="nav-text">sklearn实现</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qiancun Huang</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">276.5k</span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+
+</body>
+</html>

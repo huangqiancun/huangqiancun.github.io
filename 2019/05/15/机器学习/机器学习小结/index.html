@@ -1,0 +1,2228 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icons8-fox-32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icons8-fox-16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="机器学习,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="I'm Qiancun Huang" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="一 基本概念1 完整机器学习项目的流程 明确要解决的问题，并将问题抽象成数学问题。主要是明确我们可以获得什么样的数据，目标是一个分类还是回归或者是聚类的问题。 获取数据。我们知道数据决定了机器学习结果的上限，而算法模型只是尽可能地逼近这个上限。数据要有代表性，否则可能会出现过拟合。 特征预处理与特征选择。比如对于分类问题，数据偏斜不能太严重，不同类型的数据数量最好不能有数个数量级的差距，不平衡数据">
+<meta name="keywords" content="机器学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习小结">
+<meta property="og:url" content="http://huangqiancun.github.io/2019/05/15/机器学习/机器学习小结/index.html">
+<meta property="og:site_name" content="I&#39;m Qiancun Huang">
+<meta property="og:description" content="一 基本概念1 完整机器学习项目的流程 明确要解决的问题，并将问题抽象成数学问题。主要是明确我们可以获得什么样的数据，目标是一个分类还是回归或者是聚类的问题。 获取数据。我们知道数据决定了机器学习结果的上限，而算法模型只是尽可能地逼近这个上限。数据要有代表性，否则可能会出现过拟合。 特征预处理与特征选择。比如对于分类问题，数据偏斜不能太严重，不同类型的数据数量最好不能有数个数量级的差距，不平衡数据">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-模型融合/1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-模型融合/2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-模型融合/3.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-模型融合/4.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-模型融合/5.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-模型融合/6.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-模型融合/7.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-模型融合/8.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-模型融合/9.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-模型融合/10.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-支持向量机/1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-支持向量机/2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-无监督学习/1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-采样/1.png">
+<meta property="og:updated_time" content="2020-08-02T02:53:29.417Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="机器学习小结">
+<meta name="twitter:description" content="一 基本概念1 完整机器学习项目的流程 明确要解决的问题，并将问题抽象成数学问题。主要是明确我们可以获得什么样的数据，目标是一个分类还是回归或者是聚类的问题。 获取数据。我们知道数据决定了机器学习结果的上限，而算法模型只是尽可能地逼近这个上限。数据要有代表性，否则可能会出现过拟合。 特征预处理与特征选择。比如对于分类问题，数据偏斜不能太严重，不同类型的数据数量最好不能有数个数量级的差距，不平衡数据">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-模型融合/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":8,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://huangqiancun.github.io/2019/05/15/机器学习/机器学习小结/">
+
+
+
+
+
+  <title>机器学习小结 | I'm Qiancun Huang</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">I'm Qiancun Huang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Live it. Love it. Enjoy IT.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://huangqiancun.github.io/2019/05/15/机器学习/机器学习小结/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Qiancun Huang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/photo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="I'm Qiancun Huang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">机器学习小结</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-15T00:32:14+08:00">
+                2019-05-15
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-08-02T10:53:29+08:00">
+                2020-08-02
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  6.9k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+		  
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="一-基本概念"><a href="#一-基本概念" class="headerlink" title="一 基本概念"></a>一 基本概念</h1><h2 id="1-完整机器学习项目的流程"><a href="#1-完整机器学习项目的流程" class="headerlink" title="1 完整机器学习项目的流程"></a>1 完整机器学习项目的流程</h2><ol>
+<li>明确要解决的问题，并将问题抽象成数学问题。主要是明确我们可以获得什么样的数据，目标是一个分类还是回归或者是聚类的问题。</li>
+<li>获取数据。我们知道数据决定了机器学习结果的上限，而算法模型只是尽可能地逼近这个上限。数据要有代表性，否则可能会出现过拟合。</li>
+<li>特征预处理与特征选择。比如对于分类问题，数据偏斜不能太严重，不同类型的数据数量最好不能有数个数量级的差距，不平衡数据后面要进行处理，主要包括欠采样，过采样和调整权值。还有可能需要对数据进行归一化，标准化，离散化，缺失值处理等，对特征筛选，选出显著特征，运用相关系数，卡方检验，平均互信息等方法。</li>
+<li>训练模型与调优。</li>
+<li>模型诊断。比如使用交叉验证，绘制学习曲线判断模型是否过拟合，欠拟合了。</li>
+<li>过拟合的基本调优思路是增加数据量，降低模型复杂度；欠拟合的基本调优思路是提高特征数量和质量，增加模型复杂度。以及通过观察误差样本，分析误差产生的原因，是参数的问题还是算法选择的问题，是特征的问题还是数据本身的问题。</li>
+<li>上线运行与维护。这时不仅需要考虑准确程度，误差等情况，还需要考虑模型的时间和空间复杂度以及稳定性是否可以接受。</li>
+</ol>
+<p>Note：</p>
+<ul>
+<li>相关系数，卡方检验，平均互信息都是用于检验两个变量独立性的方法，用于去除相关变量。</li>
+</ul>
+<h2 id="2-有监督学习和无监督学习"><a href="#2-有监督学习和无监督学习" class="headerlink" title="2 有监督学习和无监督学习"></a>2 有监督学习和无监督学习</h2><ul>
+<li>有监督学习：对具有标记的训练样本进行学习，以尽可能对训练样本集外的数据进行分类或预测。如逻辑斯蒂回归，SVM，随机森林等。</li>
+<li>无监督学习：对未标记的样本进行学习，以发现这些样本中的内在性质及结构知识。如聚类，密度估计等</li>
+</ul>
+<p>Note：</p>
+<ul>
+<li>半监督学习：训练数据同时包含有标记样本和未标记样本数据，让学习器不依赖外界交互，自动地利用未标记样本来提升学习性能。</li>
+<li>强化学习：给定数据，学习如何选择一系列行动，以最大化长期受益。例如马尔科夫决策过程，动态规划。</li>
+</ul>
+<h2 id="3-判别式模型和生成式模型"><a href="#3-判别式模型和生成式模型" class="headerlink" title="3 判别式模型和生成式模型"></a>3 判别式模型和生成式模型</h2><ul>
+<li>判别模型：由数据直接学习决策函数 $Y=f(X)$ 或条件概率分布 $P(Y|X)$ 作为预测模型。</li>
+<li>生成模型：由数据学习联合概率分布 $P(X,Y)$，然后求出条件概率分布 $P(Y|X)$ 作为预测模型：<script type="math/tex; mode=display">P(Y | X)=\frac{P(X, Y)}{P(X)}</script></li>
+<li>由生成模型可以得到判别模型，但是由判别模型得不到生成模型。</li>
+<li>判别模型：K近邻，SVM，决策树，逻辑斯蒂回归，最大熵模型，提升方法和条件随机场等。</li>
+<li>生成模型：朴素贝叶斯，隐马尔可夫模型，高斯混合模型，文档主题生成模型，限制玻尔兹曼机。</li>
+</ul>
+<p>优缺点：<br>生成模型<br>优点：<br>因为结果给出的是联合分布，不仅能计算条件分布，还可以给出其它信息（比如边缘分布）。<br>收敛速度比较快，当样本数量较多时，可以更快地收敛于真实模型。<br>能够应付隐变量存在的情况，如高斯混合模型（Gaussian Mixture Model）。<br>缺点：<br>需要更多的样本和计算，尤其是为了更准确估计类别条件分布，需要增加样本的数目。</p>
+<p>判别模型<br>优点：<br>节省计算资源，需要的样本数量少于生成模型。<br>准确率比生成模型高。<br>由于直接预测结果的概率，而不需要求解每一个类别的条件概率，所以允许对数据进行抽象（比如降维、构造等）。<br>缺点：<br>生成模型的优点它都没有。</p>
+<h2 id="4-通俗易懂解释机器学习"><a href="#4-通俗易懂解释机器学习" class="headerlink" title="4 通俗易懂解释机器学习"></a>4 通俗易懂解释机器学习</h2><p>机器学习就像婴儿学走路。每次他们摔倒，他们就会学到（无知觉地）并且明白，他们的腿要伸直，而不能弯着。他们下一次在摔倒，摔疼了，摔哭了，但是它们学会了“不要用那种姿势站着”，为了避免摔疼，他们更加努力尝试，为了站稳，他们还扶着门或者墙壁或者任何靠近他们的东西。这同样也是一起机器如何在环境中学习和发展它的直觉的。</p>
+<h2 id="5-给定一个数据集，如何选择算法"><a href="#5-给定一个数据集，如何选择算法" class="headerlink" title="5 给定一个数据集，如何选择算法"></a>5 给定一个数据集，如何选择算法</h2><ul>
+<li>机器学习算法的选择取决于学习任务和数据的类型，是分类问题还是回归问题（分类就先从常用的分类模型里选择），如果给定的一个数据集是线性的，线性回归是最好的选择，如果是图像或者音频，那么神经网络可以构建一个稳健的模型。如果该数据是非线性互相作用的的，可以用boosting或bagging算法。如果业务需求是要构建一个可以部署的模型，我们可以用回归或决策树模型（容易解释和说明），而不是黑盒算法如SVM，GBM等。</li>
+<li>总之，没有一个一劳永逸的算法。我们必须有足够的细心，去了解到底要用哪个算法。</li>
+</ul>
+<h2 id="6-线性分类器与非分类器的区别以及优劣"><a href="#6-线性分类器与非分类器的区别以及优劣" class="headerlink" title="6 线性分类器与非分类器的区别以及优劣"></a>6 线性分类器与非分类器的区别以及优劣</h2><ul>
+<li>线性和非线性是针对模型参数和输入特征来讲的，比如输入x，模型y=ax+b为线性模型，模型y=ax+bx^2则是非线性模型。</li>
+<li>线性分类器可解释性好，计算复杂度较低，不足之处是模型的拟合效果相对弱些。</li>
+<li>非线性分类器拟合效果较强，不足之处是数据量小时容易过拟合，计算复杂度高，可解释性不好。</li>
+</ul>
+<p>Note</p>
+<ul>
+<li>常见的线性分类器有：贝叶斯分类，单层感知机，线性回归，逻辑斯蒂回归。</li>
+<li>常见的非线性分类器有：决策树，随机森林，GBDT，多层感知机。</li>
+<li>SVM两种都有，看使用和核函数是线性核还是高斯核。</li>
+</ul>
+<h2 id="7-有隐含关联的事件举例"><a href="#7-有隐含关联的事件举例" class="headerlink" title="7 有隐含关联的事件举例"></a>7 有隐含关联的事件举例</h2><p>美国的太太们常叮嘱她们的丈夫下班后为小孩买尿布，而丈夫们在买尿布后又随手带回了两瓶啤酒。这一消费行为导致了这两件商品经常被同时购买，所以，沃尔玛索性就将它们放在了一块，既方便了顾客，更提高了产品销量。这说明数据能告诉我们消费者的潜在需求，这可能是人很难直接发现的。</p>
+<h2 id="8-TensorFlow简介"><a href="#8-TensorFlow简介" class="headerlink" title="8 TensorFlow简介"></a>8 TensorFlow简介</h2><p>TensorFlow是一个采用数据流图（data flow graphs），用于数值计算的开源软件库。节点（Nodes）在图中表示数学操作，图中的线（edges）则表示在节点间相互联系的多维数据数组，即张量（tensor）。Tensor（张量）意味着N维数组，Flow（流）意味着基于数据流图的计算，TensorFlow为张量从流图的一端流动到另一端计算过程。TensorFlow是将复杂的数据结构传输至人工智能神经网中进行分析和处理过程的系统。</p>
+<h2 id="9-数据流图（Data-Flow-Graph）"><a href="#9-数据流图（Data-Flow-Graph）" class="headerlink" title="9 数据流图（Data Flow Graph）"></a>9 数据流图（Data Flow Graph）</h2><p>数据流图用“结点”（nodes）和“线”(edges)的有向图来描述数学计算。“节点” 一般用来表示施加的数学操作，但也可以表示数据输入（feed in）的起点/输出（push out）的终点，或者是读取/写入持久变量（persistent variable）的终点。“线”表示“节点”之间的输入/输出关系。这些数据“线”可以输运“size可动态调整”的多维数据数组，即“张量”（tensor）。张量从图中流过的直观图像是这个工具取名为“Tensorflow”的原因。一旦输入端的所有张量准备好，节点将被分配到各种计算设备完成异步并行地执行运算。</p>
+<h2 id="10-TensorFlow的优缺点"><a href="#10-TensorFlow的优缺点" class="headerlink" title="10 TensorFlow的优缺点"></a>10 TensorFlow的优缺点</h2><ul>
+<li>优点：高度的灵活性，真正的可移植性（Portability），自动求微分，多语言支持，其核心代码是c++编写的，执行效率比较高，同时有其他语言的接口。</li>
+<li>缺点：使用Python时效率比较低，每一个mini-batch要从Python中feed到网络中，这个过程在mini-batch的数据量很小或者运算时间很短时，可能会带来影响比较大的延迟。</li>
+</ul>
+<h2 id="11-病态问题"><a href="#11-病态问题" class="headerlink" title="11 病态问题"></a>11 病态问题</h2><ul>
+<li>训练完的模型，测试样本稍作修改就会得到差别较大的结果，就是病态问题。</li>
+<li>模型对未知数据的预测能力很差，即泛化误差大。</li>
+</ul>
+<h2 id="12-VC维"><a href="#12-VC维" class="headerlink" title="12 VC维"></a>12 VC维</h2><ul>
+<li>VC维是模型的复杂程度，模型假设空间越大，VC维越高。某种程度上，VC维给机器学习科学性提供了理论支撑。</li>
+<li>测试集合的loss是否和训练集合的loss接近？VC维越小，理论越接近，越不容易过拟合。</li>
+<li>训练数据的loss是否可以足够小？VC维越大，loss理论越小，越不容易欠拟合。</li>
+<li>我们对模型添加的正则化可以对模型的复杂度（VC维）进行控制，平衡这两部分。</li>
+</ul>
+<h2 id="13-机器学习的各种模型与各自的损失函数一一对应"><a href="#13-机器学习的各种模型与各自的损失函数一一对应" class="headerlink" title="13 机器学习的各种模型与各自的损失函数一一对应"></a>13 机器学习的各种模型与各自的损失函数一一对应</h2><ul>
+<li>可以把机器学习视作表达和优化，其中表达的部分，各种模型会有各种不同的形态（线性回归，逻辑回归，SVM，树模型）</li>
+<li>当确定了用某个模型（比如逻辑斯蒂回归）去解决问题，你需要知道当前模型要达到更好的效果需要怎么优化，这个时候就要借助损失函数了。</li>
+</ul>
+<h2 id="14-超参数和参数的区别"><a href="#14-超参数和参数的区别" class="headerlink" title="14 超参数和参数的区别"></a>14 超参数和参数的区别</h2><ul>
+<li>超参数是为了定义模型，需要提前敲定的东西（比如多项式拟合的最高次数，SVM选择的核函数）。</li>
+<li>参数是你确定了超参数之后（比如用最高3次的多项式回归），学习到的参数（比如多项式回归的系数）。</li>
+</ul>
+<h2 id="15-最小二乘法"><a href="#15-最小二乘法" class="headerlink" title="15 最小二乘法"></a>15 最小二乘法</h2><p>最小二乘法的主要思想：计算未知参数，使得理论值和观测值之差的平方和达到最小。</p>
+<script type="math/tex; mode=display">\min _{\vec{x}}\left\|\vec{y}_{m}(\vec{x})-\vec{y}\right\|_{2}</script><h2 id="16-协方差和相关性的区别"><a href="#16-协方差和相关性的区别" class="headerlink" title="16 协方差和相关性的区别"></a>16 协方差和相关性的区别</h2><ul>
+<li>协方差可以理解为两个变量在变化过程中是同方向变化还是反方向变化，以及同向或反向变化的程度如何。</li>
+<li>相关性是剔除了量纲影响、标准化后的协方差。它也可以反映两个变量变化是同向还是反向的，它消除了两个变量变化幅度的影响，可以单纯反映两个变量每单位变化时的相似程度。<script type="math/tex; mode=display">\Sigma_{i j}=\operatorname{cov}\left(X_{i}, X_{j}\right)=\mathrm{E}\left[\left(X_{i}-\mu_{i}\right)\left(X_{j}-\mu_{j}\right)\right]=\mathrm{E}\left[X_{i} X_{j}\right]-\mu_{i} \mu_{j}</script><script type="math/tex; mode=display">\rho_{X, Y}=\frac{\operatorname{cov}(X, Y)}{\sigma_{X} \sigma_{Y}}</script></li>
+</ul>
+<h2 id="17-特征比数据量还大时，选择什么样的分类器"><a href="#17-特征比数据量还大时，选择什么样的分类器" class="headerlink" title="17 特征比数据量还大时，选择什么样的分类器"></a>17 特征比数据量还大时，选择什么样的分类器</h2><p>线性分类器，因为维度高的时候，数据一般在维度空间里面会比较稀疏，很有可能线性可分。</p>
+<h2 id="18-对于维度极低的特征，选择线性还是非线性分类器？"><a href="#18-对于维度极低的特征，选择线性还是非线性分类器？" class="headerlink" title="18 对于维度极低的特征，选择线性还是非线性分类器？"></a>18 对于维度极低的特征，选择线性还是非线性分类器？</h2><p>非线性分类器，低维空间可能很多特征都跑到一起了，导致线性不可分。</p>
+<h2 id="19-你正在一个时间序列数据集上工作，经理要求你建立一个高精度的模型，你开始用决策树算法，因为你知道它在所有类型的数据集上的表现都不错，后来，你尝试了时间序列回归模型，并得到了比决策树模型更高的精度，这种情况会发生吗，为什么？"><a href="#19-你正在一个时间序列数据集上工作，经理要求你建立一个高精度的模型，你开始用决策树算法，因为你知道它在所有类型的数据集上的表现都不错，后来，你尝试了时间序列回归模型，并得到了比决策树模型更高的精度，这种情况会发生吗，为什么？" class="headerlink" title="19 你正在一个时间序列数据集上工作，经理要求你建立一个高精度的模型，你开始用决策树算法，因为你知道它在所有类型的数据集上的表现都不错，后来，你尝试了时间序列回归模型，并得到了比决策树模型更高的精度，这种情况会发生吗，为什么？"></a>19 你正在一个时间序列数据集上工作，经理要求你建立一个高精度的模型，你开始用决策树算法，因为你知道它在所有类型的数据集上的表现都不错，后来，你尝试了时间序列回归模型，并得到了比决策树模型更高的精度，这种情况会发生吗，为什么？</h2><p>会发生，因为时间序列数据有线性关系，而决策树算法室已知的检测非线性交互最好的算法，为什么决策树没能提供好的预测是因为它不能像回归模型那样做到对线性关系那么好的映射。因此，我们知道了如果有一个满足线性假设的数据集，一个线性回归模型能提供强大的预测。</p>
+<h2 id="20分类（Classification）和回归（Prediction）的主要步骤及区别联系"><a href="#20分类（Classification）和回归（Prediction）的主要步骤及区别联系" class="headerlink" title="20分类（Classification）和回归（Prediction）的主要步骤及区别联系"></a>20分类（Classification）和回归（Prediction）的主要步骤及区别联系</h2><ul>
+<li>分类：输入样本数据，输出对应的类别，将样本中每个数据对应一个已知属性。</li>
+<li>回归：两种或者两种以上的变量之间相互依赖的函数模型，预测给定自变量对应的因变量的值。</li>
+<li>分类算法分为两步：<ul>
+<li>学习步：通过训练样本数据集，建立分类规则</li>
+<li>分类步：用已知的测试样本集评估分类规则的准确率，若准确率可接受，则是使用该规则对除样本以外的数据(待测样本集)进行预测。</li>
+</ul>
+</li>
+<li>回归算法分两步：<ul>
+<li>我们先要基于一定数量的样本来训练出一个训练模型；</li>
+<li>为了判断这个模型训练的如何，我们还要对其进行检测一下；</li>
+<li>如果测试的样本数据与我们想象中的差别太大，那么我们就要重新进行训练这个预测模型，但是如果我们的预测模型符合我们的预先的期望，那么我们就可以用这个模型进行预测的操作。</li>
+</ul>
+</li>
+<li>区别<ul>
+<li>特征：分类vs. 回归预测</li>
+<li>输出类型：离散数据vs. 连续数据</li>
+<li>目的：寻找决策边界 vs. 找到最优拟合线</li>
+<li>评价方法：精度、混淆矩阵 vs. SEE(sum of square errors)或MSE</li>
+</ul>
+</li>
+<li>联系<ul>
+<li>分类算法可以预测连续值，但是连续值是以类标签的概率的形式。</li>
+<li>回归算法可以预测离散值，但离散值以整数形式表示。</li>
+</ul>
+</li>
+</ul>
+<h1 id="二-模型评估"><a href="#二-模型评估" class="headerlink" title="二 模型评估"></a>二 模型评估</h1><h2 id="1-模型评估定义"><a href="#1-模型评估定义" class="headerlink" title="1 模型评估定义"></a>1 模型评估定义</h2><p>模型评估主要分为离线评估和在线评估两个阶段。针对分类、排序、回归、序列预测等不同类型的机器学习问题，评估指标的选择也有所不同。</p>
+<h2 id="2-准确率的局限性"><a href="#2-准确率的局限性" class="headerlink" title="2 准确率的局限性"></a>2 准确率的局限性</h2><p>准确率是指分类正确的样本占总样本个数的比例，即 $accuracy=n_{correct} / n_{total}$ ，其中 $n_{correct}$ 为被正确分类的样本个数，$n_{total}$ 为总样本的个数。</p>
+<p>准确率是分类问题中最简单也是最直观的评价指标，但存在明显的缺陷。比如，当负样本占99%时，分类器把所有样本都预测为负样本也可以获得99%的准确率。所以，当不同类别的样本比例非常不均衡时，占比大的类别往往成为影响准确率的最主要因素。为了解决这个问题，可以使用更为有效的平均准确率（每个类别下的样本准确率的算术平均）作为模型评估的指标。</p>
+<h2 id="3-精确率与召回率的权衡。"><a href="#3-精确率与召回率的权衡。" class="headerlink" title="3 精确率与召回率的权衡。"></a>3 精确率与召回率的权衡。</h2><p>精确率是指分类正确的正样本个数占分类器判定为正样本的样本个数的比例。召回率是指分类正确的正样本个数占真正的正样本个数的比例。</p>
+<p>Precision值和Recall值是既矛盾又统一的两个指标，为了提高Precision值，分类器需要尽量在“更有把握”时才把样本预测为正样本，但此时往往会因为过于保守而漏掉很多“没有把握”的正样本，导致Recall值降低。</p>
+<p>为了综合评估一个排序模型的好坏，不仅要看模型在不同TopN下的Precision@N和Recall@N，而且最好绘制出模型的P-R（PrecisionRecall）曲线。P-R曲线的横轴是召回率，纵轴是精确率。对于一个排序模型来说，其P-R曲线上的一个点代表着，在某一阈值下，模型将大于该阈值的结果判定为正样本，小于该阈值的结果判定为负样本，此时返回结果对应的召回率和精确率。整条P-R曲线是通过将阈值从高到低移动而生成的。</p>
+<p>F1score和ROC曲线也能综合地反映一个排序模型的性能。F1score是精准率和召回率的调和平均值，定义为</p>
+<script type="math/tex; mode=display">
+\mathrm{Fl}=\frac{2 \times \text { precision } \times \text { recall}}{\text {precision}+\text {recall}}</script><h2 id="4-什么是ROC曲线"><a href="#4-什么是ROC曲线" class="headerlink" title="4 什么是ROC曲线"></a>4 什么是ROC曲线</h2><p>ROC曲线是Receiver Operating Characteristic Curve的简称，中文名为“受试者工作特征曲线”。ROC曲线源于军事领域，而后在医学领域应用甚广，“受试者工作特征曲线”这一名称也正是来自于医学领域。ROC曲线的横坐标为假阳性率（False Positive Rate，FPR）；纵坐标为真阳性率（True Positive Rate，TPR）。FPR和TPR的计算方法分别为FPR=FP/N,TPR=TP/P，上式中，P是真实的正样本的数量，N是真实的负样本的数量，TP是P个正样本中被分类器预测为正样本的个数，FP是N个负样本中被分类器预测为正样本的个数。</p>
+<p>只看定义确实有点绕，为了更直观地说明这个问题，我们举一个医院诊断病人的例子。假设有10位疑似癌症患者，其中有3位很不幸确实患了癌症（P=3），另外7位不是癌症患者（N=7）。医院对这10位疑似患者做了诊断，诊断出3位癌症患者，其中有2位确实是真正的患者（TP=2）。那么真阳性率TPR=TP/P=2/3。对于7位非癌症患者来说，有一位很不幸被误诊为癌症患者（FP=1），那么假阳性率FPR=FP/N=1/7。对于“该医院”这个分类器来说，这组分类结果就对应ROC曲线上的一个点（1/7，2/3）。</p>
+<h2 id="5-如何绘制ROC曲线"><a href="#5-如何绘制ROC曲线" class="headerlink" title="5 如何绘制ROC曲线"></a>5 如何绘制ROC曲线</h2><p>首先，根据样本标签统计出正负样本的数量，假设正样本数量为P，负样本数量为N；接下来，把横轴的刻度间隔设置为1/N，纵轴的刻度间隔设置为1/P；再根据模型输出的预测概率对样本进行排序（从高到低）；依次遍历样本，同时从零点开始绘制ROC曲线，每遇到一个正样本就沿纵轴方向绘制一个刻度间隔的曲线，每遇到一个负样本就沿横轴方向绘制一个刻度间隔的曲线，直到遍历完所有样本，曲线最终停在（1,1）这个点，整个ROC曲线绘制完成。</p>
+<h2 id="6-如何计算AUC"><a href="#6-如何计算AUC" class="headerlink" title="6 如何计算AUC"></a>6 如何计算AUC</h2><p>AUC指的是ROC曲线下的面积大小，该值能够量化地反映基于ROC曲线衡量出的模型性能。计算AUC值只需要沿着ROC横轴做积分就可以了。由于ROC曲线一般都处于y=x这条直线的上方（如果不是的话，只要把模型预测的概率反转成1−p就可以得到一个更好的分类器），所以AUC的取值一般在0.5～1之间。AUC越大，说明分类器越可能把真正的正样本排在前面，分类性能越好。</p>
+<p>更优雅的解释，auc是指随机给定一个正样本和一个负样本，分类器输出该正样本为正的概率值比分类器输出该负样本为正的概率值要大的可能性。</p>
+<h2 id="7-ROC曲线相比P-R曲线有什么特点"><a href="#7-ROC曲线相比P-R曲线有什么特点" class="headerlink" title="7 ROC曲线相比P-R曲线有什么特点"></a>7 ROC曲线相比P-R曲线有什么特点</h2><p>相比P-R曲线，ROC曲线有一个特点，当正负样本的分布发生变化时，ROC曲线的形状能够基本保持不变，而P-R曲线的形状一般会发生较剧烈的变化。这个特点让ROC曲线能够尽量降低不同测试集带来的干扰，更加客观地衡量模型本身的性能。这有什么实际意义呢？在很多实际问题中，正负样本数量往往很不均衡。比如，计算广告领域经常涉及转化率模型，正样本的数量往往是负样本数量的1/1000甚至1/10000。若选择不同的测试集，P-R曲线的变化就会非常大，而ROC曲线则能够更加稳定地反映模型本身的好坏。所以，ROC曲线的适用场景更多，被广泛用于排序、推荐、广告等领域。但需要注意的是，选择P-R曲线还是ROC曲线是因实际问题而异的，如果研究者希望更多地看到模型在特定数据集上的表现，P-R曲线则能够更直观地反映其性能。</p>
+<h2 id="8-平方根误差的“意外”。"><a href="#8-平方根误差的“意外”。" class="headerlink" title="8 平方根误差的“意外”。"></a>8 平方根误差的“意外”。</h2><p>我们希望构建一个回归模型来预测某部美剧的流量趋势，但无论采用哪种回归模型，得到的RMSE指标都非常高。然而事实是，模型在95%的时间区间内的预测误差都小于1%，取得了相当不错的预测结果。那么，造成RMSE指标居高不下的最可能的原因是什么？</p>
+<p>RMSE的计算公式为</p>
+<script type="math/tex; mode=display">
+R M S E=\sqrt{\frac{\sum_{i=1}^{n}\left(y_{i}-\hat{y}_{i}\right)^{2}}{n}}</script><p>其中，$y_i$是第$i$个样本点的真实值，$\hat{y}_{i}$是第$i$个样本点的预测值，$n$是样本点的个数。一般情况下，RMSE能够很好地反映回归模型预测值与真实值的偏离程度。但在实际问题中，如果存在个别偏离程度非常大的离群点（Outlier）时，即使离群点数量非常少，也会让RMSE指标变得很差。回到问题中来，模型在95%的时间区间内的预测误差都小于1%，这说明，在大部分时间区间内，模型的预测效果都是非常优秀的。然而，RMSE却一直很差，这很可能是由于在其他的5%时间区间内存在非常严重的离群点。</p>
+<p>解决方案：第一，如果我们认定这些离群点是“噪声点”的话，就需要在数据预处理的阶段把这些噪声点过滤掉。第二，如果不认为这些离群点是“噪声点”的话，就需要进一步提高模型的预测能力，将离群点产生的机制建模进去。第三，可以找一个更合适的指标来评估该模型。关于评估指标，其实是存在比RMSE的鲁棒性更好的指标，比如平均绝对百分比误差（Mean Absolute Percent Error，MAPE），它定义为</p>
+<script type="math/tex; mode=display">
+M A P E=\sum_{i=1}^{n}\left|\frac{y_{i}-\hat{y}_{i}}{y_{i}}\right| \times \frac{100}{n}</script><p>相比RMSE，MAPE相当于把每个点的误差进行了归一化，降低了个别离群点带来的绝对误差的影响。</p>
+<h2 id="9-余弦距离的定义"><a href="#9-余弦距离的定义" class="headerlink" title="9 余弦距离的定义"></a>9 余弦距离的定义</h2><p>在机器学习问题中，通常将特征表示为向量的形式，所以在分析两个特征向量之间的相似性时，常使用余弦相似度来表示。余弦相似度的取值范围是$[−1,1]$，相同的两个向量之间的相似度为1。如果希望得到类似于距离的表示，将1减去余弦相似度即为余弦距离。因此，余弦距离的取值范围为$[0,2]$，相同的两个向量余弦距离为0。</p>
+<h2 id="10-为什么在一些场景中要使用余弦相似度而不是欧氏距离？"><a href="#10-为什么在一些场景中要使用余弦相似度而不是欧氏距离？" class="headerlink" title="10 为什么在一些场景中要使用余弦相似度而不是欧氏距离？"></a>10 为什么在一些场景中要使用余弦相似度而不是欧氏距离？</h2><p>对于两个向量A和B，其余弦相似度定义为</p>
+<script type="math/tex; mode=display">
+\cos (\theta)=\frac{A \cdot B}{\|A\|\|B\|}=\frac{\sum_{i=1}^{n} A_{i} \times B_{i}}{\sqrt{\sum_{i=1}^{n}\left(A_{i}\right)^{2}} \times \sqrt{\sum_{i=1}^{n}\left(B_{i}\right)^{2}}}</script><p>即两个向量夹角的余弦，关注的是向量之间的角度关系，并不关心它们的绝对大小，其取值范围是[−1,1]。当一对文本相似度的长度差距很大、但内容相近时，如果使用词频或词向量作为特征，它们在特征空间中的的欧氏距离通常很大；而如果使用余弦相似度的话，它们之间的夹角可能很小，因而相似度高。此外，在文本、图像、视频等领域，研究的对象的特征维度往往很高，余弦相似度在高维情况下依然保持“相同时为1，正交时为0，相反时为−1”的性质，而欧氏距离的数值则受维度的影响，范围不固定，并且含义也比较模糊。</p>
+<p>总体来说，欧氏距离体现数值上的绝对差异，而余弦距离体现方向上的相对差异。例如，统计两部剧的用户观看行为，用户A的观看向量为(0,1)，用户B为(1,0)；此时二者的余弦距离很大，而欧氏距离很小；我们分析两个用户对于不同视频的偏好，更关注相对差异，显然应当使用余弦距离。而当我们分析用户活跃度，以登陆次数(单位：次)和平均观看时长(单位：分钟)作为特征时，余弦距离会认为(1,10)、(10,100)两个用户距离很近；但显然这两个用户活跃度是有着极大差异的，此时我们更关注数值绝对差异，应当使用欧氏距离。</p>
+<h2 id="11-余弦距离是否是一个严格定义的距离"><a href="#11-余弦距离是否是一个严格定义的距离" class="headerlink" title="11 余弦距离是否是一个严格定义的距离?"></a>11 余弦距离是否是一个严格定义的距离?</h2><p>距离的定义：在一个集合中，如果每一对元素均可唯一确定一个实数，使得三条距离公理（正定性，对称性，三角不等式）成立，则该实数可称为这对元素之间的距离。</p>
+<p>余弦距离满足正定性和对称性，但是不满足三角不等式，因此它并不是严格定义的距离。具体来说，对于向量A和B，三条距离公理的证明过程如下:</p>
+<p>正定性根据余弦距离的定义，有</p>
+<script type="math/tex; mode=display">
+\operatorname{dist}(A, B)=1-\cos \theta=\frac{\|A\|_{2}\|B\|_{2}-A B}{\|A\|_{2}\|B\|_{2}}</script><p>考虑到 $|A|_{2}|B|_{2}-A B \geqslant 0$ ，因此有 $\operatorname{dist}(A, B) \geqslant 0$ 恒成立。特别地，$\operatorname{dist}(A, B)=0 \Leftrightarrow|A|_{2}|B|_{2}=A B \Leftrightarrow A=B$<br>因此余弦距离满足正定性。</p>
+<p>对称性根据余弦距离的定义，有</p>
+<script type="math/tex; mode=display">
+\operatorname{dist}(A, B)=\frac{\|A\|_{2}\|B\|_{2}-A B}{\|A\|_{2}\|B\|_{2}}=\frac{\|B\|_{2}\|A\|_{2}-A B}{\|B\|_{2}\|A\|_{2}}=\operatorname{dist}(B, A)</script><p>因此余弦距离满足对称性。</p>
+<p>三角不等式该性质并不成立，下面给出一个反例。给定A=(1,0)，B=(1,1)，C=(0,1)，则有</p>
+<script type="math/tex; mode=display">
+\operatorname{dist}(A, B)=1-\frac{\sqrt{2}}{2} \operatorname{dist}(B, C)=1-\frac{\sqrt{2}}{2} \quad \operatorname{dist}(A, C)=1</script><p>因此 </p>
+<script type="math/tex; mode=display">
+\operatorname{dist}(A, B)+\operatorname{dist}(B, C)=2-\sqrt{2}<1=\operatorname{dist}(A, C)</script><h2 id="12-在对模型进行过充分的离线评估之后，为什么还要进行在线A-B测试？"><a href="#12-在对模型进行过充分的离线评估之后，为什么还要进行在线A-B测试？" class="headerlink" title="12 在对模型进行过充分的离线评估之后，为什么还要进行在线A/B测试？"></a>12 在对模型进行过充分的离线评估之后，为什么还要进行在线A/B测试？</h2><ul>
+<li>离线评估无法完全消除模型过拟合的影响，因此，得出的离线评估结果无法完全替代线上评估结果。</li>
+<li>离线评估无法完全还原线上的工程环境。一般来讲，离线评估往往不会考虑线上环境的延迟、数据丢失、标签数据缺失等情况。因此，离线评估的结果是理想工程环境下的结果。</li>
+<li>线上系统的某些商业指标在离线评估中无法计算。离线评估一般是针对模型本身进行评估，而与模型相关的其他指标，特别是商业指标，往往无法直接获得。比如，上线了新的推荐算法，离线评估往往关注的是ROC曲线、P-R曲线等的改进，而线上评估可以全面了解该推荐算法带来的用户点击率、留存时长、PV访问量等的变化。这些都要由A/B测试来进行全面的评估。</li>
+</ul>
+<h2 id="13-如何进行线上A-B测试"><a href="#13-如何进行线上A-B测试" class="headerlink" title="13 如何进行线上A/B测试"></a>13 如何进行线上A/B测试</h2><p>进行A/B测试的主要手段是进行用户分桶，即将用户分成实验组和对照组，对实验组的用户施以新模型，对对照组的用户施以旧模型。在分桶的过程中，要注意样本的独立性和采样方式的无偏性，确保同一个用户每次只能分到同一个桶中，在分桶过程中所选取的user_id需要是一个随机数，这样才能保证桶中的样本是无偏的。</p>
+<h2 id="14-模型评估的方法"><a href="#14-模型评估的方法" class="headerlink" title="14 模型评估的方法"></a>14 模型评估的方法</h2><p>Holdout检验：Holdout检验是最简单也是最直接的验证方法，它将原始的样本集合随机划分成训练集和验证集两部分。比方说，对于一个点击率预测模型，我们把样本按照70%/30%的比例分成两部分，70%的样本用于模型训练；30%的样本用于模型验证，包括绘制ROC曲线、计算精确率和召回率等指标来评估模型性能。Holdout检验的缺点很明显，即在验证集上计算出来的最后评估指标与原始分组有很大关系。为了消除随机性，研究者们引入了“交叉检验”的思想。</p>
+<p>交叉检验：k-fold交叉验证：首先将全部样本划分成k个大小相等的样本子集；依次遍历这k个子集，每次把当前子集作为验证集，其余所有子集作为训练集，进行模型的训练和评估；最后把k次评估指标的平均值作为最终的评估指标。在实际实验中，k经常取10。</p>
+<p>留一验证：每次留下1个样本作为验证集，其余所有样本作为测试集。样本数为n，依次对n个样本进行遍历，进行n次验证，再将评估指标求平均值得到最终的评估指标。在样本总数较多的情况下，留一验证法的时间开销极大。</p>
+<p>自助法：不管是Holdout检验还是交叉检验，都是基于划分训练集和测试集的方法进行模型评估的。然而，当样本规模比较小时，将样本集进行划分会让训练集进一步减小，这可能会影响模型训练效果。有没有能维持训练集样本规模的验证方法呢？自助法可以比较好地解决这个问题。自助法是基于自助采样法的检验方法。对于总数为n的样本集合，进行n次有放回的随机抽样，得到大小为n的训练集。n次采样过程中，有的样本会被重复采样，有的样本没有被抽出过，将这些没有被抽出的样本作为验证集，进行模型验证，这就是自助法的验证过程。</p>
+<h2 id="15-在自助法的采样过程中，对n个样本进行n次自助抽样，当n趋于无穷大时，最终有多少数据从未被选择过？"><a href="#15-在自助法的采样过程中，对n个样本进行n次自助抽样，当n趋于无穷大时，最终有多少数据从未被选择过？" class="headerlink" title="15 在自助法的采样过程中，对n个样本进行n次自助抽样，当n趋于无穷大时，最终有多少数据从未被选择过？"></a>15 在自助法的采样过程中，对n个样本进行n次自助抽样，当n趋于无穷大时，最终有多少数据从未被选择过？</h2><p>样本在m次采样中始终不被采到的概率是$(1-1/m)^m$，取极限得到</p>
+<script type="math/tex; mode=display">
+\lim _{m \rightarrow \infty}\left(1-\frac{1}{m}\right)^{m} \mapsto \frac{1}{e} \approx 0.368</script><p>因此，当样本数很大时，大约有36.8%的样本从未被选择过，可作为验证集。</p>
+<h2 id="16-时间序列数据集上使用什么交叉验证技术？使用k倍还是LOOCV？"><a href="#16-时间序列数据集上使用什么交叉验证技术？使用k倍还是LOOCV？" class="headerlink" title="16 时间序列数据集上使用什么交叉验证技术？使用k倍还是LOOCV？"></a>16 时间序列数据集上使用什么交叉验证技术？使用k倍还是LOOCV？</h2><p>都不是，对于时间序列问题，k倍可能效果不好，因为第4年或第5年的一些模式可能和第3年的不同，而对数据集的重复采样会将分离这些趋势，我们可能最后是对过去几年的验证。</p>
+<p>我们可以采样五倍整箱链接策略：1，2，3，4，5，6代表的是年份。<br>fold1:training[1],test[2]<br>fold2:training[12],test[3]<br>fold3:training[123],test[4]<br>fold4:training[1234],test[5]<br>fold5:training[12345],test[6]</p>
+<h2 id="17-超参数有哪些调优方法"><a href="#17-超参数有哪些调优方法" class="headerlink" title="17 超参数有哪些调优方法"></a>17 超参数有哪些调优方法</h2><p>为了进行超参数调优，我们一般会采用网格搜索、随机搜索、贝叶斯优化等算法。超参数搜索算法一般包括三要素。一是目标函数，即算法需要最大化/最小化的目标；二是搜索范围，一般通过上限和下限来确定；三是算法的其他参数，如搜索步长。</p>
+<p>网格搜索：网格搜索可能是最简单、应用最广泛的超参数搜索算法，它通过查找搜索范围内的所有的点来确定最优值。如果采用较大的搜索范围以及较小的步长，网格搜索有很大概率找到全局最优值。然而，这种搜索方案十分消耗计算资源和时间，特别是需要调优的超参数比较多的时候。因此，在实际应用中，网格搜索法一般会先使用较广的搜索范围和较大的步长，来寻找全局最优值可能的位置；然后会逐渐缩小搜索范围和步长，来寻找更精确的最优值。这种操作方案可以降低所需的时间和计算量，但由于目标函数一般是非凸的，所以很可能会错过全局最优值。</p>
+<p>随机搜索：随机搜索的思想与网格搜索比较相似，只是不再测试上界和下界之间的所有值，而是在搜索范围中随机选取样本点。它的理论依据是，如果样本点集足够大，那么通过随机采样也能大概率地找到全局最优值，或其近似值。随机搜索一般会比网格搜索要快一些，但是和网格搜索的快速版一样，它的结果也是没法保证的。</p>
+<p>贝叶斯优化算法：贝叶斯优化算法在寻找最优最值参数时，采用了与网格搜索、随机搜索完全不同的方法。网格搜索和随机搜索在测试一个新点时，会忽略前一个点的信息；而贝叶斯优化算法则充分利用了之前的信息。贝叶斯优化算法通过对目标函数形状进行学习，找到使目标函数向全局最优值提升的参数。具体来说，它学习目标函数形状的方法是，首先根据先验分布，假设一个搜集函数；然后，每一次使用新的采样点来测试目标函数时，利用这个信息来更新目标函数的先验分布；最后，算法测试由后验分布给出的全局最值最可能出现的位置的点。对于贝叶斯优化算法，有一个需要注意的地方，一旦找到了一个局部最优值，它会在该区域不断采样，所以很容易陷入局部最优值。为了弥补这个缺陷，贝叶斯优化算法会在探索和利用之间找到一个平衡点，“探索”就是在还未取样的区域获取采样点；而“利用”则是根据后验分布在最可能出现全局最值的区域进行采样。</p>
+<h2 id="18-过拟合"><a href="#18-过拟合" class="headerlink" title="18 过拟合"></a>18 过拟合</h2><p>过拟合在训练过程中，模型复杂度增加，在训练集上的误差逐渐减小，但是在验证集上的误差反而变大，导致泛化性能不好，反映到评估指标上，就是模型在训练集上的表现很好，但在测试集和新数据上的表现较差。</p>
+<ul>
+<li>过拟合的产生原因<ul>
+<li>训练数据集样本单一，样本不足。比如如果训练样本只有负样本，然后拿生成的模型去预测正样本，这肯定预测不准。所以训练样本要尽可能的全面，覆盖所有的数据类型。</li>
+<li>训练数据中噪声干扰过大，噪声指训练数据中的干扰，过多的干扰会导致记录了很多噪声特征，忽略了真实输入输出之间的关系。</li>
+<li>模型过于复杂，模型太复杂，已经模拟了训练数据，但是遇到没有见过的数据的时候不能够变通，泛化能力太差。</li>
+</ul>
+</li>
+<li>降低过拟合的方法<ul>
+<li>从数据入手，获得更多的训练数据。使用更多的训练数据是解决过拟合问题最有效的手段，因为更多的样本能够让模型学习到更多更有效的特征，减小噪声的影响。当然，直接增加实验数据一般是很困难的，但是可以通过一定的规则来扩充训练数据。比如，在图像分类的问题上，可以通过图像的平移、旋转、缩放等方式扩充数据；更进一步地，可以使用生成式对抗网络来合成大量的新训练数据。</li>
+<li>降低模型复杂度，比如加入正则化项，dropout（随机失活），early stopping（早停），batch normalization（逐层归一化）。</li>
+<li>集成学习方法，集成学习是把多个模型集成在一起，来降低单一模型的过拟合风险，如Bagging方法。</li>
+</ul>
+</li>
+</ul>
+<p>Note</p>
+<ul>
+<li>L1正则化：目标函数中增加所有权重w的绝对值之和，使更多的权重为0，也就是使权重变稀疏，L1正则化可以实现特征的自动选择。</li>
+<li>L2正则化：目标函数中增加所有权重w的平方之和，逼迫所有权重尽可能趋向零但不为零，L2正则化惩罚了权重变大的趋势，实现了权重衰减，在一定程度上使模型变得简单避免了过拟合。</li>
+<li>Dropout：在训练过程中，让神经元以一定的概率被激活，不激活的神经元可以暂时认为不是网络的一部分，但是它的权重保留下来，只是暂时不更新而已，在下一次样本输入时同样以一定的概率被激活，效果类似于数量巨大的模型集成。</li>
+<li>Early stopping：当网络在训练集上表现越来越好，误差越来越低的时候，实际上在某一刻，它在测试集的表现已经开始变差，模型出现了过拟合现象。典型的方法是根据交叉验证提前停止，每次训练前，将训练数据分为训练集和验证集，每次训练完后用验证集测试，如果在验证集的误差上升，则停止训练。</li>
+<li>逐层归一化：对于每个隐层神经元，把逐渐向非线性函数映射后向取值区间上下两端靠近的输入分布强行拉回到标准高斯分布，这样使得激活输入值落在非线性函数对输入比较敏感的区域，可以使梯度变大，避免梯度消失，而且梯度变大意味着学习收敛速度变快，能大大加快训练速度。</li>
+</ul>
+<h2 id="19-欠拟合"><a href="#19-欠拟合" class="headerlink" title="19 欠拟合"></a>19 欠拟合</h2><p>欠拟合指的是模型对训练数据本身拟合不够好，导致在训练和预测时表现都不好的情况。</p>
+<ul>
+<li>产生欠拟合的原因<ul>
+<li>模型尚未学习到数据的真实结构，因此，模拟在训练集合验证集上的性能都很差。</li>
+</ul>
+</li>
+<li>降低欠拟合的方法<ul>
+<li>添加新特征。当特征不足或者现有特征与样本标签的相关性不强时，模型容易出现欠拟合。通过挖掘“上下文特征”“ID类特征”“组合特征”等新的特征，往往能够取得更好的效果。在深度学习潮流中，有很多模型可以帮助完成特征工程，如因子分解机、梯度提升决策树、Deep-crossing等都可以成为丰富特征的方法。</li>
+<li>增加模型复杂度。简单模型的学习能力较差，通过增加模型的复杂度可以使模型拥有更强的拟合能力。例如，在线性模型中添加高次项，在神经网络模型中增加网络层数或神经元个数等。</li>
+<li>减小正则化系数。正则化是用来防止过拟合的，但当模型出现欠拟合现象时，则需要有针对性地减小正则化系数。</li>
+</ul>
+</li>
+</ul>
+<h2 id="20-正则化到底是什么意思"><a href="#20-正则化到底是什么意思" class="headerlink" title="20 正则化到底是什么意思"></a>20 正则化到底是什么意思</h2><p>一般的目标函数都包含两项：损失函数和正则化项，其中损失函数鼓励我们的模型尽量去拟合数据，使得最后的模型有较小的偏差。而正则化项则鼓励更加简单的模型，根据奥卡姆剃刀原理，最简单的就是最好的，当模型简单之后，利用有限数据拟合出来的结果随机性比较小，不容易过拟合，使得最后的模型更加稳定。也就是说正则化主要是为了防止过拟合，常用的有L1正则化和L2正则化。</p>
+<p>Note</p>
+<ul>
+<li>L1正则化：目标函数中增加所有权重w的绝对值之和，使更多的权重为0，也就是使权重变稀疏，L1正则化可以实现特征的自动选择。LASSO回归。</li>
+<li>L2正则化：目标函数中增加所有权重w的平方之和，逼迫所有权重尽可能趋向零但不为零，L2正则化惩罚了权重变大的趋势，实现了权重衰减，在一定程度上使模型变得简单避免了过拟合。岭回归。</li>
+<li>弹性网络（elasticnet）：在岭回归和LASSO回归中进行了折中，通过混合比进行控制，当r=0时，弹性网络变为岭回归，当r=1时，弹性网络变为LASSO回归。<script type="math/tex; mode=display">
+J(\theta)=M S E(\theta)+r \alpha \sum_{i=1}^{n}\left|\theta_{i}\right|+\frac{1-r}{2} \alpha \sum_{i=1}^{n} \theta_{i}^{2}</script></li>
+</ul>
+<h2 id="21-L1和L2正则先验服从什么分布"><a href="#21-L1和L2正则先验服从什么分布" class="headerlink" title="21 L1和L2正则先验服从什么分布"></a>21 L1和L2正则先验服从什么分布</h2><p>正则化其实就是对模型的参数设定一个先验，先验就是优化的起跑线，有先验的好处就是可以在较小的数据集中有良好的泛化性能，当然这是在先验分布时接近真实分布的情况下得到的，从信息论的角度看，向系统加入了正确先验这个信息，肯定会提高系统的性能。L2正则是拉普拉斯先验，L2是高斯先验，在数据量很好的时候，先验知识可以防止过拟合。</p>
+<p>举例：抛硬币，推断正面朝上的概率，如果只能抛5次，很可能5次都是正面朝上，这样你就得出错误的结论，正面朝上的概率是1，此时发生了过拟合。如果你增加正面朝上概率是0.5的先验，结果就不会那么离谱，这其实就是正则化。</p>
+<h2 id="22-L1正则化使得模型参数具有稀疏性的原理"><a href="#22-L1正则化使得模型参数具有稀疏性的原理" class="headerlink" title="22 L1正则化使得模型参数具有稀疏性的原理"></a>22 L1正则化使得模型参数具有稀疏性的原理</h2><p>首先明确稀疏模型和特征选择的关系：在预测或者分类时，如果得到的模型是一个稀疏模型，表示只有少数几个特征对这个模型有贡献，绝大部分是没有贡献的，或者贡献微小，此时我们就可以只关注系数是非零值的特征。</p>
+<p>在只有少数变量对结果有很大的影响时用LASSO回归，在大部分变量对结果都只有较小影响的时候使用岭回归。</p>
+<p>L1具有稀疏性的原理可以从两个角度分析：</p>
+<ul>
+<li>角度1：在二维的情况下，L2正则项约束后的解空间是圆形，而L1正则项约束的解空间是多边形。显然，多边形的解空间更容易在尖角处与等高线碰撞出稀疏解。</li>
+<li>角度2：从贝叶斯先验的角度来理解L1正则化和L2正则化，L1正则化相当于对模型参数w引入了拉普拉斯先验，L2正则化相当于引入了高斯先验，而拉普拉斯先验使参数为0的可能性更大。高斯分布在极值点（0点）处是平滑的，也就是高斯先验分布认为w在极值点附近取不同值的可能性是接近的。这就是L2正则化只会让w更接近0点，但不会等于0的原因。而拉普拉斯分布在极值点（0点）处是一个尖峰，所以拉普拉斯先验分布中参数w取值为0的可能性要更高。</li>
+</ul>
+<h2 id="23-频率学派和贝叶斯学派"><a href="#23-频率学派和贝叶斯学派" class="headerlink" title="23 频率学派和贝叶斯学派"></a>23 频率学派和贝叶斯学派</h2><p>频率学派：把需要推断的参数视作固定且未知的常数，而样本是随机的，其着眼点在样本空间，有关的概率计算都是针对样本的分布。频率学派最重要的就是不断的重复（越多越好，趋近于无限）。</p>
+<p>贝叶斯学派：把需要推断的参数视作随机变量，而样本是固定的，其着眼点在参数空间，重视参数的分布，通过参数的先验分布结合样本信息得到参数的后验分布。</p>
+<p>频率学派认为抽样是无限的。在无限次抽样当中,对于决策的规则可以很精确；而贝叶斯学派则认为世界无时无刻不在改变，未知的变量和事件都有一定的概率。这种概率会随时改变这个世界的状态(前面提到的后验概率是先验概率的修正)。</p>
+<p>频率学派认为模型的参数是固定的，一个模型在无数次的抽样过后，所有的参数都应该是一样的；而贝叶斯学派则认为数据应该是固定的，我们的规律从我们对这个世界的观察和认识中得来，我们看到的即是真实的，正确的，应该从观测的事物来估计参数。</p>
+<p>频率学派认为任何模型都不存在先验；而先验在贝叶斯学派当中有着重要的作用。</p>
+<p>频率学派主张的是一种评价范式，它没有先验，更加的客观。贝叶斯学派主张的是一种模型方法，通过建立未知参数的模型，在没有观测到样本之前，一切参数都是不确定的。使用观测的样本值来估计参数，得到的参数带入模型使当前模型最佳的拟合观测到的数据。</p>
+<h2 id="24-共线性和过拟合"><a href="#24-共线性和过拟合" class="headerlink" title="24 共线性和过拟合"></a>24 共线性和过拟合</h2><p>共线性：多向量线性回归中，变量之间由于存在高度相关关系而使回归估计不准确。共线性会造成冗余，导致过拟合。解决方法：排除相关变量，加入正则化。</p>
+<p>Note</p>
+<ul>
+<li>共线性是指变量之间高度相关（数据层面），用PCA来处理。过拟合是模型复杂度太高（模型层面），应该考虑偏差和方差均衡，用正则化来约束。</li>
+</ul>
+<h2 id="25-第一类错误和第二类错误"><a href="#25-第一类错误和第二类错误" class="headerlink" title="25 第一类错误和第二类错误"></a>25 第一类错误和第二类错误</h2><p>第一类错误是当原假设为真时，我们却拒绝了它，也称为“假阳性”FN；第二类错误是当原假设为假时，我们接受了它，也被称为“假阴性”FP。</p>
+<h1 id="三-模型融合"><a href="#三-模型融合" class="headerlink" title="三 模型融合"></a>三 模型融合</h1><h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>模型融合主要方法有Voting，Averaging，Bagging，Boosting，Stacking几种方法，本文重点介绍Stacking方法。</p>
+<h4 id="1-Voting"><a href="#1-Voting" class="headerlink" title="1 Voting"></a>1 Voting</h4><p>主要用于分类问题。简单投票，相对多数投票，绝对对数投票。</p>
+<h4 id="2-Averaging"><a href="#2-Averaging" class="headerlink" title="2 Averaging"></a>2 Averaging</h4><p>主要用于回归问题。简单平均，加权平均。</p>
+<h4 id="3-Bagging"><a href="#3-Bagging" class="headerlink" title="3 Bagging"></a>3 Bagging</h4><p>Bagging就是采用有放回的方式进行抽样，用抽样的样本建立子模型，对子模型进行训练，这个过程可以并行重复多次，最后进行融合。大概分为这样两步：</p>
+<ul>
+<li>重复K次<ul>
+<li>有放回地重复抽样建模</li>
+<li>训练子模型</li>
+</ul>
+</li>
+<li>模型融合<ul>
+<li>分类问题：voting</li>
+<li>回归问题：average</li>
+</ul>
+</li>
+</ul>
+<p>Bagging算法不用我们自己实现，随机森林就是基于Bagging算法的一个典型例子，采用的基分类器是决策树。</p>
+<h4 id="4-Boosting"><a href="#4-Boosting" class="headerlink" title="4 Boosting"></a>4 Boosting</h4><p>Bagging算法可以并行处理，而Boosting的思想是一种迭代的方法，每一次训练的时候都更加关心分类错误的样例，给这些分类错误的样例增加更大的权重，下一次迭代的目标就是能够更容易辨别出上一轮分类错误的样例。最终将这些弱分类器进行加权相加。</p>
+<p>基于Boosting思想的有AdaBoost、GBDT等。</p>
+<h4 id="5-Stacking"><a href="#5-Stacking" class="headerlink" title="5 Stacking"></a>5 Stacking</h4><p>先从不太严谨但好理解的Stacking方法说起。<br>Stacking模型本质上是一种分层的结构，这里简单起见，只分析二级Stacking.假设我们有3个基模型M1、M2、M3。</p>
+<ol>
+<li><p>基模型M1，对训练集train训练，然后用于预测train和test的标签列，分别是P1，T1<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-模型融合/1.png" alt="mark"><br>对于M2和M3，重复相同的工作，这样也得到P2，T2, P3, T3。</p>
+</li>
+<li><p>分别把P1,P2,P3以及T1,T2,T3合并，得到一个新的训练集和测试集train2,test2.<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-模型融合/2.png" alt="mark"></p>
+</li>
+<li><p>再用第二层的模型M4训练train2,预测test2,得到最终的标签列。<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-模型融合/3.png" alt="mark"></p>
+</li>
+</ol>
+<p>Stacking本质上就是这么直接的思路，但是这样肯定是不行的，问题在于P1的得到是有问题的，用整个训练集训练的模型反过来去预测训练集的标签，毫无疑问过拟合是非常非常严重的.</p>
+<p>因此现在的问题变成了如何在解决过拟合的前提下得到P1、P2、P3，这就变成了熟悉的节奏——K折交叉验证。我们以2折交叉验证得到P1为例,假设训练集为4行3列.<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-模型融合/4.png" alt="mark"><br>将其划分为2部分<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-模型融合/5.png" alt="mark"><br>用traina训练模型M1，然后在trainb上进行预测得到preb3和pred4<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-模型融合/6.png" alt="mark"><br>在trainb上训练模型M1，然后在traina上进行预测得到pred1和pred2<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-模型融合/7.png" alt="mark"><br>然后把两个预测集进行拼接<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-模型融合/8.png" alt="mark"><br>对于测试集T1的得到，有两种方法。注意到刚刚是2折交叉验证，M1相当于训练了2次，所以一种方法是每一次训练M1，可以直接对整个test进行预测，这样2折交叉验证后测试集相当于预测了2次，然后对这两列求平均得到T1。或者直接对测试集只用M1预测一次直接得到T1。</p>
+<p>P1、T1得到之后，P2、T2、P3、T3也就是同样的方法。理解了2折交叉验证，对于K折的情况也就理解也就非常顺利了。<br>所以最终的代码是两层循环，第一层循环控制基模型的数目，每一个基模型要这样去得到P1，T1，第二层循环控制的是交叉验证的次数K，对每一个基模型，会训练K次最后拼接得到P1，取平均得到T1。</p>
+<p>网上流传的这张图极具误导性。图里显示每个模型只做一次交叉验证。<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-模型融合/9.png" alt="mark"></p>
+<p>实际上对于每一轮的 5-fold，Model 1都要做满5次的训练和预测。<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-模型融合/10.png" alt="mark"></p>
+<ul>
+<li>Stacking核心代码实例，对lgb，RF两个模型使用LR进行Stacking：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">lgb_train</span><span class="params">(x_train, test, label, l)</span>:</span></span><br><span class="line">    skf = StratifiedKFold(n_splits=<span class="number">5</span>, shuffle=<span class="keyword">True</span>, random_state=<span class="number">2333</span>)</span><br><span class="line">    prob_oof = np.zeros(train.shape[<span class="number">0</span>])</span><br><span class="line">    test_pred = np.zeros(test.shape[<span class="number">0</span>])</span><br><span class="line">    <span class="keyword">for</span> i, (trn_idx, val_idx) <span class="keyword">in</span> enumerate(skf.split(x_train, label)):</span><br><span class="line">        print(i+<span class="number">1</span>, <span class="string">'fold...'</span>)</span><br><span class="line">        t = time.time()</span><br><span class="line">        trn_data = lgb.Dataset(x_train.iloc[trn_idx],  label = label.iloc[trn_idx])</span><br><span class="line">        val_data = lgb.Dataset(x_train.iloc[val_idx], label = label.iloc[val_idx])</span><br><span class="line">        num_round = <span class="number">10000</span></span><br><span class="line">        clf=lgb.train(params,trn_data,num_round, valid_sets=[trn_data,val_data],</span><br><span class="line">        early_stopping_rounds=<span class="number">200</span>, verbose_eval=<span class="number">500</span>)</span><br><span class="line">        prob_oof[val_idx] = clf.predict(x_train.iloc[val_idx],num_iteration=clf.best_iteration)</span><br><span class="line">        test_pred += clf.predict(test, num_iteration=clf.best_iteration) / skf.n_splits</span><br><span class="line">        print(<span class="string">'auc :'</span>,roc_auc_score(label[val_idx], prob_oof[val_idx]))</span><br><span class="line">        print(<span class="string">'runtime: &#123;&#125;\n'</span>.format(time.time() - t))</span><br><span class="line">    auc = roc_auc_score(label, prob_oof)</span><br><span class="line">    print(<span class="string">'auc_:'</span>+str(l)+<span class="string">':'</span>,auc)</span><br><span class="line">    <span class="keyword">return</span> test_pred, auc, clf, prob_oof</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">RF_train</span><span class="params">(x_train, test, label, l)</span>:</span></span><br><span class="line">    skf = StratifiedKFold(n_splits=<span class="number">5</span>, shuffle=<span class="keyword">True</span>, random_state=<span class="number">2333</span>)</span><br><span class="line">    prob_oof = np.zeros(train.shape[<span class="number">0</span>])</span><br><span class="line">    test_pred = np.zeros(test.shape[<span class="number">0</span>])</span><br><span class="line">    <span class="keyword">for</span> i, (trn_idx, val_idx) <span class="keyword">in</span> enumerate(skf.split(x_train, label)):</span><br><span class="line">        print(i+<span class="number">1</span>, <span class="string">'fold...'</span>)</span><br><span class="line">        t = time.time()</span><br><span class="line">        clf = RandomForestClassifier(n_estimators = <span class="number">1000</span>, n_jobs = <span class="number">-1</span>)</span><br><span class="line">        clf.fit(x_train.loc[trn_idx],label.iloc[trn_idx])</span><br><span class="line">        prob_oof[val_idx] = clf.predict_proba(x_train.loc[val_idx])[:,<span class="number">1</span>]</span><br><span class="line">        test_pred += clf.predict_proba(test)[:,<span class="number">1</span>] / skf.n_splits</span><br><span class="line">        </span><br><span class="line">        print(<span class="string">'auc :'</span>,roc_auc_score(label[val_idx], prob_oof[val_idx]))</span><br><span class="line">        print(<span class="string">'runtime: &#123;&#125;\n'</span>.format(time.time() - t))</span><br><span class="line">    auc = roc_auc_score(label, prob_oof)</span><br><span class="line">    print(<span class="string">'auc_:'</span>+str(l)+<span class="string">':'</span>,auc)</span><br><span class="line">    <span class="keyword">return</span> test_pred, auc, clf, prob_oof </span><br><span class="line"></span><br><span class="line"><span class="comment"># 训练两个模型</span></span><br><span class="line">test_pred_lgb, auc_1, clf, train_pred_lgb = lgb_train(train, test, label_1, <span class="number">1</span>)</span><br><span class="line">test_pred_RF, auc_1_RF, clf_RF, train_pred_RF = RF_train(train, test, label_1, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Stacking</span></span><br><span class="line">x_train = np.concatenate(( train_pred_lgb, train_pred_RF), axis=<span class="number">1</span>)</span><br><span class="line">x_test = np.concatenate(( test_pred_lgb, test_pred_RF), axis=<span class="number">1</span>)</span><br><span class="line">print(x_train.shape, x_test.shape)</span><br><span class="line"></span><br><span class="line">logit_clf = LogisticRegression()</span><br><span class="line">logit_clf.fit(x_train, label_1)</span><br><span class="line">logit_pre = logit_clf.predict_proba(x_test)[:,<span class="number">1</span>]</span><br><span class="line">print(len(logit_pre))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>参考文献<br><a href="https://zhuanlan.zhihu.com/p/25836678" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/25836678</a><br><a href="https://github.com/denotepython/my_kaggle/blob/master/titanic/python/%E6%A8%A1%E5%9E%8B%E8%9E%8D%E5%90%88%E4%B9%8B%E6%B3%B0%E5%9D%A6%E5%B0%BC%E5%85%8B.py" target="_blank" rel="noopener">https://github.com/denotepython/my_kaggle/blob/master/titanic/python/%E6%A8%A1%E5%9E%8B%E8%9E%8D%E5%90%88%E4%B9%8B%E6%B3%B0%E5%9D%A6%E5%B0%BC%E5%85%8B.py</a></li>
+</ul>
+<h1 id="四-特征工程"><a href="#四-特征工程" class="headerlink" title="四 特征工程"></a>四 特征工程</h1><h2 id="1-什么是特征工程"><a href="#1-什么是特征工程" class="headerlink" title="1 什么是特征工程"></a>1 什么是特征工程</h2><p>对于一个机器学习问题，数据和特征往往决定了结果的上限，而模型、算法的选择及优化则是在逐步接近这个上限。 特征工程是指对原始数据进行一系列工程处理，将其提炼为特征，作为输入供算法和模型使用。从本质上来讲，特征工程是一个表示和展现数据的过程。在实际工作中，特征工程旨在去除原始数据中的杂质和冗余，设计更高效的特征以刻画求解的问题与预测模型之间的关系。特征工程主要包括数据与特征处理，特征选择和降维三部分内容。</p>
+<p>对数据进行预处理，可提高数据质量，提高挖掘质量。对数据进行清洗可填充缺失值，光滑噪声数据，识别和删除离群点数据，保证数据的一致性。使用正确的采样方法可解决因数据不平衡带来的预测偏差。 对不同的数据类型进行不同的特征处理有助于提高特征的可用性。例如：</p>
+<ul>
+<li>对数值型数据进行归一化可将数据转化到同一量纲下；</li>
+<li>对类别性数据，可以使用one-hot编码方法将类别数据数字化，数字化特征之后可用来计算距离，相似性等；</li>
+<li>可从时间型数据中提取更多的时间特征，如年月日等，这些特征对于业务场景以及模型的预测往往有很大的帮助，统计性特征处理有助于从业务场景中挖掘更丰富的信息。</li>
+</ul>
+<h2 id="2-数据预处理"><a href="#2-数据预处理" class="headerlink" title="2 数据预处理"></a>2 数据预处理</h2><p>数据预处理：无量纲化（标准化，区间缩放法，标准化与归一化的区别），对定量标准二值化，对定性特征哑编码，缺失值计算，数据变换。步骤如下:</p>
+<ul>
+<li>将数据导入</li>
+<li>看数据。重点看元数据，即对字段解释，数据来源等信息，导入数据后，提取部分数据进行查看</li>
+<li>缺失值清洗。根据需要对缺失值进行处理，可以删除数据或填充数据。重新取数：如果某些非常重要的字段缺失，需要和负责采集数据的人沟通，是否可以再次获得。</li>
+<li>数据格式清洗：统一数据的时间，日期，全半角等显示格式</li>
+<li>逻辑错误的数据：重复的数据，不合理的值</li>
+<li>不一致错误的处理：指对矛盾内容的修正，最常见的如身份证号和出生年月日不对应。</li>
+</ul>
+<h2 id="3-处理类别型特征"><a href="#3-处理类别型特征" class="headerlink" title="3 处理类别型特征"></a>3 处理类别型特征</h2><ul>
+<li>序号编码，序号编码通常用于处理类别间具有大小关系的数据，例如成绩，可以分为低、中、高三档，并且存在“高&gt;中&gt;低”的排序关系。序号编码会按照大小关系对类别型特征赋予一个数值ID，例如高表示为3、中表示为2、低表示为1，转换后依然保留了大小关系。</li>
+<li>独热编码，独热编码通常用于处理类别间不具有大小关系的特征。例如血型，一共有4个取值（A型血、B型血、AB型血、O型血），独热编码会把血型变成一个4维稀疏向量，A型血表示为（1,0,0,0），B型血表示为（0,1,0,0），AB型表示为（0,0,1,0），O型血表示为（0,0,0,1）。</li>
+<li>二进制编码，二进制编码主要分为两步，先用序号编码给每个类别赋予一个类别ID，然后将类别ID对应的二进制编码作为结果。以A、B、AB、O血型为例。A型血的ID为1，二进制表示为001；B型血的ID为2，二进制表示为010；以此类推可以得到AB型血和O型血的二进制表示。可以看出，二进制编码本质上是利用二进制对ID进行哈希映射，最终得到0/1特征向量，且维数少于独热编码，节省了存储空间。</li>
+</ul>
+<h2 id="4-特征选择的方法"><a href="#4-特征选择的方法" class="headerlink" title="4 特征选择的方法"></a>4 特征选择的方法</h2><p>filter（过滤式）：过滤式方法先对数据集进行特征选择，然后再训练学习器，特征选择过程与后续学习器无关。这相当于先用特征选择过程对初始特征进行”过滤”，再用过滤后的特征来训练模型。</p>
+<ul>
+<li>Relief(Relevant Features)是一种著名的过滤式特征选择方法，该方法设计了一个”相关统计量”来度量特征的重要性。该统计量是一个向量，其每个分量分别对应于一个初始特征，而特征子集的重要性则是由子集中每个特征所对应的相关统计量分量之和来决定。于是，最终只需指定一个阈值T，然后选择比T大的相关统计量分量所对应的特征即可；也可指定欲选取的特征个数k，然后选择相关统计量分量最大的k个特征。</li>
+</ul>
+<p>wrapper（包裹式）：与过滤式特征选择不考虑后续学习器不同，包裹式特征选择直接把最终将要使用的学习器的性能作为特征子集的评价准则。换言之，包裹式特征选择的目的就是为给定学习器选择最有利于其性能、”量身定做”的特征子集。</p>
+<ul>
+<li>一般而言，由于包裹式特征选择方法直接针对给定学习器进行优化，因此从最终学习器性能来看，包裹式特征选择比过滤式特征选择更好，但另一方面，由于在特征选择过程中需多次训练学习器，因此包裹式特征选择的计算开销通常比过滤式特征边择大得多。</li>
+</ul>
+<p>embedded（嵌入法）：基于惩罚项的特征选择法。</p>
+<ul>
+<li>在过滤式和包裹式特征选择方法中，特征选择过程与学习器训练过程有明显的分别；与此不同，嵌入式特征选择是将特征选择过程与学习器训练过程融为一体，两者在同一个优化过程中完成，即在学习器训练过程中自动地进行了特征选择。常见的有LASSO回归。</li>
+</ul>
+<h2 id="5-如何进行特征选择"><a href="#5-如何进行特征选择" class="headerlink" title="5 如何进行特征选择"></a>5 如何进行特征选择</h2><p>特征选择是一个重要的数据预处理过程，主要有两个目的：一是减少特征数量，降维，使模型泛化能力更强，减少过拟合；二是增强对特征和特征值之前的理解。常见的特征选择方法：</p>
+<ul>
+<li>去除方差较小的特征；</li>
+<li>单变量特征选择，对每一个特征进行测试，衡量该特征和输出响应之间的关系，根据得分去掉不好的特征；</li>
+<li>使用正则化。L1正则化能够使模型变得稀疏。L2正则化的表现更加稳定，由于有用的特征对应系数非零。</li>
+<li>随机森林<ul>
+<li>平均不纯度减少mean decrease impurity：利用不纯度确定节点分裂特征，对于分类问题，通常采用基尼系数或者信息增益，对于回归问题，通常采用方差或者最小二乘拟合，当训练决策树的时候，可以计算出每个特征减少了多少不纯度，并把它减少的不纯度作为特征选择的值。</li>
+<li>平均精确率减少Mean decrease accuracy：直接度量每个特征对模型精确率的影响，主要思路是分别打乱每个特征的特征值排序，并且度量顺序变动对模型的精确率的影响。很明显，对于不重要的变量来说，打乱顺序对模型的精确率影响不会太大，但是对于重要的顺序，打乱顺序就会降低模型的精确率</li>
+</ul>
+</li>
+<li>稳定性选择Stability selection。稳定性选择是一种二次抽样和特征选择算法相结合的较新的方法，选择算法可以是回归，SVM或其他类似的方法。它的主要思想是在不同的数据子集和特征子集上运行特征选择算法，不断的重复，最终汇总特征选择结果，比如可以统计某个特征被认为是重要特征的频率（被选为重要特征的次数除以它所在的子集被测试的次数）。理想情况下，重要特征的得分会接近100%。稍微弱一点的特征得分会是非0的数，而最无用的特征得分将会接近于0。</li>
+<li>递归特征消除Recursive feature elimination(RFE)。递归特征消除的主要思想是反复地构建模型，然后选出最好的特征（可以根据系数来选），把选出来的特征放在一边，然后在剩余的特征上重复这个过程，直到所有特征都遍历了。这个过程中特征被消除的次序就是特征的排序。因此这是一种寻找最优特征子集的贪心算法。</li>
+</ul>
+<h2 id="6-组合特征"><a href="#6-组合特征" class="headerlink" title="6 组合特征"></a>6 组合特征</h2><p>为了提高复杂关系的拟合能力，在特征工程中经常会把一阶离散特征两两组合，构成高阶组合特征。两个特征的取值数量分别为m和n，那么组合之后的规模为m×n。</p>
+<h2 id="7-有效地寻找组合特征"><a href="#7-有效地寻找组合特征" class="headerlink" title="7 有效地寻找组合特征"></a>7 有效地寻找组合特征</h2><p>如果简单地两两组合，依然容易存在参数过多、过拟合等问题，而且并不是所有的特征组合都是有意义的，可以使用基于决策树的特征组合寻找方法，每一条从根节点到叶节点的路径都可以看成一种特征组合的方式。</p>
+<h2 id="8-标准化和归一化的区别"><a href="#8-标准化和归一化的区别" class="headerlink" title="8 标准化和归一化的区别"></a>8 标准化和归一化的区别</h2><p>标准化：将数据按比例缩放，使每个特征的均值变为0，标准差变为1.目的是使得不同度量之间的特征具有可比性的同时不改变原始分布，对目标函数的影响体现在几何分布上。$X^{\prime}=(x-u) / \sigma$。</p>
+<p>归一化：将有量纲的表达式变成无量纲的表达式，便于不同单位或量级的指标能够进行比较和加权，一般是将数据变成(0,1)或者(1,1)之间的小数，归一化会改变原始数据的分布，使各个特征维度对目标函数的影响权重是一致的，也就是使那些扁平分布的数据伸缩变换成类圆形分布，对目标函数的影响体现在数值上。$X^{\prime}=(x-x_{min} ) /(x_{max} -x_{min} )$。</p>
+<p>一个椭圆形分布的数据，如果采用标准化，不会改变两个维度上的分布，还是会保持椭圆形。而采用归一化则会在不同维度上对数据进行不同的伸缩变换，会改变数据的原始距离及分布信息，使其呈类圆形。</p>
+<p>虽然归一化会丢掉数据的原始信息，但这防止了直接对原始数据进行梯度下降的优化算法时最终被数值大的特征所主导，归一化之后，各个特征对目标函数的影响权重是一致的，可以提升模型的收敛速度和提高模型的精度。</p>
+<h2 id="9-归一化的作用"><a href="#9-归一化的作用" class="headerlink" title="9 归一化的作用"></a>9 归一化的作用</h2><p>归一化加快了梯度下降求最优解的速度，归一化有可能提高精度。</p>
+<ul>
+<li>提升收敛速度：在特征量纲不一样时，可能一个特征的数值远大于另一个特征，在用原始数据进行优化时，会得到一个窄长的椭圆形，导致在梯度下降时，梯度的方向为垂直等高线的方向而走之字形路线，这样会使迭代很慢，相比之下，归一化的迭代就会很快，即步长走多走少方向总是对的，不会走偏。</li>
+<li>提升模型的精度：比如算法要计算欧氏距离，当各特征之间的水平相差很大时，如果直接使用原始数据进行分析，就会突出数值较大的特征在计算时的作用，相对削弱数值较小的特征的作用，而实际上我们可能认为两个维度对结果同样重要，所以不进行归一化会造成精度的损失，这在距离计算的算法中影响较大。</li>
+</ul>
+<h2 id="10-不需要做归一化的机器学习算法"><a href="#10-不需要做归一化的机器学习算法" class="headerlink" title="10 不需要做归一化的机器学习算法"></a>10 不需要做归一化的机器学习算法</h2><p>在实际应用中，通过梯度下降法求解的模型一般都是需要归一化的，如线性回归，逻辑斯蒂回归，KNN，SVM，神经网络等模型。但树模型不需要归一化，因为树模型不关心特征的值，而是只关心特征的分布和特征之间的条件概率，如决策树，随机森林等。</p>
+<h2 id="11-文本表示模型"><a href="#11-文本表示模型" class="headerlink" title="11 文本表示模型"></a>11 文本表示模型</h2><ul>
+<li>词袋模型和N-gram模型</li>
+</ul>
+<p>最基础的文本表示模型是词袋模型。顾名思义，就是将每篇文章看成一袋子词，并忽略每个词出现的顺序。具体地说，就是将整段文本以词为单位切分开，然后每篇文章可以表示成一个长向量，向量中的每一维代表一个单词，而该维对应的权重则反映了这个词在原文章中的重要程度。常用TF-IDF来计算权重，公式为</p>
+<script type="math/tex; mode=display">
+\mathrm{TF}-\mathrm{IDF}(t, d)=\mathrm{TF}(t, d) \times \operatorname{IDF}(t)</script><p>其中 $\mathrm{TF}(t, d)$ 为单词 t 在文档 d 中出现的频率，$\operatorname{IDF}(t)$ 是逆文档频率，用来衡量单词 t 对表达语义所起的重要性，表示为</p>
+<script type="math/tex; mode=display">
+\operatorname{IDF}(t)=\log \frac{文章总数}{包含单词t的文章总数+1}</script><p>直观的解释是，如果一个单词在非常多的文章里面都出现，那么它可能是一个比较通用的词汇，对于区分某篇文章特殊语义的贡献较小，因此对权重做一定惩罚。</p>
+<p>将文章进行单词级别的划分有时候并不是一种好的做法，比如英文中的natural language processing（自然语言处理）一词，如果将natural，language，processing这3个词拆分开来，所表达的含义与三个词连续出现时大相径庭。通常，可以将连续出现的n个词（n≤N）组成的词组（N-gram）也作为一个单独的特征放到向量表示中去，构成N-gram模型。另外，同一个词可能有多种词性变化，却具有相似的含义。在实际应用中，一般会对单词进行词干抽取（Word Stemming）处理，即将不同词性的单词统一成为同一词干的形式。</p>
+<ul>
+<li>主题模型</li>
+</ul>
+<p>基于词袋模型或N-gram模型的文本表示模型有一个明显的缺陷，就是无法识别出两个不同的词或词组具有相同的主题。因此，需要一种技术能够将具有相同主题的词或词组映射到同一维度上去，于是产生了主题模型。主题模型是一种特殊的概率图模型。想象一下我们如何判定两个不同的词具有相同的主题呢？这两个词可能有更高的概率同时出现在同一篇文档中；换句话说，给定某一主题，这两个词的产生概率都是比较高的，而另一些不太相关的词汇产生的概率则是较低的。假设有K个主题，我们就把任意文章表示成一个K维的主题向量，其中向量的每一维代表一个主题，权重代表这篇文章属于这个特定主题的概率。主题模型所解决的事情，就是从文本库中发现有代表性的主题（得到每个主题上面词的分布），并且计算出每篇文章对应着哪些主题。</p>
+<p>常见的主题模型：pLSA（Probabilistic Latent Semantic Analysis），LDA（Latent Dirichlet Allocation）</p>
+<ul>
+<li>词嵌入与深度学习模型</li>
+</ul>
+<p>词嵌入是一类将词向量化的模型的统称，核心思想是将每个词都映射成低维空间（通常K=50～300维）上的一个稠密向量（Dense Vector）。K维空间的每一维也可以看作一个隐含的主题，只不过不像主题模型中的主题那样直观。</p>
+<p>由于词嵌入将每个词映射成一个K维的向量，如果一篇文档有N个词，就可以用一个N×K维的矩阵来表示这篇文档，但是这样的表示过于底层。在实际应用中，如果仅仅把这个矩阵作为原文本的表示特征输入到机器学习模型中，通常很难得到令人满意的结果。因此，还需要在此基础之上加工出更高层的特征。在传统的浅层机器学习模型中，一个好的特征工程往往可以带来算法效果的显著提升。而深度学习模型正好为我们提供了一种自动地进行特征工程的方式，模型中的每个隐层都可以认为对应着不同抽象层次的特征。从这个角度来讲，深度学习模型能够打败浅层模型也就顺理成章了。卷积神经网络和循环神经网络的结构在文本表示中取得了很好的效果，主要是由于它们能够更好地对文本进行建模，抽取出一些高层的语义特征。与全连接的网络结构相比，卷积神经网络和循环神经网络一方面很好地抓住了文本的特性，另一方面又减少了网络中待学习的参数，提高了训练速度，并且降低了过拟合的风险。</p>
+<h2 id="12-Word2Vec原理，与LDA的区别与联系"><a href="#12-Word2Vec原理，与LDA的区别与联系" class="headerlink" title="12 Word2Vec原理，与LDA的区别与联系"></a>12 Word2Vec原理，与LDA的区别与联系</h2><p>Word2Vec是目前最常用的词嵌入模型之一。Word2Vec实际是一种浅层的神经网络模型，它有两种网络结构，分别是CBOW（Continues Bag of Words）和Skip-gram。CBOW的目标是根据上下文出现的词语来预测当前词的生成概率；而Skip-gram是根据当前词来预测上下文中各词的生成概率。</p>
+<p>CBOW和Skip-gram都可以表示成由输入层（Input）、映射层（Projection）和输出层（Output）组成的神经网络。输入层中的每个词由独热编码方式表示，即所有词均表示成一个N维向量，其中N为词汇表中单词的总数。在向量中，每个词都将与之对应的维度置为1，其余维度的值均设为0。在映射层（又称隐含层）中，K个隐含单元（Hidden Units）的取值可以由N维输入向量以及连接输入和隐含单元之间的N×K维权重矩阵计算得到。在CBOW中，还需要将各个输入词所计算出的隐含单元求和。</p>
+<p>同理，输出层向量的值可以通过隐含层向量（K维），以及连接隐含层和输出层之间的K×N维权重矩阵计算得到。输出层也是一个N维向量，每维与词汇表中的一个单词相对应。最后，对输出层向量应用Softmax激活函数，可以计算出每个单词的生成概率。Softmax激活函数的定义为</p>
+<script type="math/tex; mode=display">
+P\left(y=w_{n} | x\right)=\frac{\mathrm{e}^{x_{n}}}{\sum_{k=1}^{N} \mathrm{e}^{x_{k}}}</script><p>Word2Vec与LDA的区别和联系：</p>
+<ul>
+<li>首先，LDA是利用文档中单词的共现关系来对单词按主题聚类，也可以理解为对“文档-单词”矩阵进行分解，得到“文档主题”和“主题-单词”两个概率分布。而Word2Vec其实是对“上下文-单词”矩阵进行学习，其中上下文由周围的几个单词组成，由此得到的词向量表示更多地融入了上下文共现的特征。也就是说，如果两个单词所对应的Word2Vec向量相似度较高，那么它们很可能经常在同样的上下文中出现。</li>
+<li>需要说明的是，上述分析的是LDA与Word2Vec的不同，不应该作为主题模型和词嵌入两类方法的主要差异。主题模型通过一定的结构调整可以基于“上下文-单词”矩阵进行主题推理。同样地，词嵌入方法也可以根据“文档-单词”矩阵学习出词的隐含向量表示。</li>
+<li>主题模型和词嵌入两类方法最大的不同其实在于模型本身，主题模型是一种基于概率图模型的生成式模型，其似然函数可以写成若干条件概率连乘的形式，其中包括需要推测的隐含变量（即主题）；而词嵌入模型一般表达为神经网络的形式，似然函数定义在网络的输出之上，需要通过学习网络的权重以得到单词的稠密向量表示。</li>
+</ul>
+<h2 id="13-图像数据不足时的处理方法"><a href="#13-图像数据不足时的处理方法" class="headerlink" title="13 图像数据不足时的处理方法"></a>13 图像数据不足时的处理方法</h2><p>一个模型所能提供的信息一般来源于两个方面，一是训练数据中蕴含的信息；二是在模型的形成过程中（包括构造、学习、推理等），人们提供的先验信息。当训练数据不足时，说明模型从原始数据中获取的信息比较少，这种情况下要想保证模型的效果，就需要更多先验信息。先验信息可以作用在模型上，例如让模型采用特定的内在结构、条件假设或添加其他一些约束条件；先验信息也可以直接施加在数据集上，即根据特定的先验假设去调整、变换或扩展训练数据，让其展现出更多的、更有用的信息，以利于后续模型的训练和学习。</p>
+<p>具体到图像分类任务上，训练数据不足带来的问题主要表现在过拟合方面，即模型在训练样本上的效果可能不错，但在测试集上的泛化效果不佳。根据上述讨论，对应的处理方法大致也可以分两类：</p>
+<p>一是基于模型的方法，主要是采用降低过拟合风险的措施，包括简化模型（如将非线性模型简化为线性模型）、添加约束项以缩小假设空间（如L1/L2正则项）、集成学习、Dropout超参数等；</p>
+<p>二是基于数据的方法，主要通过数据扩充（Data Augmentation），即根据一些先验知识，在保持特定信息的前提下，对原始数据进行适当变换以达到扩充数据集的效果。具体到图像分类任务中，在保持图像类别不变的前提下，可以对训练集中的每幅图像进行以下变换。<br>-（1）一定程度内的随机旋转、平移、缩放、裁剪、填充、左右翻转等，这些变换对应着同一个目标在不同角度的观察结果。</p>
+<ul>
+<li>（2）对图像中的像素添加噪声扰动，比如椒盐噪声、高斯白噪声等。</li>
+<li>（3）颜色变换。例如，在图像的RGB颜色空间上进行主成分分析，得到3个主成分的特征向量及其对应的特征值，然后在每个像素的RGB值上添加方差较小的高斯分布随机数。</li>
+<li>（4）改变图像的亮度、清晰度、对比度、锐度等。</li>
+</ul>
+<p>除了直接在图像空间进行变换，还可以先对图像进行特征提取，然后在图像的特征空间内进行变换，利用一些通用的数据扩充或上采样技术，例如SMOTE（Synthetic Minority Over-sampling Technique）算法。抛开上述这些启发式的变换方法，使用生成模型也可以合成一些新样本，例如当今非常流行的生成式对抗网络模型。</p>
+<p>此外，借助已有的其他模型或数据来进行迁移学习在深度学习中也十分常见。例如，对于大部分图像分类任务，并不需要从头开始训练模型，而是借用一个在大规模数据集上预训练好的通用模型，并在针对目标任务的小数据集上进行微调（fine-tune），这种微调操作就可以看成是一种简单的迁移学习。</p>
+<h2 id="14-降维"><a href="#14-降维" class="headerlink" title="14 降维"></a>14 降维</h2><p>用一个低维度的向量表示原始高维度的特征显得尤为重要。常见的降维方法有主成分分析、线性判别分析、等距映射、局部线性嵌入、拉普拉斯特征映射、局部保留投影等。</p>
+<h2 id="15-主成分分析（PCA）"><a href="#15-主成分分析（PCA）" class="headerlink" title="15 主成分分析（PCA）"></a>15 主成分分析（PCA）</h2><p>PCA是一种线性、非监督、全局的降维算法，旨在找到数据中的主成分，并利用这些主成分表征原始数据，从而达到降维的目的。</p>
+<p>工作原理可由两个角度解释，第一个是最大化投影方差（让数据在主轴上投影的方差尽可能大）；第二个是最小化平方误差（样本点到超平面的垂直距离足够近）。</p>
+<p>优点</p>
+<ul>
+<li>计算简单，易于实现 </li>
+<li>各主成分之间正交，可消除原始数据成分间的相互影响的因素  </li>
+<li>仅仅需要以方差衡量信息量，不受数据集以外的因素影响 </li>
+<li>降维维数没有限制，可根据需要制定。</li>
+</ul>
+<p>缺点</p>
+<ul>
+<li>无法利用类别的先验信息 </li>
+<li>降维后，只与数据有关，主成分各个维度的含义模糊，不易于解释</li>
+<li>方差小的非主成分也可能含有对样本差异的重要信息，因降维丢弃可能对后续数据处理有影响 </li>
+<li>线性模型，对于复杂数据集难以处理（可用核映射方式改进）。</li>
+</ul>
+<p>步骤</p>
+<ul>
+<li>对样本数据进行中心化处理（意义：投影之后均值为0）。</li>
+<li>求样本协方差矩阵。</li>
+<li>对协方差矩阵进行特征值分解，将特征值从大到小排列。</li>
+<li>取特征值前d大对应的特征向量ω1,ω2,…,ωd，将n维样本映射到d维。</li>
+</ul>
+<p>Note</p>
+<ul>
+<li>PCA最大方差理论：PCA的目标是最大化投影方差，也就是让数据在主轴上投影的方差最大。PCA旨在找到数据中的主成分，并利用这些主成分表征原始数据，从而达到降维的目的。举一个简单的例子，在三维空间中有一系列数据点，这些点分布在一个过原点的平面上。如果我们用自然坐标系x,y,z三个轴来表示数据，就需要使用三个维度。而实际上，这些点只出现在一个二维平面上，如果我们通过坐标系旋转变换使得数据所在平面与x,y平面重合，那么我们就可以通过x′,y′两个维度表达原始数据，并且没有任何损失，这样就完成了数据的降维。而x′,y′两个轴所包含的信息就是我们要找到的主成分。</li>
+</ul>
+<h2 id="16-在PCA中有必要做旋转变换"><a href="#16-在PCA中有必要做旋转变换" class="headerlink" title="16 在PCA中有必要做旋转变换"></a>16 在PCA中有必要做旋转变换</h2><p>是的，旋转（正交）是必要的，因为它把由主成分捕获的方差之间的差异最大化，这使得主成分更容易解释。但是我们不要忘记我们做PCA的目的是选择更少的主成分，那些选择的主成分能够解释数据集中最大方差。</p>
+<p>通过做旋转，各主成分的相对位置不发生变化，它只能改变点的实际坐标。如果我们没有旋转主成分，PCA的效果会减弱，那样我们不得不选择更多个主成分来解释数据集里的方差。</p>
+<h2 id="17-数据集中部分特征高度相关的，用PCA时需要先去掉相关的变量吗"><a href="#17-数据集中部分特征高度相关的，用PCA时需要先去掉相关的变量吗" class="headerlink" title="17 数据集中部分特征高度相关的，用PCA时需要先去掉相关的变量吗"></a>17 数据集中部分特征高度相关的，用PCA时需要先去掉相关的变量吗</h2><p>需要，因为有相关变量的存在，由特征成分解释的方差被放大。如一个数据集有3个变量，其中有两个是相关的，如果在该数据集上用PCA，第一主成分的方差会是其不相关变量的差异的两倍。此外，加入相关的变量使PCA错误地提高那些变量的重要性，这是有误导的。</p>
+<h2 id="18-线性判别分析（LDA）"><a href="#18-线性判别分析（LDA）" class="headerlink" title="18 线性判别分析（LDA）"></a>18 线性判别分析（LDA）</h2><p>LDA是为了让映射后的样本有最好的分类性能。是一种有监督的降维方法，它的中心思想是最大化类间距离和最小化类内距离。目标函数定义为类间距离和类内距离的比值。</p>
+<p>步骤：</p>
+<ul>
+<li>计算数据集中每个类别样本的均值向量 $μ_j$，及总体均值向量 $μ$。</li>
+<li>计算类内散度矩阵 $S_w$ ，全局散度矩阵 $S_t$，并得到类间散度矩阵 $S_b = S_t-S_w$。</li>
+<li>对矩阵 $S_{w}^{-1} S_{B}$ 进行特征值分解，将特征值从大到小排列。</li>
+<li>取特征值前 $d$ 大的对应的特征向量，通过映射将 $n$ 维样本映射到 $d$ 维。</li>
+</ul>
+<h2 id="19-PCA和LDA的区别"><a href="#19-PCA和LDA的区别" class="headerlink" title="19 PCA和LDA的区别"></a>19 PCA和LDA的区别</h2><p>首先从目标出发，PCA选择的是投影后数据方差最大的方向。由于它是无监督的，因此PCA假设方差越大，信息量越多，用主成分来表示原始数据可以去除冗余的维度，达到降维。而LDA选择的是投影后类内方差小、类间方差大的方向。其用到了类别标签信息，是有监督降维算法，为了找到数据中具有判别性的维度，使得原始数据在这些方向上投影后，不同类别尽可能区分开。</p>
+<h2 id="20-连续特征，既可以做离散化，也可以做幅度缩放，那这两种处理方式分别适用于什么场景呢？"><a href="#20-连续特征，既可以做离散化，也可以做幅度缩放，那这两种处理方式分别适用于什么场景呢？" class="headerlink" title="20 连续特征，既可以做离散化，也可以做幅度缩放，那这两种处理方式分别适用于什么场景呢？"></a>20 连续特征，既可以做离散化，也可以做幅度缩放，那这两种处理方式分别适用于什么场景呢？</h2><p>幅度缩放一般在计算性模型里会用到，离散化一般在线性模型会用到，如LR。</p>
+<h2 id="21-离散化的目的："><a href="#21-离散化的目的：" class="headerlink" title="21 离散化的目的："></a>21 离散化的目的：</h2><ul>
+<li>非线性。逻辑回归属于广义线性模型，表达能力受限，单变量离散化为N个后，每个变量有单独的权重，相当于为模型引入了非线性，能够提升模型的表达能力，加大拟合；离散特征的增加和减少都很容易，易于模型的快速迭代。</li>
+<li>速度快。稀疏向量内积乘法运算速度快，计算结果方便存储，容易扩展；</li>
+<li>鲁棒性。离散化后的特征对异常数据有很强的鲁棒性：比如一个特征是年龄&gt;30是1，否则0。如果特征没有离散化，一个异常数据“年龄300岁”会给模型造成很大的干扰；</li>
+<li>方便交叉与特征组合：离散化后可以进行特征交叉，由 $M+N$ 个变量变为$M*N$个变量，进一步引入非线性，提升表达能力；</li>
+<li>稳定性：特征离散化后，模型会更稳定，比如如果对用户年龄离散化，20-30作为一个区间，不会因为一个用户年龄长了一岁就变成一个完全不同的人。当然处于区间相邻处的样本会刚好相反，所以怎么划分区间是门学问；</li>
+<li>简化模型：特征离散化以后，起到了简化了逻辑回归模型的作用，降低了模型过拟合的风险。</li>
+</ul>
+<h2 id="22-什么时候分类变量当成连续型变量会更得到一个更好的预测模型"><a href="#22-什么时候分类变量当成连续型变量会更得到一个更好的预测模型" class="headerlink" title="22 什么时候分类变量当成连续型变量会更得到一个更好的预测模型"></a>22 什么时候分类变量当成连续型变量会更得到一个更好的预测模型</h2><p>为了得到更好的预测，只有在分类变量在本质上是有序的情况下才可以被当做连续型变量来处理。</p>
+<h2 id="23-缺失值分布在离中值有1个标准偏差的范围内，百分之多少的数据不会受到影响。"><a href="#23-缺失值分布在离中值有1个标准偏差的范围内，百分之多少的数据不会受到影响。" class="headerlink" title="23 缺失值分布在离中值有1个标准偏差的范围内，百分之多少的数据不会受到影响。"></a>23 缺失值分布在离中值有1个标准偏差的范围内，百分之多少的数据不会受到影响。</h2><p>约有32%的数据不会受到缺失值的影响。</p>
+<h2 id="24-是可以捕获连续变量和分类变量之间的相关性"><a href="#24-是可以捕获连续变量和分类变量之间的相关性" class="headerlink" title="24 是可以捕获连续变量和分类变量之间的相关性"></a>24 是可以捕获连续变量和分类变量之间的相关性</h2><p>可以的，我们可以用ANCOVA（协方差分析）技术来捕获连续变量和分类变量之间的相关性。</p>
+<h2 id="25-缺失值处理"><a href="#25-缺失值处理" class="headerlink" title="25 缺失值处理"></a>25 缺失值处理</h2><ul>
+<li>把缺失值分成单独的一类，这些缺失值说不定会包含一些趋势信息</li>
+<li>可以删除他们</li>
+<li>我们可以用目标变量来检查他们的分布，如果发现任何模式，我们将保留那些缺失值并给他们一个新的分类，同时删除其他缺失值。</li>
+</ul>
+<h2 id="26-异常值处理"><a href="#26-异常值处理" class="headerlink" title="26 异常值处理"></a>26 异常值处理</h2><ul>
+<li>视为无效信息（噪声点）：结合异常值检测算法，检测出后直接丢弃；</li>
+<li>视为有效信息（信号点）：作为缺失值，用缺失值的方式处理；</li>
+<li>不处理，直接在具有异常值的数据上进行数据挖掘。</li>
+</ul>
+<h1 id="五-k近邻"><a href="#五-k近邻" class="headerlink" title="五 k近邻"></a>五 k近邻</h1><h2 id="1-K近邻原理"><a href="#1-K近邻原理" class="headerlink" title="1 K近邻原理"></a>1 K近邻原理</h2><p>算法原理：如果一个样本在特征空间的k个最相近的样本中的大多数属于某类别，则该样本也属于该类别。</p>
+<p>算法过程：对未知类别的样本点进行如下操作：</p>
+<ol>
+<li>计算已知类别数据集中的点与当前点之间的距离；</li>
+<li>按照距离递增次序排序；</li>
+<li>选取与当前点最相似的k个点；</li>
+<li>确定前k个点所在类别的出现次数或频率；</li>
+<li>选择前k个点出现次数或频率最高的类别作为当前点的预测分类。</li>
+</ol>
+<p>KNN用于回归：输出结果是对象的属性值，这个值是其k个最近邻居的值共同决定的平均值或者加权平均值。</p>
+<p>优点：简单，易理解和实现；无需估计参数，无需训练；精度高，对异常值不敏感；适合于多分类问题；无数据输入假定。<br>缺点：当样本不平衡时，效果较差；计算复杂度高；空间复杂度高；可解释性差，无法给出像决策树那样的规则。</p>
+<p>KNN是”懒惰学习”的著名代表，此类学习技术在训练阶段仅仅是把样本保存起来，训练时间开销为零，待收到测试样本后再进行处理；相应的，那些在训练阶段就对样本进行学习处理的方法，称为”急切学习” (eager learning)。</p>
+<h2 id="2-KNN中的k是如何选取的？"><a href="#2-KNN中的k是如何选取的？" class="headerlink" title="2 KNN中的k是如何选取的？"></a>2 KNN中的k是如何选取的？</h2><p>K值可以通过先验知识选取一个近似值，然后可以采用交叉验证法来选取最优的k值。</p>
+<ul>
+<li>较小的k值：用较少训练样本预测，非常相似的样本才起作用，学习的近似误差会减小；预测结果与少量样本有关，对近邻数据非常敏感，学习的估计误差会增大，对噪声敏感；k值的减小意味着模型变复杂，容易过拟合。</li>
+<li>较大的k值：用较多的训练样本进行预测，学习的估计误差会减小；与输入数据距离较远的实例也会起作用，学习的近似误差会增大；k值的增大意味着模型变简单，容易欠拟合。</li>
+</ul>
+<h1 id="六-线性回归-amp-逻辑回归-amp-最大熵"><a href="#六-线性回归-amp-逻辑回归-amp-最大熵" class="headerlink" title="六 线性回归&amp;逻辑回归&amp;最大熵"></a>六 线性回归&amp;逻辑回归&amp;最大熵</h1><h2 id="1-线性回归原理"><a href="#1-线性回归原理" class="headerlink" title="1 线性回归原理"></a>1 线性回归原理</h2><p>给定数据集，线性回归试图学得一个线性模型以尽可能准确地预测实值。求解线性回归模型参数的策略是使均方误差最小化，基于均方误差最小化来进行模型求解的方法称为”最小二乘法”。在线性回归中，最小二乘法就是试图找到一条直线，使所有样本到直线上的欧氏距离之和最小。</p>
+<h2 id="2-逻辑斯蒂回归原理"><a href="#2-逻辑斯蒂回归原理" class="headerlink" title="2 逻辑斯蒂回归原理"></a>2 逻辑斯蒂回归原理</h2><p>逻辑斯蒂回归的基础是线性回归，但是线性回归做的是回归任务，而逻辑斯蒂回归利用一个单调可微的函数将分类任务的真实标记与线性回归模型的预测值联系起来，学习的是分类任务。它的优点是直接对分类的可能性进行建模，所以它不仅可以预测出类别，还可以得到属于该类别的概率，这对于许多需要利用概率辅助决策的任务很有用；此外，Sigmoid函数是任意阶可导函数，具有很好的数学性质。逻辑斯蒂回归模型的参数估计中，使用梯度下降法进行学习，一般使用小批量的数据进行迭代优化。</p>
+<h2 id="3-LR为什么用的是sigmoid函数而不用阶跃函数"><a href="#3-LR为什么用的是sigmoid函数而不用阶跃函数" class="headerlink" title="3 LR为什么用的是sigmoid函数而不用阶跃函数"></a>3 LR为什么用的是sigmoid函数而不用阶跃函数</h2><p>阶跃函数虽然能够直观刻画分类的错误率，但是由于其非凸、非光滑的特点，使得算法很难直接对该函数进行优化。而sigmoid函数本身的特征（光滑无限阶可导），以及完美的映射到概率空间，就用于逻辑回归了。同时对于二分类问题来说，因为伯努利分布属于指数族分布，具有最大熵的性质。</p>
+<h2 id="4-线性回归和逻辑斯蒂的区别"><a href="#4-线性回归和逻辑斯蒂的区别" class="headerlink" title="4 线性回归和逻辑斯蒂的区别"></a>4 线性回归和逻辑斯蒂的区别</h2><p>首先，逻辑回归处理的是分类问题，线性回归处理的是回归问题，这是两者的最本质的区别，另外，线性回归的损失函数是最小平方误差，而逻辑斯蒂回归的损失函数为交叉熵损失函数，也就是最小对数似然损失。</p>
+<p>逻辑回归和线性回归的相同在于，首先我们可以认为二者都使用了极大似然估计来对训练样本进行建模。线性回归使用最小二乘法，实际上就是在自变量x与超参数θ确定，因变量y服从正态分布的假设下，使用极大似然估计的一个化简；而逻辑回归中通过对似然函数的学习，得到最佳参数θ。另外，二者在求解超参数的过程中，都可以使用梯度下降的方法，这也是监督学习中一个常见的相似之处。</p>
+<h2 id="5-当使用逻辑回归处理多标签的分类问题时，有哪些常见做法，分别应用于哪些场景，它们之间又有怎样的关系"><a href="#5-当使用逻辑回归处理多标签的分类问题时，有哪些常见做法，分别应用于哪些场景，它们之间又有怎样的关系" class="headerlink" title="5 当使用逻辑回归处理多标签的分类问题时，有哪些常见做法，分别应用于哪些场景，它们之间又有怎样的关系"></a>5 当使用逻辑回归处理多标签的分类问题时，有哪些常见做法，分别应用于哪些场景，它们之间又有怎样的关系</h2><ul>
+<li>首先，如果一个样本只对应于一个标签，我们可以假设每个样本属于不同标签的概率服从于几何分布，使用多项逻辑回归（Softmax Regression）来进行分类</li>
+<li>当存在样本可能属于多个标签的情况时，我们可以训练k个二分类的逻辑回归分类器。第i个分类器用以区分每个样本是否可以归为第i类，训练该分类器时，需要把标签重新整理为“第i类标签”与“非第i类标签”两类。通过这样的办法，我们就解决了每个样本可能拥有多个标签的情况。</li>
+</ul>
+<h2 id="6-逻辑斯蒂回归为什么要对特征进行离散化"><a href="#6-逻辑斯蒂回归为什么要对特征进行离散化" class="headerlink" title="6 逻辑斯蒂回归为什么要对特征进行离散化"></a>6 逻辑斯蒂回归为什么要对特征进行离散化</h2><ul>
+<li>非线性。逻辑斯蒂回归属于广义线性模型，表达能力受限，离散化后增加了非线性成分，可以增强模型表达能力和拟合能力，离散特征的增加和减少都很容易，易于模型的快速迭代。</li>
+<li>速度快。稀疏向量内积乘法运算速度快，计算结果方便存储，容易扩展；</li>
+<li>鲁棒性。离散化后的特征对异常数据有很强的鲁棒性：比如一个特征是年龄&gt;30是1，否则0。如果特征没有离散化，一个异常数据“年龄300岁”会给模型造成很大的干扰；</li>
+<li>方便交叉与特征组合：离散化后可以进行特征交叉，由 $M+N$ 个变量变为$M*N$个变量，进一步引入非线性，提升表达能力；</li>
+<li>稳定性：特征离散化后，模型会更稳定，比如如果对用户年龄离散化，20-30作为一个区间，不会因为一个用户年龄长了一岁就变成一个完全不同的人。当然处于区间相邻处的样本会刚好相反，所以怎么划分区间是门学问；</li>
+<li>简化模型：特征离散化以后，起到了简化了逻辑回归模型的作用，降低了模型过拟合的风险。</li>
+</ul>
+<h2 id="7-LR和SVM各自的优缺点和适用场景"><a href="#7-LR和SVM各自的优缺点和适用场景" class="headerlink" title="7 LR和SVM各自的优缺点和适用场景"></a>7 LR和SVM各自的优缺点和适用场景</h2><ul>
+<li>最本质是他们的损失函数不同，LR是对数损失而SVM是合页损失函 数；</li>
+<li>LR可以给出每个点属于每一类的概率，而SVM是非概率的，一个 是基于统计的方法，一个基于几何的方法；</li>
+<li>支持向量机只考虑局部的 边界线附近的点（支持向量），而逻辑回归考虑所有的样本点，所以线性SVM不直接依赖于数据分布，分类平面不受一类点影响，LR则受所有数据点的影响对不平衡数据先做balance；</li>
+<li>同样是线性分类，如果异常点较多无法剔除，首先LR中每个样本都有贡献，最大似然后会自动压制异常的贡献，SVM + 软间隔对异常却比较敏感，因为其训练只需要支持向量，有效样本本来就不高，一旦被干扰，预测结果会难以预料；</li>
+<li>SVM的损失函数本省自带正则项，这就是为什么SVM是结构风险最小化算法，而LR必须另外在损失函数上添加正则项。</li>
+</ul>
+<h2 id="8-LR使用核函数解决线性不可分问题"><a href="#8-LR使用核函数解决线性不可分问题" class="headerlink" title="8 LR使用核函数解决线性不可分问题"></a>8 LR使用核函数解决线性不可分问题</h2><p>逻辑回归本质上是一个线性模型，但是，这不意味着只有线性可分的数据能通过LR求解，实际上，我们可以通过2种方式帮助LR实现：</p>
+<ul>
+<li>利用特殊核函数，对特征进行变换：把低维空间转换到高维空间，而在低维空间不可分的数据，到高维空间中线性可分的几率会高一些。但在LR算法里，每个样本点都必须参与决策面的计算过程，也就是说，假设我们在LR里也运用核函数的原理，那么每个样本点都必须参与核计算，这带来的计算复杂度是相当高的。所以，在具体应用时，LR很少运用核函数机制。</li>
+<li>扩展LR算法，提出FM算法。</li>
+</ul>
+<h2 id="9-最大熵模型原理"><a href="#9-最大熵模型原理" class="headerlink" title="9 最大熵模型原理"></a>9 最大熵模型原理</h2><p>熵是随机变量不确定性的度量，不确定性越大，熵越大；为了准确估计随机变量的状态，我们一般最大化熵，认为在所有可能的概率模型（分布）中，熵最大的模型是最好的模型。也就是说，在已知部分知识的前提下，关于未知分布最合理的推理就是符合已知知识最不确定或者最随机的推断，其原则是承认已知知识，并且对未知事物不做任何假设，没有任何偏见。最大熵在解决二分类问题时就是逻辑回归，在解决多分类问题时就是多项逻辑回归（softmax）。</p>
+<p>Note</p>
+<ul>
+<li>最大熵原理认为要选择的概率模型首先必须满足已有的事实，即约束条件。在没有更多信息的情况下，那些不确定的部分都是“等可能的”，最大熵原理通过熵的最大化来表示等可能性。</li>
+<li>例如，投掷一个骰子，如果问“每个面朝上的概率分别是多少”，你会说是等概率，即各点出现的概率均为1/6，因为对这个“一无所知”的骰子，什么都不确定，而假定它每一个面朝上概率均等则是最合理的做法。从投资的角度来看，这是风险最小的作法，从信息论的角度讲，就是保留了最大的不确定性，也就是说让熵达到最大。</li>
+</ul>
+<h2 id="10-SVM和logistic回归分别在什么情况下使用"><a href="#10-SVM和logistic回归分别在什么情况下使用" class="headerlink" title="10 SVM和logistic回归分别在什么情况下使用"></a>10 SVM和logistic回归分别在什么情况下使用</h2><ul>
+<li>如果特征的数量很大，跟样本数量差不多或者比样本多，选用逻辑斯蒂回归或者线性核的SVM。理由：特征数相对于训练样本数已经够大了，使用线性模型就能取得不错的效果，不需要过于复杂的模型；</li>
+<li>如果特征的数量比较小，样本数量一般，选用高斯核的SVM。理由：在训练样本数量足够大而特征数较小的情况下，可以通过使用复杂核函数的SVM来获得更好的预测性能，而且因为训练样本数量并没有达到百万级，使用复杂核函数的SVM也不会导致运算过慢；</li>
+<li>如果特征数量很小，而样本数量很多，需要手工添加一些特征变成第一种情况。理由：因为训练样本数量特别大，使用复杂核函数的SVM会导致运算很慢，因此应该考虑通过引入更多特征，然后使用线性核函数的SVM或者lr来构建预测性更好的模型。</li>
+</ul>
+<h2 id="11-SVM和逻辑斯特回归对同一样本A进行训练，如果某类中增加一些数据点，那么原来的决策边界分别会怎么变化？"><a href="#11-SVM和逻辑斯特回归对同一样本A进行训练，如果某类中增加一些数据点，那么原来的决策边界分别会怎么变化？" class="headerlink" title="11 SVM和逻辑斯特回归对同一样本A进行训练，如果某类中增加一些数据点，那么原来的决策边界分别会怎么变化？"></a>11 SVM和逻辑斯特回归对同一样本A进行训练，如果某类中增加一些数据点，那么原来的决策边界分别会怎么变化？</h2><p>不妨设只添加一个数据点，且它属于“+”的那一类。</p>
+<p>SVM：如果这个数据点本身在margin之外“+”的那一侧，那么判决边界不受影响。如果这个数据点在margin之内，或者在margin之外“-”的那一侧，那么这个点一定会成为新的支持向量。但是，判决边界并不一定发生变化，因为这个数据点可能能够被目标函数中的容错项处理掉。</p>
+<p>LR：当新数据点在“+”类这一边，但离判决边界比较近。新的模型为了能够正确判别这个数据点，会把判决边界向“-”类方向移动。当数据点在“+”类这一边，但离判决边界很远，旧模型已经可以毫无压力地把它判别正确。这时，新模型反倒会把判决边界向“+”类方向移动，这样虽然新的数据点的似然值减小了一点儿，但换来的是原来的“-”类数据似然值增加。</p>
+<h1 id="七-支持向量机"><a href="#七-支持向量机" class="headerlink" title="七 支持向量机"></a>七 支持向量机</h1><h2 id="1-支持向量机原理"><a href="#1-支持向量机原理" class="headerlink" title="1 支持向量机原理"></a>1 支持向量机原理</h2><p>SVM，全称是Support vector machine，中文名叫支持向量机。SVM是一个面向数据的分类算法，它的基本模型是定义在特征空间上的间隔最大的线性分类器，它的目标是确定一个分类超平面，从而将不同的数据分隔开。支持向量机的学习策略就是间隔最大化，可形式化为一个求解凸二次规划的问题，也等价于正则化的合页损失函数的最小化问题。SVM的损失函数自带正则项，这就是为什么SVM是结构风险最小化算法。</p>
+<p>SVM主要包括线性可分支持向量机、线性支持向量机以及非线性支持向量机三种模型。当训练数据线性可分时，通过硬间隔最大化，学习一个线性的分类器，即线性可分支持向量机，又称为硬间隔支持向量机；当训练数据近似线性可分时，通过软间隔最大化，也学习一个线性的分类器，即线性支持向量机，又称为软间隔支持向量机；当数训练数据线性不可分时，通过使用核技巧及软间隔最大化，学习非线性支持向量机。</p>
+<ul>
+<li>硬间隔最大化：当训练数据线性可分时，有许多超平面可以将数据正确分类，我们应该寻找位于两类训练样本正中间的超平面，也就是样本点与直线的距离最大的那条直线。</li>
+<li>支持向量：距离超平面最近的几个训练样本称为支持向量。</li>
+<li>学习的对偶算法：一个优化问题可以从两个角度进行考察，一个是原始问题，一个是对偶问题，通过给每一个约束条件加上一个拉格朗日乘子，定义拉格朗日函数，也就是通过拉格朗日函数将约束条件融合到目标函数里，从而只用一个函数表达式便能清楚地表达我们的问题。一般情况下对偶问题给出原始问题最优解的下界，对偶问题是凸优化问题，可以进行较好的求解，SVM就是将原始问题转换为对偶问题进行求解，从而进一步引入核函数的思想，进而推广到非线性分类问题。</li>
+<li>软间隔最大化：通常情况下训练数据不是线性可分的，训练数据中有一些特异点，将这些特异点去除后，剩下大部分的样本点组成的集合是线性可分的，通过对每个样本点引入一个松弛变量，使函数间隔加上松弛变量可以被正确分类，求解的是凸二次规划问题，显然线性支持向量机包含线性可分支持向量机，由于现实中训练数据集往往是线性不可分的，线性支持向量机有更广的适用性。</li>
+<li>核技巧：通过一个非线性变换，将非线性问题变换为线性问题。即在核函数给定的条件下，可以利用解线性分类问题的方法求解非线性问题的支持向量机。在线性不可以的分类问题中，可以使用核函数将原始空间映射到一个更高维度的特征空间，使得样本在这个特征空间内线性可分，然后在新空间里用线性分类学习方法从训练数据中学习分类模型。</li>
+<li>常用核函数：线性核，多项式核，高斯核，拉普拉斯核，sigmoid核。</li>
+</ul>
+<h2 id="2-带核的SVM为什么能分类非线性问题？"><a href="#2-带核的SVM为什么能分类非线性问题？" class="headerlink" title="2 带核的SVM为什么能分类非线性问题？"></a>2 带核的SVM为什么能分类非线性问题？</h2><p>核函数的本质是两个函数的内积，通过核函数将其映射到高维空间，在高维空间将非线性问题转化为线性问题，SVM得到超平面是高维空间的线性分类平面，其分类结果也可以看做为低维空间的非线性分类结果，因而带核的SVM能解决非线性分类问题。</p>
+<h2 id="3-线性可分的两类点向SVM分类的超平面上做投影，这些点在超平面上的投影仍然是线性可分的吗"><a href="#3-线性可分的两类点向SVM分类的超平面上做投影，这些点在超平面上的投影仍然是线性可分的吗" class="headerlink" title="3 线性可分的两类点向SVM分类的超平面上做投影，这些点在超平面上的投影仍然是线性可分的吗"></a>3 线性可分的两类点向SVM分类的超平面上做投影，这些点在超平面上的投影仍然是线性可分的吗</h2><p>不是线性可分的，我们可以通过凸优化理论中的超平面分离定理（Separating Hyperplane Theorem，SHT）解决。该定理描述的是，对于不相交的两个凸集，存在一个超平面，将两个凸集分离。</p>
+<p>对于二维的情况，两个凸集间距离最短两点连线的中垂线就是一个将它们分离的超平面。先对线性可分的这两组点求各自的凸包，凸包就表示两个类别数据点的外边界。不难发现，SVM求得的超平面就是两个凸包上距离最短的两点连线的中垂线，也就是超平面分离定理二维情况中所阐释的分类超平面。根据凸包的性质容易知道，凸包上的点要么是样本点，要么处于两个样本点的连线上。因此，两个凸包间距离最短的两个点可以分为三种情况：</p>
+<ul>
+<li>两边的点均为样本点；</li>
+<li>两边的点均在样本点的连线上;</li>
+<li>一边的点为样本点，另一边的点在样本点的连线上从几何上分析即可知道，无论哪种情况两类点的投影均是线性不可分的。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-支持向量机/1.png" alt="mark"></p>
+<h2 id="4-加大训练数据量一定能提高SVM准确率吗"><a href="#4-加大训练数据量一定能提高SVM准确率吗" class="headerlink" title="4 加大训练数据量一定能提高SVM准确率吗"></a>4 加大训练数据量一定能提高SVM准确率吗</h2><p>当然不一定，如果加入的数据包含很多噪音，或者数据的多样性不够，对效果提升其实没啥帮助。SVM本质上是凸优化问题，如果增加的样本点只是无效约束，并不会影响其最后的结果。这也就是为什么SVM适合于小样本量数据集的原因。随样本量而使模型自身发生改变的，是统计推断。最大似然，再到贝叶斯，每个都涉及到样本数连乘的一项，这些方法建立的模型才真正和样本数量有最直接的联系。</p>
+<h2 id="5-SVM解决多分类问题的方法"><a href="#5-SVM解决多分类问题的方法" class="headerlink" title="5 SVM解决多分类问题的方法"></a>5 SVM解决多分类问题的方法</h2><p>SVM算法最初是为二值分类问题设计的，当处理多类问题时，就需要构造合适的多类分类器。目前，构造SVM多类分类器的方法主要有两类：一类是直接法，直接在目标函数上进行修改，将多个分类面的参数求解合并到一个最优化问题中，通过求解该最优化问题“一次性”实现多类分类。这种方法看似简单，但其计算复杂度比较高，实现起来比较困难，只适合用于小型问题中；另一类是间接法，主要是通过组合多个二分类器来实现多分类器的构造，常见的方法有一对一，一对多以及层次支持向量机三种。</p>
+<ul>
+<li>一对一法（one-versus-one,简称1-v-1 SVMs）。其做法是在任意两类样本之间设计一个SVM，因此k个类别的样本就需要设计 $k(k-1)/2$ 个SVM。当对一个未知样本进行分类时，最后得票最多的类别即为该未知样本的类别。Libsvm中的多类分类就是根据这个方法实现的。</li>
+<li>一对多法（one-versus-rest,简称1-v-r SVMs）。训练时依次把某个类别的样本归为一类,其他剩余的样本归为另一类，这样k个类别的样本就构造出了k个SVM。分类时将未知样本分类为具有最大分类函数值的那类。</li>
+<li>层次支持向量机（H-SVMs）。层次分类法首先将所有类别分成两个子类，再将子类进一步划分成两个次级子类，如此循环，直到得到一个单独的类别为止。</li>
+</ul>
+<h2 id="6-SVM解决回归问题的方法"><a href="#6-SVM解决回归问题的方法" class="headerlink" title="6 SVM解决回归问题的方法"></a>6 SVM解决回归问题的方法</h2><p>SVR是SVM的一种运用，基本的思路是一致，除了一些细微的区别。使用SVR作回归分析，与SVM一样，我们需要找到一个超平面，不同的是：在SVM中我们要找出一个间隔（gap）最大的超平面，而在SVR，我们定义一个阈值a，定义虚线内区域的数据点的残差为0，即SVR认为只要 $f(x)$ 与 $y$ 偏离程度不是太大，就可以认为预测正确，而虚线区域外的数据点到虚线的边界的距离为残差（$\zeta$）。与线性模型类似，我们希望这些残差（$\zeta$）最小。所以大致上来说，在虚线区域部分的数据点我们都认为该模型预测准确了，只计算虚线区域外的数据点的损失，SVR就是要找出一个最佳的条状区域（ $2a$ 宽度），再对区域外的点进行回归。</p>
+<p><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-支持向量机/2.png" alt="mark"></p>
+<p>对于非线性的模型，与SVM一样使用核函数（kernel function）映射到特征空间，然后再进行回归。</p>
+<h2 id="7-SVM的优缺点"><a href="#7-SVM的优缺点" class="headerlink" title="7 SVM的优缺点"></a>7 SVM的优缺点</h2><p>优点</p>
+<ul>
+<li>使用核函数可以向高维空间进行映射</li>
+<li>使用核函数可以解决非线性的分类</li>
+<li>分类思想很简单，就是将样本与决策面的间隔最大化</li>
+</ul>
+<p>缺点</p>
+<ul>
+<li>SVM算法对大规模训练样本难以实施，由于SVM是借助二次规划来求解支持向量，而求解二次规划将涉及m阶矩阵的计算（m为样本的个数），当m数目很大时该矩阵的存储和计算将耗费大量的机器内存和运算时间。</li>
+<li>SVM无法直接支持多分类问题。</li>
+</ul>
+<h2 id="8-支持向量机-SVM-是否适合大规模数据"><a href="#8-支持向量机-SVM-是否适合大规模数据" class="headerlink" title="8 支持向量机(SVM)是否适合大规模数据"></a>8 支持向量机(SVM)是否适合大规模数据</h2><p>这个问题其实有两个层面，一个层面是，svm在分类效果上是否适合大规模数据；另外一个层面是，svm对于大规模数据训练的运算量是否太大而无法使用。</p>
+<p>第一个层面的理解。我理解SVM并不是不适合大规模数据，而应该说，SVM在小样本训练集上能够得到比其它算法好很多的结果。支持向量机之所以成为目前最常用，效果最好的分类器之一，在于其优秀的泛化能力，这是是因为其本身的优化目标是结构化风险最小，而不是经验风险最小，因此，通过margin的概念，得到对数据分布的结构化描述，因此减低了对数据规模和数据分布的要求。而大规模数据上，并没有实验和理论证明表明SVM会差于其它分类器，也许只是相对其它分类器而言，领先的幅度没有那么高而已。</p>
+<p>第二个层面，大规模数据，在很大程度上取决于你所面对的应用以及可用的计算资源，算法能不能处理大规模数据主要有两点要素，1）算法是否依赖于对训练集的随机访问。依赖于训练集随机访问的算法需要将训练集全部加载进内存，所能处理的数据量受内存大小的限制。2）算法是否能有效地利用分布式（或并行的）计算资源。单台计算机（或单处理器）的处理能力毕竟是有限的。如果可用的计算资源增长100倍，算法能处理的数据量的增长远小于100倍，则算法的适用范围也会有很大的限制。但对于大规模学习来说，障碍往往在于算法的计算能力不足，不是数据不够，所以我觉得传统的统计学习方法都不适合大规模数据处理(包括SVM)。</p>
+<h1 id="八-贝叶斯"><a href="#八-贝叶斯" class="headerlink" title="八 贝叶斯"></a>八 贝叶斯</h1><h2 id="1-贝叶斯原理"><a href="#1-贝叶斯原理" class="headerlink" title="1 贝叶斯原理"></a>1 贝叶斯原理</h2><p>贝叶斯公式直接可以根据条件概率的定义直接推出。考虑一个问题： $P(A|B)$ 是在B发生的情况下A发生的可能性。首先，事件B发生之前，我们对事件A的发生有一个基本的概率判断，称A的先验概率，用 $P(A)$  表示。其次，事件B发生之后，我们对事件A的发生概率重新评估，称为A的后验概率，用 $P(A|B)$ 表示。同样地定义 $P(B)$ 和 $P(B|A)$ 。<br>所以根据贝叶斯公式为：</p>
+<script type="math/tex; mode=display">
+P(A | B)=\frac{P(B |  A) P(A)}{P(B)}</script><p>根据条件概率公式，在事件B发生的情况下事件A发生的概率是</p>
+<script type="math/tex; mode=display">{P}({A} | {B})={P}({A} \cap {B}) / {P}({B})</script><p>同样地，在事件A发生的条件下事件B发生的概率是</p>
+<script type="math/tex; mode=display">{P}({B} | {A})={P}({A} \cap {B}) / {P}({A})</script><p>整合上述两个公式：$P(A|B)P(B)=P(B|A)P(A)$ ，上式两边同除 $P(B)$ ，若P(B)是非零的，我们可以直接得到贝叶斯定理的公式表达式。</p>
+<p>Note：</p>
+<ul>
+<li>条件概率：在同一个样本空间 $\Omega$ 中包含事件A和事件B，如果随机从$\Omega$中选出的一个元素属于B，那么这个随机选择的元素还属于A的概率就定义为在B的前提下A的条件概率，所以 ${P}({B} | {A})={P}({A} \cap {B}) / {P}({A})$。</li>
+<li>联合概率表示两个时间共同发生的概率。A和B的联合概率表示为 ${P}({A} \cap {B})$ 或者 $P(A,B)$。</li>
+<li>边缘概率又称先验概率：是某个事件发生的概率。在联合概率中，把最终结果中那些不需要的事件通过合并成它们的全概率，而消去它们（对离散随机变量用求和得全概率，对连续随机变量用积分得全概率），这称为边缘化（marginalization），比如A的边缘概率表示为 $P(A)$，B的边缘概率表示为 $P(B)$。</li>
+</ul>
+<h2 id="2-朴素贝叶斯算法里的先验概率，似然估计和边际似然估计"><a href="#2-朴素贝叶斯算法里的先验概率，似然估计和边际似然估计" class="headerlink" title="2 朴素贝叶斯算法里的先验概率，似然估计和边际似然估计"></a>2 朴素贝叶斯算法里的先验概率，似然估计和边际似然估计</h2><p>先验概率就是因变量（二分法）在数据集中的比例，这是在没有任何进一步信息的时候，对分类能做出的最接近的猜测。<br>例如，在一个数据集中，，因变量是二进制的1和0,1（垃圾邮件）的比例为70%和0（非垃圾邮件）的为30%，因此，我们可以估算任何新的电子邮件有70%的概率为垃圾邮件。<br>似然估计就是在其他一些变量给定的情况下，一个观测值被分类为1的概率，例如，“free”这个词在以前的垃圾邮件中使用的概率就是似然估计，边际似然估计就是，“free”这个词在任何消息中使用的概率。</p>
+<h2 id="3-为什么朴素贝叶斯如此朴素"><a href="#3-为什么朴素贝叶斯如此朴素" class="headerlink" title="3 为什么朴素贝叶斯如此朴素"></a>3 为什么朴素贝叶斯如此朴素</h2><p>因为它假设所有特征在数据集中的作用是同样重要和独立的，即特征条件独立性。但是在实际问题中，这种假设很少成立，但特征相关性很小的实际情况还是很多的，所以这个模型依然有一定的适用性。</p>
+<p>Note</p>
+<ul>
+<li>朴素贝叶斯法是基于贝叶斯定理与特征条件独立假设的分类方法。对于给定的训练数据集，首先基于特征条件独立假设学习输入和输出的联合概率密度，然后基于此模型，对给定的输入x，利用贝叶斯定理求出后验概率最大的输出 y。</li>
+<li>朴素贝叶斯属于生成模型。</li>
+</ul>
+<h2 id="4-当你在Google中输入“Julw”时，系统会猜测你的意图：是不是要搜索“July”，这叫拼写检查，根据谷歌一员工写的文章显示，Google的拼写检查是基于贝叶斯方法，具体Google是怎么利用贝叶斯方法，实现拼写检查的？"><a href="#4-当你在Google中输入“Julw”时，系统会猜测你的意图：是不是要搜索“July”，这叫拼写检查，根据谷歌一员工写的文章显示，Google的拼写检查是基于贝叶斯方法，具体Google是怎么利用贝叶斯方法，实现拼写检查的？" class="headerlink" title="4 当你在Google中输入“Julw”时，系统会猜测你的意图：是不是要搜索“July”，这叫拼写检查，根据谷歌一员工写的文章显示，Google的拼写检查是基于贝叶斯方法，具体Google是怎么利用贝叶斯方法，实现拼写检查的？"></a>4 当你在Google中输入“Julw”时，系统会猜测你的意图：是不是要搜索“July”，这叫拼写检查，根据谷歌一员工写的文章显示，Google的拼写检查是基于贝叶斯方法，具体Google是怎么利用贝叶斯方法，实现拼写检查的？</h2><p>用户输入一个单词，可能拼写正确，也可能拼写错误。如果把拼写正确记为c（代表correct），拼写错误记为w（代表wrong），那么拼写检查要做的事情是：在发生w的情况下，试图推断出c。换言之，已知w，然后 在若干个备选方案中，找出可能性最大的那个c，也就是求P(c|w)的最大值。</p>
+<p>根据贝叶斯定理 $P(c | w)=\frac{P(w |  c) P(c)}{P(w)} $，对于所有的备选 c来说，对应的都是同一个 w，所以它们的 $P(w)$  相同，因此我们只要最大化 $P(w|c)P(c)$ 即可。</p>
+<p>P(c)表示某个正确的词出现的概率，它可以用频率代替，如果我们有一个足够大的文本库，那么这个文本库中每个单词的出现概率，就相当于它的发生频率。某个词出现概率越大，P(c)就越大。比如在你输入一个错误的次‘julw’时，系统更倾向于去猜测你可能想输入的词是‘july’，而不是‘jult’，因为‘july’更常见。</p>
+<p>$P(w|c)$ 表示在试图拼写c的情况下，出现拼写错误w的概率，我们可以使用编辑距离度量两个词的接近程度，两个词越接近，越有可能拼错，$P(w|c)$ 越大。所以我们比较所有拼写相近的词在文本库中的出现频率，再从中挑出出现频率最高的一个，即是用户想输入的那个词。</p>
+<p>Note</p>
+<ul>
+<li>两个词的编辑距离：一个词转变到另一个词所需的步骤。</li>
+</ul>
+<h1 id="九-决策树"><a href="#九-决策树" class="headerlink" title="九 决策树"></a>九 决策树</h1><h2 id="1-决策树的基本原理"><a href="#1-决策树的基本原理" class="headerlink" title="1 决策树的基本原理"></a>1 决策树的基本原理</h2><p>决策树是一种自上而下，递归地将样本数据进行树形分类的过程，由结点和有向边组成。结点分为内部结点和叶结点，其中每个内部结点表示一个特征或属性，叶结点表示类别。从顶部根结点开始，所有样本聚在一起。经过根结点的划分，样本被分到不同的子结点中。再根据子结点的特征进一步划分，直至所有样本都被归到某一个类别（即叶结点）中。</p>
+<p>决策树的目标是从一组样本数据中，根据不同的特征和属性，建立一棵树形的分类结构。我们既希望它能拟合训练数据，达到良好的分类效果，同时又希望控制其复杂度，使得模型具有一定的泛化能力。对于一个特定的问题，决策树的选择可能有很多种。</p>
+<h2 id="2-ID3，C4-5，CART原理"><a href="#2-ID3，C4-5，CART原理" class="headerlink" title="2 ID3，C4.5，CART原理"></a>2 ID3，C4.5，CART原理</h2><p>决策树的关键是如何选择最优划分树形，一般来说，随着划分过程不断进行，我们希望决策树的分支结点所包含的样本尽可能属于同一类别，也就是希望结点的”纯度”(purity)越来越高。</p>
+<ul>
+<li><p>ID3—最大信息增益准则。信息增益=信息熵-条件熵。</p>
+<script type="math/tex; mode=display">
+\operatorname{Gain}(D, a)=\operatorname{Ent}(D)-\sum_{v=1}^{V} \frac{\left|D^{v}\right|}{|D|} \operatorname{Ent}\left(D^{v}\right)</script><p>信息熵：信息熵的度量等于不确定性的多少。越不确定的事物，信息熵越高。</p>
+<script type="math/tex; mode=display">
+\operatorname{Ent}(D)=-\sum_{k=1}^{|\mathcal{Y}|} p_{k} \log _{2} p_{k}</script><p>条件熵</p>
+<script type="math/tex; mode=display">
+H(D | A)=\sum_{i=1}^{n} \frac{\left|D_{i}\right|}{|D|} H\left(D_{i}\right)=\sum_{i=1}^{n} \frac{\left|D_{i}\right|}{|D|}\left(-\sum_{k=1}^{k} \frac{\left|D_{i k}\right|}{\left|D_{i}\right|} \log _{2} \frac{\left|D_{i k}\right|}{\left|D_{i}\right|}\right)</script><p>对于各类别样本数量不一致数据，信息增益准则对可取值数目较多的属性有所偏好。例如N个样本有N个取值，每一个取值都是1/N，信息熵最大，因此信息增益最大。</p>
+</li>
+<li><p>C4.5—最大信息增益比。</p>
+<script type="math/tex; mode=display">
+G_R(D, a)=\frac{\operatorname{Gain}(D, a)}{\operatorname{IV}(a)}</script><script type="math/tex; mode=display">
+\mathrm{IV}(a)=-\sum_{v=1}^{V} \frac{\left|D^{v}\right|}{|D|} \log _{2} \frac{\left|D^{v}\right|}{|D|}</script><p>$\mathrm{IV}(a)$ 是属性$a$的”固有值”(intrinsic value)，属性$a$的可能取值数目越多(即 $V$ 越大)，则 $\mathrm{IV}(a)$  的值通常会越大，导致信息增益比小，因此信息增益比对可取值数目较少的属性有所偏好。</p>
+</li>
+<li><p>CART—最小基尼指数。</p>
+<script type="math/tex; mode=display">
+\operatorname{Gini}(D, a)=\sum_{v=1}^{V} \frac{\left|D^{v}\right|}{|D|} \operatorname{Gini}\left(D^{v}\right)</script><script type="math/tex; mode=display">
+\operatorname{Gini}(D)=1-\sum_{k=1}^{|y|} p_{k}^{2}</script><p>$\operatorname{Gini}(D)$ 越小，则数据集D的纯度越高，我们在候选属性集合A中，选择那个使得划分后基尼指数最小的属性作为最优划分属性。</p>
+</li>
+</ul>
+<h2 id="3-ID3，C4-5，CART的对比"><a href="#3-ID3，C4-5，CART的对比" class="headerlink" title="3 ID3，C4.5，CART的对比"></a>3 ID3，C4.5，CART的对比</h2><p>首先，ID3是采用信息增益作为评价标准，会倾向于取值较多的特征。因为，信息增益反映的是给定条件以后不确定性减少的程度，特征取值越多就意味着确定性更高，也就是条件熵越小，信息增益越大。这在实际应用中是一个缺陷。比如，我们引入特征“DNA”，每个人的DNA都不同，如果ID3按照“DNA”特征进行划分一定是最优的（条件熵接近于0），但这种分类的泛化能力是非常弱的。因此，C4.5实际上是对ID3进行优化，通过引入信息增益比，一定程度上对取值比较多的特征进行惩罚，避免ID3出现过拟合的特性，提升决策树的泛化能力。</p>
+<p>其次，从样本类型的角度，ID3只能处理离散型变量，而C4.5和CART都可以处理连续型变量。C4.5处理连续型变量时，通过对数据排序之后找到类别不同的分割线作为切分点，根据切分点把连续属性转换为布尔型，从而将连续型变量转换多个取值区间的离散型变量。而对于CART，由于其构建时每次都会对特征进行二值划分，即CART是一棵二叉树，采用二元切割法，每一步将数据按照特征的取值分成两份，分别进入左右子树，因此可以很好地适用于连续性变量。</p>
+<p>从应用角度，ID3和C4.5只能用于分类任务，而CART（Classification and Regression Tree，分类回归树）从名字就可以看出其不仅可以用于分类，也可以应用于回归任务（回归树使用最小平方误差准则）。</p>
+<h2 id="4-剪枝处理"><a href="#4-剪枝处理" class="headerlink" title="4 剪枝处理"></a>4 剪枝处理</h2><p>剪枝(pruning)是决策树学习算法对付”过拟合”的主要手段。在决策树学习中，为了尽可能正确分类训练样本，结点划分过程将不断重复，有时会造成决策树分支过多，这时就可能因训练样本学得”太好”了，以致于把训练集自身的一些特点当作所有数据都具有的一般性质而导致过拟合。因此可通过主动去掉一些分支来降低过拟合的风险。</p>
+<p>决策树的剪枝通常有两种方法，预剪枝（Pre-Pruning）和后剪枝（Post-Pruning）。</p>
+<ul>
+<li><p>预剪枝：预剪枝是指在决策树生成过程中，对每个结点在划分前先进行估计，若当前结点的划分不能带来决策树泛化性能提升，则停止划分并将当前结点标记为叶结点，此时可能存在不同类别的样本同时存于该叶结点中，按照多数投票的原则判断该叶结点所属类别。预剪枝对于何时停止决策树的生长有以下几种方法：<br>  ①当树到达一定深度的时候，停止树的生长。<br>  ②当到达当前结点的样本数量小于某个阈值的时候，停止树的生长。<br>  ③计算每次分裂对测试集的准确度提升，当小于某个阈值的时候，不再继续扩展。<br>预剪枝具有思想直接、算法简单、效率高等特点，适合解决大规模问题。但如何准确地估计何时停止树的生长（即上述方法中的深度或阈值），针对不同问题会有很大差别，需要一定经验判断。且预剪枝存在一定局限性，有欠拟合的风险，虽然当前的划分会导致测试集准确率降低，但在之后的划分中，准确率可能会有显著上升。</p>
+</li>
+<li><p>后剪枝：后剪枝则是先从训练集生成一棵完整的决策树，然后自底向上地对非叶结点进行考察，若将该结点对应的子树替换为叶结点能带来决策树泛化性能提升，则将该子树替换为叶结点。该结点的类别同样按照多数投票的原则进行判断。同样地，后剪枝也可以通过在测试集上的准确率进行判断，如果剪枝过后准确率有所提升，则进行剪枝。相比于预剪枝，后剪枝方法通常可以得到泛化能力更强的决策树，但时间开销会更大。</p>
+</li>
+</ul>
+<h2 id="5-树形结构为什么不需要归一化"><a href="#5-树形结构为什么不需要归一化" class="headerlink" title="5 树形结构为什么不需要归一化"></a>5 树形结构为什么不需要归一化</h2><p>树形结构算法通常是一个递归地选择最优特征，并根据该特征对训练数据进行分割，使得对各个子数据集有一个最好的分类的过程，数值缩放不影响特征值的排序顺序，因此所属的分支以及分裂点的位置就不会改变，所以归一化对树模型的结构不造成影响。而且树模型数不能进行梯度下降的，因为构建树模型是通过递归地寻找最优分裂点完成的，因此树模型是阶跃的，阶跃点是不可导的，并且求导没有意义，也就不需要归一化。</p>
+<h1 id="十-集成学习"><a href="#十-集成学习" class="headerlink" title="十 集成学习"></a>十 集成学习</h1><h2 id="1-集成学习的原理步骤"><a href="#1-集成学习的原理步骤" class="headerlink" title="1 集成学习的原理步骤"></a>1 集成学习的原理步骤</h2><p>集成学习(ensemble learning)通过构建并结合多个学习器来完成学习任务，有时也被称为多分类器系统(multi-classifier system)、基于委员会的学习(committee-based learning)等。集成学习一般可分为以下3个步骤。</p>
+<ul>
+<li>找到误差互相独立的基分类器。</li>
+<li>训练基分类器。</li>
+<li>合并基分类器的结果。</li>
+</ul>
+<h2 id="2-集成学习的合并策略"><a href="#2-集成学习的合并策略" class="headerlink" title="2 集成学习的合并策略"></a>2 集成学习的合并策略</h2><p>合并基分类器的主要有三种：平均法（averaging），投票法（voting），学习法（stacking）三种。</p>
+<p>平均法有简单平均法和加权平均法。在个体学习器性能相差较大时宜使用加权平均法，而在个体学习器性能相近时宜使用简单平均法。</p>
+<p>投票法有绝对多数投票法，相对多数投票法和加权投票法。标准的绝对多数投票法提供了”拒绝预测”选项，也就是在没有类别超过一半时不给出预测，这在可靠性要求较高的学习任务中是一个很好的机制.但若学习任务要求必须提供预测结果，则绝对多数投票法将退化为相对多数投票法。因此，在不允许拒绝预测的任务中，绝对多数、相对多数投票法统称为”多数投票法”。</p>
+<p>学习法通过另一个学习器，用串行的方式，Stacking先从初始数据集训练出初级学习器，然后”生成”一个新数据集用于训练次级学习器.在这个新数据集中，初级学习器的输出被当作样例输入到次级分类器，最后将所有基分类器的输出结果相加或者用更复杂的算法融合。比如把各基分类器的输出作为特征，使用逻辑回归作为融合模型进行最后的结果预测）作为最终的输出。在训练阶段，次级训练集是利用初级学习器产生的，若直接用初级学习器的训练集来产生次级训练集，则过拟合风险会比较大;因此一般是通过使用交叉验证或留一法这样的方式，用训练初级学习器未使用的样本来产生次级学习器的训练样本。</p>
+<p>此外还有一种方法为Blending，Blending步骤如下：<br>原始训练数据集划分为训练数据集和验证数据集，针对训练数据集训练多个模型，每个模型针对验证数据集的结果构成新的训练数据集，每个模型针对预测数据集的结果构成新的预测数据集。然后针对新的训练数据集训练模型，训练完成后，得到的模型对新的预测数据集的结果作为最终的结果。<br>Blending与Stacking大致相同，只是Blending的主要区别在于训练集不是通过K-Fold的CV策略来获得预测值从而生成第二阶段模型的特征，而是建立一个Holdout集。简单来说，Blending直接用不相交的数据集用于不同层的训练。</p>
+<h2 id="3-集成学习的分类boosting和bagging"><a href="#3-集成学习的分类boosting和bagging" class="headerlink" title="3 集成学习的分类boosting和bagging"></a>3 集成学习的分类boosting和bagging</h2><p>Boosting方法训练基分类器时采用串行的方式，各个基分类器之间有依赖。它的基本思路是将基分类器层层叠加，每一层在训练的时候，对前一层基分类器分错的样本，给予更高的权重。测试时，根据各层分类器的结果的加权得到最终结果。Boosting的过程很类似于人类学习的过程，我们学习新知识的过程往往是迭代式的，第一遍学习的时候，我们会记住一部分知识，但往往也会犯一些错误，对于这些错误，我们的印象会很深。第二遍学习的时候，就会针对犯过错误的知识加强学习，以减少类似的错误发生。不断循环往复，直到犯错误的次数减少到很低的程度。</p>
+<p>Bagging：Bagging与Boosting的串行训练方式不同，Bagging方法在训练过程中，各基分类器之间无强依赖，可以并行训练。它直接基于自助来样法(bootstrap sampling)。给定包含m个样本的数据集，我们先随机取出一个样本放入采样集中，再把该样本放回初始数据集，使得下次采样时该样本仍有可能被选中，这样，经过m次随机采样操作，我们得到含m个样本的采样集，初始训练集中有的样本在采样集里多次出现，有的则从未出现。初始训练集中约有63.2%的样本出现在来样集中。自助采样过程还给Bagging带来了另一个优点，由于每个基学习器只使用了初始训练集中约63.2%的样本，剩下约36.8%的样本可用作验证集来对泛化性能进行”包外估计”（oob）。<br>Bagging方法更像是一个集体决策的过程，每个个体都进行单独学习，学习的内容可以相同，也可以不同，也可以部分重叠。但由于个体之间存在差异性，最终做出的判断不会完全一致。在最终做决策时，每个个体单独作出判断，再通过投票的方式做出最后的集体决策。</p>
+<h2 id="4-建了5个GBM，没有一个模型比基准模型表现得更好。"><a href="#4-建了5个GBM，没有一个模型比基准模型表现得更好。" class="headerlink" title="4 建了5个GBM，没有一个模型比基准模型表现得更好。"></a>4 建了5个GBM，没有一个模型比基准模型表现得更好。</h2><p>组合的学习模型是基于合并弱的学习模型来创造一个强大的学习模型。但是，只有当各模型之间没有相关性的时候组合起来才比较强大，由于我们已经试了5个GBM，但没有提高精度，表明这些模型是相关的。具有相关性的模型的问题是，所有的模型提供相同的信息。</p>
+<h2 id="5-偏差、方差、噪声的含义"><a href="#5-偏差、方差、噪声的含义" class="headerlink" title="5 偏差、方差、噪声的含义"></a>5 偏差、方差、噪声的含义</h2><ul>
+<li>偏差度量了学习算法的期望预测与真实结果的偏离程度，即刻画了学习算法本身的拟合能力;</li>
+<li>方差度量了同样大小的训练集的变动所导致的学习性能的变化，即刻画了数据扰动所造成的影响;</li>
+<li>噪声则表达了在当前任务上任何学习算法所能达到的期望泛化误差的下界，即刻画了学习问题本身的难度.</li>
+</ul>
+<p>偏差一方差分解说明，泛化性能是由学习算法的能力、数据的充分性以及学习任务本身的难度所共同决定的.给定学习任务，为了取得好的泛化性能，则需使偏差较小，即能够充分拟合数据，并且使方差较小，即使得数据扰动产生的影响小.</p>
+<h2 id="6-从偏差-方差分解的角度理解Boosting和Bagging"><a href="#6-从偏差-方差分解的角度理解Boosting和Bagging" class="headerlink" title="6 从偏差-方差分解的角度理解Boosting和Bagging"></a>6 从偏差-方差分解的角度理解Boosting和Bagging</h2><p>基分类器，有时又被称为弱分类器，因为基分类器的错误率要大于集成分类器。基分类器的错误，是偏差和方差两种错误之和。偏差主要是由于分类器的表达能力有限导致的系统性错误，表现在训练误差不收敛。方差是由于分类器对于样本分布过于敏感，导致在训练样本数较少时，产生过拟合。</p>
+<p>Boosting方法是通过逐步聚焦于基分类器分错的样本，减小集成分类器的偏差。Bagging方法则是采取分而治之的策略，通过对训练样本多次采样，并分别训练出多个不同模型，然后做综合，来减小集成分类器的方差</p>
+<p>也就是Bagging能够提高弱分类器性能的原因是降低了方差，而Boosting能够提升弱分类器性能的原因是降低了偏差。</p>
+<h2 id="7-Bagging为什么会减小方差"><a href="#7-Bagging为什么会减小方差" class="headerlink" title="7 Bagging为什么会减小方差"></a>7 Bagging为什么会减小方差</h2><p>角度1：Bagging是Bootstrap Aggregating的简称，意思就是再抽样，然后在每个样本上训练出来的模型取平均，对n个独立不相关的模型的预测结果取平均，方差是原来单个模型的1/n。当然，模型之间不可能完全独立。为了追求模型的独立性，诸多Bagging的方法做了不同的改进。比如在随机森林算法中，每次选取节点分裂属性时，会随机抽取一个属性子集，而不是从所有属性中选取最优属性，这就是为了避免弱分类器之间过强的相关性。通过训练集的重采样也能够带来弱分类器之间的一定独立性，从而降低Bagging后模型的方差。</p>
+<p>角度2：Bagging每次减少了outlier的采样（原始数据集如果outlier很多的话，会 让Model记住太多噪声导致过拟合；bagging随机选取data的subset，outlier 因为比例比较低，参与model training的几率也比较低，所以bagging降低 了outliers和noise对model的影响，所以降低了variance（这个从outlier的 角度回答，所以很新颖）。</p>
+<p>再看Boosting，在Boosting的训练过程。在训练好一个弱分类器后，我们需要计算弱分类器的错误或者残差，作为下一个分类器的输入。这个过程本身就是在不断减小损失函数，来使模型不断逼近真实值，使得模型偏差不断降低。但Boosting的过程并不会显著降低方差。这是因为Boosting的训练过程使得各弱分类器之间是强相关的，缺乏独立性，所以并不会对降低方差有作用。</p>
+<h2 id="8-AdaBoost"><a href="#8-AdaBoost" class="headerlink" title="8 AdaBoost"></a>8 AdaBoost</h2><p>Boosting族算法最著名的代表是AdaBoost，它的思想是，对分类正确的样本降低了权重，对分类错误的样本升高或者保持权重不变。在最后进行模型融合的过程中，也根据错误率对基分类器进行加权融合。错误率低的分类器拥有更大的“话语权”。</p>
+<p>Boosting算法要求基学习器能对特定的数据分布进行学习，这可通过”重赋权法”(re-weighting)实施，即在训练过程的每一轮中，根据样本分布为每个训练样本重新赋予一个权重.对无法接受带权样本的基学习算法，则可通过”重采样法”(re-sampling)来处理，即在每一轮学习中，根据样本分布对训练集重新进行采样，再用重采样而得的样本集对基学习器进行训练.</p>
+<p>Boosting算法在训练的每一轮都要检查当前生成的基学习器是否满足基本条件(检查当前基分类器是否是比随机猜测好)，一旦条件不满足，则当前基学习器即被抛弃，且学习过程停止.在此种情形下，初始设置的学习轮数T也许遥远未达到，可能导致最终集成中只包含很少的基学习器而性能不佳.若采用”重采样法”，则可获得”重启动”机会以避免训练过程过早停止，即在抛弃不满足条件的当前基学习器之后，可根据当前分布重新对训练样本进行采样，再基于新的采样结果重新训练出基学习器，从而使得学习过程可以持续到预设的T轮完成.</p>
+<h2 id="9-随机森林-RF"><a href="#9-随机森林-RF" class="headerlink" title="9 随机森林 RF"></a>9 随机森林 RF</h2><p>随机森林(Random Forest，简称RF)是Bagging的一个扩展变体.在以决策树为基学习器构建Bagging集成的基础上，进一步在决策树的训练过程中引入了随机属性选择.</p>
+<p>具体来说，传统决策树在选择划分属性时是在当前结点的属性集合(假定有d个属性)中选择一个最优属性;而在RF中，对基决策树的每个结点，先从该结点的属性集合中随机选择一个包含k个属性的子集，然后再从这个子集中选择一个最优属性用于划分.这里的参数k控制了随机性的引入程度;若令k=d，则基决策树的构建与传统决策树相同;若令k=1，则是随机选择一个属性用于划分;一般情况下，推荐值k=log2d。</p>
+<p>随机森林的训练效率常优于Bagging，因为在个体决策树的构建过程中，Bagging使用的是”确定型”决策树，在选择划分属性时要对结点的所有属性进行考察，而随机森林使用的”随机型”决策树，即只需考察一个属性子集。这种属性扰动导致生成的决策树基分类器随机性较大，这样的不稳定的学习器更适合作为基分类器。因为样本随机性以及特征随机性保证了每棵树用的都是样本数据的一部分，使得每棵决策树之间的相关性减少，所以过拟合的可能性小。</p>
+<h2 id="10-随机森林如何处理缺失值"><a href="#10-随机森林如何处理缺失值" class="headerlink" title="10 随机森林如何处理缺失值"></a>10 随机森林如何处理缺失值</h2><ul>
+<li>缺失值较多的时候可以抛弃缺失值。</li>
+<li>缺失值较少时补充缺失值，对于训练集，同一个类别下的数据，如果是描述性数据缺少，用出现最多的值替换，如果是连续性数值，则用中位数替换。</li>
+<li>概率化缺失值，对缺失值的样本赋予该属性所有属性值的概率分布，即将缺失值按照其所在属性已知值的相对概率分布区创建决策树。</li>
+</ul>
+<h2 id="11-怎么理解决策树，Xgboost能处理缺失值？而有的模型（SVM）对缺失值比较敏感？"><a href="#11-怎么理解决策树，Xgboost能处理缺失值？而有的模型（SVM）对缺失值比较敏感？" class="headerlink" title="11 怎么理解决策树，Xgboost能处理缺失值？而有的模型（SVM）对缺失值比较敏感？"></a>11 怎么理解决策树，Xgboost能处理缺失值？而有的模型（SVM）对缺失值比较敏感？</h2><p>涉及到距离度量时，比如需要计算两个点的距离，缺失数据就变得比较重要。因为涉及到“距离”这个概念，那么缺失值处理不当就会导致效果很差，比如SVM，KNN等。</p>
+<p>树模型对于缺失值的敏感度降低，大部分时候可以在数据缺失的时候使用，决策树的缺失值可以用其所对应的类别中的中位数或者出现最多的数值替换，Xgboost可以为缺失值提供默认的分裂方向，使用能够最小化训练误差的方向作为默认的分裂方向。</p>
+<p>Note</p>
+<ul>
+<li>线性模型的代价函数往往涉及到距离的计算，计算预测值和真实值之间的差别，这容易导致对缺失值敏感。</li>
+<li>神经网络的鲁棒性强，对于缺失数据不是太敏感。</li>
+<li>贝叶斯模型对于缺失数据也比较稳定，数据量很小的时候首选贝叶斯。</li>
+<li>总结来看：数据量很小，用朴素贝叶斯；数据量适中或较大，用树模型，优先Xgboost；数据量大，使用神经网络；避免使用距离度量相关的模型，如KNN和SVM。</li>
+</ul>
+<h2 id="12-随机森林如何评估特征重要性"><a href="#12-随机森林如何评估特征重要性" class="headerlink" title="12 随机森林如何评估特征重要性"></a>12 随机森林如何评估特征重要性</h2><p>衡量变量重要性的方法有两种：mean decrease accuracy（平均降低精度）和mean decrease Gini（平均降低基尼系数）.</p>
+<ul>
+<li>Mean decrease accuracy：将一个变量的取值变为随机数，计算随机森林预测准确性的降低程度。该值越大表示该变量越重要。</li>
+<li>Mean decrease Gini：将一个变量的取值变为随机数，计算基尼系数变化的程度，从而比较变量的重要性。该值越大表示该变量越重要。</li>
+</ul>
+<h2 id="13-GBDT"><a href="#13-GBDT" class="headerlink" title="13 GBDT"></a>13 GBDT</h2><p>GBDT中文名是梯度提升决策树，它的核心思想是，每一棵树学的是之前所有树结论和的残差，这个残差就是一个加预测值后能得到真实值的累加量。具体来说就是根据当前模型损失函数的负梯度信息来训练新加入的弱分类器，然后将训练好的弱分类器以累加的形式结合到现有模型中。例如用户A的真实年龄是25岁，但第一棵决策树的预测年龄是22岁，差了3岁，即残差为3。那么在第二棵树里我们把A的年龄设为3岁去学习，如果第二棵树能把A分到3岁的叶子节点，那两棵树的结果相加就可以得到A的真实年龄；如果第二棵树的结论是5岁，则A仍然存在-2岁的残差，第三棵树里A的年龄就变成-2岁。这里使用残差继续学习，就是GBDT中Gradient Boosted所表达的意思。GBDT中使用的决策树通常为CART。</p>
+<h2 id="14-随机森林和GBDT之间的区别和联系"><a href="#14-随机森林和GBDT之间的区别和联系" class="headerlink" title="14 随机森林和GBDT之间的区别和联系"></a>14 随机森林和GBDT之间的区别和联系</h2><p>相同点：都是由多棵树组成，最终的结果都是由多棵树一起决定。</p>
+<p>不同点：最根本的区别是，随机森林算法使用bagging技术做出预测，GBDT采用boosting技术做预测，在bagging技术中，模型的训练是并行的，数据集用随机采样的方法被划分成n个样本集，然后，使用单一的学习算法，在所有样本上建模，接着利用投票或者求平均来组合所得到的预测。而boosting是串行运行的，在每一轮的预测之后，算法将分类出错的样本点加高权重，分对的降低权重，是分错的样本可以在后续一轮中得到校正，这种给予分类出错的样本高权重的顺序过程持续进行，直到达到停止标准为止。随机森林通过减少方差来提高模型的精度，生成树之间是不相关的，以把最大程度低减小方差。而GBDT提高了精度，减少了模型的偏差。</p>
+<h2 id="15-梯度提升和梯度下降的区别和联系是什么"><a href="#15-梯度提升和梯度下降的区别和联系是什么" class="headerlink" title="15 梯度提升和梯度下降的区别和联系是什么"></a>15 梯度提升和梯度下降的区别和联系是什么</h2><p>在最小化损失函数时，可以通过梯度下降思想来求得最小化的损失函数和对应的参数值，反过来，如果要求最大化的损失函数，可以通过梯度上升思想来求取。<br>两者都是在每一轮迭代中，利用损失函数相对于模型的负梯度方向的信息来对当前模型进行更新，只不过在梯度下降中，模型是以参数化形式表示，从而模型的更新等价于参数的更新。而在梯度提升中，模型并不需要进行参数化表示，而是直接定义在函数空间中，从而大大扩展了可以使用的模型种类。</p>
+<h2 id="16-GBDT的优点和局限性有哪些"><a href="#16-GBDT的优点和局限性有哪些" class="headerlink" title="16 GBDT的优点和局限性有哪些"></a>16 GBDT的优点和局限性有哪些</h2><p>优点</p>
+<ul>
+<li>在分布稠密的数据集上，泛化能力和表达能力都很好，这使得GBDT在Kaggle的众多竞赛中，经常名列榜首。</li>
+<li>采用决策树作为弱分类器使得GBDT模型具有较好的解释性和鲁棒性，能够自动发现特征间的高阶关系，并且也不需要对数据进行特殊的预处理如归一化等。</li>
+</ul>
+<p>局限性</p>
+<ul>
+<li>GBDT在高维稀疏的数据集上，表现不如支持向量机或者神经网络。</li>
+<li>GBDT在处理文本分类特征问题上，相对其他模型的优势不如它在处理数值特征时明显。</li>
+<li>训练过程需要串行训练。</li>
+</ul>
+<h2 id="17-XGBoost和GBDT的联系和区别"><a href="#17-XGBoost和GBDT的联系和区别" class="headerlink" title="17 XGBoost和GBDT的联系和区别"></a>17 XGBoost和GBDT的联系和区别</h2><p>原理：XGBoost类似于GBDT的优化版，在GBDT的基础上，目标函数增加了正则化项，并且在求解时做了二阶泰勒展开，不论是精度还是效率都有了提升。与GBDT相比，XGBoost具有以下的优点：</p>
+<ul>
+<li>损失函数是用泰勒展式二项逼近，同时用到了一阶和二阶导数，而GBDT只用到了一阶导数信息；另外，xgboost工具还支持自定义代价函数，只要函数可以求一阶和二阶求导。</li>
+<li>XGboost在损失函数中加入了正则化约束，降低了模型的方差，防止模型过拟合，降低了过拟合的可能性；</li>
+<li>节点分裂的方式不同，GBDT用的是基尼系数，XGBoost是经过优化推导后的，大致思想是根据百分位法列举几个可能成为分割点的候选特征，然后从候选特征中根据公式计算找出最佳的分割点。</li>
+<li>xgboost考虑了训练数据为稀疏值的情况，可以为缺失值指定默认的分裂方向，这能大大提升算法的效率。</li>
+<li>xgboost借鉴了随机森林中的特征采样技术，xgboost借鉴了随机森林的做法，支持列抽样，不仅能降低过拟合，还能减少计算，这也是xgboost异于传统gbdt的一个特性。</li>
+<li>缺失值的处理。对于特征的值有缺失的样本，xgboost可以自动学习出它的分裂方向。</li>
+<li>xgboost在一定程度上并行。xgboost的并行不是树维度上的并行，xgboost也是一次迭代完才能进行下一次迭代的。xgboost的并行是在特征维度上的。我们知道，决策树的学习最耗时的一个步骤就是对特征的值进行排序（因为要确定最佳分割点），xgboost在训练之前，预先对数据进行了排序，然后保存为block结构，后面的迭代中重复地使用这个结构，大大减小计算量。这个block结构也使得并行成为了可能，在进行节点的分裂时，需要计算每个特征的增益，最终选增益最大的那个特征去做分裂，那么各个特征的增益计算就可以开多线程进行。</li>
+<li>传统的GBDT以CART作为基分类器，XGBoost还支持线性分类器，这个时候XGBoost相当于带L1和L2正则化向的逻辑斯蒂回归（分类问题）或者线性回归（回归问题）。</li>
+<li>xgboost还考虑了当数据量比较大，内存不够时怎么有效使用磁盘，主要是结合多线程，数据压缩，分片的方法，尽可能的提高算法的效率。</li>
+<li>可并行的近似直方图算法，树节点在进行分裂时，我们需要计算每个特征的每个分割点对应的增益，即用贪心法枚举所有可能的分割点，当数据无法一次载入内存或在分布式情况下，贪心算法的效率就会变得很低，所以XGBoost提出了一种可并行的近似直方图算法，用于高效地生成候选的分割点。</li>
+</ul>
+<h2 id="18-为什么XGBoost要用泰勒展开"><a href="#18-为什么XGBoost要用泰勒展开" class="headerlink" title="18 为什么XGBoost要用泰勒展开"></a>18 为什么XGBoost要用泰勒展开</h2><ul>
+<li>Xgboost，当目标函数是MSE时，展开是一阶项（残差）+二阶项的形式，而其他目标函数，如logloss的展开式就没有这样的形式。为了能有个统一的形式，所以采用泰勒展开来得到二阶项，这样就能把MSE推导的那套直接复用到其他自定义损失函数上。简短来说，就是为了统一损失函数求导的形式以支持自定义损失函数。这是从为什么会想到引入泰勒二阶的角度来说的。</li>
+<li>二阶信息本身就能让梯度收敛更快更准确。这一点在优化算法里的牛顿法里已经证实了。可以简单认为一阶导指引梯度方向，二阶导指引梯度方向如何变化。这是从二阶导本身的性质，也就是为什么要用泰勒二阶展开的角度来说的。</li>
+</ul>
+<h2 id="19-XGBoost如何寻找最优特征？是有放回还是无放回的？"><a href="#19-XGBoost如何寻找最优特征？是有放回还是无放回的？" class="headerlink" title="19 XGBoost如何寻找最优特征？是有放回还是无放回的？"></a>19 XGBoost如何寻找最优特征？是有放回还是无放回的？</h2><p>xgboost在训练的过程中给出各个特征的增益评分，最大增益的特征会被选出来作为分裂依据,从而记忆了每个特征对在模型训练时的重要性—从根到叶子中间节点涉及某特征的次数作为该特征重要性排序.<br>XGBoost属于Boosting集成学习方法，样本是不放回的，因而每轮计算样本不重复，另一方面，XGBoost支持子采样，也就是每轮计算可以不适用全部样本，以减少过拟合，xgboost还支持列采样，每轮按照百分比随机采样一部分特征，既提高计算速度又减少过拟合。</p>
+<h2 id="20-AdaBoost-V-S-GBDT"><a href="#20-AdaBoost-V-S-GBDT" class="headerlink" title="20 AdaBoost V.S. GBDT"></a>20 AdaBoost V.S. GBDT</h2><p>它们都属于boosting提升方法，只是损失函数不同。AdaBoost用错分数据点来识别问题，通过调整错分数据点的权重来改进模型。GBDT通过负梯度来识别问题，通过计算负梯度来改进模型。</p>
+<h1 id="十一-优化算法"><a href="#十一-优化算法" class="headerlink" title="十一 优化算法"></a>十一 优化算法</h1><h2 id="1-有监督学习涉及的损失函数有哪些"><a href="#1-有监督学习涉及的损失函数有哪些" class="headerlink" title="1 有监督学习涉及的损失函数有哪些"></a>1 有监督学习涉及的损失函数有哪些</h2><p>0-1损失函数。该损失函数能够直观地刻画分类的错误率，但是由于其非凸、非光滑的特点，使得算法很难直接对该函数进行优化。</p>
+<script type="math/tex; mode=display">
+L(Y, f(X))=\left\{\begin{array}{ll}{1,} & {Y \neq f(X)} \\ {0,} & {Y=f(X)}\end{array}\right.</script><p>平方损失函数：平方损失函数是光滑函数，能够用梯度下降法进行优化。然而，当预测值距离真实值越远时，平方损失函数的惩罚力度越大，因此它对异常点比较敏感。</p>
+<script type="math/tex; mode=display">
+L(Y, f(X))=(Y-f(X))^{2}</script><p>绝对损失函数：对损失函数相当于是在做中值回归，相比做均值回归的平方损失函数，绝对损失函数对异常点更鲁棒一些。但是，绝对损失函数在f=y处无法求导数。综合考虑可导性和对异常点的鲁棒性，</p>
+<script type="math/tex; mode=display">
+L(Y, f(X))=|Y-f(X)|</script><p>对数损失函数。</p>
+<script type="math/tex; mode=display">
+L(Y, P(Y | X))=-\log P(Y | X)</script><p>hinge损失函数：是0-1损失函数相对紧的凸上界，且当z≥1时，该函数不对其做任何惩罚。Hinge损失在z=1处不可导，因此不能用梯度下降法进行优化，而是用次梯度下降法（Sub gradient Descent Method）</p>
+<script type="math/tex; mode=display">
+\ell_{\text {hinge}}(z)=\max (0,1-z)</script><p>交叉熵损失函数</p>
+<script type="math/tex; mode=display">
+L(w)=\sum_{i=1}^{N}\left[y_{i} \log \pi\left(x_{i}\right)+\left(1-y_{i}\right) \log \left(1-\pi\left(x_{i}\right)\right)\right]</script><p>Note</p>
+<ul>
+<li>经验风险最小化：也就是损失函数最小，容易发生过拟合。</li>
+<li>结构风险最小化：经验风险最小化+正则化项，防止过拟合。</li>
+</ul>
+<h2 id="2-机器学习中的优化问题，哪些是凸优化问题，哪些是非凸优化问题？"><a href="#2-机器学习中的优化问题，哪些是凸优化问题，哪些是非凸优化问题？" class="headerlink" title="2 机器学习中的优化问题，哪些是凸优化问题，哪些是非凸优化问题？"></a>2 机器学习中的优化问题，哪些是凸优化问题，哪些是非凸优化问题？</h2><p>凸函数曲面上任意两点连接而成的线段，其上的任意一点都不会处于该函数曲面的下方，逻辑回归，对应的优化问题就是凸优化问题，通过计算目标函数的二阶Hessian矩阵来验证凸性。Hessian矩阵为半正定，则为凸优化问题，对于凸优化问题，所有的局部极小值都是全局极小值，因此这类问题一般认为是比较容易求解的问题。</p>
+<p>主成分分析对应的优化问题是非凸优化问题。一般来说，非凸优化问题被认为是比较难求解的问题，但主成分分析是一个特例，我们可以借助SVD直接得到主成分分析的全局极小值。<br>其他凸优化问题的例子包括支持向量机、线性回归等线性模型，非凸优化问题的例子包括低秩模型（如矩阵分解）、深度神经网络模型等。</p>
+<h2 id="3-无约束优化问题的优化方法"><a href="#3-无约束优化问题的优化方法" class="headerlink" title="3 无约束优化问题的优化方法"></a>3 无约束优化问题的优化方法</h2><p>经典的优化算法可以分为直接法和迭代法两大类。</p>
+<p>直接法，顾名思义，就是能够直接给出优化问题最优解的方法。这个方法听起来非常厉害的样子，但它不是万能的。直接法要求目标函数需要满足两个条件。第一个条件是，L(·)是凸函数。若$L(·)$是凸函数，那么θ是最优解的充分必要条件是$L(·)$在θ处的梯度为0。即$▽L(θ)=0$，因此，为了能够直接求解出$θ^<em>$，第二个条件是，上式有闭式解。同时满足这两个条件的经典例子是岭回归（Ridge Regression），其目标函数为$L(\theta)=|X \theta-y|_{2}^{2}+\lambda|\theta|_{2}^{2}$ 稍加推导就能得到最优解为$\theta^{</em>}=\left(X^{T} X+\lambda I\right)^{-1} X^{T} y$</p>
+<p>迭代法又可以分为一阶法和二阶法两类。一阶法也称梯度下降法，梯度就是目标函数的一阶信息。二阶法也称为牛顿法，Hessian矩阵就是目标函数的二阶信息。二阶法的收敛速度一般要远快于一阶法，但是在高维情况下，Hessian矩阵求逆的计算复杂度很大，而且当目标函数非凸时，二阶法有可能会收敛到鞍点（Saddle Point）。</p>
+<h2 id="4-梯度下降法。"><a href="#4-梯度下降法。" class="headerlink" title="4 梯度下降法。"></a>4 梯度下降法。</h2><p>梯度下降法是求解无约束最优化问题的一种常用方法，它是一种迭代算法，每一步需要求解目标函数的梯度向量，选取适当的初始值进行迭代，由于负梯度方向是使函数值下降最快的方向，在迭代的每一步中，以负梯度方向按规定步长更新自变量的值，从而达到函数的局部极小值。相反如果向正梯度方向进行搜索，则会达到函数的局部极大值点，这个过程被称为梯度上升法。</p>
+<p>Note</p>
+<ul>
+<li>梯度：一阶导数信息</li>
+<li>Hessian矩阵：二阶导数信息</li>
+<li>梯度下降的缺点：当变量没有归一化，变量值处于不同的量级，它的梯度图是一个狭长的椭圆时，梯度下降算法的迭代方向会呈现一种锯齿现象，其并不能朝着极小值点径直优化，所以它的迭代次数很多，收敛速度很慢。这是由于非线性函数局部的梯度方向并不一定就是朝着最优点。</li>
+<li>训练大规模神经网络时，因为有上万的参数，所以梯度下降法是比较有效的，因为梯度下降法的梯度算符向量规模为n，而Hessian矩阵存储的规模就为n^2，同时梯度的计算量也比Hessian矩阵小得多。</li>
+</ul>
+<h2 id="5-梯度下降法存在的问题"><a href="#5-梯度下降法存在的问题" class="headerlink" title="5 梯度下降法存在的问题"></a>5 梯度下降法存在的问题</h2><p>经典的梯度下降法采用所有训练数据的平均损失来近似目标函数，在每次对模型参数进行更新时，需要遍历所有的训练数据。当样本量很大时，这需要很大的计算量，耗费很长的计算时间，在实际应用中基本不可行。</p>
+<p>为了解决该问题，随机梯度下降法（Stochastic Gradient Descent，SGD）用单个训练样本的损失来近似平均损失，用单个训练数据即可对模型参数进行一次更新，大大加快了收敛速率。该方法也非常适用于数据源源不断到来的在线更新场景。</p>
+<h2 id="6-梯度下降法找到的一定是下降最快的方向吗"><a href="#6-梯度下降法找到的一定是下降最快的方向吗" class="headerlink" title="6 梯度下降法找到的一定是下降最快的方向吗"></a>6 梯度下降法找到的一定是下降最快的方向吗</h2><p>梯度下降法并不是全局下降最快的方向，它只是目标函数在当前的点的切平面上下降最快的方向，即在局部是下降最快，但在全局不是，所以梯度下降不一定能找到全局的最优解。当然，如果我们的损失函数是凸函数，梯度下降法得到的解就一定是全局最优解。</p>
+<h2 id="7-随机梯度下降法的问题和挑战"><a href="#7-随机梯度下降法的问题和挑战" class="headerlink" title="7 随机梯度下降法的问题和挑战"></a>7 随机梯度下降法的问题和挑战</h2><p>随机梯度下降法每一次更新只使用一个样本，需要更新很多次，它的最大的缺点在于每次更新可能并不会按照正确的方向进行，可能带来波动，使得最后的结果不是全局最优解。但是优点是训练速度很快，并且可以进行在线更新。 不过从另一个方面来看，随机梯度下降所带来的波动有个好处就是，对于类似盆地区域（即有很多局部极小值点），那么这个波动的特点可能会使优化的方向从当前的局部极小值点跳到另一个局部极小值点，这样便可能使非凸函数最终收敛到一个比较好的局部极值点，甚至是全局极值点。由于波动，会使迭代次数增多，即收敛速度变慢。</p>
+<p>梯度下降法分类：</p>
+<ul>
+<li>批梯度下降法：原始的梯度下降法，使用全部数据计算梯度，速度比较慢，需要较大内存，不允许在线更新模型。</li>
+<li>随机梯度下降法：每次梯度计算只使用一个样本。避免在类似样本上计算梯度造成的冗余计算，增加了跳出当前的局部最小值的潜力，在逐渐缩小学习率的情况下，有与批梯度下降法类似的收敛速度。</li>
+<li>小批量随机梯度下降法：每次梯度计算使用一个小批量样本。梯度计算比单样本更加稳定，可以很好的利用现成的高度优化的矩阵运算工具。主要遇到的困难：<ul>
+<li>如何选取参数小批量样本个数m？在不同的应用中，最优的m通常会不一样，需要通过调参选取。一般m取2的幂次时能充分利用矩阵运算操作，所以可以在2的幂次中挑选最优的取值，例如32、64、128、256等。</li>
+<li>如何挑选m个训练数据？为了避免数据的特定顺序给算法收敛带来的影响，一般会在每次遍历训练数据之前，先对所有的数据进行随机排序，然后在每次迭代时按顺序挑选m个训练数据直至遍历完所有的数据。</li>
+<li>选择适当的学习率比较困难，太小的学习率会导致收敛缓慢，而学习速度太快会造成较大波动，可能会跳过全局最优点，通常会采用衰减学习速率的方案：一开始算法采用较大的学习速率，当误差曲线进入平台期后，减小学习速率做更精细的调整。最优的学习速率方案也通常需要调参才能得到。</li>
+</ul>
+</li>
+</ul>
+<h2 id="8-随机梯度下降法失效的原因—摸着石头下山。"><a href="#8-随机梯度下降法失效的原因—摸着石头下山。" class="headerlink" title="8 随机梯度下降法失效的原因—摸着石头下山。"></a>8 随机梯度下降法失效的原因—摸着石头下山。</h2><p>为了回答这个问题，我们先做一个形象的比喻。想象一下，你正在下山，视力很好，能看清自己所处位置的坡度，那么沿着坡向下走，最终你会走到山底。如果你被蒙上双眼，只能凭脚底踩石头的感觉判断当前位置的坡度，精确性就大大下降，有时候你认为的坡，实际上可能并不是坡，走上一段时间发现没有下山，或者曲曲折折走了好多弯路才下山。类似地，（原始）梯度下降法（Batch Gradient Descent，BGD）就好比正常下山，而随机梯度下降法就好比蒙着眼睛下山。</p>
+<p>为了获取准确的梯度，原始梯度下降法的每一步都使用整个训练集进行计算，时间花费和内存开销都非常大，无法应用于大数据集、大模型的场景。相反，随机梯度下降法则放弃了对梯度准确性的追求，每步仅仅随机采样一个（或少量）样本来估计当前梯度，计算速度快，内存开销小。但由于每步接受的信息量有限，随机梯度下降法对梯度的估计常常出现偏差，造成目标函数曲线收敛得很不稳定，伴有剧烈波动，有时甚至出现不收敛的情况。</p>
+<h2 id="9-山谷和鞍点"><a href="#9-山谷和鞍点" class="headerlink" title="9 山谷和鞍点"></a>9 山谷和鞍点</h2><p>对随机梯度下降法来说，可怕的不是局部最优点，而是山谷和鞍点两类地形。</p>
+<ul>
+<li>山谷顾名思义就是狭长的山间小道，左右两边是峭壁；鞍点的形状像是一个马鞍，一个方向上两头翘，另一个方向上两头垂，而中心区域是一片近乎水平的平地。为什么随机梯度下降法最害怕遇上这两类地形呢？在山谷中，准确的梯度方向是沿山道向下，稍有偏离就会撞向山壁，而粗糙的梯度估计使得它在两山壁间来回反弹震荡，不能沿山道方向迅速下降，导致收敛不稳定和收敛速度慢。</li>
+<li>在鞍点处，随机梯度下降法会走入一片平坦之地（此时离最低点还很远，故也称plateau）。想象一下蒙着双眼只凭借脚底感觉坡度，如果坡度很明显，那么基本能估计出下山的大致方向；如果坡度不明显，则很可能走错方向。同样，在梯度近乎为零的区域，随机梯度下降法无法准确察觉出梯度的微小变化，结果就停滞下来。</li>
+</ul>
+<h2 id="10-改进随机梯度下降法-惯性保持和环境感知"><a href="#10-改进随机梯度下降法-惯性保持和环境感知" class="headerlink" title="10 改进随机梯度下降法-惯性保持和环境感知"></a>10 改进随机梯度下降法-惯性保持和环境感知</h2><ul>
+<li>动量法Momentum</li>
+</ul>
+<p>SGD的一个缺点是其更新方向完全依赖于当前batch计算出的梯度，因而十分不稳定。Momentum借用了物理中的动量概念，模拟物体运动时的惯性，在更新的时候在一定程度上保留之前更新的方向，同时利用当前批次的梯度微调最终的更新方向。可以增加稳定性，加快收敛速度，具有一定摆脱局部最优（山谷震荡和鞍点停滞）的能力。</p>
+<p>为了解决随机梯度下降法山谷震荡和鞍点停滞的问题，我们做一个简单的思维实验。想象一下纸团在山谷和鞍点处的运动轨迹，在山谷中纸团受重力作用沿山道滚下，两边是不规则的山壁，纸团不可避免地撞在山壁，由于质量小受山壁弹力的干扰大，从一侧山壁反弹回来撞向另一侧山壁，结果来回震荡地滚下；如果当纸团来到鞍点的一片平坦之地时，还是由于质量小，速度很快减为零。纸团的情况和随机梯度下降法遇到的问题简直如出一辙。直观地，如果换成一个铁球，当沿山谷滚下时，不容易受到途中旁力的干扰，轨迹会更稳更直；当来到鞍点中心处，在惯性作用下继续前行，从而有机会冲出这片平坦的陷阱。</p>
+<p>自适应学习率的方法：</p>
+<ul>
+<li>AdaGrad算法</li>
+</ul>
+<p>对出现频率较低的参数采用较大的学习率更新，相反，对出现频率较高的参数采用较小的学习率更新。非常适合处理稀疏数据。随机梯度下降法对环境的感知是指在参数空间中，根据不同参数的一些经验性判断，自适应地确定参数的学习速率，不同参数的更新步长是不同的。例如，在文本处理中训练词嵌入模型的参数时，有的词或词组频繁出现，有的词或词组则极少出现。数据的稀疏性导致相应参数的梯度的稀疏性，不频繁出现的词或词组的参数的梯度在大多数情况下为零，从而这些参数被更新的频率很低。在应用中，我们希望更新频率低的参数可以拥有较大的更新步幅，而更新频率高的参数的步幅可以减小。AdaGrad方法采用“历史梯度平方和”来衡量不同参数的梯度的稀疏性，取值越小表明越稀疏。意味着随着时间推移，学习速率越来越小，从而保证了算法的最终收敛。</p>
+<ul>
+<li>Adam算法</li>
+</ul>
+<p>Adaptive Moment Estimation，Adam方法将惯性保持和环境感知这两个优点集于一身。一方面，Adam记录梯度的一阶矩（first moment），即过往梯度与当前梯度的平均，这体现了惯性保持；另一方面，Adam还记录梯度的二阶矩（second moment），即过往梯度平方与当前梯度平方的平均，这类似AdaGrad方法，体现了环境感知能力，为不同参数产生自适应的学习速率。一阶矩和二阶矩采用类似于滑动窗口内求平均的思想进行融合，即当前梯度和近一段时间内梯度的平均值，时间久远的梯度对当前平均值的贡献呈指数衰减。具体来说，一阶矩和二阶矩采用指数衰退平均。</p>
+<p>除了上述三种随机梯度下降法变种，研究者还提出了以下几种方法。</p>
+<ul>
+<li>Nesterov Accelerated Gradient。该方法扩展了动量方法，顺着惯性方向，计算未来可能位置处的梯度而非当前位置的梯度，这个“提前量”的设计让算法有了对前方环境预判的能力。</li>
+<li>AdaDelta和RMSProp。这两个方法非常类似，是对AdaGrad方法的改进。AdaGrad方法采用所有历史梯度平方和的平方根做分母，分母随时间单调递增，产生的自适应学习速率随时间衰减的速度过于激进。针对这个问题，AdaDelta和RMSProp采用指数衰退平均的计算方法，用过往梯度的均值代替它们的求和。</li>
+<li>AdaMax。该方法是基于Adam方法的一个变种方法，对梯度平方的处理由指数衰退平均改为指数衰退求最大值。</li>
+</ul>
+<h2 id="11-牛顿法和梯度下降法的区别"><a href="#11-牛顿法和梯度下降法的区别" class="headerlink" title="11 牛顿法和梯度下降法的区别"></a>11 牛顿法和梯度下降法的区别</h2><p>牛顿法是一个使用了Hessian矩阵求权重的二阶算法，它的目标就是采用损失函数的二阶偏导数寻找更好的训练方向，它比一阶收敛的梯度下降法只要更少的迭代次数就能下降到损失函数的极小值，因此函数收敛速度大幅加快。但是每一步需要求解目标函数的Hessian矩阵的逆矩阵，计算比较复杂，可以使用拟牛顿法通过正定矩阵近似Hessian矩阵的逆矩阵，简化了计算过程。</p>
+<p>牛顿法对初始值有一定的要求，因为牛顿法步长会越来越小，非凸问题容易陷入鞍点，而梯度下降法对初始点没有太强的要求，容易逃离鞍点。</p>
+<p>从应用场景来看，牛顿法适用于维度较小的场景，梯度下降法可以用于维度较大的场景。</p>
+<h2 id="12-拟牛顿法"><a href="#12-拟牛顿法" class="headerlink" title="12 拟牛顿法"></a>12 拟牛顿法</h2><p>拟牛顿法的本质思想是改善牛顿法在每次迭代中需要求解复杂的Hessian矩阵的逆矩阵的缺陷，使用了正定矩阵来近似Hessian矩阵的逆，从而简化了运算复杂度（从$O(N^3)$下降到$O(N^2)$），拟牛顿法和梯度下降法一样只要求在每一步迭代时知道目标函数的梯度，通过测量梯度的变化，构造一个目标函数的模型使之足以产生超线性的收敛。因为拟牛顿法不需要二阶导数信息，所以比牛顿法更为高效。</p>
+<h2 id="13-共轭梯度法"><a href="#13-共轭梯度法" class="headerlink" title="13 共轭梯度法"></a>13 共轭梯度法</h2><p>共轭梯度法是介于梯度下降法和牛顿法之间的一个方法，它仅需一阶导数信息，但克服了梯度下降法收敛慢的缺点，又避免了牛顿法需要存储和计算Hessian矩阵并求逆的缺点，共轭梯度法所需存储量小，沿着共轭方向进行搜索的，通常比沿着梯度方向更快收敛。</p>
+<h2 id="14-对所有优化问题来说，有没有可能找到比现在已知算法更好的算法"><a href="#14-对所有优化问题来说，有没有可能找到比现在已知算法更好的算法" class="headerlink" title="14 对所有优化问题来说，有没有可能找到比现在已知算法更好的算法"></a>14 对所有优化问题来说，有没有可能找到比现在已知算法更好的算法</h2><p>对于训练样本，不同的算法在不同的测试样本会有不同的表现，这表示对于一个学习算法A，若它在某些问题上比学习算法B更好，则必然存在一些问题，在那里B比A好，也就是说对于所有问题，无论A算法多好，B算法多差，它们的期望性能是相同的，但是这个结论的前提是假设所有问题出现的几率相同，但是在实际应用中，不同的场景，会有不同的问题分布，在优化算法时，需要针对具体问题进行分析。</p>
+<p>Note</p>
+<ul>
+<li>没有免费的午餐定理：没有一种机器学习算法时适用于所有情况的，对于所有机器学习问题，任何算法（包括瞎猜）的期望效果都是一样的。前提：所有机器学习问题都是同等重要的。</li>
+<li>奥卡姆剃刀定理：若有多个假设与观察一致，则选择最简单的那个，也就是说简单的就是最好的。</li>
+</ul>
+<h1 id="十二-无监督学习"><a href="#十二-无监督学习" class="headerlink" title="十二 无监督学习"></a>十二 无监督学习</h1><h2 id="1-无监督学习的定义"><a href="#1-无监督学习的定义" class="headerlink" title="1 无监督学习的定义"></a>1 无监督学习的定义</h2><p>在”无监督学习”(unsupervised learning)中，训练样本的标记信息是未知的，目标是通过对无标记训练样本的学习来挖掘数据的内在性质及规律。无监督学习主要包含两大类学习方法：数据聚类和特征变量关联。其中，聚类算法往往是通过多次迭代来找到数据的最优分割，而特征变量关联则是利用各种相关性分析方法来找到变量之间的关系。</p>
+<h2 id="2-K均值聚类的步骤"><a href="#2-K均值聚类的步骤" class="headerlink" title="2 K均值聚类的步骤"></a>2 K均值聚类的步骤</h2><ol>
+<li>随机选择K个点作为点的聚类中心，这表示我们要将数据分为K类。</li>
+<li>遍历所有的点P，算出P到每个聚类中心的距离，将P放到最近的聚类中心的点集中。遍历结束后我们将得到K个点集。</li>
+<li>遍历每一个点集，算出每一个点集的中心位置，将其作为新的聚类中心。</li>
+<li>重复步骤2和步骤3，直到聚类中心位置不再移动。</li>
+</ol>
+<h2 id="3-K均值算法的优缺点"><a href="#3-K均值算法的优缺点" class="headerlink" title="3 K均值算法的优缺点"></a>3 K均值算法的优缺点</h2><p>K均值算法有一些缺点，例如受初值和离群点的影响每次的结果不稳定、结果通常不是全局最优而是局部最优解、需要提前确定k值、无法很好地解决数据簇分布差别比较大的情况（比如一类是另一类样本数量的100倍）、不太适用于离散分类等。总结：对异常值敏感，需要提前确定k值，结果依赖于分类中心的初始化，结果不稳定。</p>
+<p>K均值聚类的优点也是很明显和突出的，主要体现在：对于大数据集，K均值聚类算法相对是可伸缩和高效的，它的计算复杂度是 $O(NKt)$ 接近于线性，其中N是数据对象的数目，K是聚类的簇数，t是迭代的轮数。尽管算法经常以局部最优结束，但一般情况下达到的局部最优已经可以满足聚类的需求。总结：计算时间短，速度快，容易解释，聚类效果还不错</p>
+<h2 id="4-K均值调优思路"><a href="#4-K均值调优思路" class="headerlink" title="4 K均值调优思路"></a>4 K均值调优思路</h2><p>K均值算法的调优一般可以从以下几个角度出发。</p>
+<ol>
+<li>数据归一化和离群点处理。K均值聚类本质上是一种基于欧式距离度量的数据划分方法，均值和方差大的维度将对数据的聚类结果产生决定性的影响，所以未做归一化处理和统一单位的数据是无法直接参与运算和比较的。同时，离群点或者少量的噪声数据就会对均值产生较大的影响，导致中心偏移，因此使用K均值聚类算法之前通常需要对数据做预处理。</li>
+<li>合理选择K值。K值的选择是K均值聚类最大的问题之一，这也是K均值聚类算法的主要缺点。k-均值聚类算法首先会随机确定k个中心位置，然后将各个数据项分配给最邻近的中心点，待分配完成后，聚类中心就会移到分配给该聚类的所有节点的平均位置处，然后整个分配过程重新开始，这一过程会一直重复下去，知道分配过程不再产生变化为止。k值的选择，通常有4种：按需选择，观察法，手肘法，gap statistic法。</li>
+</ol>
+<p>按需选择：简单地说即使按照建模的需求和目的来选择聚类的个数。比如一个游戏公司想把所有玩家做聚类分析，分成顶级，高级，中级和菜鸟四类，那么k取4。按需选择虽然合理，但是未必能保证在做k-means时</p>
+<p>观察法：就是用肉眼观察数据，看这些点大概能聚成几类，这个方法虽然简单，但也模棱两可。观察法要求原始维度低，三维以下，否则人眼无法观察，对于高维数据，可以用PCA降维然后观察。</p>
+<p>手肘法（elbow method）：手肘法本质上也是一种间接的观察法。当k-means算法完成后，我们将得到k个聚类的中心点Mi，i=1,2,3…,k，以及每个原始点所对应的聚类Ci，i=1,2,…k。我们通常计算所有样本点到它所在的聚类的中心点的距离的和作为模型的度量，记为 $D_K$</p>
+<script type="math/tex; mode=display">
+D_{K}=\sum_{i=1}^{K} \sum_{X \in C_{i}}\left\|X-M_{i}\right\|</script><p>这里距离可以采用欧氏距离。对于不同的k，我们会得到不同的中心点和聚类，所以会有不同的度量，把k作为横坐标，$D_K$作为纵坐标，可以下面的的曲线。<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-无监督学习/1.png" alt="mark"><br>很显然k越大，距离和越小，我们注意到k=3是一个拐点，就像是我们的肘部一样，k=1到3下降很快，k=3之后趋于平稳，手肘法认为这个点就是最佳的k。</p>
+<p>gapstatistic法：这个方法是源自斯坦福几个machine learning大牛的paper Estimating the number of clusters in a dataset via the gap statistic。<br>这里我们继续使用上面的DK，GAPSTATISTIC的定义为：</p>
+<script type="math/tex; mode=display">
+\operatorname{Gap}(K)=\mathrm{E}\left(\log D_{k}\right)-\log D_{k}</script><p>这里 $\mathrm{E}\left(\log D_{k}\right)$ 指的是 $\log D_{k}$ 的期望，这个数值通常通过蒙特卡洛模拟产生，我们在样本里所在的矩形区域中（高维的话就是立方体区域）按照均匀分布随机地产生和原始样本数一样多的随机样本，并对这个随机样本做一个k-means，从而得到一个 $D_K$，如此往复多次，通常20次，我们可以得到20个 $\log D_{k}$。对这20个数值求平均值，就得到了  $\mathrm{E}\left(\log D_{k}\right)$ 的近似值，最终可以得到 gap statistic，而gap static取得最大值所对应的k就是最佳的k。Gap statistic的优点是，我们不再需要肉眼了，我们只需要找到最大的gap statistic所对应的k即可。</p>
+<h2 id="5-Kmeans初始类簇中心点的选取"><a href="#5-Kmeans初始类簇中心点的选取" class="headerlink" title="5 Kmeans初始类簇中心点的选取"></a>5 Kmeans初始类簇中心点的选取</h2><ol>
+<li>选择彼此距离尽可能远的k个点。首先随机选择一个点作为第一个初始类簇中心点，然后选择距离该点最远的那个点作为第二个初始类簇中心点，然后在选择距离前两个点的最近距离最大的点作为第三个初始类簇的中心点，以此类推，直至k个初始类簇中心点。</li>
+<li>先对数据用层次聚类算法或者canopy算法进行聚类，得到k个簇之后，从每个类簇中选择一个点作为簇中心点，可以直接选择该簇的中心点或者是距离类簇中心点最近的那个点。</li>
+</ol>
+<h2 id="5-优化Kmeans"><a href="#5-优化Kmeans" class="headerlink" title="5 优化Kmeans"></a>5 优化Kmeans</h2><p>K均值算法的主要缺点如下。</p>
+<ul>
+<li>需要人工预先确定初始K值，且该值和真实的数据分布未必吻合。</li>
+<li>K均值只能收敛到局部最优，效果受到初始值很大。</li>
+<li>易受到噪点的影响。</li>
+<li>样本点只能被划分到单一的类中。</li>
+</ul>
+<p>Kmeans++算法：K均值的改进算法中，对初始值选择的改进是很重要的一部分。而这类算法中，最具影响力的当属K-means++算法。原始K均值算法最开始随机选取数据集中K个点作为聚类中心，而K-means++按照如下的思想选取K个聚类中心。假设已经选取了n个初始聚类中心（0&lt;n&lt;K），则在选取第n+1个聚类中心时，距离当前n个聚类中心越远的点会有更高的概率被选为第n+1个聚类中心。在选取第一个聚类中心（n=1）时同样通过随机的方法。可以说这也符合我们的直觉，聚类中心当然是互相离得越远越好。当选择完初始点后，K-means++后续的执行和经典K均值算法相同，这也是对初始值选择进行改进的方法等共同点。</p>
+<p>ElkanK-means算法对距离计算进行了优化，在传统的kmeans算法中，我们在每轮迭代中，要计算所有的样本点到所有的质心的距离，而elkan kmeans算法就是减少不必要的距离计算，主要思想是利用两边之和大于第三边，以及两边之差小于第三边的三角形性质，来减少距离的计算。</p>
+<p>ISODATA算法：当K值的大小不确定时，可以使用ISODATA算法。ISODATA的全称是迭代自组织数据分析法。在K均值算法中，聚类个数K的值需要预先人为地确定，并且在整个算法过程中无法更改。而当遇到高维度、海量的数据集时，人们往往很难准确地估计出K的大小。ISODATA算法就是针对这个问题进行了改进，它的思想也很直观。当属于某个类别的样本数过少时，把该类别去除；当属于某个类别的样本数过多、分散程度较大时，把该类别分为两个子类别。ISODATA算法在K均值算法的基础之上增加了两个操作，一是分裂操作，对应着增加聚类中心数；二是合并操作，对应着减少聚类中心数。ISODATA算法是一个比较常见的算法，其缺点是需要指定的参数比较多，不仅仅需要一个参考的聚类数量Ko，还需要制定3个阈值。下面介绍ISODATA算法的各个输入参数。</p>
+<ol>
+<li>预期的聚类中心数目Ko。在ISODATA运行过程中聚类中心数可以变化，Ko是一个用户指定的参考值，该算法的聚类中心数目变动范围也由其决定。具体地，最终输出的聚类中心数目常见范围是从Ko的一半，到两倍Ko。</li>
+<li>每个类所要求的最少样本数目Nmin。如果分裂后会导致某个子类别所包含样本数目小于该阈值，就不会对该类别进行分裂操作。</li>
+<li>最大方差Sigma。用于控制某个类别中样本的分散程度。当样本的分散程度超过这个阈值时，且分裂后满足（1），进行分裂操作。</li>
+<li>两个聚类中心之间所允许最小距离Dmin。如果两个类靠得非常近（即这两个类别对应聚类中心之间的距离非常小），小于该阈值时，则对这两个类进行合并操作。</li>
+</ol>
+<p>如果希望样本不划分到单一的类中，可以使用模糊C均值或者高斯混合模型。</p>
+<h2 id="8-KNN和Kmeans有什么不同"><a href="#8-KNN和Kmeans有什么不同" class="headerlink" title="8 KNN和Kmeans有什么不同"></a>8 KNN和Kmeans有什么不同</h2><p>Kmeans属于无监督学习，knn属于有监督学习，kmeans是聚类算法，knn是分类或回归算法。<br>Kmeans算法用数据集分成簇，使得形成的簇是同构的，最小化簇内距离，最大化簇间距离，由于无监督的性质，这些簇没有任何标签。<br>KNN算法时基于其K个周围邻居来对未标记的样本进行分类，将k个邻居中出现最多的类作为未标记样本的类别。（也可做回归，取均值）。</p>
+<h2 id="9-EM算法"><a href="#9-EM算法" class="headerlink" title="9 EM算法"></a>9 EM算法</h2><p>EM算法是一种迭代算法，用于含有隐变量的概率模型参数的极大似然估计或极大后验概率估计。EM算法的每次迭代由两步组成：E步，求期望，也就是利用隐藏变量的现有估计值，计算其最大似然估计值；M步，求极大值，即最大化在E步求得的最大似然值来计算参数的值。所以EM算法称作期望极大算法。</p>
+<p>EM算法的基本思想是：</p>
+<ul>
+<li>首先给参数θ自主规定个初值；</li>
+<li>然后根据给定观测数据和当前的参数θ，求未观测数据z的条件概率分布的期望；</li>
+<li>然后根据估计出的未观测数据的期望加上之前的已观测数据，通过极大似然估计求更优的θ’</li>
+<li>因为第二步和第三步的结果可能不是最优的，所以重复第二步和第三步，直到收敛。</li>
+</ul>
+<p>Note</p>
+<ul>
+<li>EM算法的前提是假设数据总体的分布。</li>
+<li>似然性：指某种事物发生的可能性。</li>
+<li>最大似然估计：已经知道了结果，然后寻求使该结果出现的可能性最大的条件。</li>
+<li>概率是根据条件推测结果，似然是根据结果反推条件，即已知样本X，求参数。</li>
+</ul>
+<h2 id="10-使用EM算法求解的模型有哪些，为什么不用牛顿法或者梯度牛顿法"><a href="#10-使用EM算法求解的模型有哪些，为什么不用牛顿法或者梯度牛顿法" class="headerlink" title="10 使用EM算法求解的模型有哪些，为什么不用牛顿法或者梯度牛顿法?"></a>10 使用EM算法求解的模型有哪些，为什么不用牛顿法或者梯度牛顿法?</h2><p>用EM算法求解的模型一般有GMM或者协同过滤，k-means其实也属于EM，EM算法一定会收敛，但是可能会收敛到局部最优。由于求和的项数将随着隐变量的数目指数上升，会给梯度计算带来麻烦。</p>
+<h2 id="11-高斯混合模型"><a href="#11-高斯混合模型" class="headerlink" title="11 高斯混合模型"></a>11 高斯混合模型</h2><p>高斯混合模型（Gaussian Mixed Model，GMM）也是一种常见的聚类算法，与K均值算法类似，同样使用了EM算法进行迭代计算。高斯混合模型假设每个簇的数据都是符合高斯分布（又叫正态分布）的，当前数据呈现的分布就是各个簇的高斯分布叠加在一起的结果。</p>
+<h2 id="12-高斯混合模型的核心思想"><a href="#12-高斯混合模型的核心思想" class="headerlink" title="12 高斯混合模型的核心思想"></a>12 高斯混合模型的核心思想</h2><p>高斯混合模型的核心思想是，假设数据可以看作从多个高斯分布中生成出来的。在该假设下，每个单独的分模型都是标准高斯模型，其均值 μi 和方差 Σi 是待估计的参数。此外，每个分模型都还有一个参数 πi ，可以理解为权重或生成数据的概率。</p>
+<p>高斯混合模型是一个生成式模型。可以这样理解数据的生成过程，假设一个最简单的情况，即只有两个一维标准高斯分布的分模型N(0,1)和N(5,1)，其权重分别为0.7和0.3。那么，在生成第一个数据点时，先按照权重的比例，随机选择一个分布，比如选择第一个高斯分布，接着从N(0,1)中生成一个点，如−0.5，便是第一个数据点。在生成第二个数据点时，随机选择到第二个高斯分布N(5,1)，生成了第二个点4.7。如此循环执行，便生成出了所有的数据点。</p>
+<h2 id="13-高斯混合模型和Kmeans"><a href="#13-高斯混合模型和Kmeans" class="headerlink" title="13 高斯混合模型和Kmeans"></a>13 高斯混合模型和Kmeans</h2><p>高斯混合模型与K均值算法的相同点是，它们都是可用于聚类的算法；都需要指定K值；都是使用EM算法来求解；都往往只能收敛于局部最优。而它相比于K均值算法的优点是，可以给出一个样本属于某类的概率是多少；不仅仅可以用于聚类，还可以用于概率密度的估计；并且可以用于生成新的样本点。</p>
+<h2 id="14-以聚类问题为例，假设没有外部标签数据，如何评估两个聚类算法的优劣"><a href="#14-以聚类问题为例，假设没有外部标签数据，如何评估两个聚类算法的优劣" class="headerlink" title="14 以聚类问题为例，假设没有外部标签数据，如何评估两个聚类算法的优劣"></a>14 以聚类问题为例，假设没有外部标签数据，如何评估两个聚类算法的优劣</h2><p>数据的聚类依赖于实际需求，同时也依赖于数据的特征度量以及评估数据相似性的方法。相比于监督学习，非监督学习通常没有标注数据，模型、算法的设计直接影响最终的输出和模型的性能。为了评估不同聚类算法的性能优劣，我们需要了解常见的数据簇的特点。</p>
+<ul>
+<li>以中心定义的数据簇：这类数据集合倾向于球形分布，通常中心被定义为质心，即此数据簇中所有点的平均值。集合中的数据到中心的距离相比到其他簇中心的距离更近。</li>
+<li>以密度定义的数据簇：这类数据集合呈现和周围数据簇明显不同的密度，或稠密或稀疏。当数据簇不规则或互相盘绕，并且有噪声和离群点时，常常使用基于密度的簇定义。</li>
+<li>以连通定义的数据簇：这类数据集合中的数据点和数据点之间有连接关系，整个数据簇表现为图结构。该定义对不规则形状或者缠绕的数据簇有效。</li>
+<li>以概念定义的数据簇：这类数据集合中的所有数据点具有某种共同性质。</li>
+</ul>
+<p>聚类评估的任务是估计在数据集上进行聚类的可行性，以及聚类方法产生结果的质量。这一过程又分为三个子任务。</p>
+<ul>
+<li>估计聚类趋势。这一步骤是检测数据分布中是否存在非随机的簇结构。如果数据是基本随机的，那么聚类的结果也是毫无意义的。可以观察聚类误差是否随聚类类别数量的增加而单调变化，如果数据是基本随机的，即不存在非随机簇结构，那么聚类误差随聚类类别数量增加而变化的幅度应该较不显著，并且也找不到一个合适的K对应数据的真实簇数。</li>
+<li>判定数据簇数。确定聚类趋势之后，我们需要找到与真实数据分布最为吻合的簇数，据此判定聚类结果的质量。数据簇数的判定方法有很多，例如手肘法和Gap Statistic方法。需要说明的是，用于评估的最佳数据簇数可能与程序输出的簇数是不同的。例如，有些聚类算法可以自动地确定数据的簇数，但可能与其他方法确定的最优数据簇数有所差别。</li>
+<li>测定聚类质量。给定预设的簇数，不同的聚类算法将输出不同的结果，如何判定哪个聚类结果的质量更高呢？在无监督的情况下，我们可以通过考察簇的分离情况和簇的紧凑情况来评估聚类的效果。包括轮廓系数（反应簇中数据的紧凑程度，簇与其他临近簇的分离程度），均方根标准偏差（Root-mean-square standard deviation，RMSSTD）：用来衡量聚结果的同质性，即紧凑程度。R方（R-Square）：可以用来衡量聚类的差异度。</li>
+</ul>
+<h2 id="15-密度聚类-DBSCAN"><a href="#15-密度聚类-DBSCAN" class="headerlink" title="15 密度聚类 DBSCAN"></a>15 密度聚类 DBSCAN</h2><p>密度聚类亦称”基于密度的聚类” (density-based clustering)，此类算法假 设聚类结构能通过样本分布的紧密程度确定.通常情形下，密度聚类算法从样 本密度的角度来考察样本之间的可连接性，并基于可连接样本不断扩展聚类簇 以获得最终的聚类结果。</p>
+<p>最具代表性的密度聚类算法是DBSCAN， DBSCAN能够将足够高密度的区域划分成簇，并能在具有噪声的空间数据库中发现任意形状的簇。DBSCAN的核心思想是从某个核心点出发，不断向密度可达的区域扩张，从而得到一个包含核心点和边界点的最大化区域，区域中任意两点密度相连。</p>
+<ul>
+<li>DBSCAN基本步骤<br>输入：包含n个对象的集合D，指定半径epislon和最少样本量MinPts。<br>输出：所有生成的簇，达到密度要求。<ul>
+<li>repeat<br>  从集合D中抽取一个未处理的点；<br>  如果抽出的点是核心点，则找出所有从该点出发的密度可达对象，形成簇；<br>  如果抽出点的为非核心点，则跳出循环，寻找下一个点；<br>  until所有点都被处理。</li>
+</ul>
+</li>
+</ul>
+<p>核心点：某点半径为epislon的圆内样本点个数大于等于MinPts的点</p>
+<ul>
+<li>优点<ul>
+<li>可以对任意形状的稠密数据集进行聚类，相对的，K-Means之类的聚类算法一般只适用于凸数据集。</li>
+<li>可以在聚类的同时发现异常点，对数据集中的异常点不敏感。</li>
+<li>聚类结果没有偏倚，相对的，K-Means之类的聚类算法初始值对聚类结果有很大影响。</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>需要为算法指定eps和MinPts参数，这对分析人员是一个很大的挑战；</li>
+<li>DBSCAN聚类算法对参数eps和MinPts的设置是非常敏感的，如果指定不当，该算法将造成聚类质量的下降。</li>
+</ul>
+</li>
+</ul>
+<h2 id="16-层次聚类-AGNES"><a href="#16-层次聚类-AGNES" class="headerlink" title="16 层次聚类 AGNES"></a>16 层次聚类 AGNES</h2><p>层次聚类(hierarchical clustering)试图在不同层次对数据集进行划分，从而 形成树形的聚类结构. 数据集的划分可采用”自底向上”的聚合策略，也可采 用 “自顶向下” 的分拆策略.</p>
+<p>AGNES是一种采用自底向上聚合策略的层次聚类算法.它先将数据集中 的每个样本看作一个初始聚类簇，然后在算法运行的每一步中找出距离最近的两个粟类簇进行合并，该过程不断重复，直至达到预设的聚类簇个数.这里的关 键是如何计算聚类簇之间的距离.实际上每个簇是一个样本集合，因此，只需 采用关于集合的某种距离即可.最小距离，最大距离，平均距离。 最小距离由两个簇的最近样本决定，最大距离由两个簇的最远样本决定7 而平均距离则由两个簇的所有样本共同决定。</p>
+<h1 id="十三-采样"><a href="#十三-采样" class="headerlink" title="十三 采样"></a>十三 采样</h1><h2 id="1-采样的本质及在机器学习中的应用"><a href="#1-采样的本质及在机器学习中的应用" class="headerlink" title="1 采样的本质及在机器学习中的应用"></a>1 采样的本质及在机器学习中的应用</h2><p>采样本质上是对随机现象的模拟，根据给定的概率分布，来模拟产生一个对应的随机事件。采样可以让人们对随机事件及其产生过程有更直观的认识。例如，通过对二项分布的采样，可以模拟“抛硬币出现正面还是反面”这个随机事件，进而模拟产生一个多次抛硬币出现的结果序列，或者计算多次抛硬币后出现正面的频率。</p>
+<p>另一方面，采样得到的样本集也可以看作是一种非参数模型，即用较少量的样本点（经验分布）来近似总体分布，并刻画总体分布中的不确定性。从这个角度来说，采样其实也是一种信息降维，可以起到简化问题的作用。例如，在训练机器学习模型时，一般想要优化的是模型在总体分布上的期望损失（期望风险），但总体分布可能包含无穷多个样本点，要在训练时全部用上几乎是不可能的，采集和存储样本的代价也非常大。因此，一般采用总体分布的一个样本集来作为总体分布的近似，称之为训练集，训练模型的时候是最小化模型在训练集上损失函数（经验风险）。同理，在评估模型时，也是看模型在另外一个样本集（测试集）上的效果。这种信息降维的特性，使得采样在数据可视化方面也有很多应用，它可以帮助人们快速、直观地了解总体分布中数据的结构和特性。</p>
+<h2 id="2-自助采样-bootstrap-sampling"><a href="#2-自助采样-bootstrap-sampling" class="headerlink" title="2 自助采样(bootstrap sampling)"></a>2 自助采样(bootstrap sampling)</h2><p>自助采样法是一种有放回的采样策略，给定包含m个样本的数据集，我们先随机取出一个样本放入采样集中，再把该样本放回初始数据集，使得下次采样时该样本仍有可能被选中，这样，经过m次随机采样操作，我们得到含m个样本的采样集，初始训练集中有的样本在采样集里多次出现，有的则从未出现。样本在m次采样中始终不被采到的概率是$(1-1/m)m$，取极限得到 $\lim _{m \rightarrow \infty}\left(1-\frac{1}{m}\right)^{m} \mapsto \frac{1}{e} \approx 0.368$ ，初始训练集中约有63.2%的样本出现在采样集中。自助采样过程还给Bagging带来了另一个优点，由于每个基学习器只使用了初始训练集中约63.2%的样本，剩下约36.8%的样本可用作验证集来对泛化性能进行”包外估计”（oob）。事实上，包外样本还有许多其他用途。例如当基学习器是决策树时，可使用包外样本来辅助剪枝，或用于估计决策树中各结点的后验概率以辅助对零训练样本结点的处理；当基学习器是神经网络时，可使用包外样本来辅助早停以减小过拟合风险.</p>
+<h2 id="3-不均衡样本集的采样策略"><a href="#3-不均衡样本集的采样策略" class="headerlink" title="3 不均衡样本集的采样策略"></a>3 不均衡样本集的采样策略</h2><ul>
+<li><p>基于数据的方法<br>首先可以直接对训练集里的反类样例进行”欠采样”(under sampling)，即去除一些反例使得正、反例数目接近，然后再进行学习;还可以对训练集里的正类样例进行”过采样”(oversampling)，即增加一些正例使得正、反例数目接近，然后再进行学习;（有放回）。另外还可以对少数类样本进行一些噪声扰动或变换（如图像数据集中对图片进行裁剪、翻转、旋转、加光照等）以构造出新的样本；</p>
+</li>
+<li><p>基于算法的方法<br>直接基于原始训练集进行学习，但在用训练好的分类器进行预测时，改变判断阈值；也可以通过改变模型训练时的目标函数（如代价敏感学习中不同类别有不同的权重）来矫正这种不平衡性；当样本数目极其不均衡时，也可以将问题转化为单类学习（one-class learning）、或异常检测（anomaly detection）问题。</p>
+</li>
+</ul>
+<h2 id="4-癌症检测的数据集，取得了96-的分离精度，还能做什么优化"><a href="#4-癌症检测的数据集，取得了96-的分离精度，还能做什么优化" class="headerlink" title="4 癌症检测的数据集，取得了96%的分离精度，还能做什么优化"></a>4 癌症检测的数据集，取得了96%的分离精度，还能做什么优化</h2><p>癌症检测的数据集是一个不平衡数据集，在不平衡数据集中，精度不应该被用来作为衡量模型的标准，因为96%可能只有正确预测多数多类但我们感兴趣的是那些少数分类（4%），是那些被诊断出癌症的病人。</p>
+<p>为了评价模型的性能，应该用灵敏度（真阳性率），特异性（真阴性率），F值用来确定这个分类器的性能。如果在那4%的数据上表现不好，我们可以采取以下步骤：</p>
+<ul>
+<li>我们可以使用欠采样，过采样让数据平衡</li>
+<li>我们可以通过概率验证和利用AUC-ROC曲线找到最佳阈值来调整预测阈值</li>
+<li>我们可以给分类分配权重，那些较少的分类获得较大的权重</li>
+<li>我们还可以使用异常检测</li>
+</ul>
+<h2 id="5-将训练集随机抽样地分成训练集验证集，验证精度很差"><a href="#5-将训练集随机抽样地分成训练集验证集，验证精度很差" class="headerlink" title="5 将训练集随机抽样地分成训练集验证集，验证精度很差"></a>5 将训练集随机抽样地分成训练集验证集，验证精度很差</h2><p>在做分类问题时，我们应该使用分层抽样而不是随机抽样，随机抽样不考虑目标类别的比例，而分层抽样有助于保持目标变量在原始样本集中的分布。</p>
+<p>分层抽样：也叫类型抽样法，就是将总体单位按其属性特征分成若干类型或层，然后在类型或层中随机抽取样本。特点：由于通过划类分层，增大了各类型中单位间的共同性，容易抽出具有代表性的调查样本，适用于总体情况复杂，各单位之间差异较大，单位较多的情况。</p>
+<h2 id="6-实现均匀分布随机数生成器"><a href="#6-实现均匀分布随机数生成器" class="headerlink" title="6 实现均匀分布随机数生成器"></a>6 实现均匀分布随机数生成器</h2><p>首先需要明确的是，计算机程序都是确定性的，因此并不能产生真正意义上的完全均匀分布随机数，只能产生伪随机数（伪随机数是指这些数字虽然是通过确定性的程序产生的，但是它们能通过近似的随机性测试）。另外，由于计算机的存储和计算单元只能处理离散状态值，因此也不能产生连续均匀分布随机数，只能通过离散分布来逼近连续分布（用很大的离散空间来提供足够的精度）。</p>
+<p>一般可采用线性同余法（Linear Congruential Generator）来生成离散均匀分布伪随机数，计算公式为</p>
+<script type="math/tex; mode=display">
+x_{t+1} \equiv a \cdot x_{t}+c(\bmod m)</script><p>也就是根据当前生成的随机数 $x_t$ 来进行适当变换，进而产生下一次的随机数 $x_{t+1}$ 。初始值 $x_0$ 称为随机种子。上式得到的是区间$[0,m−1]$上的随机整数，如果想要得到区间$[0,1]$上的连续均匀分布随机数，用 $x_t$ 除以 $m$ 即可。</p>
+<p>可以看出，线性同余法得到的随机数并不是相互独立的（即下一次的随机数根据当前随机数来产生）。此外，根据上式，该算法最多只能产生m个不同的随机数，实际上对于特定的种子，很多数无法取到，循环周期基本达不到m。如果进行多次操作，得到的随机数序列会进入循环周期。因此，一个好的线性同余随机数生成器，要让其循环周期尽可能接近m，这就需要精心选择合适的乘法因子a和模数m（需要利用代数和群理论）。具体实现中有多种不同的版本，例如gcc中采用的glibc版本：</p>
+<script type="math/tex; mode=display">
+\left\{\begin{array}{l}{m=2^{31}-1} \\ {a=1103515245} \\ {c=12345}\end{array}\right.</script><p>由计算机程序实现的随机数生成器产生的都是伪随机数，真正的随机数只会存在于自然界的物理现象中，比如放射性物质的衰变，温度、气流的随机扰动等。</p>
+<h2 id="7-常见的采样方法"><a href="#7-常见的采样方法" class="headerlink" title="7 常见的采样方法"></a>7 常见的采样方法</h2><p>对于一个随机变量，通常用概率密度函数来刻画该变量的概率分布特性。具体来说，给定随机变量的一个取值，可以根据概率密度函数来计算该值对应的概率（密度）。反过来，也可以根据概率密度函数提供的概率分布信息来生成随机变量的一个取值，这就是采样。因此，从某种意义上来说，采样是概率密度函数的逆向应用。</p>
+<p>通用的采样方法主要有三种逆变换采样，拒绝采样，重要性采样。几乎所有的采样方法都是以均匀分布随机数作为基本操作。均匀分布随机数一般用线性同余法来产生。<br>如果随机变量x和u存在变换关系，则它们的概率密度函数有如下关系：</p>
+<script type="math/tex; mode=display">
+p(u)\left|\varphi^{\prime}(x)\right|=p(x)</script><p>因此，如果从目标分布 $p(x)$ 中不好采样x，可以构造一个变换 $\mu=\varphi(\mathrm{x})$ ，使得从变换后的分布 $p(u)$ 中采样 $u$ 比较容易，这样可以通过先对 $u$ 进行采样然后通过反函数 $\mathrm{x}=\varphi^{-1}(\mu)$ 得到 x。如果是高维空间的随机变量，则 $\varphi^{\prime}(\mathrm{x})$ 对应的是雅克比行列式。<br>注：在向量微积分中，雅可比矩阵是一阶偏导数以一定方式排列成的矩阵，其行列式称为雅可比行列式。雅可比矩阵的重要性在于它体现了一个可微方程与给出点的最优线性逼近。因此，雅可比矩阵类似于多元函数的导数。</p>
+<p>特别地，在函数变换法中，如果变换关系 $\varphi(\cdot)$ 是 x 的累积分布函数的话，则得到所谓的逆变换采样（Inverse Transform Sampling）。假设待采样的目标分布的概率密度函数为p(x)，它的累积分布函数为</p>
+<script type="math/tex; mode=display">
+u=\Phi(x)=\int_{-\infty}^{x} p(t) \mathrm{d} t</script><p>则逆变换采样法按如下过程进行采样：</p>
+<ul>
+<li>从均匀分布 $U(0,1)$ 产生一个随机数 $u_i$；</li>
+<li>计算 $\mathrm{x}=\varphi^{-1}(\mu)$ ，其中 $\varphi^{-1}(\cdot)$ 是累积分布函数的逆函数。</li>
+</ul>
+<p>如果待采样的目标分布的累积分布函数的逆函数无法求解或者不容易计算，则不适用于逆变换采样法。此时可以构造一个容易采样的参考分布，先对参考分布进行采样，然后对得到的样本进行一定的后处理操作，使得最终的样本服从目标分布。常见的拒绝采样（Rejection Sampling）、重要性采样（Importance Sampling），就属于这类采样算法，下面分别简单介绍它们的采样过程。</p>
+<p>拒绝采样，又叫接受/拒绝采样（Accept-Reject Sampling）。对于目标分布$p(x)$，选取一个容易采样的参考分布$q(x)$，使得对于任意x都有 $p(x) \leqslant M \cdot q(x)$，则可以按如下过程进行采样：<br>（1）从参考分布$q(x)$中随机抽取一个样本$x_i$。<br>（2）从均匀分布$U(0,1)$产生一个随机数$u_i$。<br>（3）如果 $u_{i}&lt;\frac{p\left(x_{i}\right)}{M q\left(x_{i}\right)}$，则接受样本$x_i$；否则拒绝，重新进行步骤（1）～（3），直到新产生的样本xi被接受。</p>
+<p>拒绝采样的关键是为目标分布$p(x)$选取一个合适的包络函数$M·q(x)$：包络函数越紧，每次采样时样本被接受的概率越大，采样效率越高。在实际应用中，为了维持采样效率，有时很难寻找一个解析形式的$q(x)$，因此延伸出了自适应拒绝采样（Adaptive Rejection Sampling），在目标分布是对数凹函数时，用分段线性函数来覆盖目标分布的对数$lnp(x)$.<br><img src="https://raw.githubusercontent.com/huangqiancun/githubPage-Assets/master/机器学习-采样/1.png" alt="mark"></p>
+<p>如果只想从目标分布$p(x)$中采样出若干样本，则可以用重要性重采样（Sampling-Importance Re-sampling，SIR），先在从参考分布$q(x)$中抽取N个样本$\{x_i\}$，然后按照它们对应的重要性权重$\{\mathrm{w}(\mathrm{x_i})]$对这些样本进行重新采样（这是一个简单的针对有限离散分布的采样），最终得到的样本服从目标分布 $p(x)$。</p>
+<p>在实际应用中，如果是高维空间的随机向量，拒绝采样和重要性重采样经常难以寻找合适的参考分布，采样效率低下（样本的接受概率小或重要性权重低），此时可以考虑马尔可夫蒙特卡洛采样法，常见的有Metropolis-Hastings采样法和吉布斯采样法。</p>
+<h2 id="8-高斯分布的采样"><a href="#8-高斯分布的采样" class="headerlink" title="8 高斯分布的采样"></a>8 高斯分布的采样</h2><p>实验中直接调用函数就可以生成高斯分布随机数标准高斯分布randn，可指定mean和sigma：normrnd。<br>理论上有逆变换法、拒绝采样、重要性采样、马尔可夫蒙特卡洛采样法。<br>如果直接用逆变换法，基本操作步骤为：<br>（1）产生$[0,1]$上的均匀分布随机数$u$。<br>（2）令 $z=\sqrt{2} \operatorname{erf}^{-1}(2 u-1)$，则z服从标准正态分布。其中$\operatorname{erf}(\cdot)$是高斯误差函数，它是标准正态分布的累积分布函数经过简单平移和拉伸变换后的形式，定义如下</p>
+<script type="math/tex; mode=display">
+\operatorname{crf}(x)=\frac{2}{\sqrt{\pi}} \int_{0}^{x} \mathrm{e}^{-x^{2}} \mathrm{d} t</script><p>除了逆变换法，我们还可以利用拒绝采样法，选择一个比较好计算累积分布逆函数的参考分布来覆盖当前正态分布（可以乘以一个常数倍），进而转化为对参考分布的采样以及对样本点的拒绝/接收操作。考虑到高斯分布的特性，这里可以用指数分布来作为参考分布。指数分布的累积分布及其逆函数都比较容易求解。由于指数分布的样本空间为$x \geqslant 0$，而标准正态分布的样本空间为 $(-\infty,+\infty)$ ，因此还需要利用正态分布的对称性来在半坐标轴和全坐标轴之间转化。具体来说，取 $\lambda=1$ 的指数分布作为参考分布，其密度函数为$q(x)=\mathrm{e}^{-x}$<br>对应的累积分布函数及其逆函数分别为$F(x)=1-e^{-x}$ 和 $F^{-1}(u)=-\log (1-u)$。</p>
+<p>利用逆变换法很容易得到指数分布的样本，然后再根据拒绝采样法来决定是否接受该样本，接受的概率为$A(x)=\frac{p(x)}{M \cdot q(x)}$。</p>
+<p>实际应用时，$M$需要尽可能小，这样每次的接受概率大，采样效率更高。<br>因此，具体的采样过程如下：<br>（1）产生$[0,1]$上的均匀分布随机数 $u_0$，计算 $x=F^{-1}\left(u_{0}\right)$ 得到指数分布的样本x。<br>（2）再产生$[0,1]$上的均匀分布随机数 $u_1$，若$u_{1}&lt;A(x)$ ，则接受 x，进入下一步；否则拒绝，跳回到步骤1重新采样。<br>（3）最后再产生$[0,1]$上的均匀分布随机数$u_2$，若$u_2&lt;0.5$，则将$x$转化为$−x$，否则保持不变；由此最终得到标准正态分布的一个样本。</p>
+<h2 id="9-马尔可夫蒙特卡洛采样法-MCMC"><a href="#9-马尔可夫蒙特卡洛采样法-MCMC" class="headerlink" title="9 马尔可夫蒙特卡洛采样法 MCMC"></a>9 马尔可夫蒙特卡洛采样法 MCMC</h2><p>MCMC主要解决在高维空间中，拒绝采样和重要性重采样经常难以寻找合适的参考分布，采样效率低下的问题。从名字看，MCMC采样法主要包括两个MC，即蒙特卡洛法（Monte Carlo）和马尔可夫链（Markov Chain）。蒙特卡洛法是指基于采样的数值型近似求解方法，而马尔可夫链则用于进行采样。MCMC采样法基本思想是：针对待采样的目标分布，构造一个马尔可夫链，使得该马尔可夫链的平稳分布就是目标分布；然后，从任何一个初始状态出发，沿着马尔可夫链进行状态转移，最终得到的状态转移序列会收敛到目标分布，由此可以得到目标分布的一系列样本。在实际操作中，核心点是如何构造合适的马尔可夫链，即确定马尔可夫链的状态转移概率</p>
+<p>简单介绍几种常见的MCMC采样法。</p>
+<ul>
+<li>Metropolis-Hastings采样法：对于目标分布$p(x)$，首先选择一个容易采样的参考条件分布$q(x^{*}|x)$，并令<script type="math/tex; mode=display">
+A(x, \dot{x})=\min \left\{1, \frac{p\left(x^{*}\right) q\left(x | x^{*}\right)}{p(x) q\left(x^{*} | x\right)}\right\}</script>然后根据如下过程进行采样：</li>
+<li>随机选一个初始样本$x^{(0)}$。</li>
+<li>Fort=1,2,3,…:<br>根据参考条件分布 $q\left(X^{*} X^{(t-1)}\right)$ 抽取一个样本 $x^{*}$；<br>根据均匀分布$U(0,1)$产生随机数$u$；<br>若$u&lt;A\left(x^{(t-1)}, x^{*}\right)$，则令$x^{(t)}=x^{*}$，否则令$x^{(t)}=x^{(t-1)}$。</li>
+</ul>
+<p>上述过程得到的样本序列最终会收敛到目标分布$p(x)$。</p>
+<ul>
+<li>吉布斯采样法:吉布斯采样法是Metropolis-Hastings算法的一个特例，其核心思想是每次只对样本的一个维度进行采样和更新。<br>在拒绝采样中，如果在某一步中采样被拒绝，则该步不会产生新样本，需要重新进行采样。与此不同，MCMC采样法每一步都会产生一个样本，只是有时候这个样本与之前的样本一样而已。另外，MCMC采样法是在不断迭代过程中逐渐收敛到平稳分布的，因此实际应用中一般会对得到的样本序列进行“burn-in”处理，即截除掉序列中最开始的一部分样本，只保留后面的样本。</li>
+</ul>
+<h2 id="10-MCMC采样法如何得到相互独立的样本"><a href="#10-MCMC采样法如何得到相互独立的样本" class="headerlink" title="10 MCMC采样法如何得到相互独立的样本"></a>10 MCMC采样法如何得到相互独立的样本</h2><p>与一般的蒙特卡洛算法不同，MCMC采样法得到的样本序列中相邻的样本不是独立的，因为后一个样本是由前一个样本根据特定的转移概率得到的，或者有一定概率就是前一个样本。如果仅仅是采样，并不需要样本之间相互独立。如果确实需要产生独立同分布的样本，可以同时运行多条马尔可夫链，这样不同链上的样本是独立的；或者在同一条马尔可夫链上每隔若干个样本才选取一个，这样选取出来的样本也是近似独立的。</p>
+<h2 id="11-马尔科夫采样收敛到目标分布"><a href="#11-马尔科夫采样收敛到目标分布" class="headerlink" title="11 马尔科夫采样收敛到目标分布"></a>11 马尔科夫采样收敛到目标分布</h2><p>本身的数学推导很复杂，是由于马尔科夫本身的性质决定的，比如时齐性、细致平衡条件、可遍历性等。可以举个例子说明PageRank：Google的民主表决式网页排名技术 。“PageRank”的核心思想就是如果一个网页被很多其他网页所链接，说明它受到普遍的承认和信赖，那么它的排名就高。当然实际并不是这么简单，还需考虑各个网页的权重。但是权重该如何度量呢？但是如果单纯用网页排名，那这岂不是成了”先有鸡还是先有蛋“的问题了吗？Google创始人之一谢盖尔 布林破解了怪圈，他将这个问题变成二维矩阵相乘问题，先假定初始排名相同，然后进行迭代直到收敛。他俩从理论证明了无论初始值如何选，这种算法都能保证网页排名的估计值收敛到真实值。这其实就是马尔科夫的收敛性。当然如今决定搜索质量不仅依靠网页与网页之间的关系，还有用户的点击信息。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Qiancun Huang WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Qiancun Huang Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    Qiancun Huang
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="http://huangqiancun.github.io/2019/05/15/机器学习/机器学习小结/" title="机器学习小结">http://huangqiancun.github.io/2019/05/15/机器学习/机器学习小结/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/13/数据结构/数据结构-排序算法/" rel="next" title="数据结构 - 排序算法">
+                <i class="fa fa-chevron-left"></i> 数据结构 - 排序算法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/14/剑指offer/剑指offer-树/" rel="prev" title="剑指offer题解 - 树">
+                剑指offer题解 - 树 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+	
+	
+  
+  
+  
+  </article>
+  <div>
+		
+			<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------------The End------------</div>
+    
+</div>
+		
+	</div>
+	
+ 
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/photo.jpg" alt="Qiancun Huang">
+            
+              <p class="site-author-name" itemprop="name">Qiancun Huang</p>
+              <p class="site-description motion-element" itemprop="description">A second-year graduate student in Southeast University</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/huangqiancun?tab=repositories" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto://huangqiancun@foxmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一-基本概念"><span class="nav-text">一 基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-完整机器学习项目的流程"><span class="nav-text">1 完整机器学习项目的流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-有监督学习和无监督学习"><span class="nav-text">2 有监督学习和无监督学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-判别式模型和生成式模型"><span class="nav-text">3 判别式模型和生成式模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-通俗易懂解释机器学习"><span class="nav-text">4 通俗易懂解释机器学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-给定一个数据集，如何选择算法"><span class="nav-text">5 给定一个数据集，如何选择算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-线性分类器与非分类器的区别以及优劣"><span class="nav-text">6 线性分类器与非分类器的区别以及优劣</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-有隐含关联的事件举例"><span class="nav-text">7 有隐含关联的事件举例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-TensorFlow简介"><span class="nav-text">8 TensorFlow简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-数据流图（Data-Flow-Graph）"><span class="nav-text">9 数据流图（Data Flow Graph）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-TensorFlow的优缺点"><span class="nav-text">10 TensorFlow的优缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-病态问题"><span class="nav-text">11 病态问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-VC维"><span class="nav-text">12 VC维</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-机器学习的各种模型与各自的损失函数一一对应"><span class="nav-text">13 机器学习的各种模型与各自的损失函数一一对应</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-超参数和参数的区别"><span class="nav-text">14 超参数和参数的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-最小二乘法"><span class="nav-text">15 最小二乘法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-协方差和相关性的区别"><span class="nav-text">16 协方差和相关性的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#17-特征比数据量还大时，选择什么样的分类器"><span class="nav-text">17 特征比数据量还大时，选择什么样的分类器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#18-对于维度极低的特征，选择线性还是非线性分类器？"><span class="nav-text">18 对于维度极低的特征，选择线性还是非线性分类器？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#19-你正在一个时间序列数据集上工作，经理要求你建立一个高精度的模型，你开始用决策树算法，因为你知道它在所有类型的数据集上的表现都不错，后来，你尝试了时间序列回归模型，并得到了比决策树模型更高的精度，这种情况会发生吗，为什么？"><span class="nav-text">19 你正在一个时间序列数据集上工作，经理要求你建立一个高精度的模型，你开始用决策树算法，因为你知道它在所有类型的数据集上的表现都不错，后来，你尝试了时间序列回归模型，并得到了比决策树模型更高的精度，这种情况会发生吗，为什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#20分类（Classification）和回归（Prediction）的主要步骤及区别联系"><span class="nav-text">20分类（Classification）和回归（Prediction）的主要步骤及区别联系</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二-模型评估"><span class="nav-text">二 模型评估</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-模型评估定义"><span class="nav-text">1 模型评估定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-准确率的局限性"><span class="nav-text">2 准确率的局限性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-精确率与召回率的权衡。"><span class="nav-text">3 精确率与召回率的权衡。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-什么是ROC曲线"><span class="nav-text">4 什么是ROC曲线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-如何绘制ROC曲线"><span class="nav-text">5 如何绘制ROC曲线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-如何计算AUC"><span class="nav-text">6 如何计算AUC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-ROC曲线相比P-R曲线有什么特点"><span class="nav-text">7 ROC曲线相比P-R曲线有什么特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-平方根误差的“意外”。"><span class="nav-text">8 平方根误差的“意外”。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-余弦距离的定义"><span class="nav-text">9 余弦距离的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-为什么在一些场景中要使用余弦相似度而不是欧氏距离？"><span class="nav-text">10 为什么在一些场景中要使用余弦相似度而不是欧氏距离？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-余弦距离是否是一个严格定义的距离"><span class="nav-text">11 余弦距离是否是一个严格定义的距离?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-在对模型进行过充分的离线评估之后，为什么还要进行在线A-B测试？"><span class="nav-text">12 在对模型进行过充分的离线评估之后，为什么还要进行在线A/B测试？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-如何进行线上A-B测试"><span class="nav-text">13 如何进行线上A/B测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-模型评估的方法"><span class="nav-text">14 模型评估的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-在自助法的采样过程中，对n个样本进行n次自助抽样，当n趋于无穷大时，最终有多少数据从未被选择过？"><span class="nav-text">15 在自助法的采样过程中，对n个样本进行n次自助抽样，当n趋于无穷大时，最终有多少数据从未被选择过？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-时间序列数据集上使用什么交叉验证技术？使用k倍还是LOOCV？"><span class="nav-text">16 时间序列数据集上使用什么交叉验证技术？使用k倍还是LOOCV？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#17-超参数有哪些调优方法"><span class="nav-text">17 超参数有哪些调优方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#18-过拟合"><span class="nav-text">18 过拟合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#19-欠拟合"><span class="nav-text">19 欠拟合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#20-正则化到底是什么意思"><span class="nav-text">20 正则化到底是什么意思</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#21-L1和L2正则先验服从什么分布"><span class="nav-text">21 L1和L2正则先验服从什么分布</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#22-L1正则化使得模型参数具有稀疏性的原理"><span class="nav-text">22 L1正则化使得模型参数具有稀疏性的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#23-频率学派和贝叶斯学派"><span class="nav-text">23 频率学派和贝叶斯学派</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#24-共线性和过拟合"><span class="nav-text">24 共线性和过拟合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#25-第一类错误和第二类错误"><span class="nav-text">25 第一类错误和第二类错误</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三-模型融合"><span class="nav-text">三 模型融合</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Voting"><span class="nav-text">1 Voting</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Averaging"><span class="nav-text">2 Averaging</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Bagging"><span class="nav-text">3 Bagging</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Boosting"><span class="nav-text">4 Boosting</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-Stacking"><span class="nav-text">5 Stacking</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#四-特征工程"><span class="nav-text">四 特征工程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是特征工程"><span class="nav-text">1 什么是特征工程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-数据预处理"><span class="nav-text">2 数据预处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-处理类别型特征"><span class="nav-text">3 处理类别型特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-特征选择的方法"><span class="nav-text">4 特征选择的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-如何进行特征选择"><span class="nav-text">5 如何进行特征选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-组合特征"><span class="nav-text">6 组合特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-有效地寻找组合特征"><span class="nav-text">7 有效地寻找组合特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-标准化和归一化的区别"><span class="nav-text">8 标准化和归一化的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-归一化的作用"><span class="nav-text">9 归一化的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-不需要做归一化的机器学习算法"><span class="nav-text">10 不需要做归一化的机器学习算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-文本表示模型"><span class="nav-text">11 文本表示模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-Word2Vec原理，与LDA的区别与联系"><span class="nav-text">12 Word2Vec原理，与LDA的区别与联系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-图像数据不足时的处理方法"><span class="nav-text">13 图像数据不足时的处理方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-降维"><span class="nav-text">14 降维</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-主成分分析（PCA）"><span class="nav-text">15 主成分分析（PCA）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-在PCA中有必要做旋转变换"><span class="nav-text">16 在PCA中有必要做旋转变换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#17-数据集中部分特征高度相关的，用PCA时需要先去掉相关的变量吗"><span class="nav-text">17 数据集中部分特征高度相关的，用PCA时需要先去掉相关的变量吗</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#18-线性判别分析（LDA）"><span class="nav-text">18 线性判别分析（LDA）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#19-PCA和LDA的区别"><span class="nav-text">19 PCA和LDA的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#20-连续特征，既可以做离散化，也可以做幅度缩放，那这两种处理方式分别适用于什么场景呢？"><span class="nav-text">20 连续特征，既可以做离散化，也可以做幅度缩放，那这两种处理方式分别适用于什么场景呢？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#21-离散化的目的："><span class="nav-text">21 离散化的目的：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#22-什么时候分类变量当成连续型变量会更得到一个更好的预测模型"><span class="nav-text">22 什么时候分类变量当成连续型变量会更得到一个更好的预测模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#23-缺失值分布在离中值有1个标准偏差的范围内，百分之多少的数据不会受到影响。"><span class="nav-text">23 缺失值分布在离中值有1个标准偏差的范围内，百分之多少的数据不会受到影响。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#24-是可以捕获连续变量和分类变量之间的相关性"><span class="nav-text">24 是可以捕获连续变量和分类变量之间的相关性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#25-缺失值处理"><span class="nav-text">25 缺失值处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#26-异常值处理"><span class="nav-text">26 异常值处理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五-k近邻"><span class="nav-text">五 k近邻</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-K近邻原理"><span class="nav-text">1 K近邻原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-KNN中的k是如何选取的？"><span class="nav-text">2 KNN中的k是如何选取的？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#六-线性回归-amp-逻辑回归-amp-最大熵"><span class="nav-text">六 线性回归&amp;逻辑回归&amp;最大熵</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-线性回归原理"><span class="nav-text">1 线性回归原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-逻辑斯蒂回归原理"><span class="nav-text">2 逻辑斯蒂回归原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-LR为什么用的是sigmoid函数而不用阶跃函数"><span class="nav-text">3 LR为什么用的是sigmoid函数而不用阶跃函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-线性回归和逻辑斯蒂的区别"><span class="nav-text">4 线性回归和逻辑斯蒂的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-当使用逻辑回归处理多标签的分类问题时，有哪些常见做法，分别应用于哪些场景，它们之间又有怎样的关系"><span class="nav-text">5 当使用逻辑回归处理多标签的分类问题时，有哪些常见做法，分别应用于哪些场景，它们之间又有怎样的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-逻辑斯蒂回归为什么要对特征进行离散化"><span class="nav-text">6 逻辑斯蒂回归为什么要对特征进行离散化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-LR和SVM各自的优缺点和适用场景"><span class="nav-text">7 LR和SVM各自的优缺点和适用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-LR使用核函数解决线性不可分问题"><span class="nav-text">8 LR使用核函数解决线性不可分问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-最大熵模型原理"><span class="nav-text">9 最大熵模型原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-SVM和logistic回归分别在什么情况下使用"><span class="nav-text">10 SVM和logistic回归分别在什么情况下使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-SVM和逻辑斯特回归对同一样本A进行训练，如果某类中增加一些数据点，那么原来的决策边界分别会怎么变化？"><span class="nav-text">11 SVM和逻辑斯特回归对同一样本A进行训练，如果某类中增加一些数据点，那么原来的决策边界分别会怎么变化？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#七-支持向量机"><span class="nav-text">七 支持向量机</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-支持向量机原理"><span class="nav-text">1 支持向量机原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-带核的SVM为什么能分类非线性问题？"><span class="nav-text">2 带核的SVM为什么能分类非线性问题？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-线性可分的两类点向SVM分类的超平面上做投影，这些点在超平面上的投影仍然是线性可分的吗"><span class="nav-text">3 线性可分的两类点向SVM分类的超平面上做投影，这些点在超平面上的投影仍然是线性可分的吗</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-加大训练数据量一定能提高SVM准确率吗"><span class="nav-text">4 加大训练数据量一定能提高SVM准确率吗</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-SVM解决多分类问题的方法"><span class="nav-text">5 SVM解决多分类问题的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-SVM解决回归问题的方法"><span class="nav-text">6 SVM解决回归问题的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-SVM的优缺点"><span class="nav-text">7 SVM的优缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-支持向量机-SVM-是否适合大规模数据"><span class="nav-text">8 支持向量机(SVM)是否适合大规模数据</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#八-贝叶斯"><span class="nav-text">八 贝叶斯</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-贝叶斯原理"><span class="nav-text">1 贝叶斯原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-朴素贝叶斯算法里的先验概率，似然估计和边际似然估计"><span class="nav-text">2 朴素贝叶斯算法里的先验概率，似然估计和边际似然估计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-为什么朴素贝叶斯如此朴素"><span class="nav-text">3 为什么朴素贝叶斯如此朴素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-当你在Google中输入“Julw”时，系统会猜测你的意图：是不是要搜索“July”，这叫拼写检查，根据谷歌一员工写的文章显示，Google的拼写检查是基于贝叶斯方法，具体Google是怎么利用贝叶斯方法，实现拼写检查的？"><span class="nav-text">4 当你在Google中输入“Julw”时，系统会猜测你的意图：是不是要搜索“July”，这叫拼写检查，根据谷歌一员工写的文章显示，Google的拼写检查是基于贝叶斯方法，具体Google是怎么利用贝叶斯方法，实现拼写检查的？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#九-决策树"><span class="nav-text">九 决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-决策树的基本原理"><span class="nav-text">1 决策树的基本原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-ID3，C4-5，CART原理"><span class="nav-text">2 ID3，C4.5，CART原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-ID3，C4-5，CART的对比"><span class="nav-text">3 ID3，C4.5，CART的对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-剪枝处理"><span class="nav-text">4 剪枝处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-树形结构为什么不需要归一化"><span class="nav-text">5 树形结构为什么不需要归一化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#十-集成学习"><span class="nav-text">十 集成学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-集成学习的原理步骤"><span class="nav-text">1 集成学习的原理步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-集成学习的合并策略"><span class="nav-text">2 集成学习的合并策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-集成学习的分类boosting和bagging"><span class="nav-text">3 集成学习的分类boosting和bagging</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-建了5个GBM，没有一个模型比基准模型表现得更好。"><span class="nav-text">4 建了5个GBM，没有一个模型比基准模型表现得更好。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-偏差、方差、噪声的含义"><span class="nav-text">5 偏差、方差、噪声的含义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-从偏差-方差分解的角度理解Boosting和Bagging"><span class="nav-text">6 从偏差-方差分解的角度理解Boosting和Bagging</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-Bagging为什么会减小方差"><span class="nav-text">7 Bagging为什么会减小方差</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-AdaBoost"><span class="nav-text">8 AdaBoost</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-随机森林-RF"><span class="nav-text">9 随机森林 RF</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-随机森林如何处理缺失值"><span class="nav-text">10 随机森林如何处理缺失值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-怎么理解决策树，Xgboost能处理缺失值？而有的模型（SVM）对缺失值比较敏感？"><span class="nav-text">11 怎么理解决策树，Xgboost能处理缺失值？而有的模型（SVM）对缺失值比较敏感？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-随机森林如何评估特征重要性"><span class="nav-text">12 随机森林如何评估特征重要性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-GBDT"><span class="nav-text">13 GBDT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-随机森林和GBDT之间的区别和联系"><span class="nav-text">14 随机森林和GBDT之间的区别和联系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-梯度提升和梯度下降的区别和联系是什么"><span class="nav-text">15 梯度提升和梯度下降的区别和联系是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-GBDT的优点和局限性有哪些"><span class="nav-text">16 GBDT的优点和局限性有哪些</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#17-XGBoost和GBDT的联系和区别"><span class="nav-text">17 XGBoost和GBDT的联系和区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#18-为什么XGBoost要用泰勒展开"><span class="nav-text">18 为什么XGBoost要用泰勒展开</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#19-XGBoost如何寻找最优特征？是有放回还是无放回的？"><span class="nav-text">19 XGBoost如何寻找最优特征？是有放回还是无放回的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#20-AdaBoost-V-S-GBDT"><span class="nav-text">20 AdaBoost V.S. GBDT</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#十一-优化算法"><span class="nav-text">十一 优化算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-有监督学习涉及的损失函数有哪些"><span class="nav-text">1 有监督学习涉及的损失函数有哪些</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-机器学习中的优化问题，哪些是凸优化问题，哪些是非凸优化问题？"><span class="nav-text">2 机器学习中的优化问题，哪些是凸优化问题，哪些是非凸优化问题？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-无约束优化问题的优化方法"><span class="nav-text">3 无约束优化问题的优化方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-梯度下降法。"><span class="nav-text">4 梯度下降法。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-梯度下降法存在的问题"><span class="nav-text">5 梯度下降法存在的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-梯度下降法找到的一定是下降最快的方向吗"><span class="nav-text">6 梯度下降法找到的一定是下降最快的方向吗</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-随机梯度下降法的问题和挑战"><span class="nav-text">7 随机梯度下降法的问题和挑战</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-随机梯度下降法失效的原因—摸着石头下山。"><span class="nav-text">8 随机梯度下降法失效的原因—摸着石头下山。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-山谷和鞍点"><span class="nav-text">9 山谷和鞍点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-改进随机梯度下降法-惯性保持和环境感知"><span class="nav-text">10 改进随机梯度下降法-惯性保持和环境感知</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-牛顿法和梯度下降法的区别"><span class="nav-text">11 牛顿法和梯度下降法的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-拟牛顿法"><span class="nav-text">12 拟牛顿法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-共轭梯度法"><span class="nav-text">13 共轭梯度法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-对所有优化问题来说，有没有可能找到比现在已知算法更好的算法"><span class="nav-text">14 对所有优化问题来说，有没有可能找到比现在已知算法更好的算法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#十二-无监督学习"><span class="nav-text">十二 无监督学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-无监督学习的定义"><span class="nav-text">1 无监督学习的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-K均值聚类的步骤"><span class="nav-text">2 K均值聚类的步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-K均值算法的优缺点"><span class="nav-text">3 K均值算法的优缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-K均值调优思路"><span class="nav-text">4 K均值调优思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Kmeans初始类簇中心点的选取"><span class="nav-text">5 Kmeans初始类簇中心点的选取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-优化Kmeans"><span class="nav-text">5 优化Kmeans</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-KNN和Kmeans有什么不同"><span class="nav-text">8 KNN和Kmeans有什么不同</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-EM算法"><span class="nav-text">9 EM算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-使用EM算法求解的模型有哪些，为什么不用牛顿法或者梯度牛顿法"><span class="nav-text">10 使用EM算法求解的模型有哪些，为什么不用牛顿法或者梯度牛顿法?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-高斯混合模型"><span class="nav-text">11 高斯混合模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-高斯混合模型的核心思想"><span class="nav-text">12 高斯混合模型的核心思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-高斯混合模型和Kmeans"><span class="nav-text">13 高斯混合模型和Kmeans</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-以聚类问题为例，假设没有外部标签数据，如何评估两个聚类算法的优劣"><span class="nav-text">14 以聚类问题为例，假设没有外部标签数据，如何评估两个聚类算法的优劣</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-密度聚类-DBSCAN"><span class="nav-text">15 密度聚类 DBSCAN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-层次聚类-AGNES"><span class="nav-text">16 层次聚类 AGNES</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#十三-采样"><span class="nav-text">十三 采样</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-采样的本质及在机器学习中的应用"><span class="nav-text">1 采样的本质及在机器学习中的应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-自助采样-bootstrap-sampling"><span class="nav-text">2 自助采样(bootstrap sampling)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-不均衡样本集的采样策略"><span class="nav-text">3 不均衡样本集的采样策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-癌症检测的数据集，取得了96-的分离精度，还能做什么优化"><span class="nav-text">4 癌症检测的数据集，取得了96%的分离精度，还能做什么优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-将训练集随机抽样地分成训练集验证集，验证精度很差"><span class="nav-text">5 将训练集随机抽样地分成训练集验证集，验证精度很差</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-实现均匀分布随机数生成器"><span class="nav-text">6 实现均匀分布随机数生成器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-常见的采样方法"><span class="nav-text">7 常见的采样方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-高斯分布的采样"><span class="nav-text">8 高斯分布的采样</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-马尔可夫蒙特卡洛采样法-MCMC"><span class="nav-text">9 马尔可夫蒙特卡洛采样法 MCMC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-MCMC采样法如何得到相互独立的样本"><span class="nav-text">10 MCMC采样法如何得到相互独立的样本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-马尔科夫采样收敛到目标分布"><span class="nav-text">11 马尔科夫采样收敛到目标分布</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qiancun Huang</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">276.5k</span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+
+</body>
+</html>

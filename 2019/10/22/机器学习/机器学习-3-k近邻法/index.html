@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icons8-fox-32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icons8-fox-16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="机器学习,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="I'm Qiancun Huang" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="$k$近邻算法$k$近邻法是一种基本分类与回归方法。以分类为例，$k$近邻的输入为实例的特征向量，对应于特征空间的点；输出为实例的类别，可以取多类。 $k$近邻算法思想：给定一个训练数据集，对新的输入实例，在训练数据集中找到与该实例最邻近的$k$个实例，这$k$个实例的多数属于某个类，就把该输入实例分为这个类。 算法：$k$近邻算法 输入：训练数据集$T=\left\{\left(x_{1}, y">
+<meta name="keywords" content="机器学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习-3-k近邻法">
+<meta property="og:url" content="http://huangqiancun.github.io/2019/10/22/机器学习/机器学习-3-k近邻法/index.html">
+<meta property="og:site_name" content="I&#39;m Qiancun Huang">
+<meta property="og:description" content="$k$近邻算法$k$近邻法是一种基本分类与回归方法。以分类为例，$k$近邻的输入为实例的特征向量，对应于特征空间的点；输出为实例的类别，可以取多类。 $k$近邻算法思想：给定一个训练数据集，对新的输入实例，在训练数据集中找到与该实例最邻近的$k$个实例，这$k$个实例的多数属于某个类，就把该输入实例分为这个类。 算法：$k$近邻算法 输入：训练数据集$T=\left\{\left(x_{1}, y">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-11-02T14:11:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="机器学习-3-k近邻法">
+<meta name="twitter:description" content="$k$近邻算法$k$近邻法是一种基本分类与回归方法。以分类为例，$k$近邻的输入为实例的特征向量，对应于特征空间的点；输出为实例的类别，可以取多类。 $k$近邻算法思想：给定一个训练数据集，对新的输入实例，在训练数据集中找到与该实例最邻近的$k$个实例，这$k$个实例的多数属于某个类，就把该输入实例分为这个类。 算法：$k$近邻算法 输入：训练数据集$T=\left\{\left(x_{1}, y">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":8,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://huangqiancun.github.io/2019/10/22/机器学习/机器学习-3-k近邻法/">
+
+
+
+
+
+  <title>机器学习-3-k近邻法 | I'm Qiancun Huang</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">I'm Qiancun Huang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Live it. Love it. Enjoy IT.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://huangqiancun.github.io/2019/10/22/机器学习/机器学习-3-k近邻法/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Qiancun Huang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/photo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="I'm Qiancun Huang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">机器学习-3-k近邻法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-22T16:52:49+08:00">
+                2019-10-22
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-11-02T22:11:00+08:00">
+                2019-11-02
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  4.1k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+		  
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="k-近邻算法"><a href="#k-近邻算法" class="headerlink" title="$k$近邻算法"></a>$k$近邻算法</h3><p>$k$近邻法是一种基本分类与回归方法。以分类为例，$k$近邻的输入为实例的特征向量，对应于特征空间的点；输出为实例的类别，可以取多类。</p>
+<p>$k$近邻算法思想：给定一个训练数据集，对新的输入实例，在训练数据集中找到与该实例最邻近的$k$个实例，这$k$个实例的多数属于某个类，就把该输入实例分为这个类。</p>
+<p><strong>算法：$k$近邻算法</strong></p>
+<p>输入：训练数据集$T=\left\{\left(x_{1}, y_{1}\right),\left(x_{2}, y_{2}\right), \cdots,\left(x_{N}, y_{N}\right)\right\}$，其中$x_{i} \in \mathcal{X}=\mathbf{R}^{n}$为实例的特征向量，$y_{i} \in \mathcal{Y}=\{c_1,c_2,\dots,c_K\}$为实例的类别，$ i=1,2, \cdots, N$；实例特征向量$x$。</p>
+<p>输出：实例$x$所属的类$y$。</p>
+<p>（1）根据给定的距离度量，在训练集中找出与$x$最邻近的$k$个点，涵盖着$k$个点的$x$的邻域记作$N_k(x)$；</p>
+<p>（2）在$N_k(x)$中根据分类决策规则（如多数表决）决定$x$的类别$y$：</p>
+<script type="math/tex; mode=display">
+y=\arg \max _{c_{j}} \sum_{x_{i} \in N_{k}(x)} I\left(y_{i}=c_{j}\right), \quad i=1,2, \cdots, N ; \quad j=1,2, \cdots, K</script><p>式中，$I$为指示函数，即当$y_i=c_j$时$I$为1，否则$I$为0。</p>
+<p>$k$近邻法的特殊情况是$k=1$的情形，称为<strong>最近邻算法</strong>。对于输入的实例点（特征向量）$x$，最近邻法将训练数据集中与$x$最邻近点的类作为$x$的类。$k$近邻没有显示的学习过程。</p>
+<h3 id="k-近邻模型"><a href="#k-近邻模型" class="headerlink" title="$k$近邻模型"></a>$k$近邻模型</h3><h4 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h4><p>当训练集、距离度量、$k$值及分类决策规则确定后，对于任何一个新的输入实例，它所属的类唯一地确定，这相当于根据上述要素将特征空间划分为一些子空间，确定子空间里的每个点所属的类。</p>
+<p>特征空间中，对每一个训练实例点$x_i$，距离该点比其他点更近的所有点组成一个区域，叫作单元。每个训练实例点拥有一个单元，所有训练实例点的单元构成对特征空间的一个划分。</p>
+<h4 id="距离度量"><a href="#距离度量" class="headerlink" title="距离度量"></a>距离度量</h4><p>特征空间中两个实例点的距离是两个实例点相似程度的反映。一般使用的是欧式距离，也可以是更一般的$L_p$距离。</p>
+<p>设特征空间$\mathcal{X}$是$n$维实数向量空间$\mathbf{R}^n$，$x_{i}, x_{j} \in \mathcal{X}, \quad x_{i}=\left(x_{i}^{(1)}, x_{i}^{(2)}, \cdots, x_{i}^{(n)}\right)^{\mathrm{T}}, \quad x_{j}=\left(x_{j}^{(1)}, x_{j}^{(2)}, \cdots, x_{j}^{(n)}\right)^{\mathrm{T}}$，$x_i, x_j$的$L_p$距离定义为：</p>
+<script type="math/tex; mode=display">
+L_{p}\left(x_{i}, x_{j}\right)=\left(\sum_{l=1}^{n}\left|x_{i}^{(l)}-x_{j}^{(l)}\right|^{p}\right)^{\frac{1}{p}}</script><p>当$p=2$时，称为欧式距离；当$p=1$时，称为曼哈顿距离。</p>
+<h4 id="k-值的选择"><a href="#k-值的选择" class="headerlink" title="$k$值的选择"></a>$k$值的选择</h4><p>$k$值的选择会对$k$近邻法的结果产生重大影响。</p>
+<p>（1）较小的$k$值：相当于用较小的邻域中的训练实例进行预测。”学习”的近似误差会减小，只有与输入实例较近的（相似的）训练实例才会对预测结果起作用。但缺点是”学习”的估计误差会增大，预测结果会对近邻的实例点非常敏感。如果邻近的实例点恰巧是噪声，预测就会出错。$k$值的减小意味着整体模型变得复杂，容易发生过拟合。</p>
+<p>（2）较大的$k$值：相当于用较大邻域中的训练实例进行预测。其优点是可以减少学习的估计误差。但缺点是学习的近似误差会增大。这时与输入实例较远的（不相似的）训练实例也会对预测起作用，使预测发生错误。$k$值的增大意味着整体的模型变得简单。</p>
+<p>如果$k=N$，那么无论输入实例是什么，都将简单地预测它属于在训练实例中最多的类，这时，模型过于简单，完全忽略训练实例中的大量有用信息，是不可取的的。</p>
+<p>在实际应用中，$k$值一般取一个比较小的数值，通常可以采用交叉验证来选取最优的$k$值。</p>
+<h4 id="分类决策规则"><a href="#分类决策规则" class="headerlink" title="分类决策规则"></a>分类决策规则</h4><p>$k$近邻法中的分类决策规则往往是多数表决，即由输入实例的$k$个邻近的训练实例中的多数类决定输入实例的类。</p>
+<p><strong>多数表决规则</strong>：如果分类的损失函数为0-1损失函数，分类函数为</p>
+<script type="math/tex; mode=display">
+f: \mathbf{R}^{n} \rightarrow\left\{c_{1}, c_{2}, \cdots, c_{K}\right\}</script><p>那么误分类的概率是</p>
+<script type="math/tex; mode=display">
+P(Y\not=f(X))=1-P(Y=f(X))</script><p>对给定的实例$x \in \mathcal{X}$,其最近邻的$k$个训练实例点构成集合$N_k(x)$。如果涵盖$N_k(x)$的区域的类别是$c_j$，那么误分类率是</p>
+<script type="math/tex; mode=display">
+\frac{1}{k} \sum_{x_{i} \in N_{k}(x)} I\left(y_{i} \neq c_{j}\right)=1-\frac{1}{k} \sum_{x_{i} \in N_{k}(x)} I\left(y_{i}=c_{j}\right)</script><p>要使误分类率最小即经验风险最小，就要使$ \sum_{x_{i} \in N_{k}(x)} I\left(y_{i}=c_{j}\right)$最大，所以多数表决规则等价于经验风险最小化。</p>
+<h3 id="k-近邻法的实现：-kd-树"><a href="#k-近邻法的实现：-kd-树" class="headerlink" title="$k$近邻法的实现：$kd$树"></a>$k$近邻法的实现：$kd$树</h3><p>实现$k$近邻法时，主要的问题是如何对训练数据进行快速$k$近邻搜索。</p>
+<p>$k$近邻法最简单的实现方法是线性扫描，这时要计算输入实例与每一个训练实例的距离，当训练集很大时，计算非常耗时，这种方法是不可行的。</p>
+<p>为了提高$k$近邻搜索的效率，考虑使用特殊的结构存储训练数据，以减少计算距离的次数，如$kd$树方法。</p>
+<h4 id="构造-kd-树"><a href="#构造-kd-树" class="headerlink" title="构造$kd$树"></a>构造$kd$树</h4><p>$kd$树是一种对$k$维空间中的实例点进行存储以便对其进行快速检索的树形数据结构。$kd$树是二叉树，表示对$k$维空间的一个划分(partition)。构造$kd$树相当于不断地用垂直于坐标轴的超平面将$k$维空间切分，构成一系列的$k$维超矩形区域。$kd$树的每个结点对应于一个$k$维超矩形区域.</p>
+<p><strong>构造$kd$树</strong>：构造根结点，使根结点对应于$k$维空间中包含所有实例点的超矩形区域；通过下面的递归方法，不断地对$k$维空间进行切分，生成子结<br>点。在超矩形区域（结点）上选择一个坐标轴和在此坐标轴上的一个切分点，确定一个超平面，这个超平面通过选定的切分点并垂直于选定的坐标轴，将当前超矩形区域切分为左右两个子区域（子结点）；这时，实例被分到两个子区域。这个过程直到子区域内没有实例时终止（终止时的结点为叶结点）。在此过程中，将实例保存在相应的结点上。</p>
+<p>通常，依次选择坐标轴对空间切分，<strong>选择训练实例点在选定坐标轴上的中位数为切分点，这样得到的$kd$树是平衡的</strong>。平衡的$kd$树搜索时的效率未必是最优的.</p>
+<p><strong>算法：构造平衡$kd$树</strong></p>
+<p>输入：k维空间数据集$T=\{x_1,x_2,\dots,x_N\}$，其中$x_{i}=\left(x_{i}^{(1)}, x_{i}^{(2)}, \cdots, x_{i}^{(k)}\right)^{\mathrm{T}}, \quad i=1,2, \cdots, N$。</p>
+<p>输出：$kd$树。</p>
+<p>（1）开始：构造根结点，使根结点对应于$k$维空间中包含所有实例点的超矩形区域；</p>
+<p>选择$x^{(1)}$为坐标轴，以$T$中所有实例的$x^{(1)}$坐标的中位数为切分点，将根结点对应的超矩形区域切分为两个子区域，切分由通过切分点并于坐标轴$x^{(1)}$垂直的超平面实现。</p>
+<p>由根结点生成深度为1的左、右子结点：左子结点对应于坐标$x^{(1)}$小于切分点的子区域，右子结点对应于坐标$x^{(1)}$大于切分点的子区域。</p>
+<p>将落在切分超平面的实例点保存在根结点。</p>
+<p>（2）重复：对深度为$j$的结点，选择$x^{(j)}$为切分的坐标轴，$l=j(mod ~k)+1$，以该结点的区域中所有实例的$x^{(j)}$坐标的中位数为且分点，将该结点对应的超矩形区域切分为两个子区域。切分由通过切分点并于坐标轴$x^{(j)}$垂直的超平面实现。</p>
+<p>由该结点生成深度为$j+1$的左、右子结点：左子结点对应于坐标$x^{(j)}$小于切分点的子区域，右子结点对应于坐标$x^{(j)}$大于切分点的子区域。</p>
+<p>将落在切分超平面的实例点保存在该结点。</p>
+<p>（3）直到两个子区域没有实例点存在时停止，从而形成$kd$树的区域划分。</p>
+<h4 id="搜索-kd-树"><a href="#搜索-kd-树" class="headerlink" title="搜索$kd$树"></a>搜索$kd$树</h4><p>利用$kd$树可以省去对大部分数据点的搜索，从而减少搜索的计算量。</p>
+<p>给定一个目标点，搜索其最近邻。首先找到包含目标点的叶结点；然后从该叶结点出发，依次回退到父结点；不断查找与目标点最邻近的结点，当确定不可能存在更近的结点时终止。这样搜索就被限制在空间的局部区域上，效率大为提高。</p>
+<p><strong>算法：用$kd$树的最近邻搜索</strong></p>
+<p>输入：已构造的$kd$树；目标点$x$；</p>
+<p>输出：$x$的最近邻。</p>
+<p>（1） 在$kd$树中找出包含目标点$x$的叶结点：从根结点出发，递归地向下访问$kd$树。若目标点$x$当前维的坐标小于切分点的坐标，则移动到左子结点，否则移动到右子结点。直到子结点为叶结点为止。</p>
+<p>（2）以此叶结点为“当前最近点”。</p>
+<p>（3）递归地向上回退，在每个结点进行以下操作:</p>
+<p>​    （a） 如果该结点保存的实例点比当前最近点距离目标点更近，则以该实例点为“当前最近点“。</p>
+<p>​    （b）当前最近点一定存在于该结点一个子结点对应的区域。检查该子结点的父结点的另一子结点对应的区域是否有更近的点。具体地，检查另一子结点对应的区域是否与以目标点为球心、以目标点与“当前最近点”间的距离为半径的超球体相交。如果相交，可能在另一个子结点对应的区域内存在距目标点更近的点，移动到另一个子结点。接着，递归地进行最近邻搜索。如果不相交，向上回退。</p>
+<p>（4）当回退到根结点时，搜索结束最后的“当前最近点”即为$x$的最近邻点。</p>
+<p>如果实例点是随机分布的，$kd$树搜索的平均计算复杂度是$O(log N)$，这里$N$是训练实例数。$kd$树更适用于训练实例数远大于空间维数时的$k$近邻搜索。当空间维数接近训练实例数时，它的效率会迅速下降，几乎接近线性扫描。</p>
+<h3 id="k-近邻算法-1"><a href="#k-近邻算法-1" class="headerlink" title="$k$近邻算法"></a>$k$近邻算法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">KNN</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, X_train, y_train, n_neighbors = <span class="number">3</span>, p = <span class="number">2</span>)</span>:</span></span><br><span class="line">        self.n = n_neighbors</span><br><span class="line">        self.p = p</span><br><span class="line">        self.X_train = X_train</span><br><span class="line">        self.y_train = y_train</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">predict</span><span class="params">(self, X)</span>:</span></span><br><span class="line">        <span class="comment"># 初始化取出N个点放到结果列表里</span></span><br><span class="line">        knn_list = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(self.n):</span><br><span class="line">            dist = np.linalg.norm(X - self.X_train[i], ord=self.p)</span><br><span class="line">            knn_list.append((dist, self.y_train[i]))</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 对剩余的点计算距离:</span></span><br><span class="line">        <span class="comment"># 每次取出距离最大的点, 如果当前点距离更小, 则替换</span></span><br><span class="line">        <span class="comment"># 最后的结果列表中保存的是距离最小的N个点</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(self.n, len(self.X_train)):</span><br><span class="line">            max_index = knn_list.index(max(knn_list, key=<span class="keyword">lambda</span> x:x[<span class="number">0</span>]))</span><br><span class="line">            dist = np.linalg.norm(X - self.X_train[i], ord=self.p)</span><br><span class="line">            <span class="keyword">if</span> knn_list[max_index][<span class="number">0</span>] &gt; dist:</span><br><span class="line">                knn_list[max_index] = (dist, self.y_train[i])</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 对结果列表进行多数表决，返回多数类</span></span><br><span class="line">        knn = [k[<span class="number">-1</span>] <span class="keyword">for</span> k <span class="keyword">in</span> knn_list]</span><br><span class="line">        count_pairs = Counter(knn)</span><br><span class="line">        max_count = sorted(count_pairs.items(), key=<span class="keyword">lambda</span> x:x[<span class="number">1</span>])[<span class="number">-1</span>][<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">return</span> max_count</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">score</span><span class="params">(self, X_test, y_test)</span>:</span></span><br><span class="line">        right_count = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> X, y <span class="keyword">in</span> zip(X_test, y_test):</span><br><span class="line">            label = self.predict(X)</span><br><span class="line">            <span class="keyword">if</span> label == y:</span><br><span class="line">                right_count += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> right_count / len(X_test)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">    <span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">    <span class="keyword">import</span> matplotlib.pylab <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">    <span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</span><br><span class="line">    <span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line">    <span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line"></span><br><span class="line">    iris = load_iris()</span><br><span class="line">    df = pd.DataFrame(iris.data, columns= iris.feature_names)</span><br><span class="line">    df[<span class="string">'label'</span>] = iris.target</span><br><span class="line">    df.columns = [<span class="string">'sepal length'</span>, <span class="string">'sepal width'</span>, <span class="string">'petal length'</span>, <span class="string">'petal width'</span>, <span class="string">'label'</span>]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 原始数据选取二维画图</span></span><br><span class="line">    plt.scatter(df[:<span class="number">50</span>][<span class="string">'sepal length'</span>], df[:<span class="number">50</span>][<span class="string">'sepal width'</span>], label=<span class="string">'0'</span>)</span><br><span class="line">    plt.scatter(df[<span class="number">50</span>:<span class="number">100</span>][<span class="string">'sepal length'</span>], df[<span class="number">50</span>:<span class="number">100</span>][<span class="string">'sepal width'</span>], label=<span class="string">'1'</span>)</span><br><span class="line">    plt.xlabel(<span class="string">'sepal length'</span>)</span><br><span class="line">    plt.ylabel(<span class="string">'sepal width'</span>)</span><br><span class="line">    plt.legend()</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 选取前两维+label-&gt;data</span></span><br><span class="line">    data = np.array(df.iloc[:<span class="number">100</span>,[<span class="number">0</span>,<span class="number">1</span>,<span class="number">-1</span>]])</span><br><span class="line">    X, y = data[:, :<span class="number">-1</span>], data[:, <span class="number">-1</span>]</span><br><span class="line">    X_train, X_test, y_train, y_test = train_test_split(X,y, test_size=<span class="number">0.3</span>)</span><br><span class="line"></span><br><span class="line">    model = KNN(X_train, y_train)</span><br><span class="line">    score = model.score(X_test, y_test)</span><br><span class="line">    print(score)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># sklearn实现</span></span><br><span class="line">    <span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</span><br><span class="line">    clf_sk = KNeighborsClassifier()</span><br><span class="line">    clf_sk.fit(X_train, y_train)</span><br><span class="line">    score_sk = clf_sk.score(X_test, y_test)</span><br><span class="line">    print(score_sk)</span><br></pre></td></tr></table></figure>
+<h3 id="kd-树的实现"><a href="#kd-树的实现" class="headerlink" title="$kd$树的实现"></a>$kd$树的实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># kd_tree每个结点中主要包含的数据结构如下</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">KdNode</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, dom_elt, split, left, right)</span>:</span></span><br><span class="line">        self.dom_elt = dom_elt <span class="comment"># k维空间向量结点</span></span><br><span class="line">        self.split = split <span class="comment"># 整数(进行分割维度的序号)</span></span><br><span class="line">        self.left = left <span class="comment"># 该结点分割超平面子空间构成的kd-tree</span></span><br><span class="line">        self.right = right <span class="comment"># 该结点分割超平面右子空间构成kd-tree</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">KdTree</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, data)</span>:</span></span><br><span class="line">        k = len(data[<span class="number">0</span>]) <span class="comment"># 数据维度</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 按split维划分数据集创建KdNode</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">CreateNode</span><span class="params">(split, data_set)</span>:</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> data_set:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">            data_set.sort(key = <span class="keyword">lambda</span> x: x[split])</span><br><span class="line">            split_pos = len(data_set) // <span class="number">2</span></span><br><span class="line">            median = data_set[split_pos]</span><br><span class="line">            split_next = (split + <span class="number">1</span>) % k</span><br><span class="line">            <span class="keyword">return</span> KdNode(median,</span><br><span class="line">                          split,</span><br><span class="line">                          CreateNode(split_next, data_set[:split_pos]),</span><br><span class="line">                          CreateNode(split_next, data_set[split_pos+<span class="number">1</span>:]))</span><br><span class="line">        self.root = CreateNode(<span class="number">0</span>, data)</span><br><span class="line"></span><br><span class="line"><span class="comment"># KDTree的前序遍历</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">preorder</span><span class="params">(root)</span>:</span></span><br><span class="line">    print(root.dom_elt)</span><br><span class="line">    <span class="keyword">if</span> root.left:</span><br><span class="line">        preorder(root.left)</span><br><span class="line">    <span class="keyword">if</span> root.right:</span><br><span class="line">        preorder(root.right)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对构建好的kd树进行搜索，寻找与目标点最近的样本点</span></span><br><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> sqrt</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> namedtuple</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义一个namedtuple，分别存放最近坐标点、最近距离和访问过的结点树</span></span><br><span class="line">result = namedtuple(<span class="string">"Result_tuple"</span>, <span class="string">"nearest_point nearest_dist nodes_visited"</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">find_nearest</span><span class="params">(tree, point)</span>:</span></span><br><span class="line">    k = len(point) <span class="comment"># 数据维度</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">travel</span><span class="params">(kd_node, target, max_dist)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> kd_node:</span><br><span class="line">            <span class="keyword">return</span> result([<span class="number">0</span>] * k, float(<span class="string">"inf"</span>), <span class="number">0</span>)</span><br><span class="line">        nodes_visited = <span class="number">1</span></span><br><span class="line">        s = kd_node.split <span class="comment"># 进行分割的维度</span></span><br><span class="line">        pivot = kd_node.dom_elt <span class="comment"># 进行分割的轴</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> target[s] &lt;= pivot[s]: <span class="comment"># 如果目标点第s维小于分割轴的对应值（目标离左子树更近）</span></span><br><span class="line">            nearer_node = kd_node.left <span class="comment"># 下一个访问结点为左子树根节点</span></span><br><span class="line">            further_node = kd_node.right <span class="comment"># 同时记录下右子树</span></span><br><span class="line">        <span class="keyword">else</span>: <span class="comment"># 目标离右子树更近</span></span><br><span class="line">            nearer_node = kd_node.right</span><br><span class="line">            further_node = kd_node.left</span><br><span class="line"></span><br><span class="line">        temp1 = travel(nearer_node, target, max_dist) <span class="comment"># 进行遍历找到包含目标点的区域</span></span><br><span class="line"></span><br><span class="line">        nearest = temp1.nearest_point <span class="comment"># 进行遍历找到包含目标点的区域</span></span><br><span class="line">        dist = temp1.nearest_dist <span class="comment"># 更新最近距离</span></span><br><span class="line"></span><br><span class="line">        nodes_visited += temp1.nodes_visited</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> dist &lt; max_dist:</span><br><span class="line">            max_dist = dist <span class="comment"># 最近点将在目标点为球心，max_dist为半径的超球体内</span></span><br><span class="line"></span><br><span class="line">        temp_dist = abs(pivot[s] - target[s]) <span class="comment"># 第s维上目标点与分割超平面的距离</span></span><br><span class="line">        <span class="keyword">if</span> max_dist &lt; temp_dist: <span class="comment"># 判断超球面是否与超平面相交</span></span><br><span class="line">            <span class="keyword">return</span> result(nearest, dist, nodes_visited) <span class="comment"># 不想交则直接可以返回</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 计算目标点与分割点的欧式距离</span></span><br><span class="line">        temp_dist = sqrt(sum((p1-p2)**<span class="number">2</span> <span class="keyword">for</span> p1, p2 <span class="keyword">in</span> zip(pivot, target)))</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> temp_dist &lt; dist: <span class="comment"># 如果更近</span></span><br><span class="line">            nearest = pivot</span><br><span class="line">            dist = temp_dist</span><br><span class="line">            max_dist = dist</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 检查另一个子结点对应的区域是否有更近的点</span></span><br><span class="line">        temp2 = travel(further_node, target, max_dist)</span><br><span class="line"></span><br><span class="line">        nodes_visited += temp2.nodes_visited</span><br><span class="line">        <span class="keyword">if</span> temp2.nearest_dist &lt; dist: <span class="comment"># 如果另一个子结点内存在更近距离</span></span><br><span class="line">            nearest = temp2.nearest_point <span class="comment"># 更新最近点</span></span><br><span class="line">            dist = temp2.nearest_dist <span class="comment"># 更新最近距离</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> result(nearest, dist, nodes_visited)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> travel(tree.root, point, float(<span class="string">"inf"</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    data = [[<span class="number">2</span>, <span class="number">3</span>], [<span class="number">5</span>, <span class="number">4</span>], [<span class="number">9</span>, <span class="number">6</span>], [<span class="number">4</span>, <span class="number">7</span>], [<span class="number">8</span>, <span class="number">1</span>], [<span class="number">7</span>, <span class="number">2</span>]]</span><br><span class="line">    kd = KdTree(data)</span><br><span class="line">    preorder(kd.root)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 寻找[3,4.5]最近邻的点</span></span><br><span class="line">    res = find_nearest(kd, [<span class="number">3</span>, <span class="number">4.5</span>])</span><br><span class="line">    print(res)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">from</span> random <span class="keyword">import</span>  random</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 产生一个k维随机变量，每维分量值在0~1之间</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">random_point</span><span class="params">(k)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> [random() <span class="keyword">for</span> _ <span class="keyword">in</span> range(k)]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 产生n个k维随机向量</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">random_points</span><span class="params">(k, n)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> [random_point(k) <span class="keyword">for</span> _ <span class="keyword">in</span> range(n)]</span><br><span class="line">	<span class="comment"># 构建包含四十万个3维空间样本点的kd树</span></span><br><span class="line">    N = int(<span class="number">4e5</span>)</span><br><span class="line">    kd2 = KdTree(random_points(<span class="number">3</span>, N))</span><br><span class="line">    <span class="comment">#  四十万个样本点中寻找离目标最近的点</span></span><br><span class="line">    res2 = find_nearest(kd2, [<span class="number">0.1</span>, <span class="number">0.5</span>, <span class="number">0.8</span>])</span><br><span class="line">    print(res2)</span><br></pre></td></tr></table></figure>
+<p><strong>参考文献</strong><br><a href="https://book.douban.com/subject/10590856/" target="_blank" rel="noopener">统计学习方法. 李航</a><br><a href="https://github.com/fengdu78/lihang-code/blob/master/第03章 k近邻法/3.KNearestNeighbors.ipynb" target="_blank" rel="noopener">https://github.com/fengdu78/lihang-code/blob/master/%E7%AC%AC03%E7%AB%A0%20k%E8%BF%91%E9%82%BB%E6%B3%95/3.KNearestNeighbors.ipynb</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Qiancun Huang WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Qiancun Huang Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    Qiancun Huang
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="http://huangqiancun.github.io/2019/10/22/机器学习/机器学习-3-k近邻法/" title="机器学习-3-k近邻法">http://huangqiancun.github.io/2019/10/22/机器学习/机器学习-3-k近邻法/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/21/机器学习/机器学习-2-感知机/" rel="next" title="机器学习-2-感知机">
+                <i class="fa fa-chevron-left"></i> 机器学习-2-感知机
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/25/机器学习/机器学习-4-朴素贝叶斯法/" rel="prev" title="机器学习-4-朴素贝叶斯法">
+                机器学习-4-朴素贝叶斯法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+	
+	
+  
+  
+  
+  </article>
+  <div>
+		
+			<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------------The End------------</div>
+    
+</div>
+		
+	</div>
+	
+ 
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/photo.jpg" alt="Qiancun Huang">
+            
+              <p class="site-author-name" itemprop="name">Qiancun Huang</p>
+              <p class="site-description motion-element" itemprop="description">A second-year graduate student in Southeast University</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/huangqiancun?tab=repositories" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto://huangqiancun@foxmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#k-近邻算法"><span class="nav-text">$k$近邻算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#k-近邻模型"><span class="nav-text">$k$近邻模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#模型"><span class="nav-text">模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#距离度量"><span class="nav-text">距离度量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#k-值的选择"><span class="nav-text">$k$值的选择</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分类决策规则"><span class="nav-text">分类决策规则</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#k-近邻法的实现：-kd-树"><span class="nav-text">$k$近邻法的实现：$kd$树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#构造-kd-树"><span class="nav-text">构造$kd$树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#搜索-kd-树"><span class="nav-text">搜索$kd$树</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#k-近邻算法-1"><span class="nav-text">$k$近邻算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#kd-树的实现"><span class="nav-text">$kd$树的实现</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qiancun Huang</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">276.5k</span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+
+</body>
+</html>
